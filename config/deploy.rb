@@ -84,13 +84,14 @@ namespace :deploy do
   end
 
   desc 'upload credentials.yml.enc'
+  desc 'upload master.key'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
       upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
-      upload!('config/credentials.yml.enc', "#{shared_path}/config/master.key")
+      upload!('config/master.key', "#{shared_path}/config/master.key")
     end
   end
   before :starting, 'deploy:upload'

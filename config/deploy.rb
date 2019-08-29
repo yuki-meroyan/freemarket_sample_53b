@@ -70,7 +70,7 @@ set :default_env, {
 
 # credentials.yml.enc用のシンボリックリンクを追加
 set :linked_files, %w{ config/credentials.yml.enc }
-set :linked_files, %w{ config/master.key }
+append :linked_files, 'config/master.key'
 
 
 # 元々記述されていた after 「'deploy:publishing', 'deploy:restart'」以下を削除して、次のように書き換え

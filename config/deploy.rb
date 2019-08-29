@@ -1,8 +1,4 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
-
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -69,9 +65,7 @@ set :keep_releases, 5
 
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
 }
 
 # credentials.yml.enc用のシンボリックリンクを追加

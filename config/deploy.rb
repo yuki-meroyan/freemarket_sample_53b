@@ -1,9 +1,4 @@
-Deploy.rb
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
-
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -68,16 +63,14 @@ set :keep_releases, 5
 
 
 
-# set :default_env, {
-#   rbenv_root: "/usr/local/rbenv",
-#   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-#   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-#   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
-# }
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
+}
 
 # credentials.yml.enc用のシンボリックリンクを追加
 set :linked_files, %w{ config/credentials.yml.enc }
-set :linked_files, %w{ config/master.key }
+append :linked_files, 'config/master.key'
 
 
 # 元々記述されていた after 「'deploy:publishing', 'deploy:restart'」以下を削除して、次のように書き換え
@@ -91,13 +84,14 @@ namespace :deploy do
   end
 
   desc 'upload credentials.yml.enc'
+  desc 'upload master.key'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
       upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
-      upload!('config/credentials.yml.enc', "#{shared_path}/config/master.key")
+      upload!('config/master.key', "#{shared_path}/config/master.key")
     end
   end
   before :starting, 'deploy:upload'

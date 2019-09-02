@@ -1,0 +1,14 @@
+  .edit
+    .editprofile
+      .editprofile__content 
+        %section.editprofile__content__container
+          %h2.editprofile__content__container__head プロフィール
+          %form
+            .setting-profile-icon
+              %figure
+                = image_tag 'member_photo_noimage_thumb.png', alt: '', height: '',  width:"60" ,height:"60"
+              %input.input-default{type:"texmypage_name_background.jpgt",name: "nickname",placeholder:"例)AYA☆セール中"}
+            .setting-profile-content
+              %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"} 
+              %button.btn-default.btn-red{type: "submit"} 変更する
+      .editprofile__side

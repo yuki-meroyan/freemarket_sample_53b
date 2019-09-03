@@ -7,7 +7,7 @@
   text-align:center;
 }
 
-.editprofile__side{
+.l__side{
   width: 280px;
   margin: 0 40px 0 0;
   background-color: pink;
@@ -106,14 +106,14 @@ textarea {
 
 ///////////////////////////////////////////
 
-.editprofile__content{
+.l__content{
   width: 700px;
   float: right;
-  &__container:first-child {
+  &__inner:first-child {
     margin: 0;
   }
   
-  &__container {
+  &__inner {
     margin: 40px 0 0;
     background: #fff;
     &__head {

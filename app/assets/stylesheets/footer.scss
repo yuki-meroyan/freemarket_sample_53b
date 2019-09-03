@@ -118,7 +118,7 @@ ul{
     }   
     &__image{
       display: flex;
-      &__mercari_icon{
+      &__mercari__icon{
         height: 68px;
         margin-right: 20px;
         width: 68px;
@@ -130,12 +130,12 @@ ul{
         width: 144px;
       }
       
-      &__ggp_icon{
+      &__ggp__icon{
         height: 40px;
         width: 144px;
       }
       
-      &__sumaho_image{
+      &__sumaho__image{
         height: 260px;
         width: 300px;
       }
@@ -175,7 +175,7 @@ ul{
   font-size: 16px;
 } 
 
-.footer_li{
+.footer__li{
   line-height: 1.4em;
   margin: 16px 0px 0px;
   &__link{
@@ -186,20 +186,20 @@ ul{
 }
 
 
-.first_list{
+.first__list{
   margin-top:0; 
 }
 //各リスト設定///
 
 
-.privacytoriyoukiyaku.listbox{
+.privacy.listbox{
   display:inline-block;
   padding-right: 40px;
   width: 43%;
   padding: 0px 40px 0px 0px;
 }
 
-.privacytoriyoukiyaku__list__inner{
+.privacy__list__inner{
   display: flex;
   &__left{
     display: inline-block;

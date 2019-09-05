@@ -138,37 +138,37 @@ a {
     }
   }
 
-.l-single-inner{
+.l__single__inner{
   padding: 64px;
   border-top: 1px solid #f5f5f5;
 }
   
 }
-.l-single-content {
+.l__single__content {
   max-width: 320px;
   margin: 0 auto;
 }
 
-.l-chapter-sub-head {
+.l__chapter__sub__head {
   font-size: 16px;
   margin: 0;
 }
 
-.settings-payment-list li {
+.settings__payment__list li {
   padding: 24px 0;
   border-bottom: 1px solid #eee;
 }
 
-.settings-payment-list li form {
+.settings__payment__list li form {
   position: relative;
 }
 
-.settings-payment-num {
+.settings__payment__num {
   margin: 8px 0 0;
   font-size: 16px;
 }
 
-.settings-payment-remove {
+.settings__payment__remove {
     position: absolute;
     top: 0;
     right: 0;
@@ -178,13 +178,13 @@ a {
     border: 1px solid #ea352d;
     color: #ea352d;
   }
-  .settings-not-regist a {
+  .settings__not__regist a {
     display: block;
     margin: 40px 0 0;
     text-align: right;
     color: #0099e8;
 }
-.settings-not-regist a span {
+.settings__not__regist a span {
   vertical-align: middle;
 }
 .arrow{

@@ -1,0 +1,192 @@
+//nakamiは他の部分ができるまでの仮置きです。
+.card__edit{
+  margin: 40px auto 0;
+  width: 1020px;
+  height:800px;
+  background-color:aquamarine;
+
+}
+
+.l__content__side{
+  width: 280px;
+  margin: 0 40px 0 0;
+  background-color: pink;
+}
+
+//パーツ////////////
+img {
+  vertical-align: middle;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="reset"], [type="search"], [type="submit"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], select, textarea {
+  min-height: 1.5em;
+}
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.btn-red {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+
+textarea {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: textarea;
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  flex-direction: column;
+  resize: auto;
+  cursor: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  margin: 0em;
+  font: 400 11px system-ui;
+  border-width: 1px;
+  border-style: solid;
+  border-color: initial;
+  border-image: initial;
+  padding: 2px;
+}
+
+a {
+  color: #0099e8;
+  text-decoration: none;
+}
+
+
+//デフォルト設定//////////////
+.btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+.input-default {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.textarea-default {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  width: -webkit-fill-available;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+///////////////////////////////////////////
+
+.l__container{
+  width: 700px;
+  float: right;
+  &__inner:first-child {
+    margin: 0;
+  }
+  
+  &__inner {
+    margin: 40px 0 0;
+    background: #fff;
+    &__head {
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #f5f5f5;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+.l-single-inner{
+  padding: 64px;
+  border-top: 1px solid #f5f5f5;
+}
+  
+}
+.l-single-content {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.l-chapter-sub-head {
+  font-size: 16px;
+  margin: 0;
+}
+
+.settings-payment-list li {
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.settings-payment-list li form {
+  position: relative;
+}
+
+.settings-payment-num {
+  margin: 8px 0 0;
+  font-size: 16px;
+}
+
+.settings-payment-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 6px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #ea352d;
+    color: #ea352d;
+  }
+  .settings-not-regist a {
+    display: block;
+    margin: 40px 0 0;
+    text-align: right;
+    color: #0099e8;
+}
+.settings-not-regist a span {
+  vertical-align: middle;
+}
+.arrow{
+  font-weight: bold;
+}

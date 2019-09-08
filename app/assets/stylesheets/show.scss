@@ -1,0 +1,359 @@
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+a{
+  text-decoration: none;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+h3{
+  font-size: 22px;
+  font-weight: 600px;
+}
+*{
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+*, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+}
+.icon-arrow-right:before {
+  content: '\f054';
+}
+.boldn{
+  font-weight: bold;
+}
+// fontawesome全体の指定
+i[class^='icon-'], i[class*='icon-'] {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, ::before, ::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+::before, ::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+*, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+}
+.icon-arrow-right {
+  margin: 0 8px;
+  font-size: 9px;
+  color: #888;
+}
+.icon-time:before {
+  content: '\f017';
+}
+img{
+  vertical-align: middle;
+}
+.bold{
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+.l-container.clearfix{
+  margin: 40px auto 0;
+  width: 1020px;
+}
+.l-container {
+  margin: 24px auto 0;
+  padding: 40px 0 40px;
+}
+// ↑ここまで全体の指定
+
+
+// ↓ここから右
+.l-content{
+  float: right;
+  width: 700px;
+}
+.mypage-user-icon{
+  height: 155px;
+  position: relative;
+  padding: 20px;
+  background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?60226261);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  a{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translate(0, -50%);
+    color: #333;
+  }
+}
+.mypage-user-icon figure{
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.mypage-number{
+  margin: 8px 0 0;
+  // font-size: 0;必要？
+  box-sizing: inherit;
+  div{
+    display: inline-block;
+    font-size: 14px
+  }
+}
+.mypage-number span{
+  margin: 0 0 0 8px;
+  font-size: 16px;
+}
+.mypage-tab-container-notification-todo {
+  margin: 0;
+  background: #fff;
+}
+.mypage_tabs{
+  border: 0;
+  background: #eee;
+  font-size: 0;
+  &__active{
+  background: #fff;
+    a {
+      position: relative;
+      display: block;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      text-decoration: none;
+    }
+  }
+}
+// .mypage_tabs__active a li{
+//   border-top: 2px solid #ea352d;
+// }jsを入れたら必要 UDU
+.mypage_tabs li {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+    a{
+      position: relative;
+      display: block;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      border-top: 2px solid #ea352d;
+    }
+  }
+.tab-content .tab-pane.active{
+  display: block;
+}
+.mypage-item-list li:first-child {
+  border-bottom: 1px solid #eee;
+}
+.mypage-item-list li {
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+.mypage-item-link {
+  display: block;
+  min-height: 80px;
+  padding: 16px;
+  color: #333;
+    figure {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+  }
+}
+.mypage-item-link time {
+  display: inline-block;
+  color: #888;
+}
+.mypage-item-link .icon-arrow-right {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.mypage-item-list li:last-child {
+  border: 0;
+}
+.mypage-go-list {
+  padding: 16px;
+  a{
+    display: block;
+    height: 56px;
+    margin: 0 auto;
+    background: #eee;
+    color: #333;
+    line-height: 56px;
+    text-align: center;
+  }
+}
+.mypage-item-list img{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+.mypage-item-body{
+  margin: 0 40px 0 68px;
+}
+.mypage-item-text {
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  max-height: 4.4em;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+.mypage-tab-container {
+  margin: 40px 0 0;
+  background: #fff;
+}
+.mypage-tab-head{
+  padding: 0 16px;
+  background: #fafafa;
+  font-size: 16px;
+  line-height: 72px;
+}
+.mypage-tabs{
+  border: 0;
+  background: #eee;
+  font-size: 0;
+}
+.mypage-tabs li.active{
+  background: #fff;
+  a{
+    border-top: 2px solid #ea352d;
+  }
+}
+.mypage-tabs li{
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+.mypage-tabs a{
+  position: relative;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  line-height: 72px;
+}
+.tab-content .tab-pane.active {
+  display: block;
+}
+.mypage-item-not-found {
+  padding: 160px 0 60px;
+  background: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?45085161);
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
+.mypage-item-not-found {
+  &.bolder{
+    display: none;
+  }
+}
+// ↑ここまで右
+
+
+// ↓ここから左
+.l-side{
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+}
+li{
+  list-style: none;
+}
+.mypage-nav{
+  background-repeat: no-repeat;
+}
+.mypage-nav-list-item.active {
+  background: #eee;
+  font-weight: 600;
+}
+.mypage-nav-list li:first-child {
+  border: 0;
+}
+.mypage-nav-list-item {
+  position: relative;
+  display: block;
+  max-height: 48px;
+  padding: 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+}
+.mypage-nav-list-item .icon-arrow-right {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: #ccc;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  -webkit-transition: all ease-out .2s;
+  transition: all ease-out .2s;
+}
+.mypage-nav-head {
+  margin: 40px 0 0;
+}
+.mypage-nav-head {
+  // margin: 40px 4% 0;
+  font-size: 16px;
+}
+.mypage-nav-head+.mypage-nav-list {
+  margin: 8px 0 0;
+}
+.mypage-nav-list {
+  li:first-child {
+    border-top: 0;
+  }
+  li:last-child {
+    border-bottom: 0;
+  }
+  li{
+    border-top: 1px solid #eee;
+  }
+}

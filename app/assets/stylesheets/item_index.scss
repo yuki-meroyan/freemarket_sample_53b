@@ -1,0 +1,137 @@
+
+.top-main{
+  background-color: rgb(245, 245, 245);
+  position: relative;
+  
+}
+
+.special-issue-image{
+  height: 390px;
+  left: 50%;
+  width: 100vw;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/top-banner-camp-4f3fd88c685e8932d7dde2ad3a8336ba.jpg);
+}
+
+
+.slider-control__right{
+  background-color: transparent;
+  position: absolute;
+  top: 150px;
+  right: 100px;
+}
+.slider-control__left{
+  background-color: transparent;
+  position: absolute;
+  top: 150px;
+  right: 1300px;
+}
+
+.popular-category{
+  height: 74px;
+  padding: 40px 0px 20px 0px;
+  text-align:center;
+  background-color: white;
+  &__title{
+    font-size:28px; 
+  }
+  &__name {
+    display: inline-block;
+    list-style: none;
+    margin: 20px;
+    height: 14;
+    padding: 8px 16px;
+    background-color:rgb(239, 239, 239);
+    border-radius: 15px;
+    font-weight: 600px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+
+.new-arrival-list{
+  padding: 0 210px;
+  background-color: rgb(245, 245, 245);
+  // width: 100%;
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 30px 0 0 0;
+    margin: 0 0 20px 0;
+  }
+  .new-arrival-item__title{
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.4em;
+  margin: 0;
+  padding: 0;
+  }
+  .new-arrival-item__more{
+    color:rgb(0, 149, 238);
+    font-size: 14px;
+    font-weight: 800;
+
+  }
+}
+
+.new-arrival-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  &__box{
+  width: 186px;
+  height: 250px;
+  border: 1px;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  box-shadow: 1px 1px 2px gray;
+  margin: 10px 10px 0 0;
+  // font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif; 
+    &--image {
+      height: 180px;
+      width: 186px;
+    }
+    &__text{
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      font-size: 14px;
+    }
+    &--price{
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      background-color: rgba(26, 25, 25, 0.3);
+      color: white;
+      font-size: 1.2em;
+      width: 100px;
+      height:28px;
+      position: absolute;
+      top:120px;
+      z-index: 2;
+    }
+  }
+}
+
+.popular-brands{
+  height: 74px;
+  padding: 40px 20px 20px 20px;
+  text-align:center;
+  background-color: white;
+  &__title{
+    font-size:28px; 
+  }
+  &__name {
+    display: inline-block;
+    list-style: none;
+    margin: 20px;
+    height: 14;
+    padding: 8px 16px;
+    background-color:rgb(239, 239, 239);
+    border-radius: 15px;
+    font-weight: 600px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}

@@ -15,6 +15,9 @@ body {
 a{
   text-decoration: none;
 }
+li{
+  list-style: none;
+}
 ul {
   display: block;
   list-style-type: disc;
@@ -86,7 +89,6 @@ img{
   width: 1020px;
 }
 .l-container {
-  margin: 24px auto 0;
   padding: 40px 0 40px;
 }
 // ↑ここまで全体の指定
@@ -113,16 +115,15 @@ img{
     right: 0;
     transform: translate(0, -50%);
     color: #333;
+    figure{
+      overflow: hidden;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
   }
 }
-.mypage-user-icon figure{
-  overflow: hidden;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto;
-  border-radius: 50%;
-}
-
 .mypage-number{
   margin: 8px 0 0;
   // font-size: 0;必要？
@@ -140,7 +141,7 @@ img{
   margin: 0;
   background: #fff;
 }
-.mypage_tabs{
+.mypage__tabs{
   border: 0;
   background: #eee;
   font-size: 0;
@@ -155,15 +156,11 @@ img{
       text-decoration: none;
     }
   }
-}
-// .mypage_tabs__active a li{
-//   border-top: 2px solid #ea352d;
-// }jsを入れたら必要 UDU
-.mypage_tabs li {
-  width: 50%;
-  display: inline-block;
-  text-align: center;
-  vertical-align: top;
+  li {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
     a{
       position: relative;
       display: block;
@@ -173,21 +170,30 @@ img{
       border-top: 2px solid #ea352d;
     }
   }
+}
+// .mypage_tabs__active a li{
+//   border-top: 2px solid #ea352d;
+// }jsを入れたら必要 UDU
 .tab-content .tab-pane.active{
   display: block;
 }
-.mypage-item-list li:first-child {
-  border-bottom: 1px solid #eee;
-}
-.mypage-item-list li {
-  position: relative;
-  border-bottom: 1px solid #eee;
-}
-.mypage-item-link {
+.mypage-item-list{
+  li:first-child {
+    border-bottom: 1px solid #eee;
+  }
+  li {
+    position: relative;
+    border-bottom: 1px solid #eee;
+  }
+} 
+.mypage__item__link {
   display: block;
   min-height: 80px;
   padding: 16px;
   color: #333;
+  &__body{
+    margin: 0 40px 0 68px;
+  }
     figure {
     position: relative;
     overflow: hidden;
@@ -195,20 +201,31 @@ img{
     width: 48px;
     height: 48px;
   }
+  time {
+    display: inline-block;
+    color: #888;
+  }
+  .icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
 }
-.mypage-item-link time {
-  display: inline-block;
-  color: #888;
-}
-.mypage-item-link .icon-arrow-right {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-}
-.mypage-item-list li:last-child {
+.mypage-item-list {
+li:last-child {
   border: 0;
+  }
+  img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+  }
 }
 .mypage-go-list {
   padding: 16px;
@@ -221,18 +238,6 @@ img{
     line-height: 56px;
     text-align: center;
   }
-}
-.mypage-item-list img{
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-}
-.mypage-item-body{
-  margin: 0 40px 0 68px;
 }
 .mypage-item-text {
   overflow: hidden;
@@ -258,24 +263,24 @@ img{
   border: 0;
   background: #eee;
   font-size: 0;
-}
-.mypage-tabs li.active{
+  li{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+  }
+  a{
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+  }
+  li.active{
   background: #fff;
   a{
     border-top: 2px solid #ea352d;
+    }
   }
-}
-.mypage-tabs li{
-  width: 50%;
-  display: inline-block;
-  text-align: center;
-}
-.mypage-tabs a{
-  position: relative;
-  display: block;
-  color: #333;
-  font-size: 16px;
-  line-height: 72px;
 }
 .tab-content .tab-pane.active {
   display: block;
@@ -299,23 +304,10 @@ img{
 
 
 // ↓ここから左
-.l-side{
+.l__side{
   float: left;
   width: 280px;
   margin: 0 40px 0 0;
-}
-li{
-  list-style: none;
-}
-.mypage-nav{
-  background-repeat: no-repeat;
-}
-.mypage-nav-list-item.active {
-  background: #eee;
-  font-weight: 600;
-}
-.mypage-nav-list li:first-child {
-  border: 0;
 }
 .mypage-nav-list-item {
   position: relative;
@@ -325,28 +317,27 @@ li{
   background: #fff;
   font-size: 14px;
   color: #333;
-}
-.mypage-nav-list-item .icon-arrow-right {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  color: #ccc;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  -webkit-transition: all ease-out .2s;
-  transition: all ease-out .2s;
+  &.active {
+    background: #eee;
+    font-weight: 600;
+  }
+  .icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    color: #ccc;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transition: all ease-out .2s;
+    transition: all ease-out .2s;
+  }
 }
 .mypage-nav-head {
   margin: 40px 0 0;
-}
-.mypage-nav-head {
-  // margin: 40px 4% 0;
   font-size: 16px;
 }
-.mypage-nav-head+.mypage-nav-list {
-  margin: 8px 0 0;
-}
 .mypage-nav-list {
+  margin: 8px 0 0;
   li:first-child {
     border-top: 0;
   }

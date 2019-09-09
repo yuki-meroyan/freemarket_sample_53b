@@ -13,8 +13,8 @@
             出品数
             %span.bold 0
     %section.mypage-tab-container-notification-todo
-      %ul.mypage_tabs
-        %li.mypage_tabs__active
+      %ul.mypage__tabs
+        %li.mypage__tabs__active
           %h3.boldn
             %a{"data-toggle": "tab", href: "#mypage-tab-notification"}
               お知らせ
@@ -27,50 +27,50 @@
       .tab-content
         %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
           %li
-            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/news/"}
+            %a.mypage__item__link{href: "https://www.mercari.com/jp/mypage/news/"}
               %figure
                 %img.lazyload{src: "https://static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
+              .mypage__item__link__body
                 .mypage-item-text 事務局から個別メッセージ「《明日まで》メルペイ電子マネー(iD)を設定するだけでP500プレゼント！」
                 %time
                   %i.icon-time
                   %span 1 日前
               %i.icon-arrow-right
           %li
-            %a.mypage-item-link{"data-modal": "banner", "data-open": "modal", href: ""}
+            %a.mypage__item__link{"data-modal": "banner", "data-open": "modal", href: ""}
               %figure
                 %img.lazyload{src: "https://static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
+              .mypage__item__link__body
                 .mypage-item-text 《友達を招待すると必ずP1,000プレゼント》友達誘ってメルペイしようぜ！
                 %time
                   %i.icon-time
                   %span 1 日前
               %i.icon-arrow-right
           %li
-            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/news/"}
+            %a.mypage__item__link{href: "https://www.mercari.com/jp/mypage/news/"}
               %figure
                 %img.lazyload{src: "https://static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
+              .mypage__item__link__body
                 .mypage-item-text 事務局から個別メッセージ「《このメッセージを受け取られた方限定》9/1まで！メルペイ電子マネー(iD)を設定するだけでP500プレゼント！」
                 %time
                   %i.icon-time
                   %span 4 日前
               %i.icon-arrow-right
           %li
-            %a.mypage-item-link{"data-modal": "banner", "data-open": "modal", href: ""}
+            %a.mypage__item__link{"data-modal": "banner", "data-open": "modal", href: ""}
               %figure
                 %img.lazyload{src: "https://static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
+              .mypage__item__link__body
                 .mypage-item-text 明日、20%割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
                 %time
                   %i.icon-time
                   %span 5 日前
               %i.icon-arrow-right
           %li
-            %a.mypage-item-link{href: "https://www.mercari.com/jp/mypage/news/"}
+            %a.mypage__item__link{href: "https://www.mercari.com/jp/mypage/news/"}
               %figure
                 %img.lazyload{src: "https://static.mercdn.net/images/mercari_profile.png"}/
-              .mypage-item-body
+              .mypage__item__link__body
                 .mypage-item-text 事務局から個別メッセージ「20%OFFのお得チケットが届きました！※最大割引額￥1,000」
                 %time
                   %i.icon-time
@@ -94,103 +94,3 @@
           %li.mypage-item-not-found.bold 取引中の商品がありません
         %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
           %li.mypage-item-not-found.bolder 過去に取引した商品がありません
-  %div.l-side
-    %ul.mypage-nav-list
-      %li
-        %a.mypage-nav-list-item.active{href: "#"}
-          マイページ
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          お知らせ
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          やることリスト
-          %span.mypage-nav-number
-            
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          いいね！一覧
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          出品する
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          出品した商品 - 出品中
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          出品した商品 - 取引中
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          出品した商品 - 売却済み
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          購入した商品 - 取引中
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          購入した商品 - 過去の取引
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          ニュース一覧
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          評価一覧
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          ガイド
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "#"}
-          お問い合わせ
-          %i.icon-arrow-right
-    %h3.mypage-nav-head.boldn メルペイ
-    %ul.mypage-nav-list
-      %li
-        %a.mypage-nav-list-item{href: "/jp/mypage/sales/"}
-          売上・振込申請
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "/jp/mypage/point/"}
-          ポイント
-          %i.icon-arrow-right
-    %h3.mypage-nav-head.boldn 設定
-    %ul.mypage-nav-list
-      %li
-        %a.mypage-nav-list-item{href: "/jp/mypage/profile/"}
-          プロフィール
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "/jp/mypage/deliver_address/"}
-          発送元・お届け先住所変更
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "/jp/mypage/card/"}
-          支払い方法
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "/jp/mypage/email_password/"}
-          メール/パスワード
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "/jp/mypage/identification/"}
-          本人情報
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "/jp/mypage/sms_confirmation/"}
-          電話番号の確認
-          %i.icon-arrow-right
-      %li
-        %a.mypage-nav-list-item{href: "/jp/logout/"}
-          ログアウト
-          %i.icon-arrow-right

@@ -67,9 +67,7 @@
         %tr
           %th ブランド
           %td
-            %a{:href => "https://www.mercari.com/jp/brand/539/"}
-              %div
-                コーチ
+            = link_to "コーチ","https://www.mercari.com/jp/brand/539/"
         %tr
           %th 商品の状態
           %td 目立った傷や汚れなし
@@ -134,7 +132,7 @@
         = fa_icon 'heart-o', class: "icon"
         %span いいね!
         %span.fade__in__down 1
-      %a.item__button.item__button__report.clearfix
+      = link_to  "https://www.mercari.com/jp/safe/description/",class: "item__button item__button__report clearfix"  do
         =fa_icon "flag-o", class: 'icon'
         %span 不適切な商品の報告
     .item__button__container__right

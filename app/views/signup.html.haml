@@ -1,0 +1,19 @@
+.signup__body
+  = render partial: 'shared/header_2'
+  .signup__form
+    .signup__form__title
+      %h2 新規会員登録
+    .signup__form__choice
+      .mail__choice.btn-default.choice-btn
+        .mail__choice__logo
+          =fa_icon "envelope-o lg"
+        .mail__choice__text メールアドレスで登録する
+      .facebook__choice.btn-default.choice-btn
+        .facebook__choice__logo
+          =fa_icon "facebook-square 2x"
+        .facebook__choice__text Facebookで登録する
+      .google__choice.btn-default.choice-btn
+        .google__choice__logo
+          = image_tag 'google.svg', alt: 'google-logo'
+        .google__choice__text Googleで登録する
+  = render partial: 'shared/fooer_2'

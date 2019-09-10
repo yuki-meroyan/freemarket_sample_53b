@@ -19,7 +19,6 @@ figure {
   overflow: hidden;
   margin: 0;
   padding: 0;
-
 }
 
 a{
@@ -39,7 +38,7 @@ ul{
   width:100%;
   bottom:0;
 }
-//　トップ画面下の出品リンク用のステッッキーカメラ画像///////////////////////////////
+//トップ画面下の出品リンク用のステッッキーカメラ画像///////////////////////////////
 .camera{
   bottom: 32px;
   font-size: 22px;
@@ -126,6 +125,9 @@ ul{
         width: 300px;
       }
     }
+  }
+  &__right {
+    margin-bottom: 0;
   }
 }
 

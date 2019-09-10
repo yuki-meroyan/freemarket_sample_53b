@@ -30,12 +30,12 @@
 }
 
 .popular-category{
-  height: 74px;
   padding: 40px 0px 20px 0px;
   text-align:center;
   background-color: white;
   &__title{
-    font-size:28px; 
+    font-size:28px;
+    font-weight: 600; 
   }
   &__name {
     display: inline-block;
@@ -90,7 +90,6 @@
   position: relative;
   box-shadow: 1px 1px 2px gray;
   margin: 10px 10px 0 0;
-  // font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif; 
     &--image {
       height: 180px;
       width: 186px;
@@ -115,7 +114,6 @@
 }
 
 .popular-brands{
-  height: 74px;
   padding: 40px 20px 20px 20px;
   text-align:center;
   background-color: white;

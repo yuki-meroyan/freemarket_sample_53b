@@ -32,6 +32,7 @@ body {
 
 .item__main__content {
   margin: 16px 0 0;
+  display:flex;
 }
 ////写真//////////////////////
 
@@ -46,6 +47,7 @@ body {
 }
 .owl__carousel {
  position: relative;
+ margin-right: 20px;
  img {
   width: 100%;
   vertical-align: bottom;
@@ -79,12 +81,14 @@ body {
       opacity: 1;
     }
   }
-  
+
+
   .owl-nav {
     display: none;
   }
   
 }
+
 
 .owl__nav.disabled .owl__prev, .owl__nav.disabled {
   .owl__next {
@@ -128,6 +132,7 @@ body {
   text-align: center;
   color: #fff;
   background: #05B0B4;
+  margin-right: 20px;
     span {
       font-weight: bold;
     }

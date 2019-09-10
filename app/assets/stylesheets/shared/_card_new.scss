@@ -262,6 +262,28 @@
       color: #fff;
     }
   }
+  &__img{
+    height: 20px;
+
+    &--visa{
+      width: 49px;
+    }
+    &--master-card{
+      width: 34px;
+    }
+    &--saison-card{
+      width: 30px;
+    }
+    &--jcb, &--dinersclub, &--discover{
+      width: 32px;
+    }
+    &--american_express{
+      width: 21px;
+    }
+    &--seq-card{
+      width: 240px;
+    }
+  }
 }
 
 

@@ -1,0 +1,30 @@
+.signup__body
+  = render partial: 'shared/header_2'
+  .login__form
+    .sns__login
+      .login__form__title
+        %p アカウントをお持ちでない方はこちら
+        .new__acount__choice.btn-default.choice-btn 
+          %p 新規会員登録
+      .login__form__choice
+        .facebook__choice.btn-default.choice-btn
+          .facebook__choice__logo
+            =fa_icon "facebook-square 2x"
+          .facebook__choice__text Facebookで登録する
+        .google__choice.btn-default.choice-btn
+          .google__choice__logo
+            = image_tag 'google.svg', alt: 'google-logo'
+          .google__choice__text Googleで登録する
+    .wright__login
+      .wright__login__mail__text
+        %input.input-default{type: "text",placeholder: "メールアドレス"}
+      .wright__login__name__text
+        %input.input-default{type: "text",placeholder: "パスワード"}
+      .wright__login__robot__check
+        = image_tag 'recaptcha.gif', alt: 'recaptcha.gif', class: ' recaptcha'
+      .wright__login__btn
+        %button.btn-default.btn-red{type:"submit"}  ログイン
+      .login-panel
+        = link_to"パスワードをお忘れの方",'https://www.mercari.com/jp/password/reset/start/'
+
+  = render partial: 'shared/fooer_2'

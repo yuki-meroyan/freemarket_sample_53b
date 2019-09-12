@@ -60,7 +60,7 @@
       }
     }
     &__middle{ 
-      
+      // middleセレクタに追加したいCSSはここに記述
     }
     &__fee{
       display: block;
@@ -83,7 +83,7 @@
       border: 1px solid #ccc;
 
       &--text{
-        
+        // item-buy__point--textセレクタに追加したいCSSはここに記述
       }
     }
 
@@ -177,7 +177,7 @@
     text-decoration: none;
 
     &--text{
-      
+      // item-buy__change--textセレクタに追加したいCSSはここに記述
     }
   }
 }

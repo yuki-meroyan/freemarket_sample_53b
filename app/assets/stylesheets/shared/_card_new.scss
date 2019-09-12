@@ -1,0 +1,289 @@
+
+.card-new, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+}
+
+.card-new{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+
+  h2{
+    font-size: 22px;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  &__container{
+    margin: 40px auto 0;
+    width: 1020px;
+    padding: 0 0 40px;
+  }
+
+  &__content{
+    float: right;
+    width: 700px;
+  }
+
+  &__chapter{
+
+    &__container{
+      margin: 40px 0 0;
+      background: #fff;
+    }
+
+    &__container:first-child{
+      margin: 0;
+    }
+
+    &__header{
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid #f5f5f5;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  &__input{
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  &__form{
+  
+    &__group{
+      margin: 40px 0 0;
+
+      .icon__arrow-bottom {
+        position: absolute;
+      }
+
+      .select__wrap {
+        margin: 8px 0 0;
+      }
+
+      select {
+        width: 100%;
+      }
+
+      .card-new__input {
+        width: 100%;
+        margin: 8px 0 0;
+      }
+    }
+    &__group label {
+      font-weight: 600;
+    }
+    &__group:first-child {
+      margin: 0;
+    }
+    &__require {
+      background: #ea352d;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+    }
+    &__question{
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #0099e8;
+      color: #fff;
+      line-height: 14px;
+      font-size: 12px;
+      text-align: center;
+    }
+    &__signup{
+  
+      &__expire {     
+        .card-new__select__wrap {
+          display: inline-block;
+          width: calc(50% - 2px);
+        }
+  
+        .card-new__select__wrap select {
+          width: calc(100% - 38px);
+        }
+  
+        .card-new__select__wrap .icon__arrow-bottom {
+          font-size: 10px;
+          margin: 0 6px 0 -15px;
+          position: relative;
+          top: 3px;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  &__signup{
+  
+    &__expire {
+      
+    }
+    &__seqcode{
+      position: relative;
+      margin: 8px 0 0;
+    }
+
+    &__seqcode-text{
+      text-align: right;
+      color: #0099e8;
+    }
+
+    &__seqcode-info{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 28px;
+      z-index: 1;
+      padding: 16px;
+      border-radius: 6px;
+      background: #eee;
+      color: #333;
+      line-height: 1.5;
+      text-align: center;
+      -webkit-transition: all ease-out .3s;
+      transition: all ease-out .3s;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &__seqcode-info img {
+      margin: 8px 0 0;
+    }
+
+    &__card-list{
+      margin: 8px 0 0;
+      font-size: 0;
+    
+      li{
+        display: inline-block;
+        margin: 0 0 0 8px;
+        vertical-align: middle;
+      }
+    
+      li:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &__single-inner{
+    padding: 40px 40px 64px;
+    border-top: 1px solid #f5f5f5;
+
+    .card-new__btn--red {
+      margin: 40px 0 0;
+    }
+
+    // 【:first-of-type】 疑似クラスは、兄弟要素のグループの中でその種類の最初の要素を表す
+    .card-new__form__group:not(:first-of-type) {
+      margin-top: 32px;
+    }
+
+    .card-new__single-content {
+      max-width: 343px;
+    }
+  }
+
+  &__single-content{
+    max-width: 320px;
+    margin: 0 auto;
+  
+    p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+  }
+
+  &__select{
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: inherit;
+    line-height: 1.5;
+    cursor: pointer;
+    -webkit-appearance: none;
+
+    &__wrap{
+      position: relative;
+      background: #fff;
+
+      .icon__arrow-bottom {
+        position: absolute;
+        right: 16px;
+        z-index: 2;
+        color: #888;
+        font-size: 8px;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+
+  &__error-text{
+    color: #ea352d;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
+  &__btn{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+
+    &--red{
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+    }
+  }
+  &__img{
+    height: 20px;
+
+    &--visa{
+      width: 49px;
+    }
+    &--master-card{
+      width: 34px;
+    }
+    &--saison-card{
+      width: 30px;
+    }
+    &--jcb, &--dinersclub, &--discover{
+      width: 32px;
+    }
+    &--american_express{
+      width: 21px;
+    }
+    &--seq-card{
+      width: 240px;
+    }
+  }
+}
+
+

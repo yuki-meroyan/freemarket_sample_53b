@@ -1,3 +1,4 @@
+= render partial: 'shared/header'
 %main.l-container.clearfix
   .l-content
     %section.mypage-user-icon
@@ -22,8 +23,7 @@
           %h3.boldn
             = link_to "#mypage-tab-todo" do
               やることリスト
-              %span.mypage-nav-number.hidden-large
-                
+              %span.mypage-nav-number.hidden-large 
       .tab-content
         %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
           %li
@@ -94,3 +94,5 @@
           %li.mypage-item-not-found.bold 取引中の商品がありません
         %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
           %li.mypage-item-not-found.bolder 過去に取引した商品がありません
+  = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

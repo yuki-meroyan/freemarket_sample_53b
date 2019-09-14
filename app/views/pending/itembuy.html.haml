@@ -1,0 +1,60 @@
+
+.item-buy
+  .item-buy__content
+    .item-buy__header
+      %h2.item-buy__header--text
+        購入内容の確認
+    %section.item-buy__detail
+      .item-buy__inner
+        .item-buy__detail__top
+          = image_tag 'https://static.mercdn.net/thumb/photos/m26078890125_1.jpg?1566189026', class: "item-buy__detail__img"
+          .item-buy__detail__title
+            %p.item-buy__detail__title--text
+              パソコンデスク ロータイプ ノートパソコン 机 ノートPCデスク
+        .item-buy__detail__middle
+          %p.item-buy__detail__fee
+            ¥10,000
+            %span.item-buy__detail__fee--text
+              送料込み
+          .item-buy__detail__point
+            %span.item-buy__detail__point--text
+              ポイントはありません
+          %ul.item-buy__detail__fee-ttl
+            %li.item-buy__detail__fee-ttl__box
+              支払い金額
+            %li.item-buy__detail__fee-ttl__box
+              %span.item-buy__detail__fee-ttl--text
+                ¥10,000
+        .item-buy__detail__payment-error
+          %span.item-buy__detail__payment-error--text
+            配送先と支払い方法の入力を完了してください。
+        .item-buy__detail__bottom
+          .item-buy__detail__button
+            %span.item-buy__detail__button--text
+              購入する
+
+    %section.item-buy__shipping
+      .item-buy__inner
+        %h3.item-buy__shipping__top
+          配送先
+        %address.item-buy__shipping__address
+          〒000-0000
+          %br/
+          ★★★県●●●市✖︎✖︎✖︎
+          %br/
+          マスターB
+          
+        = link_to root_path, class: "item-buy__change" do
+          %span.item-buy__change--text
+            変更する
+          = fa_icon "chevron-right", class: "item-buy__change__icon"
+    %section.item-buy__payment
+      .item-buy__inner
+        .item-buy__payment__top
+          支払い方法
+        .item-buy__payment__card
+          ****************************
+        = link_to root_path, class: "item-buy__change" do
+          %span.item-buy__change--text
+            変更する
+          = fa_icon "chevron-right", class: "item-buy__change__icon"

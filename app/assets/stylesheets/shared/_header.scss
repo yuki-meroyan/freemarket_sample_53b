@@ -1,34 +1,4 @@
 
-*, ::before, ::after {
-  border-width: 0px;
-  border-style: initial;
-  border-color: initial;
-  border-image: initial;
-  box-sizing: border-box;
-  font: inherit;
-  margin: 0px;
-  padding: 0px;
-  vertical-align: baseline;
-}
-
-body{
-  background-color: rgb(245, 245, 245);
-  color: rgb(51, 51, 51);
-  font-size: 14px;
-  min-height: 100%;
-  position: relative;
-  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-
-a{
-  color: inherit;
-  text-decoration: none;
-}
-
-ul li{
-  list-style: none;
-}
-
 #header{
   display: block;
   height: 100vh;
@@ -66,6 +36,24 @@ ul li{
   }
   &__link{
 
+  }
+
+  body{
+    background-color: rgb(245, 245, 245);
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    min-height: 100%;
+    position: relative;
+    font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  }
+  
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  ul li{
+    list-style: none;
   }
 }
 
@@ -115,6 +103,8 @@ ul li{
 .nav__left{
   display: flex;
   margin-left: -3px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
 
   &__box{
     cursor: pointer;
@@ -210,9 +200,7 @@ ul li{
     background-color: $red;
     border-color: $red;
     color: rgb(255, 255, 255);
-    height: 32px;
     line-height: 14px;
-    width: 106px; 
   }
   .sign-in__link{
     background-color: rgb(255, 255, 255);

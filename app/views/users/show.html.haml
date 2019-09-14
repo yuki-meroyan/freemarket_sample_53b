@@ -1,99 +1,98 @@
 = render partial: 'shared/header'
-  %main.l-container.clearfix
-    .l-content
-      %section.mypage-user-icon
-        = link_to "https://www.mercari.com/jp/u/574995619/" do
-          %figure
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "", height: "60",  width: "60"
-          %h2.bold 直哉
-          .mypage-number
-            %div
-              評価
-              %span.bold 0
-            %div
-              出品数
-              %span.bold 0
-      %section.mypage-tab-container-notification-todo
-        %ul.mypage__tabs
-          %li.mypage__tabs__active
-            %h3.boldn
-              = link_to "#mypage-tab-notification" do
-                お知らせ
+%main.l-container.clearfix
+  .l-content
+    %section.mypage-user-icon
+      = link_to "https://www.mercari.com/jp/u/574995619/" do
+        %figure
+          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "", height: "60",  width: "60"
+        %h2.bold 直哉
+        .mypage-number
+          %div
+            評価
+            %span.bold 0
+          %div
+            出品数
+            %span.bold 0
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage__tabs
+        %li.mypage__tabs__active
+          %h3.boldn
+            = link_to "#mypage-tab-notification" do
+              お知らせ
+        %li
+          %h3.boldn
+            = link_to "#mypage-tab-todo" do
+              やることリスト
+              %span.mypage-nav-number.hidden-large 
+      .tab-content
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
           %li
-            %h3.boldn
-              = link_to "#mypage-tab-todo" do
-                やることリスト
-                %span.mypage-nav-number.hidden-large 
-        .tab-content
-          %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
-            %li
-              = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
-                %figure
-                  = image_tag "https://static.mercdn.net/images/mercari_profile.png", class:"lazyload"
-                .mypage__item__link__body
-                  .mypage-item-text 事務局から個別メッセージ「《明日まで》メルペイ電子マネー(iD)を設定するだけでP500プレゼント！」
-                  %time
-                    =fa_icon 'clock', class: 'icon-time'
-                    %span 1 日前
-                =fa_icon 'chevron-right', class: "icon-arrow-right"
-            %li
-              = link_to "#", class: "mypage__item__link" do
-                %figure
-                  = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
-                .mypage__item__link__body
-                  .mypage-item-text 《友達を招待すると必ずP1,000プレゼント》友達誘ってメルペイしようぜ！
-                  %time
-                    =fa_icon 'clock', class: 'icon-time'
-                    %span 1 日前
-                =fa_icon 'chevron-right', class: "icon-arrow-right"
-            %li
-              = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
-                %figure
-                  = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
-                .mypage__item__link__body
-                  .mypage-item-text 事務局から個別メッセージ「《このメッセージを受け取られた方限定》9/1まで！メルペイ電子マネー(iD)を設定するだけでP500プレゼント！」
-                  %time
-                    =fa_icon 'clock', class: 'icon-time'
-                    %span 4 日前
-                =fa_icon 'chevron-right', class: "icon-arrow-right"
-            %li
-              = link_to "#", class: "mypage__item__link" do
-                %figure
-                  = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
-                .mypage__item__link__body
-                  .mypage-item-text 明日、20%割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
-                  %time
-                    =fa_icon 'clock', class: 'icon-time'
-                    %span 5 日前
-                =fa_icon 'chevron-right', class: "icon-arrow-right"
-            %li
-              = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
-                %figure
-                  = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
-                .mypage__item__link__body
-                  .mypage-item-text 事務局から個別メッセージ「20%OFFのお得チケットが届きました！※最大割引額￥1,000」
-                  %time
-                    =fa_icon 'clock', class: 'icon-time'
-                    %span 6 日前
-                =fa_icon 'chevron-right', class: "icon-arrow-right"
-            %li.mypage-go-list
-              = link_to  "一覧を見る", "/jp/mypage/notification/"
-      %section.mypage-tab-container
-        %h2.mypage-tab-head.boldn 購入した商品
-        %ul.mypage-tabs
-          %li.active
-            %h3.boldn
-              = link_to "#mypage-tab-transaction-now" do
-                取引中
+            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
+              %figure
+                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class:"lazyload"
+              .mypage__item__link__body
+                .mypage-item-text 事務局から個別メッセージ「《明日まで》メルペイ電子マネー(iD)を設定するだけでP500プレゼント！」
+                %time
+                  =fa_icon 'clock', class: 'icon-time'
+                  %span 1 日前
+              =fa_icon 'chevron-right', class: "icon-arrow-right"
           %li
-            %h3.boldn
-              = link_to "#mypage-tab-transaction-old" do
-                過去の取引
-        .tab-content
-          %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
-            %li.mypage-item-not-found.bold 取引中の商品がありません
-          %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
-            %li.mypage-item-not-found.bolder 過去に取引した商品がありません
-    = render partial: 'shared/user_menu'
-  = render partial: 'shared/footer'
-  
+            = link_to "#", class: "mypage__item__link" do
+              %figure
+                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
+              .mypage__item__link__body
+                .mypage-item-text 《友達を招待すると必ずP1,000プレゼント》友達誘ってメルペイしようぜ！
+                %time
+                  =fa_icon 'clock', class: 'icon-time'
+                  %span 1 日前
+              =fa_icon 'chevron-right', class: "icon-arrow-right"
+          %li
+            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
+              %figure
+                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
+              .mypage__item__link__body
+                .mypage-item-text 事務局から個別メッセージ「《このメッセージを受け取られた方限定》9/1まで！メルペイ電子マネー(iD)を設定するだけでP500プレゼント！」
+                %time
+                  =fa_icon 'clock', class: 'icon-time'
+                  %span 4 日前
+              =fa_icon 'chevron-right', class: "icon-arrow-right"
+          %li
+            = link_to "#", class: "mypage__item__link" do
+              %figure
+                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
+              .mypage__item__link__body
+                .mypage-item-text 明日、20%割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                %time
+                  =fa_icon 'clock', class: 'icon-time'
+                  %span 5 日前
+              =fa_icon 'chevron-right', class: "icon-arrow-right"
+          %li
+            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
+              %figure
+                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
+              .mypage__item__link__body
+                .mypage-item-text 事務局から個別メッセージ「20%OFFのお得チケットが届きました！※最大割引額￥1,000」
+                %time
+                  =fa_icon 'clock', class: 'icon-time'
+                  %span 6 日前
+              =fa_icon 'chevron-right', class: "icon-arrow-right"
+          %li.mypage-go-list
+            = link_to  "一覧を見る", "/jp/mypage/notification/"
+    %section.mypage-tab-container
+      %h2.mypage-tab-head.boldn 購入した商品
+      %ul.mypage-tabs
+        %li.active
+          %h3.boldn
+            = link_to "#mypage-tab-transaction-now" do
+              取引中
+        %li
+          %h3.boldn
+            = link_to "#mypage-tab-transaction-old" do
+              過去の取引
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bolder 過去に取引した商品がありません
+  = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

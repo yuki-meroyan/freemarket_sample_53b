@@ -144,13 +144,27 @@
     .comment
       .comment__user
         = link_to root_path, class: "comment__user__link" do
-          = image_tag '', alt: 'comment__user__link__image', height: '', width: '', class: ''
+          = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
           %p.comment__user__link__name たろう
       .comment__box
         .comment__box__text 安くしてください。
         .comment__box__icons
           .comment__box__icons__time
-            =fa_icon "clock", class: 'icon' 
+            =fa_icon 'clock', class: 'icon-time'
+            %span 2時間前
+          .comment__box__icons__flags
+            = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+              =fa_icon "flag-o", class: 'icon'
+    .comment
+      .comment__user
+        = link_to root_path, class: "comment__user__link" do
+          = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
+          %p.comment__user__link__name たろう
+      .comment__box
+        .comment__box__text 安くしてください。
+        .comment__box__icons
+          .comment__box__icons__time
+            =fa_icon 'clock', class: 'icon-time'
             %span 2時間前
           .comment__box__icons__flags
             = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
@@ -159,7 +173,7 @@
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     .comment__write
       %textarea.textarea-default{name: "comment__write"} 
-      %button.btn-default{type: "submit"} コメントする。
+      %button.btn-default{type: "submit",class:  "comment__write__submit btn-gray"} コメントする
   .item__shuffle
     .item__shuffle__before
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
@@ -173,78 +187,154 @@
     %ul
       %li
         = link_to  "https://www.mercari.com/jp/safe/description/"  do
-          =fa_icon"facebook-square 3x",class:'icon'
+          =fa_icon"facebook-square",class:'item__sns__facebook-icon'
       %li
         = link_to  "https://www.mercari.com/jp/safe/description/"  do
-          =fa_icon"twitter 3x",class:'icon'
+          =fa_icon"twitter",class:'item__sns__twitter-icon'
       %li
         = link_to  "https://www.mercari.com/jp/safe/description/"  do
-          =fa_icon"pinterest 3x",class:'icon'
+          =fa_icon"pinterest",class:'item__sns__pinterest-icon'
   .item__buyer-collection-title
     = link_to  "https://www.mercari.com/jp/safe/description/"  do
-      %span NI3030さんのその他の出品
+      %h2 NI3030さんのその他の出品
   .item__buyer-collection
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
+  .item__buyer-collection-title
+    = link_to  "https://www.mercari.com/jp/safe/description/"  do
+      %h2 COACHのバッグ　その他の商品
   .item__brand-collection
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+          
     .item-show__item-box
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag '', alt: '', height: '', width: '', class: ''
-        %span.item-show__item-box__title adidas ジャージ
-        %span.item-show__item-box__fee ¥50
+        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
+        .item-show__item-box-text
+          %span.item-show__item-box__title adidas ジャージ
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee ¥50
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+  = render partial: 'shared/footer'
+          
 
 
 

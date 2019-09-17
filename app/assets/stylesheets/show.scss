@@ -308,6 +308,7 @@ li:last-child {
   float: left;
   width: 280px;
   margin: 0 40px 0 0;
+  padding: 0 0 40px;
 }
 .mypage-nav-list-item {
   position: relative;
@@ -337,7 +338,7 @@ li:last-child {
   font-size: 16px;
 }
 .mypage-nav-list {
-  margin: 8px 0 0;
+  margin: 0;
   li:first-child {
     border-top: 0;
   }

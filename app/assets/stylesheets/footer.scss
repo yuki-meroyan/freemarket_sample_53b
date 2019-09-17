@@ -78,7 +78,8 @@ ul{
 // フッター上部分/////////////////////////////////////////////////////////////
 .footer__up{
   width:100%;
-  background: url(footer__up__inner__background.jpg) center center / cover;
+  background-image:image-url("footer__up__inner__background.jpg"); 
+  background-size: cover;
   background-position: center center;
 }
 

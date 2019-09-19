@@ -1,0 +1,73 @@
+= render partial: 'shared/header'
+.identification-content
+  .identification-box
+    .identification-main
+      %h2.identification-main__title
+        本人情報の確認
+      .identification-list
+        .identification-list__notes
+          お客さまの本人情報をご登録ください。
+          %br/
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        .identification-main__about-uplord
+          =link_to "https://www.mercari.com/jp/help_center/article/495/", class: 'identification-main__about-uplord-text' do
+            本人確認書類のアップロードについて
+            =fa_icon "chevron-right", class: 'icon'
+
+        = form_with( id:"identification", class:"identification-form" ) do |f| 
+
+          .identification-index
+            = f.label :name do
+              .identification-index__content お名前
+              %p.identification-index__content--name__text 枡田美衣
+
+          .identification-index
+            = f.label :kana do
+              .identification-index__content お名前カナ
+              %p.identification-index__content--kana__text マスタビイ
+
+          .identification-index
+            = f.label :birthday do
+              .identification-index__content 生年月日
+              %p.identification-index__content--birthday__text 2019/00/00
+          
+          .identification-index
+            = f.label :postal_code do
+              %span.identification-index__content 郵便番号
+              %span.any 任意
+            = f.text_field :xxx, id: "postal_code", class: "identification-index__content--text", placeholder: "例）123-4567"
+
+          .identification-index
+            = f.label :prefectures do
+              %span.identification-index__content 都道府県
+              %span.any 任意
+              .select-prefectures
+                = f.text_field :xxx, id: "prefectures", class: "identification-index__content--text", placeholder: "例）大阪府"
+                = fa_icon "chevron-down", class: 'select-icon'
+                
+          .identification-index
+            = f.label :cities do
+              %span.identification-index__content 市区町村
+              %span.any 任意
+            = f.text_field :xxx, id: "cities", class: "identification-index__content--text", placeholder: "例）大阪市"
+
+          .identification-index
+            = f.label :address do
+              %span.identification-index__content 番地
+              %span.any 任意
+            = f.text_field :xxx, id: "address", class: "identification-index__content--text", placeholder: "例）123"
+
+          .identification-index
+            = f.label :building  do
+              %span.identification-index__content 建物名
+              %span.any 任意
+            = f.text_field :xxx, id: "building", class: "identification-index__content--text", placeholder: "例）aaaa"
+
+          = f.submit :xxx, value: "登録する", class: 'register-button'
+
+        .about-registration
+          =link_to "https://www.mercari.com/jp/help_center/article/423/", class: 'about-registration__text' do
+            本人情報の登録について
+            =fa_icon "chevron-right", class: 'icon'
+    = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

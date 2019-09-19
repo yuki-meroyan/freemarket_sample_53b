@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :items, only: [:index,:show]
   resources :users
-
+  resources :cards, only: [:show]
   # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。
   get 'pending/itembuy' => 'pending#itembuy',as: 'pending/itembuy'
   get 'pending/edit' => 'pending#edit',as: 'pending/edit'

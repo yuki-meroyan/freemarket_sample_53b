@@ -23,66 +23,22 @@
           もっと見る
           =fa_icon"chevron-right",class:'icon'
       .new-arrival-item
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
-        .new-arrival-item__box
-          =image_tag "https://static.mercdn.net/thumb/photos/m75011212833_1.jpg?1560765857" ,class:'new-arrival-item__box--image' 
-          .new-arrival-item__box--text
-            本日値下げ　ニコアンド　nico and... 袖スカラップレースTシャツ
-          .new-arrival-item__box--price
-            ￥15,000
+        - @ladys_items.each_with_index do |item, i|
+          .new-arrival-item__box
+            = link_to  "http://localhost:3000/items/#{item.id}"  do
+              - item.item_images.each_with_index do |item_image, n|
+                - if n == 0
+                  = image_tag item_image.image, alt: 'item-image', class: 'new-arrival-item__box--image'
+                - else
+                  - break
+              .new-arrival-item__box--text
+                = item.name
+              .new-arrival-item__box--price
+                ¥
+                = item.price
+          - if i == 9
+            - break
+
     .popular-brands 
       %h2.popular-brands__title
         人気のブランド

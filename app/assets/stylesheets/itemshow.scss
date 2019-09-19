@@ -13,12 +13,8 @@ body {
   padding: 24px 40px 40px;
   background: #fff;
   margin: 40px auto 0;
-}
-
-.l__single__container {
   width: 700px;
-  margin: 0 auto;
-  background: #fff;
+  box-sizing: border-box;
 }
 
 .item__name {

@@ -91,9 +91,11 @@
         height: 180px;
         width: 186px;
       }
-      &__text{
+      &--text{
         font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
         font-size: 14px;
+        color:black;
+        margin-top: 18px;
       }
       &--price{
         border-top-right-radius: 20px;
@@ -104,8 +106,10 @@
         width: 100px;
         height:28px;
         position: absolute;
-        top:120px;
+        top: 140px;
         z-index: 2;
+        padding-top: 5px;
+        box-sizing: border-box;
       }
     }
   }

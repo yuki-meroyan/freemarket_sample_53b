@@ -1,16 +1,8 @@
 //nakamiは他の部分ができるまでの仮置きです。
-.card__edit{
+.card__show{
   margin: 40px auto 0;
   width: 1020px;
   height:800px;
-  background-color:aquamarine;
-
-}
-
-.l__content__side{
-  width: 280px;
-  margin: 0 40px 0 0;
-  background-color: pink;
 }
 
 //パーツ////////////
@@ -26,9 +18,6 @@ input {
   -moz-appearance: none;
 }
 
-button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="reset"], [type="search"], [type="submit"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], select, textarea {
-  min-height: 1.5em;
-}
 button {
   border: 0;
   outline: 0;
@@ -43,7 +32,6 @@ button {
 }
 
 textarea {
-  -webkit-writing-mode: horizontal-tb !important;
   text-rendering: auto;
   color: initial;
   letter-spacing: normal;
@@ -138,55 +126,68 @@ a {
     }
   }
 
+
 .l__single__inner{
   padding: 64px;
   border-top: 1px solid #f5f5f5;
 }
-  
+
 }
 .l__single__content {
   max-width: 320px;
   margin: 0 auto;
 }
 
+
+
 .l__chapter__sub__head {
   font-size: 16px;
   margin: 0;
 }
 
-.settings__payment__list li {
-  padding: 24px 0;
-  border-bottom: 1px solid #eee;
-}
-
-.settings__payment__list li form {
-  position: relative;
-}
-
-.settings__payment__num {
-  margin: 8px 0 0;
-  font-size: 16px;
-}
-
-.settings__payment__remove {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 4px 6px;
-    background: #fff;
-    border-radius: 3px;
-    border: 1px solid #ea352d;
-    color: #ea352d;
+.settings__payment{
+  &__list li {
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+    form {
+      position: relative;
+    }
   }
+
+  &__num {
+    margin: 8px 0 0;
+    font-size: 16px;
+  }
+  
+  &__remove {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 4px 6px;
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #ea352d;
+      color: #ea352d;
+      width: 70px;
+      height: 24px;
+      box-sizing: border-box;
+  }
+}
+
   .settings__not__regist a {
     display: block;
     margin: 40px 0 0;
     text-align: right;
     color: #0099e8;
+    span {
+      vertical-align: middle;
+    }
 }
-.settings__not__regist a span {
-  vertical-align: middle;
-}
-.arrow{
-  font-weight: bold;
+
+.card-info {
+  margin: 0px;
+  img{
+    height: 15px;
+    width: 49px;
+  }
 }

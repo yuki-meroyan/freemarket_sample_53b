@@ -1,342 +1,210 @@
 = render partial: 'shared/header'
-.item-show-body
-  %section.item__box__container
-    %h1.item__name ☆コーチ COACH☆2way/ショルダーバッグ/ハンドバッグ/ブラウン
-    .item__main__content.clearfix
-      .item__photo
-        .owl__carousel.owl__loaded.owl__drag
-          .owl__stage__outer
-            .owl__stage
-              .owl__item.active
-                .owl__item__inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m84875395935_1.jpg?1567676033', alt: '☆コーチ COACH☆2way/ショルダーバッグ/ハンドバッグ/ブラウン',  class: 'owl__lazy__first'
+%section.item__box__container
+  %h1.item__name 
+    = @item.name
+  .item__main__content.clearfix
+    .item__photo
+      .owl__carousel.owl__loaded.owl__drag
+        .owl__stage      
+          - @item.item_images.each_with_index do |item, i|
+            - if i == 0
               .owl__item
                 .owl__item__inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m84875395935_2.jpg?1567676033', alt: '☆コーチ COACH☆2way/ショルダーバッグ/ハンドバッグ/ブラウン',  class: 'owl__lazy'
-              .owl__item
-                .owl__item__inner
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m84875395935_3.jpg?1567676033', alt: '☆コーチ COACH☆2way/ショルダーバッグ/ハンドバッグ/ブラウン',  class: 'owl__lazy'
-              .owl__item
-                .owl__item__inner.is__higher__height
-                  = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m84875395935_4.jpg?1567676033', alt: '☆コーチ COACH☆2way/ショルダーバッグ/ハンドバッグ/ブラウン',  class: 'owl__lazy'
-          .owl__dots
-            .owl__dot.active
-              %span
-              .owl__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m84875395935_1.jpg?1567676033'
-            .owl__dot
-              %span
-              .owl__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m84875395935_2.jpg?1567676033'
-            .owl__dot
-              %span
-              .owl__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m84875395935_3.jpg?1567676033'
-            .owl__dot
-              %span
-              .owl__dot__inner
-                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m84875395935_4.jpg?1567676033'
-        .go__number__likes
-          現在、
-          %span> 1人
-          がこの商品にいいね!しています
-      %table.item__detail__table
-        %tbody
-          %tr
-            %th 出品者
-            %td
-              = link_to '☆あき☆（写真はだいすけちゃん♡）', "https://www.mercari.com/jp/u/473412333/" 
-              %div.ratingbox
-                .item__user__ratings
-                  = image_tag"laugh-solid.svg",class: "icon__good face"
-                  %span 29
-                .item__user__ratings
-                  = image_tag"meh-solid.svg",class: "icon__normal face"
-                  %span 0
-                .item__user__ratings
-                  = image_tag"frown-solid.svg",class: "icon__bad face"
-                  %span 0
-          %tr
-            %th カテゴリー
-            %td
-              = link_to 'レディース', "https://www.mercari.com/jp/category/1/" 
-              = link_to  "https://www.mercari.com/jp/category/20/" , class:'item__detail__table__sub__category' do
-                =fa_icon "chevron-right", class: 'icon'
-                バッグ
-              = link_to  "https://www.mercari.com/jp/category/214/" , class:'item__detail__table__sub__sub__category' do
-                =fa_icon "chevron-right", class: 'icon'
-                ショルダーバッグ
-          %tr
-            %th ブランド
-            %td
-              = link_to "コーチ","https://www.mercari.com/jp/brand/539/"
-          %tr
-            %th 商品の状態
-            %td 目立った傷や汚れなし
-          %tr
-            %th 配送料の負担
-            %td 送料込み(出品者負担)
-          %tr
-            %th 配送の方法
-            %td ゆうゆうメルカリ便
-          %tr
-            %th 配送元地域
-            %td
-              = link_to "大阪府","https://www.mercari.com/jp/area/27/"
-          %tr
-            %th 発送日の目安
-            %td 1~2日で発送
-    .item__price__box.text__center
-      %span.item__price__box__price ¥19,400
-      %span.item__price__box__tax (税込)
-      %span.item__price__box__shipping__fee 送料込み
-    = link_to  "購入画面に進む","https://www.mercari.com/jp/transaction/buy/m84875395935/" , class:'item__buy__btn'  
-    .item__description.f14
-      %p.item__description__inner
-        オススメです！コーチのハンドバッグ、ブラウンで統一感を出したコーディネートしやすいバッグです。
-        
-        ～・～・～・～・～・～・～・～・～・～・
-        Amazon 並行輸入 アウトレットで、26,980で販売されている商品です。
-        非常に状態の良い商品ですが、少しでもお得にと思いましてお値段も頑張らせていただきました。
-        ～・～・～・～・～・～・～・～・～・～・
-        
-        【サイズ】
-        縦200mm×横230mm×マチ約93mm
-        
-        【仕様】
-        キレイなレンガ色のブラウンで統一した、シンプルでかわいいハンドバッグです。
-        付属のベルトを使ってショルダーバッグとして使用してもかわいいと思います。
-        内側にファスナー付きポケット、縫い付けポケット有り
-        
-        【状態】
-        ほとんど使用感、色あせがなく美品です。
-        
-        【シリアルナンバー】
-        NO.G1681 F36624
-        
-        \#コーチ #COACH #ハンドバッグ #ショルダーバッグ #ブラウン #茶色 #おしゃれ #シンプル #かわいい #レディース
-        
-        *******  *******  *******  *******
-        
-        入園式、結婚式、卒園式、
-        仕事バッグとして、または説明会など・・・
-        財布、ポーチ、
-        コインケース、カードケース、
-        キーケース、バッグなど
-        メンズ、レディース、男女兼用
-        
-        色々と出品出来ればと考えております。
-        お楽しみに！
-    .item__button__container.clearfix
-      .item__button__container__left
-        %button.item__button.item__button__like{name:  "like!", type: "button"}
-          = fa_icon 'heart-o', class: "icon"
-          %span いいね!
-          %span.fade__in__down 1
-        = link_to  "https://www.mercari.com/jp/safe/description/",class: "item__button item__button__report clearfix"  do
-          =fa_icon "flag-o", class: 'icon'
-          %span 不適切な商品の報告
-      .item__button__container__right
-        = link_to  "https://www.mercari.com/jp/safe/description/"  do
-          =fa_icon "lock", class: 'icon'
-          %span あんしん・あんぜんへの取り組み
-  .item__comments.item__box__container
-    .comment
-      .comment__user
-        = link_to root_path, class: "comment__user__link" do
-          = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
-          %p.comment__user__link__name たろう
-      .comment__box
-        .comment__box__text 安くしてください。
-        .comment__box__icons
-          .comment__box__icons__time
-            =fa_icon 'clock', class: 'icon-time'
-            %span 2時間前
-          .comment__box__icons__flags
-            = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
-              =fa_icon "flag-o", class: 'icon'
-    .comment
-      .comment__user
-        = link_to root_path, class: "comment__user__link" do
-          = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
-          %p.comment__user__link__name たろう
-      .comment__box
-        .comment__box__text 安くしてください。
-        .comment__box__icons
-          .comment__box__icons__time
-            =fa_icon 'clock', class: 'icon-time'
-            %span 2時間前
-          .comment__box__icons__flags
-            = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
-              =fa_icon "flag-o", class: 'icon'
-    .comment__notice
-      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    .comment__write
-      %textarea.textarea-default{name: "comment__write"} 
-      %button.btn-default{type: "submit",class:  "comment__write__submit btn-gray"} コメントする
-  .item__shuffle
-    .item__shuffle__before
+                  = image_tag item.image,class: 'owl__lazy__first'
+            - else
+              .owl__dot
+                %span
+                .owl__dot__inner
+                  = image_tag item.image
+      .go__number__likes
+        現在、
+        %span> 1人
+        がこの商品にいいね!しています
+    %table.item__detail__table
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to  "http://localhost:3000/users/show" do
+              = @item.user.nickname
+            %div.ratingbox
+              .item__user__ratings
+                = image_tag"laugh-solid.svg",class: "icon__good face"
+                %span 29
+              .item__user__ratings
+                = image_tag"meh-solid.svg",class: "icon__normal face"
+                %span 0
+              .item__user__ratings
+                = image_tag"frown-solid.svg",class: "icon__bad face"
+                %span 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to  "https://www.mercari.com/jp/category/1/" do
+              = @item.category.category
+            = link_to  "https://www.mercari.com/jp/category/20/" , class:'item__detail__table__sub__category' do
+              =fa_icon "chevron-right", class: 'icon'
+              = @item.category.category
+            = link_to  "https://www.mercari.com/jp/category/214/" , class:'item__detail__table__sub__sub__category' do
+              =fa_icon "chevron-right", class: 'icon'
+              = @item.category.category
+        %tr
+          %th ブランド
+          %td
+            = link_to "https://www.mercari.com/jp/brand/539/" do
+              = @item.brand.name
+        %tr
+          %th 商品の状態
+          %td 目立った傷や汚れなし
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td ゆうゆうメルカリ便
+        %tr
+          %th 配送元地域
+          %td
+            = link_to "https://www.mercari.com/jp/area/27/" do
+              = @item.region
+
+        %tr
+          %th 発送日の目安
+          %td 
+            = @item.delivery_days
+  .item__price__box.text__center
+    %span.item__price__box__price 
+      ¥
+      = @item.price
+    %span.item__price__box__tax (税込)
+    %span.item__price__box__shipping__fee 送料込み
+  = link_to  "購入画面に進む","http://localhost:3000/pending/itembuy" , class:'item__buy__btn'  
+  .item__description.f14
+    %p.item__description__inner
+      = @item.description
+  .item__button__container.clearfix
+    .item__button__container__left
+      %button.item__button.item__button__like{name:  "like!", type: "button"}
+        = fa_icon 'heart-o', class: "icon"
+        %span いいね!
+        %span.fade__in__down 1
+      = link_to  "https://www.mercari.com/jp/safe/description/",class: "item__button item__button__report clearfix"  do
+        =fa_icon "flag-o", class: 'icon'
+        %span 不適切な商品の報告
+    .item__button__container__right
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        =fa_icon"chevron-left",class:'icon'
-        %span adidasのかばん
-    .item__shuffle__after
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        %span nikeのかばん
-        =fa_icon"chevron-right",class:'icon'
-  .item__sns
-    %ul
-      %li
-        = link_to  "https://www.mercari.com/jp/safe/description/"  do
-          =fa_icon"facebook-square",class:'item__sns__facebook-icon'
-      %li
-        = link_to  "https://www.mercari.com/jp/safe/description/"  do
-          =fa_icon"twitter",class:'item__sns__twitter-icon'
-      %li
-        = link_to  "https://www.mercari.com/jp/safe/description/"  do
-          =fa_icon"pinterest",class:'item__sns__pinterest-icon'
-  .item__buyer-collection-title
+        =fa_icon "lock", class: 'icon'
+        %span あんしん・あんぜんへの取り組み
+.item__comments.item__box__container
+  .comment
+    .comment__user
+      = link_to "http://localhost:3000/users/show", class: "comment__user__link" do
+        = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
+        %p.comment__user__link__name たろう
+    .comment__box
+      .comment__box__text 安くしてください。
+      .comment__box__icons
+        .comment__box__icons__time
+          =fa_icon 'clock', class: 'icon-time'
+          %span 2時間前
+        .comment__box__icons__flags
+          = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+            =fa_icon "flag-o", class: 'icon'
+  .comment
+    .comment__user
+      = link_to "http://localhost:3000/users/show", class: "comment__user__link" do
+        = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
+        %p.comment__user__link__name たろう
+    .comment__box
+      .comment__box__text 安くしてください。
+      .comment__box__icons
+        .comment__box__icons__time
+          =fa_icon 'clock', class: 'icon-time'
+          %span 2時間前
+        .comment__box__icons__flags
+          = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+            =fa_icon "flag-o", class: 'icon'
+  .comment__notice
+    相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+  .comment__write
+    %textarea.textarea-default{name: "comment__write"} 
+    %button.btn-default{type: "submit",class:  "comment__write__submit btn-gray"} コメントする
+.item__shuffle
+  .item__shuffle__before
     = link_to  "https://www.mercari.com/jp/safe/description/"  do
-      %h2 NI3030さんのその他の出品
-  .item__buyer-collection
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-  .item__buyer-collection-title
+      =fa_icon"chevron-left",class:'icon'
+      %span adidasのかばん
+  .item__shuffle__after
     = link_to  "https://www.mercari.com/jp/safe/description/"  do
-      %h2 COACHのバッグ　その他の商品
-  .item__brand-collection
-    .item-show__item-box
+      %span nikeのかばん
+      =fa_icon"chevron-right",class:'icon'
+.item__sns
+  %ul
+    %li
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
+        =fa_icon"facebook-square",class:'item__sns__facebook-icon'
+    %li
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
+        =fa_icon"twitter",class:'item__sns__twitter-icon'
+    %li
       = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-          
-    .item-show__item-box
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
-        = image_tag 'items__show__under__item-sample.jpg', alt: 'item-image', class: 'recommnd-item__image'
-        .item-show__item-box-text
-          %span.item-show__item-box__title adidas ジャージ
-          .item-box-text__fee-box
-            %span.item-box-text__fee-box__fee ¥50
-            .item-box-text__fee-box__right
-              = fa_icon 'heart-o', class: "icon"
-              %span  1
-  = render partial: 'shared/footer'
-          
-
-
-
-    
-
+        =fa_icon"pinterest",class:'item__sns__pinterest-icon'
+.item__buyer-collection-title
+  = link_to  "https://www.mercari.com/jp/safe/description/"  do
+    %h2 
+      = @item.user.nickname
+      さんのその他の出品
+.item__buyer-collection 
+  - @user_items.each_with_index do |item, i|
+    - if item.id  == @item.id
+    - else
+      .item-show__item-box
+        = link_to  "http://localhost:3000/items/#{item.id}"  do
+          - item.item_images.each_with_index do |item_image, n|
+            - if n == 0
+              = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
+            - else
+              - break
+          .item-show__item-box-text
+            %span.item-show__item-box__title 
+              = item.name
+            .item-box-text__fee-box
+              %span.item-box-text__fee-box__fee
+                ¥
+                = item.price
+              .item-box-text__fee-box__right
+                = fa_icon 'heart-o', class: "icon"
+                %span  1
+      - if i == 6
+        - break
+        
+.item__buyer-collection-title
+  = link_to  "https://www.mercari.com/jp/safe/description/"  do
+    %h2
+      = @item.brand.name
+      その他の商品
+.item__brand-collection
+  - @brand_items.each_with_index do |item, i|
+    - if item.id  == @item.id
+    - else
+      .item-show__item-box
+        = link_to  "http://localhost:3000/items/#{item.id}"  do
+          - item.item_images.each_with_index do |item_image, n|
+            - if n == 0
+              = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
+            - else
+              - break
+          .item-show__item-box-text
+            %span.item-show__item-box__title 
+              = item.name
+            .item-box-text__fee-box
+              %span.item-box-text__fee-box__fee
+                ¥
+                = item.price
+              .item-box-text__fee-box__right
+                = fa_icon 'heart-o', class: "icon"
+                %span  1
+      - if i == 6
+        - break
+        
+= render partial: 'shared/footer'

@@ -1,4 +1,5 @@
 
+
 .card-new, ::before, ::after {
   border-style: solid;
   border-width: 0;
@@ -60,14 +61,16 @@
     font-size: 16px;
   }
 
+  &__input {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+
   &__form{
   
     &__group{
+      box-sizing: border-box;
       margin: 40px 0 0;
-
-      .icon__arrow-bottom {
-        position: absolute;
-      }
 
       .select__wrap {
         margin: 8px 0 0;
@@ -75,11 +78,6 @@
 
       select {
         width: 100%;
-      }
-
-      .card-new__input {
-        width: 100%;
-        margin: 8px 0 0;
       }
     }
     &__group label {
@@ -120,11 +118,10 @@
           width: calc(100% - 38px);
         }
   
-        .card-new__select__wrap .icon__arrow-bottom {
-          font-size: 10px;
-          margin: 0 6px 0 -15px;
+        .icon__arrow-bottom {
+          font-size: 18px;
+          margin: 0 20px 0 -35px;
           position: relative;
-          top: 3px;
           pointer-events: none;
         }
       }
@@ -183,6 +180,16 @@
     }
   }
 
+  &__single-content {
+    max-width: 343px;
+    margin: 0 auto;
+
+    p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+  }
+  
   &__single-inner{
     padding: 40px 40px 64px;
     border-top: 1px solid #f5f5f5;
@@ -195,24 +202,9 @@
     .card-new__form__group:not(:first-of-type) {
       margin-top: 32px;
     }
-
-    .card-new__single-content {
-      max-width: 343px;
-    }
-  }
-
-  &__single-content{
-    max-width: 320px;
-    margin: 0 auto;
-  
-    p {
-      margin: 8px 0 0;
-      line-height: 1.5;
-    }
   }
 
   &__select{
-    position: relative;
     z-index: 2;
     height: 48px;
     padding: 0 16px;
@@ -223,20 +215,7 @@
     line-height: 1.5;
     cursor: pointer;
     -webkit-appearance: none;
-
-    &__wrap{
-      position: relative;
-      background: #fff;
-
-      .icon__arrow-bottom {
-        position: absolute;
-        right: 16px;
-        z-index: 2;
-        color: #888;
-        font-size: 8px;
-        transform: translate(0, -50%);
-      }
-    }
+    margin: 8px 0 0;
   }
 
   &__error-text{

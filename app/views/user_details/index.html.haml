@@ -1,3 +1,4 @@
+= render partial: 'shared/header'
 .identification-content
   .identification-box
     .identification-main
@@ -68,4 +69,5 @@
           =link_to "https://www.mercari.com/jp/help_center/article/423/", class: 'about-registration__text' do
             本人情報の登録について
             =fa_icon "chevron-right", class: 'icon'
-    .todo-list
+    = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

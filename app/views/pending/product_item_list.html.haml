@@ -1,145 +1,145 @@
 = render partial: 'shared/mercari-header'
 %main.single__header
   %section.l-single-container.buy-item-container
-    %div#sell__container
-      %div.sell__container__inner
+    .sell__container
+      .sell__container__inner
         %h2.l-single-head 商品の情報を入力
         %form.sell__form
-          %div.sell__upload__box
+          .sell__upload__box
             %h3.sell__upload__head
               出品画像
               %span.form__require 必須
             %p 最大10枚までアップロードできます
-            %div.sell__dropbox__container.clearfix.state-image-number-10
-              %div.sell__upload__drop__box.have__item-0
+            .sell__dropbox__container.clearfix.state-image-number-10
+              .sell__upload__drop__box.have__item-0
                 %input.sell__upload__drop__file{type: "file"}
                 %pre.visible__pc 
                   ドラッグアンドドロップ
                   またはクリックしてファイルをアップロード
-          %div.sell__content
-            %div.form__group
+          .sell__content
+            .form__group
               %label 
                 商品名
                 %span.form__require 必須
               %div
                 %input.input__default{placeholder: "商品名(必須40文字まで)", type: "text"}
-            %div.form__group
+            .form__group
               %label
                 商品の説明
                 %span.form__require 必須
               %textarea.textarea__default{placeholder: "商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"}
-          %div.sell__content.clearfix
+          .sell__content.clearfix
             %h3.sell__sub__head 商品の詳細
-            %div.sell__form__box
-              %div.form__group
+            .sell__form__box
+              .form__group
                 %label 
                   カテゴリー
                   %span.form__require 必須
                 %div
-                  %div.select__wrap
+                  .select__wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     %select.select__default
                       %option ---
                       %option レディース
                       %option メンズ
-                  %div.select__wrap
+                  .select__wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     %select.select__default
                       %option ---
                       %option トップス
                       %option ジャケット/アウター
-                  %div.select__wrap
+                  .select__wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     %select.select__default
                       %option ---
                       %option パーカー
                       %option ニット/セーター
-              %div.form__group
+              .form__group
                 %label 
                   サイズ
                   %span.form__require 必須
                 %div
-                  %div.select__wrap
+                  .select__wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     %select.select__default
                       %option ---
                       %option M
                       %option L
-              %div.form__group.form__suggest__container
+              .form__group.form__suggest__container
                 %label 
                   ブランド
                   %span.form__arbitrary 任意
                 %div
                   %input.input__default{placeholder: "例) シャネル", type: "text"}
-              %div.form__group
+              .form__group
                 %label 
                   商品の状態
                   %span.form__require 必須
                 %div
-                  %div.select__wrap
+                  .select__wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     %select.select__default
                       %option ---
                       %option 新品/未使用に近い
                       %option 全体的に状態が悪い
-          %div.sell__content.clearfix
+          .sell__content.clearfix
             %h3.sell__sub__head 配送について
-            %div.sell__form__box
-              %div.form__group
+            .sell__form__box
+              .form__group
                 %label 
                   配送料の負担
                   %span.form__require 必須
                 %div
-                  %div.select__wrap
+                  .select__wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     %select.select__default
                       %option ---
                       %option 送料込み(出品者負担)
                       %option 着払い(購入者負担)
-              %div.form__group
+              .form__group
                 %label 
                   発送元の地域
                   %span.form__require 必須
                 %div
-                  %div.select__wrap
+                  .select__wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     %select.select__default
                       %option ---
                       %option タイ(バンコク)
                       %option ダナン
-              %div.form__group
+              .form__group
                 %label 
                   発送までの日数
                   %span.form__require 必須
                 %div
-                  %div.select__wrap
+                  .select__wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     %select.select__default
                       %option ---
                       %option 1~2日で発送
                       %option 3~4日で発送
-          %div.sell__content.clearfix
+          .sell__content.clearfix
             %h3.sell__sub__head 販売価格(300~9,999,999)
-            %div.sell__form__box
+            .sell__form__box
               %ul.sell__price
                 %li.form__group
-                  %div.clearfix
+                  .clearfix
                     %label.l__left
                       価格
                       %span.form__require 必須
-                    %div.l__right.sell__price__input
+                    .l__right.sell__price__input
                       ¥
                       %div
                         %input.input__default{placeholder: "例)  500"}
                 %li.clearfix
-                  %div.l__left
+                  .l__left
                     販売手数料(10%)
-                  %div.l__right
+                  .l__right
                     ー
                 %li.cleatfix
-                  %div.l__left 販売利益
-                  %div.l__right ー
-          %div.sell__content.sell__btn__box
+                  .l__left 販売利益
+                  .l__right ー
+          .sell__content.sell__btn__box
             %div
               %p
                 = link_to "禁止されている商品", "#"

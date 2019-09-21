@@ -1,37 +1,29 @@
-.identification-content{
+.member-complate-content{
   background-color: rgb(245, 245, 245);
-  height: 2000px;
-  padding: 0;
-  .identification-box{
-    height: 2000px;
-    width:  1020px;
-    margin: 0 auto ;
+  height: 500px;
+  .complate-box{
+    height: 1000px;
+    width:  700px;
+    margin: 0 auto;
   }
 }
 
-.clearfix:after{
-  content: "";
-  clear: both;
-  display: block;
-}
-
-.identification-main{
-  float: right;
+.complate-main{
   width: 700px;
   height: 1200px;
   background-color: white;
+  display: block;
 }
 
-.identification-main__title {
+.complate-main__title {
   text-align: center;
-  font-weight: 600;
-  width: 100%;
-  height: 40;
-  font-size: 24px;
-  padding: 8px 24px;
+  padding: 10px 64px;
+  height: 40px;
+  position: relative;
+  top: 10px;
 }
 
-.identification-list{
+.complate-list{
   padding: 64px;
   border-top : solid 2px  rgb(245, 245, 245); 
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -39,14 +31,15 @@
   color: rgb(51, 51, 51);
   line-height: 1.5;
   font-weight: 500px;
+  text-align: center;
 }
 
-.identification-form{
+.start-form{
   height: 100%;
 }
 
 
-.register-button{
+.start-button{
   background-color: red;
   color: white;
   height: 50px;
@@ -57,13 +50,4 @@
   cursor: pointer;
   line-height: 50px;
   border: none;
-}
-
-
-.todo-list{
-  float: left;
-  width: 280px;
-  margin: 0 40px 0 0;
-  height: 700px;
-  background-color: white;
 }

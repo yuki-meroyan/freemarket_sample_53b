@@ -1,17 +1,15 @@
-.identification-content
-  .identification-box
-    .identification-main
-      %h2.identification-main__title
+.member-complate-content
+  .complate-box
+    .complate-main
+      %h2.complate-main__title
         会員登録完了
-      .identification-list
-        .identification-list__notes
+      .complate-list
+        .complate-list__notes
           ありがとうございます。
           %br/
           会員登録が完了しました。
-          
 
-        = form_with( id:"identification", class:"identification-form" ) do |f| 
-
-          = f.submit :xxx, value: "メルカリをはじめる", class: 'register-button'
+        = form_with( id:"start", class:"start-form" ) do |f| 
+          = f.submit :xxx, value: "メルカリをはじめる", class: 'start-button'
 
 = render partial: 'shared/footer'

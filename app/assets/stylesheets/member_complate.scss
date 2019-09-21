@@ -20,16 +20,6 @@
   width: 700px;
   height: 1200px;
   background-color: white;
-  &__about-uplord{
-    margin: 8px 0 0 0;
-    text-align: right;
-    width: 565px;
-    height: 21;
-  }
-  &__about-uplord-text{
-    color: #589ef3;
-    text-decoration: none;
-  }
 }
 
 .identification-main__title {
@@ -45,54 +35,14 @@
   padding: 64px;
   border-top : solid 2px  rgb(245, 245, 245); 
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: rgb(51, 51, 51);
   line-height: 1.5;
+  font-weight: 500px;
 }
 
 .identification-form{
   height: 100%;
-}
-
-.identification-index{
-  margin: 42px 0 0 0;
-  &__content{
-  font-weight: 600;
-  }
-}
-
-.any{
-  background-color: #C0C0C0;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  vertical-align: top;
-}
-
-.identification-index__content--text{
-  width: 100%;
-  height: 50px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-  display: block;
-  margin: 0;
-}
-
-.select-prefectures{
-  margin: 8px 0 0;
-  position: relative;
-  width: 100%;
-  .select-icon{
-    position: absolute;
-    right: 16px;
-    top: 40%;
-  }
 }
 
 
@@ -109,17 +59,6 @@
   border: none;
 }
 
-
-.about-registration{
-  text-align: right;
-  width: 565px;
-  height: 21;
-  margin: 50px 0 0 0;
-  &__text{
-  color: #589ef3;
-  text-decoration: none;
-  }
-}
 
 .todo-list{
   float: left;

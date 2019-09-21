@@ -1,0 +1,17 @@
+.identification-content
+  .identification-box
+    .identification-main
+      %h2.identification-main__title
+        会員登録完了
+      .identification-list
+        .identification-list__notes
+          ありがとうございます。
+          %br/
+          会員登録が完了しました。
+          
+
+        = form_with( id:"identification", class:"identification-form" ) do |f| 
+
+          = f.submit :xxx, value: "メルカリをはじめる", class: 'register-button'
+
+= render partial: 'shared/footer'

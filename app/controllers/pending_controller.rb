@@ -11,4 +11,7 @@ class PendingController < ApplicationController
 
   def edit
   end
+
+  def member_complate
+  end
 end

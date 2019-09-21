@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get 'pending/edit' => 'pending#edit',as: 'pending/edit'
   get 'pending/logout' => 'pending#logout',as: 'pending/logout'
   get 'pending/index' => 'pending#index',as: 'pending/index'
+  get 'pending/product_item_list' => 'pending#product_item_list',as: 'pending/product_item_list'
 
 end

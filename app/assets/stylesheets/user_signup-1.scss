@@ -1,0 +1,287 @@
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+.single-container {
+  width: 100%;
+  // height: 1728px;
+  color: #333;
+  font-size: 14px;
+  // padding: 0px 0px 220px;
+}
+
+/* ここからヘッダー部分 */
+
+.single-header {
+  height: 128px;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  width: 185px;
+  height: 49px;
+  padding-top: 40px;
+}
+
+.signup-bar.progress-bar {
+  width: 508px;
+  padding: 40px 0px 0px 44px;
+}
+
+.progress-bar li {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 40px;
+  margin: 0 5% 0 0;
+  font-size: 12px;
+  color: #888;
+
+  text-align: center;
+}
+
+.progress-status {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  background: #ccc;
+  border-radius: 50%;
+}
+
+.progress-status:before, .progress-status:after {
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #ccc;
+}
+
+.progress-status:before {
+  right: 50%;
+}
+
+.progress-status:after {
+  left: 50%;
+}
+
+.first-progress-status:before, .last-progress-status:after {
+  display: none;
+}
+
+.progress-bar li.active {
+  font-weight: 600;
+  color: #ea352d;
+}
+
+.progress-bar li.active .progress-status {
+  background: #ea352d;
+}
+
+/* ここまでヘッダー部分 */
+
+/* ここからメイン部分 */
+
+.single-main {
+  // width: 1440px;
+  // height: 1380px;
+  color: #333;
+  font-size: 14px;
+}
+
+.l-single-head.registration {
+  width:700px;
+  height: 97px;
+  color: #333;
+  font-size: 22px;
+  padding: 32px;
+
+  background-color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+.l-single-inner.registration-form {
+  width: 700px;
+  // height:1283px;
+  color: #333;
+  font-size: 14px;
+  padding: 24px 16px 40px;
+
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+
+.l-single-content {
+  width: 343px;
+  color: #333;
+  font-size: 14px;
+
+  margin: 0 auto;
+}
+
+.form-group {
+  width: 343px;
+  height: 70px;
+  color: #333;
+  font-size: 14px;
+  margin: 24px 0px 0px;
+}
+
+.form-box{
+  display: flex;
+ }
+
+.form-group:first-child {
+  margin: 0;
+}
+
+label {
+  height: 14px;
+  color: #333;
+  font-size: 14px;
+
+  font-weight: 600;
+  display: inline-block;
+}
+
+.form-require {
+  width: 32px;
+  height: 19px;
+  color: #fff;
+  font-size: 12px;
+  background-color: #ea352d;
+  margin: 0 0 0 8px;
+
+  padding: 2px 4px;
+  border-radius: 2px;
+  vertical-align: top;
+}
+
+.input-default {
+  width: 100%;
+  height: 48px;
+  background-color: #fff;
+  margin: 8px 0px 0px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.text-left.l-chapter-sub-head {
+  width: 343px;
+  height: 16px;
+  color: #333;
+  font-size: 16px;
+
+  font-weight: bold;
+}
+
+.l-single-text.text-center {
+  width: 343px;
+  height: 63px;
+  color: #333;
+  font-size: 14px;
+  margin: 8px 0px 0px;
+
+  a {
+    height: 18px;
+    color: #0099e8;
+    font-size: 14px;
+  }
+}
+
+.input-default.half {
+  width: calc(50% - 6px);
+  height: 48px;
+  background-color: #fff;
+  margin: 8px 8px 0px 0px;
+  padding: 10px 16px 8px;
+
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  float: left;
+}
+
+.birthday-select-wrap {
+  width: 343px;
+  height: 56px;
+  color: #333;
+  font-size: 14px;
+
+  display: flex;
+
+  span {
+    width: 14px;
+    height: 18px;
+    color: #333;
+    font-size: 14px;
+    margin: 0px 2px;
+    line-height: 56px;
+  }
+}
+
+.select-default {
+  width: 76px;
+  height: 48px;
+  padding: 0px 10px;
+
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  margin-top: 8px;
+}
+
+.form-info-text {
+  width: 343px;
+  height: 42px;
+  color: #888;
+  font-size: 14px;
+  margin: 8px 0px 0px;
+}
+
+.l-single-text.text-center {
+  width: 343px;
+  height: 42px;
+  color: #333;
+  font-size: 14px;
+}
+
+.btn-default.btn-red {
+  width: 343px;
+  height: 50px;
+  color: #fff;
+  font-size: 14px;
+  background-color: #ea352d;
+  margin: 24px 0px 0px;
+}
+
+.form-group.text-right {
+  text-align: right;
+  a {
+    height: 18px;
+    color: #0099e8;
+    font-size: 14px;
+  }
+  .icon-arrow-right {
+    width: 8.59px;
+    height: 14px;
+  }
+}
+
+/* ここまでメイン部分 */

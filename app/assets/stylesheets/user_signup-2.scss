@@ -1,0 +1,33 @@
+// /* ここからヘッダー部分 */
+
+.progress-bar li.first-active .progress-status {
+  background: #ea352d;
+}
+
+.progress-status.first-progress-status:after, .progress-status.second-progress-status:before {
+  background: #ea352d;
+}
+
+/* ここまでヘッダー部分 */
+
+/* ここからメイン部分 */
+
+.l-chapter-head.registration {
+  width:700px;
+  height: 97px;
+  color: #333;
+  font-size: 22px;
+  padding: 32px;
+
+  background-color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+.l-single-content p {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+/* ここまでメイン部分 */

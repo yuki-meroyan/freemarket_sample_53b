@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %meta{charset: "UTF-8"}/
+    %title マイページ - メルカリ スマホでかんたん フリマアプリ
+  %body
+    .single-container
+      / ここからヘッダー部分
+      = render partial: 'shared/user-add-header-2'
+      / ここまでヘッダー部分
+
+      / ここからメイン部分
+      %main.single-main
+        %section.l-single-container
+          %h2.l-chapter-head.registration 電話番号の確認
+          %form.l-single-inner.registration-form{action: "https://www.mercari.com/jp/signup/sms_confirmation/sms/", method: "POST", novalidate: "novalidate"}
+            %input{name: "after_save_callback", type: "hidden", value: ""}/
+            .l-single-content
+              .form-group
+                %label{for: "phone_number"} 携帯電話の番号
+                %input.input-default{name: "phone_number", placeholder: "携帯電話の番号を入力", type: "tel", value: ""}/
+
+              %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+              %button.btn-default.btn-red{type: "submit"} SMSを送信する
+              %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに後悔されることはありません。
+
+              .form-group.text-right
+                %p
+                  %a{href: "/jp/help_center/article/244/", target: "_blank"}
+                    電話番号の認証が必要な理由
+                    %i.icon-arrow-right
+
+      / ここからフッター部分
+      = render partial: 'shared/terms-footer'
+      / ここまでフッター部分

@@ -12,6 +12,4 @@ class PendingController < ApplicationController
   def edit
   end
 
-  def product_item_list
-  end
 end

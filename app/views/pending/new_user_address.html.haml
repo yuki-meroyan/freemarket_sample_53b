@@ -25,10 +25,13 @@
           = f.text_field :xxx, id: "user-address__postal-code", class: "user-address__form__text-field", placeholder: "例）123-4567"
 
         .user-address__form__box
-          = f.label :xxx do
-            %span.user-address__form__text 都道府県
-            %span.user-address__form__require 必須
-          = f.text_field :xxx, id: "user-address__prefectures", class: "user-address__form__text-field", placeholder: "例）大阪府"
+          = f.fields_for :user_details do |d|
+            = f.label :xxx do
+              %span.user-address__form__text 都道府県
+              %span.user-address__form__require 必須
+            .user-address__form__select-wrap
+              = fa_icon 'chevron-down', class:"user-address__form__icon__arrow-bottom"
+              = d.collection_select :prefecture, Prefecture.all, :id, :name, {}, class: 'user-address__form__select'
 
         .user-address__form__box
           = f.label :xxx do

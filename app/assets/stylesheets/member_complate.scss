@@ -13,15 +13,16 @@
   height: 400px;
   background-color: white;
   display: block;
+  &__title {
+    text-align: center;
+    padding: 10px 64px;
+    height: 40px;
+    position: relative;
+    top: 10px;
+  }
 }
 
-.complate-main__title {
-  text-align: center;
-  padding: 10px 64px;
-  height: 40px;
-  position: relative;
-  top: 10px;
-}
+
 
 .complate-list{
   padding: 64px;

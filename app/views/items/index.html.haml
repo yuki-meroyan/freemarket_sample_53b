@@ -25,7 +25,7 @@
       .new-arrival-item
         - @ladys_items.each_with_index do |item, i|
           .new-arrival-item__box
-            = link_to  "http://localhost:3000/items/#{item.id}"  do
+            = link_to  "/items/#{item.id}"  do
               - item.item_images.each_with_index do |item_image, n|
                 - if n == 0
                   = image_tag item_image.image, alt: 'item-image', class: 'new-arrival-item__box--image'

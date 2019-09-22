@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
     @ladys_items = Item.where(category_id: 1)
   end
 
+  def new
+  end
+
   def show
     @item = Item.find(params[:id])
     @user_items = Item.where(user_id: "#{@item.user.id}")

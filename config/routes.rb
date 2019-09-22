@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
   resources :user_details
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show, :new]
   resources :users
   resources :cards, only: [:index, :new, :show]
 

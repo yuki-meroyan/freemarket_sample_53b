@@ -29,6 +29,7 @@
     }
 
     &__content{
+      box-sizing: border-box;
       margin: 0 auto;
       max-width: 343px;
     }
@@ -65,6 +66,34 @@
       margin-top: 8px;
       padding: 10px 16px 8px;
       width: 100%;
+    }
+
+    &__select-wrap{
+      margin: 8px 0 0;
+      position: relative;
+      background: #fff;
+      
+    }
+
+    &__icon__arrow-bottom{
+      position: absolute;
+      right: 16px;
+      top: 35%;
+      z-index: 2;
+      color: #888;
+      font-size: 16px;
+      
+    }
+
+    &__select{
+      color: #888;
+      height: 48px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      padding: 0 16px;
+      width: 100%;
+      -webkit-appearance: none;
     }
 
     &__button{

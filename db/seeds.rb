@@ -23,7 +23,35 @@ User.create!(
     }
   ]
 )
+Brand.create!(
+  [
+    {
+      name: 'adidas',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+    {
+      name: 'nike',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+  ]
+)
 
+Category.create!(
+  [
+    {
+      category:'レディース',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+    {
+      category:'メンズ',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+  ]
+)
 
 Item.create!(
   [
@@ -82,7 +110,6 @@ Item.create!(
       delivery_days:'2~3日で発送',
       shipping_method:'らくらくメルカリ便',
       brand_id:'1',
-      user_id:'1',
       user_id:'1',
       category_id:'1',
       created_at: '2019-09-20 00:00:00',
@@ -256,35 +283,7 @@ Item.create!(
   ]
 )
 
-Brand.create!(
-  [
-    {
-      name: 'adidas',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'nike',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-  ]
-)
 
-Category.create!(
-  [
-    {
-      category:'レディース',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      category:'メンズ',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-  ]
-)
 ItemImage.create!(
   [
     {

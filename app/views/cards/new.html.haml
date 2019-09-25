@@ -1,4 +1,4 @@
-
+= render partial: 'shared/header'
 %main.card-new__container.clearfix
   .card-new__content
     %section.card-new__chapter__container
@@ -7,7 +7,7 @@
         %input{name: "__csrf_value", type: "hidden", value: "f6b1e5e19fe18ee905ff8bdf0f0e846fb1b6a0ae5a8f8bdb4aab0184b249bed9d0ddb22a0367b42ab8ed3f01572915ecdee0301d4e4c2fdb4820ab310bb33d556"}
         .card-new__single-content
           .card-new__form__group
-            -# ★★★　xxxは仮置きでモデルのカラム名を実装時に変更予定（他箇所も同様）★★★
+            -# ★★★ xxxは仮置きでモデルのカラム名を実装時に変更予定（他箇所も同様）★★★
             = f.label :xxx do
               カード番号
             %span.card-new__form__require 必須
@@ -85,4 +85,5 @@
           %p#card-new__primary-error.card-new__error-text
           = f.text_field :xxx, name: "after_save_callback", type: "hidden", value: ""
           = f.submit :xxx, value: "追加する", id: "card-new__submit-button", class: "card-new__btn card-new__btn--red"
-            
+  = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

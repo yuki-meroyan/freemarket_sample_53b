@@ -1,0 +1,24 @@
+
+= render "shared/header"
+
+.card-add.clearfix
+  %section.card-add__content
+    .card-add__header
+      %h2.card-add__header--text 支払い方法
+      .card-add__middle
+        %section.card-add__middle__content
+          .card-add__middle__box
+            %h3.card-add__middle__box--text クレジットカード一覧
+          %ul.card-add__settings__list
+        %section.card-add__settings
+          .card-add__middle__box
+            =link_to "https://www.mercari.com/jp/mypage/card/create/", class: "btn-default btn-red submit_button" do
+              = fa_icon 'credit-card 1x', class: "icon-credit"
+              %span.card-add__settings--text クレジットカードを追加する
+        .card-add__settings__regist
+          =link_to "/jp/help_center/category/6/", class: "", :target => "_blank" do
+            %span.card-add__settings__regist--text 支払い方法について
+            = fa_icon 'chevron-right', class: "card-add__icon__arrow-right"
+
+  = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

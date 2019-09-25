@@ -13,12 +13,8 @@ body {
   padding: 24px 40px 40px;
   background: #fff;
   margin: 40px auto 0;
-}
-
-.l__single__container {
   width: 700px;
-  margin: 0 auto;
-  background: #fff;
+  box-sizing: border-box;
 }
 
 .item__name {
@@ -54,13 +50,8 @@ body {
 
   .owl__stage{
     left: 0px; 
-    width: 1200px;
   }
 
-  .owl__stage__outer {
-    position: relative;
-    overflow: hidden;
-  }
   .owl__item__inner {
     position: relative;
     width: 100%;
@@ -72,15 +63,6 @@ body {
     width: 300px;
   }
   
-  .owl__lazy {
-    opacity: 0;
-    -webkit-transition: opacity 400ms ease;
-    transition: opacity 400ms ease;
-    &__first{
-      opacity: 1;
-    }
-  }
-
 
   .owl-nav {
     display: none;
@@ -98,27 +80,15 @@ body {
   }
 }
 
-.owl__dots {
-  line-height: 0;
-}
-
 .owl__dot {
   width: 60px;
   height: 60px;
   max-height: none;
-  position: relative;
   overflow: hidden;
   display: inline-block;
   opacity: .4;
   cursor: pointer;
-    &__inner {
-      position: static;
-      width: auto;
-      height: auto;
-      padding: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+  margin-top: 225px;
 }
 
 //////////////itemいいね数//////////////////

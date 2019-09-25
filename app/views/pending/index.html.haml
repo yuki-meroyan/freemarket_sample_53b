@@ -1,9 +1,9 @@
 
 .view-index
-  = link_to "トップページ","/items",{class: "tekitou"}
+  = link_to "トップページ",root_path,{class: "tekitou"}
   %br
   %br
-  = link_to "ユーザーマイページ","/users/show",{class: "tekitou"}
+  = link_to "ユーザーマイページ",user_path(1),{class: "tekitou"}
   %br
   %br
   = link_to "ユーザープロフィール編集ページ","/pending/edit",{class: "tekitou"}
@@ -12,22 +12,22 @@
   = link_to "購入確認","/pending/itembuy",{class: "tekitou"}
   %br
   %br
-  = link_to "新規登録","/users/sign_up",{class: "tekitou"}
+  = link_to "新規登録",new_user_registration_path,{class: "tekitou"}
   %br
   %br
-  = link_to "ログイン","/users/sign_in",{class: "tekitou"}
+  = link_to "ログイン",user_session_path,{class: "tekitou"}
   %br
   %br
   = link_to "ユーザーログアウト","/pending/logout",{class: "tekitou"}
   %br
   %br
-  = link_to "商品詳細","/items/1",{class: "tekitou"}
+  = link_to "商品詳細",item_path(1),{class: "tekitou"}
   %br
   %br
-  = link_to "ユーザー本人確認（未実装）","/items/show",{class: "tekitou"}
+  = link_to "ユーザー本人確認（未実装）",item_path(1),{class: "tekitou"}
   %br
   %br
-  = link_to "商品出品（未実装）","/items/show",{class: "tekitou"}
+  = link_to "商品出品（未実装）",item_path(1),{class: "tekitou"}
   %br
   %br
   = link_to "カード追加", cards_path, class: "tekitou"

@@ -25,7 +25,7 @@
         %tr
           %th 出品者
           %td
-            = link_to  "/users/show" do
+            = link_to  user_path do
               = @item.user.nickname
             %div.ratingbox
               .item__user__ratings
@@ -98,7 +98,7 @@
 .item__comments.item__box__container
   .comment
     .comment__user
-      = link_to "/users/show", class: "comment__user__link" do
+      = link_to user_path, class: "comment__user__link" do
         = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
         %p.comment__user__link__name たろう
     .comment__box
@@ -112,7 +112,7 @@
             =fa_icon "flag-o", class: 'icon'
   .comment
     .comment__user
-      = link_to "/users/show", class: "comment__user__link" do
+      = link_to user_path, class: "comment__user__link" do
         = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
         %p.comment__user__link__name たろう
     .comment__box
@@ -159,7 +159,7 @@
     - if item.id  == @item.id
     - else
       .item-show__item-box
-        = link_to  "/items/#{item.id}"  do
+        = link_to  item_path(item)  do
           - item.item_images.each_with_index do |item_image, n|
             - if n == 0
               = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
@@ -188,7 +188,7 @@
     - if item.id  == @item.id
     - else
       .item-show__item-box
-        = link_to  "/items/#{item.id}"  do
+        = link_to  item_path(item)  do
           - item.item_images.each_with_index do |item_image, n|
             - if n == 0
               = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'

@@ -8,7 +8,7 @@
     %main.single-main
       %section.l-single__container
         %h2.l-single-head.registration 会員情報入力
-        =form_with(id: "member_information_input", class: "l-single-inner registration-form", action: "https://www.mercari.com/jp/signup/sms_confirmation/", method: "POST", novalidate: "novalidate") do |f|
+        = form_with(id: "member_information_input", class: "l-single-inner registration-form", action: "https://www.mercari.com/jp/signup/sms_confirmation/", method: "POST", novalidate: "novalidate") do |f|
           %input{name: "__csrf_value", type: "hidden", value: "2a777587e7a3649890bc2e277bf2ea6cf7d7c4a5837608bed07925cd11efe989429096ecd829e60d3bc96331f70afdfa301b450aa0e9e30d8f57c7f1e1ad2ab01"}/
           .l-single__content
             .form__group
@@ -84,16 +84,17 @@
             .form__group
               %p.l-single-text.text-center
                 「次へ進む」のボタンを押すことにより、
-                %a{href: "/jp/tos_list/", target: "_blank"}> 利用規約
+                = link_to "/jp/tos_list/", target: "_blank" do
+                  利用規約
                 に同意したものとみなします
 
-            %button.btn-default.btn-red{type: "submit"} 次へ進む
+            = f.submit :xxx, class: "btn-default btn-red", value: "次へ進む"
 
             .form__group.text-right
               %p
                 = link_to "/jp/help_center/article/423/" do
                   本人情報の登録について
-                  %i.icon-arrow-right
+                  = fa_icon "chevron-right", class: "icon-arrow-right"
 
     / ここからフッター部分
     = render partial: 'shared/terms-footer'

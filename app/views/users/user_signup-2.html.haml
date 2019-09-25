@@ -8,7 +8,7 @@
     %main.single-main
       %section.l-single-container
         %h2.l-chapter-head.registration 電話番号の確認
-        =form_with(id: "phone_number_", class: "l-single-inner registration-form", action: "https://www.mercari.com/jp/signup/sms_confirmation/sms/", method: "POST", novalidate: "novalidate") do |f|
+        = form_with(id: "phone_number_", class: "l-single-inner registration-form", action: "https://www.mercari.com/jp/signup/sms_confirmation/sms/", method: "POST", novalidate: "novalidate") do |f|
           %input{name: "after_save_callback", type: "hidden", value: ""}/
           .l-single-content
             .form-group
@@ -17,14 +17,14 @@
             = f.text_field :xxx, id: "phone_number", class: "input-default", placeholder: "携帯電話の番号を入力"
 
             %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-            %button.btn-default.btn-red{type: "submit"} SMSを送信する
+            = f.submit :xxx, class: "btn-default btn-red", value: "SMSを送信する"
             %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに後悔されることはありません。
 
             .form-group.text-right
               %p
                 = link_to "/jp/help_center/article/244/" do
                   電話番号の認証が必要な理由
-                  %i.icon-arrow-right
+                  = fa_icon "chevron-right", class: "icon-arrow-right"
 
     / ここからフッター部分
     = render partial: 'shared/terms-footer'

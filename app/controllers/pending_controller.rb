@@ -14,4 +14,9 @@ class PendingController < ApplicationController
 
   def member_complate
   end
+
+  def myitem
+    @item = Item.find(1)
+  end
+
 end

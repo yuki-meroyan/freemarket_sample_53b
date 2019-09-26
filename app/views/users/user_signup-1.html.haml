@@ -64,15 +64,15 @@
                 %br/
               .birthday-select-wrap
                 .select-wrap
-                  %i.icon-arrow-bottom
+                  = fa_icon "chevron-bottom", class: "icon-arrow-bottom"
                   %select.select-default{name: "year"}
                 %span 年
                 .select-wrap.select-wrap__month
-                  %i.icon-arrow-bottom
+                  = fa_icon "chevron-bottom", class: "icon-arrow-bottom"
                   %select.select-default{name: "month"}
                 %span 月
                 .select-wrap.select-wrap__day
-                  %i.icon-arrow-bottom
+                  = fa_icon "chevron-bottom", class: "icon-arrow-bottom"
                   %select.select-default{name: "day"}
                 %span 日
               = f.text_field :xxx, id: "birthday"

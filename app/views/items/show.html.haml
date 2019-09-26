@@ -21,7 +21,7 @@
         %tr
           %th 出品者
           %td
-            = link_to  "http://localhost:3000/users/show" do
+            = link_to  user_path do
               = @item.user.nickname
             %div.ratingbox
               .item__user__ratings
@@ -74,7 +74,7 @@
       = @item.price
     %span.item__price__box__tax (税込)
     %span.item__price__box__shipping__fee 送料込み
-  = link_to  "購入画面に進む","http://localhost:3000/pending/itembuy" , class:'item__buy__btn'  
+  = link_to  "購入画面に進む","/pending/itembuy" , class:'item__buy__btn'  
   .item__description.f14
     %p.item__description__inner
       = @item.description
@@ -94,7 +94,7 @@
 .item__comments.item__box__container
   .comment
     .comment__user
-      = link_to "http://localhost:3000/users/show", class: "comment__user__link" do
+      = link_to user_path, class: "comment__user__link" do
         = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
         %p.comment__user__link__name たろう
     .comment__box
@@ -108,7 +108,7 @@
             =fa_icon "flag-o", class: 'icon'
   .comment
     .comment__user
-      = link_to "http://localhost:3000/users/show", class: "comment__user__link" do
+      = link_to user_path, class: "comment__user__link" do
         = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
         %p.comment__user__link__name たろう
     .comment__box
@@ -155,7 +155,7 @@
     - if item.id  == @item.id
     - else
       .item-show__item-box
-        = link_to  "http://localhost:3000/items/#{item.id}"  do
+        = link_to  item_path(item)  do
           - item.item_images.each_with_index do |item_image, n|
             - if n == 0
               = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
@@ -184,7 +184,7 @@
     - if item.id  == @item.id
     - else
       .item-show__item-box
-        = link_to  "http://localhost:3000/items/#{item.id}"  do
+        = link_to  item_path(item)  do
           - item.item_images.each_with_index do |item_image, n|
             - if n == 0
               = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'

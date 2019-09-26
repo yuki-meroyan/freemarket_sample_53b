@@ -1,0 +1,7 @@
+= render partial: 'shared/header'
+%nav.navigation_pankuzu
+  %ul.navigation_pankuzu__box
+    %li.navigation_list_kategory 
+    =link_to "メルカリ","http://localhost:3000/", class: 'navigation_list_merukari'
+    =fa_icon "chevron-right", class: 'icon'
+    %li.navigation_list_kategory カテゴリー一覧

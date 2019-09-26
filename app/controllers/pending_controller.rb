@@ -15,6 +15,6 @@ class PendingController < ApplicationController
   def member_complate
   end
 
-  def pakuzu_merukari
+  def pankuzu_merukari
   end
 end

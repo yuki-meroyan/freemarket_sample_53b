@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get 'pending/logout' => 'pending#logout',as: 'pending/logout'
   get 'pending/index' => 'pending#index',as: 'pending/index'
   get 'pending/member_complate' => 'pending#member_complate',as: 'pending/member_complate'
-  get 'pending/pankuzu_merukari' => 'pending#pankuzu_merukari'as: 'pending/pankuzu_merukari'
+  get 'pending/pankuzu_merukari' => 'pending#pankuzu_merukari',as: 'pending/pankuzu_merukari'
 end

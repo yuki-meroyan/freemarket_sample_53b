@@ -1,0 +1,13 @@
+.navigation_pankuzu{
+  height: 50px;
+  border-top: 1px solid #eee;
+  display: inline-flex;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  &__box{ 
+    display: inline-flex;
+    padding: 20px 101px;
+    margin: 0;
+  } 
+}

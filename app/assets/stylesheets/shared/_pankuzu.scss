@@ -7,7 +7,22 @@
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   &__box{ 
     display: inline-flex;
-    padding: 20px 101px;
-    margin: 0;
+    padding: 10px 210px;
+    margin: auto;
+    width: 100%;
   } 
+}
+
+.navigation_list_merukari{
+  color: black;
+}
+
+.icon_pankuzu-right{
+  margin: 2px 10px;
+  font-size: 12px;
+  
+}
+
+.navigation_pakuzu__kategory--chil{
+  font-weight: 900;
 }

@@ -1,0 +1,54 @@
+.member-complate-content{
+  background-color: rgb(245, 245, 245);
+  height: 500px;
+  .complate-box{
+    height: 500px;
+    width:  700px;
+    margin: 0 auto;
+  }
+}
+
+.complate-main{
+  width: 700px;
+  height: 400px;
+  background-color: white;
+  display: block;
+  &__title {
+    text-align: center;
+    padding: 10px 64px;
+    height: 40px;
+    position: relative;
+    top: 10px;
+  }
+}
+
+
+
+.complate-list{
+  padding: 64px;
+  border-top : solid 2px  rgb(245, 245, 245); 
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 16px;
+  color: rgb(51, 51, 51);
+  line-height: 1.5;
+  font-weight: 500px;
+  text-align: center;
+}
+
+.start-form{
+  height: 100%;
+}
+
+
+.start-button{
+  background-color: red;
+  color: white;
+  height: 50px;
+  width: 100%;
+  margin: 50px 0 0 0;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 50px;
+  border: none;
+}

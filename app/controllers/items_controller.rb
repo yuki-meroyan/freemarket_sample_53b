@@ -2,12 +2,12 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:myitem, :show, :destroy]
 
   def index
-    @ladys_items = Item.where(category_id: 1)
+    @ladys_items = Item.where(category_id: 1).order('id ASC').limit(10)
   end
 
   def show
-    @user_items = Item.where(user_id: "#{@item.user.id}")
-    @brand_items = Item.where(brand_id: "#{@item.brand.id}")
+    @user_items = Item.where(user_id: "#{@item.user.id}").order('id ASC').limit(6).where.not(id: @item.id)
+    @brand_items = Item.where(brand_id: "#{@item.brand.id}").order('id ASC').limit(6).where.not(id: @item.id)
   end
 
   def destroy

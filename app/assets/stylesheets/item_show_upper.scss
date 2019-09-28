@@ -33,62 +33,26 @@ body {
 
 .item__photo {
   float: left;
-  min-width: 300px;
-  max-width: 300px;
-  min-height: 375px;
-  position: relative;
   margin: 0 auto;
   background: #fafafa;
 }
 .owl__carousel {
- position: relative;
- margin-right: 10px;
  img {
   width: 100%;
-  vertical-align: bottom;
-  }
-
-  .owl__stage{
-    left: 0px; 
-  }
-
-  .owl__item__inner {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding: 0 0 25%;
   }
 
   .owl__item{
     width: 300px;
-  }
-  
-
-  .owl-nav {
-    display: none;
-  }
-  
-}
-
-
-.owl__nav.disabled .owl__prev, .owl__nav.disabled {
-  .owl__next {
-    display: none;
-  }
-  .owl__nav.disabled .owl__prev, .owl__nav.disabled .owl__next {
-    display: none;
   }
 }
 
 .owl__dot {
   width: 60px;
   height: 60px;
-  max-height: none;
   overflow: hidden;
   display: inline-block;
   opacity: .4;
   cursor: pointer;
-  margin-top: 225px;
 }
 
 //////////////itemいいね数//////////////////
@@ -324,3 +288,7 @@ line-height: 1;
 
 
 
+.mypage-container{
+  float: right;
+  margin-right:100px; 
+}

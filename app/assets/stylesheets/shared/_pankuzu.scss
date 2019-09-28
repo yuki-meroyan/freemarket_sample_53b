@@ -1,28 +1,16 @@
-.navigation_pankuzu{
-  height: 50px;
+.breadcrumbs_list{
   border-top: 1px solid #eee;
-  display: inline-flex;
   background: #fff;
-  width: 100%;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  &__box{ 
-    display: inline-flex;
-    margin: 0 100px;
-    padding: 20px 0;
-    width: 100%;
-  } 
-}
-
-.navigation_list_merukari{
+  padding: 20px 200px;
+  font-size: 14px;
+  a{
   color: black;
-}
-
-.icon_pankuzu-right{
-  margin: 2px 10px;
-  font-size: 12px;
-  
-}
-
-.navigation_pakuzu__kategory--chil{
-  font-weight: 900;
+  font-size: 14px;
+  padding: 0 10px;
+  }
+  .current{
+    font-weight: 900;
+    padding: 0 10px;
+  }
 }

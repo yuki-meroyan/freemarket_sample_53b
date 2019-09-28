@@ -8,5 +8,5 @@ end
 
 crumb :user do |user|
   link user.nickname, user_path(user)
-  parent :users
+  parent :root
 end

@@ -1,0 +1,257 @@
+.single-header {
+  display: block;
+}
+.l__single{
+  &__container{
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  }
+  &__head {
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+.sell{
+  &__form{
+    border-top: 1px solid #eee;
+    &__content {
+      padding: 40px;
+      border-top: 1px solid #eee;
+      &__sub-head {
+        color: #888;
+        font-size: 14px;
+        float: left;
+      }
+        &-box {
+          float: right;
+          width: 400px;
+          margin: 0;
+        }
+    }
+  }
+}
+
+.sell__upload{
+  &__box {
+    width: 540px;
+    padding: 40px;
+  }
+    &__head {
+      font-weight: 600px;
+      font-size: 16px;
+    +p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+  }
+}
+
+.sell__upload__drop{
+  &-file{
+    display: none;
+  }
+}
+
+
+.sell__dropbox{
+  &__container {
+  display: block;
+  width: 620px;
+  margin: 16px auto 0;
+  }
+    &__box {
+      width: 620px;
+      position: relative;
+      min-height: 70px;
+      background: #f5f5f5;
+      border: 1px dashed #ccc;
+      font-size: 0;
+      text-align: center;
+      cursor: pointer;
+      padding: 40px 0;
+  }
+  &__box pre {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    transform: translate(0, -50%);
+    pointer-events: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+}
+.visible-pc {
+  display: block;
+}
+
+.form{
+  &__group:first-child {
+    margin: 0
+  } 
+  &__group{
+  margin: 40px 0 0;
+  width: 100%;
+    label {
+    font-weight: 600;
+    display: inline-block;
+    }
+    select {
+      width: 100%;
+      outline: 0;
+      -webkit-appearance: none;
+    }
+  }
+  &__require {
+    background: #ea352d;
+  }
+  &__arbitrary {
+    background: #ccc;
+  }
+}
+
+.form__require, .form__arbitrary{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.input__default {
+  margin: 8px 0 0;
+  width: 100%;
+  height: 32px;
+  padding: 10px 1px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+
+.textarea-default {
+  margin: 8px 0 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+.select-wrap {
+  margin: 8px 0 0;
+  position: relative;
+  background: #fff;
+  .icon-arrow-bottom {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 2;
+    color: #888;
+    font-size: 8px;
+    transform: translate(0, -50%);
+  }
+}
+
+
+#select__default {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 1px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+
+.sell__price{
+  >li:first-child {
+    padding: 0 0 24px;
+    border: 0;
+  }
+  >li {
+    padding: 24px 0;
+    border-top: 1px solid #ccc;
+  }
+    &__input{
+      text-align: right;
+      margin: 0;
+    }
+    &__input>div{
+      display: inline-block;
+      width: 80%;
+      margin: 0 0 0 5%;
+    }
+}
+
+.sell__price .form__group.l-left {
+  width: 50%;
+  line-height: 48px;
+}
+.sell__price .form__group.l-right {
+  width: 50%;
+}
+.l-right {
+  float: right;
+}
+.l-left {
+  float: left;
+  font-weight: 600px;
+}
+
+
+
+.sell__btn__box p {
+  line-height: 1.5;
+  a{
+    color: #0099e8;
+    text-decoration: none;
+  }
+}
+
+.sell__btn__box .btn__red {
+  margin: 40px 0 0;
+}
+.btn__red {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+
+.btn__default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.sell__btn__box .btn__gray {
+  width: 45%;
+  margin: 24px auto 0;
+}
+.btn__gray {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+}

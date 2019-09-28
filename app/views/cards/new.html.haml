@@ -85,5 +85,6 @@
           %p#card-new__primary-error.card-new__error-text
           = f.text_field :xxx, name: "after_save_callback", type: "hidden", value: ""
           = f.submit :xxx, value: "追加する", id: "card-new__submit-button", class: "card-new__btn card-new__btn--red"
+          
   = render partial: 'shared/user_menu'
 = render partial: 'shared/footer'

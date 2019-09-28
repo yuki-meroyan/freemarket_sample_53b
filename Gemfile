@@ -83,3 +83,4 @@ gem 'pry-byebug'
 gem 'ancestry'
 gem 'active_hash'
 gem 'gretel'
+gem "jquery-rails"

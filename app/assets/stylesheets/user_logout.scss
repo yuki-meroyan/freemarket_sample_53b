@@ -1,60 +1,22 @@
 //nakamiは他の部分ができるまでの仮置きです。
-.card__edit{
+.user-logout{
   margin: 40px auto 0;
   width: 1020px;
   height:800px;
-}
-
-.l__container{
-  width: 700px;
-  float: right;
-  &__inner:first-child {
-    margin: 0;
-  }
-  
-  &__inner {
-    margin: 40px 0 0;
+  &__right{
+    width: 700px;
+    float: right;
     background: #fff;
-    &__head {
-      font-size: 24px;
-      padding: 8px 24px;
-      border-bottom: 1px solid #f5f5f5;
-      text-align: center;
-      margin: 0 auto;
-    }
+    padding: 64px;
+    box-sizing: border-box;
+  }
+  
+  &__btn{
+    max-width: 320px;
+    margin: 0 auto;
   }
 }
 
-.l__content{
-  width: 700px;
-  float: right;
-  &__inner:first-child {
-    margin: 0;
-  }
-  
-  &__inner {
-    margin: 40px 0 0;
-    background: #fff;
-    &__head {
-      font-size: 24px;
-      padding: 8px 24px;
-      border-bottom: 1px solid #f5f5f5;
-      text-align: center;
-      margin: 0 auto;
-    }
-  }
-  
-}
-
-.l-single-inner{
-  padding: 64px;
-  border-top: 1px solid #f5f5f5;
-}
-  
-.l-single-content {
-  max-width: 320px;
-  margin: 0 auto;
-}
 
 .btn-default {
   display: block;

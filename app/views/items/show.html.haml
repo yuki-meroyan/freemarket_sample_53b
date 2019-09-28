@@ -4,18 +4,14 @@
     = @item.name
   .item__main__content.clearfix
     .item__photo
-      .owl__carousel.owl__loaded.owl__drag
-        .owl__stage      
-          - @item.item_images.each_with_index do |item, i|
-            - if i == 0
-              .owl__item
-                .owl__item__inner
-                  = image_tag item.image,class: 'owl__lazy__first'
-            - else
-              .owl__dot
-                %span
-                .owl__dot__inner
-                  = image_tag item.image
+      .owl__carousel
+        - @item.item_images.each_with_index do |item, i|
+          - if i == 0
+            .owl__item
+              = image_tag item.image
+          - else
+            .owl__dot
+              = image_tag item.image
       .go__number__likes
         現在、
         %span> 1人

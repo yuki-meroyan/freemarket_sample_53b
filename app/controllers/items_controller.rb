@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
     @ladys_items = Item.where(category_id: 1)
   end
 
+  def new
+  end
+
   def show
     @user_items = Item.where(user_id: "#{@item.user.id}")
     @brand_items = Item.where(brand_id: "#{@item.brand.id}")

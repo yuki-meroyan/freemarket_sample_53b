@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   get 'pending/index' => 'pending#index',as: 'pending/index'
   get 'pending/member_complate' => 'pending#member_complate',as: 'pending/member_complate'
   get 'items/myitem/:id' => 'items#myitem',as: 'items/myitem'
-  
+  get 'pending/search' => 'penfing#search',as: 'pending/search'
 end

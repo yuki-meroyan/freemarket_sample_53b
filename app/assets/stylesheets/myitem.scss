@@ -1,0 +1,73 @@
+.mypage-container{
+  float: right;
+  margin-right:200px; 
+}
+
+.myitem-btn-container{
+  p{
+    text-align: center;
+    font-size: 15px;
+    margin: 20px auto
+  }
+
+}
+
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 3;
+  text-align: center;
+
+  &__bg{
+    background: rgba(0,0,0,0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    line-height: 1.5;
+  }
+
+  &__content{
+    background: #fff;
+    left: 50%;
+    position: absolute;
+    top: 22%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+  }
+  
+  &__text{
+    line-height: 1.5;
+    padding: 30px;
+
+    &--head{
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  
+  &__btn-box{
+    line-height: 63px;
+    cursor: pointer;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+
+    &__cancel{
+      color: #000;
+      width: 50%;
+    }
+
+    &__delete{
+      border-left: 1px solid #ccc;
+      color: #0099e8;
+      width: 50%;
+    }
+  }
+}
+
+
+

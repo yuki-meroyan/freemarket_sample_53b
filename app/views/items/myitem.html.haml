@@ -1,0 +1,129 @@
+.modal.js-modal
+  .modal__bg.js-modal-close
+  .modal__content
+    .modal__text
+      .modal__text--head 確認
+      %br 削除すると二度と復活できません。
+      %br 削除する代わりに停止することもできます。
+      %br 
+      %br 本当に削除しますか？
+    .modal__btn-box
+      .js-modal-close.modal__btn-box__cancel
+        %span キャンセル
+      = link_to item_path(@item),class: "modal__btn-box__delete", method: :delete do
+        %span 削除する
+= render partial: 'shared/header'
+.mypage-container
+  %section.item__box__container
+    %h1.item__name 
+      = @item.name
+    .item__main__content.clearfix
+      .item__photo
+        .owl__carousel
+          - @item.item_images.each_with_index do |item, i|
+            - if i == 0
+              .owl__item
+                = image_tag item.image
+            - else
+              .owl__dot
+                = image_tag item.image
+
+                  
+      %table.item__detail__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to  "http://localhost:3000/users/show" do
+                = @item.user.nickname
+          %tr
+            %th カテゴリー
+            %td
+              = link_to  "https://www.mercari.com/jp/category/1/" do
+                = @item.category.category
+              = link_to  "https://www.mercari.com/jp/category/20/" , class:'item__detail__table__sub__category' do
+                =fa_icon "chevron-right", class: 'icon'
+                = @item.category.category
+              = link_to  "https://www.mercari.com/jp/category/214/" , class:'item__detail__table__sub__sub__category' do
+                =fa_icon "chevron-right", class: 'icon'
+                = @item.category.category
+          %tr
+            %th ブランド
+            %td
+              = link_to "https://www.mercari.com/jp/brand/539/" do
+                = @item.brand.name
+          %tr
+            %th 商品の状態
+            %td 目立った傷や汚れなし
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td ゆうゆうメルカリ便
+          %tr
+            %th 配送元地域
+            %td
+              = link_to "https://www.mercari.com/jp/area/27/" do
+                = @item.region
+
+          %tr
+            %th 発送日の目安
+            %td 
+              = @item.delivery_days
+    .item__price__box.text__center
+      %span.item__price__box__price 
+        ¥
+        = @item.price
+      %span.item__price__box__tax (税込)
+    .item__description.f14
+      %p.item__description__inner
+        = @item.description
+  %section.item__box__container
+    .myitem-btn-container
+      %button.btn-default.btn-red{type:"submit"}  商品の編集
+      %p or
+      %button.btn-default.btn-gray{type:"submit"}  出品を一旦停止する
+      %br/
+      %br/
+      %button.btn-default.btn-gray.item-delete{type:"submit"}  この商品を削除する
+ 
+
+  .item__comments.item__box__container
+    .comment
+      .comment__user
+        = link_to "http://localhost:3000/users/show", class: "comment__user__link" do
+          = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
+          %p.comment__user__link__name たろう
+      .comment__box
+        .comment__box__text 安くしてください。
+        .comment__box__icons
+          .comment__box__icons__time
+            =fa_icon 'clock', class: 'icon-time'
+            %span 2時間前
+          .comment__box__icons__flags
+            = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+              =fa_icon "flag-o", class: 'icon'
+    .comment
+      .comment__user
+        = link_to "http://localhost:3000/users/show", class: "comment__user__link" do
+          = image_tag 'member_photo_noimage_thumb.png', alt: 'comment__user__link__image', class: 'comment__user__link__image'
+          %p.comment__user__link__name たろう
+      .comment__box
+        .comment__box__text 安くしてください。
+        .comment__box__icons
+          .comment__box__icons__time
+            =fa_icon 'clock', class: 'icon-time'
+            %span 2時間前
+          .comment__box__icons__flags
+            = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+              =fa_icon "flag-o", class: 'icon'
+    .comment__notice
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .comment__write
+      %textarea.textarea-default{name: "comment__write"} 
+      %button.btn-default{type: "submit",class:  "comment__write__submit btn-gray"} コメントする
+
+
+
+= render partial: 'shared/footer'

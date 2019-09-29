@@ -12,7 +12,7 @@
           %ul.card-add__settings__list
         %section.card-add__settings
           .card-add__middle__box
-            =link_to "https://www.mercari.com/jp/mypage/card/create/", class: "btn-default btn-red submit_button" do
+            =link_to new_card_path, class: "btn-default btn-red submit_button" do
               = fa_icon 'credit-card 1x', class: "icon-credit"
               %span.card-add__settings--text クレジットカードを追加する
         .card-add__settings__regist

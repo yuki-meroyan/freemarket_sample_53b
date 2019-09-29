@@ -1,43 +1,25 @@
 
 .view-index
-  = link_to "トップページ",root_path,{class: "tekitou"}
-  %br
-  %br
-  = link_to "ユーザーマイページ",user_path(1),{class: "tekitou"}
-  %br
-  %br
-  = link_to "ユーザープロフィール編集ページ","/pending/edit",{class: "tekitou"}
-  %br
-  %br
-  = link_to "購入確認","/pending/itembuy",{class: "tekitou"}
-  %br
-  %br
-  = link_to "新規登録",new_user_registration_path,{class: "tekitou"}
-  %br
-  %br
-  = link_to "ログイン",user_session_path,{class: "tekitou"}
-  %br
-  %br
-  = link_to "ユーザーログアウト","/pending/logout",{class: "tekitou"}
-  %br
-  %br
-  = link_to "商品詳細",item_path(1),{class: "tekitou"}
-  %br
-  %br
-  = link_to "ユーザー本人確認（未実装）",item_path(1),{class: "tekitou"}
-  %br
-  %br
-  = link_to "商品出品（未実装）",item_path(1),{class: "tekitou"}
-  %br
-  %br
-  = link_to "カード追加", cards_path, class: "tekitou"
-  %br
-  %br
-  = link_to "支払情報登録", new_card_path, class: "tekitou"
-  %br
-  %br
-  = link_to "会員登録完了", "/pending/member_complate", class: "tekitou"
-  %br
-  %br
-  = link_to "マイアイテム", "/items/myitem/16", class: "tekitou"
+  .view-index__item
+    %h1.view-index__title アイテム
+    = link_to "トップページ",root_path,{class: "tekitou"}
+    = link_to "商品詳細",item_path(1),{class: "tekitou"}
+    = link_to "商品出品",new_item_path,{class: "tekitou"}
+    = link_to "商品編集",edit_item_path(1),{class: "tekitou"}
+    = link_to "購入確認","/pending/itembuy",{class: "tekitou"}
+    = link_to "マイアイテム（削除、編集ページへのリンク）", "/items/myitem/16", class: "tekitou"
+  .view-index__user
+    %h1.view-index__title ユーザー
+    = link_to "新規登録",new_user_registration_path,{class: "tekitou"}
+    = link_to "ログイン",user_session_path,{class: "tekitou"}
+    = link_to "ユーザープロフィール編集ページ","/pending/edit",{class: "tekitou"}
+    = link_to "ユーザーマイページ",user_path(1),{class: "tekitou"}
+    = link_to "ユーザーログアウト","/pending/logout",{class: "tekitou"}
+    = link_to "ユーザー本人確認",user_details_path,{class: "tekitou"}
+    = link_to "会員登録完了", "/pending/member_complate", class: "tekitou"
+  .view-index__card
+    %h1.view-index__title カード
+    = link_to "カード追加", cards_path, class: "tekitou"
+    = link_to "支払情報登録", new_card_path, class: "tekitou"
+
 

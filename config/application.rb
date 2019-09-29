@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module FreemarketSample53b
   class Application < Rails::Application
+    config.action_view.automatically_disable_submit_tag = false 
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2

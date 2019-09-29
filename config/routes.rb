@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :user_details
   resources :items, only: [:index, :show]
   resources :users
-  resources :cards, only: [:index, :new, :show]
+  resources :cards, only: [:index, :new, :show, :create, :destroy]
 
   # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。
   get 'pending/itembuy' => 'pending#itembuy',as: 'pending/itembuy'

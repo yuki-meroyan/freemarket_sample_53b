@@ -3,15 +3,14 @@
   .card-new__content
     %section.card-new__chapter__container
       %h2.card-new__chapter__header クレジットカード情報入力
-      = form_with(id: "card-new__form", class: "card-new__single-inner") do |f|
-        %input{name: "__csrf_value", type: "hidden", value: "f6b1e5e19fe18ee905ff8bdf0f0e846fb1b6a0ae5a8f8bdb4aab0184b249bed9d0ddb22a0367b42ab8ed3f01572915ecdee0301d4e4c2fdb4820ab310bb33d556"}
+      = form_with(url: cards_path, method: :post, name: "inputForm", id: "card-new__form", class: "card-new__single-inner") do |f|
+        -# %input{name: "__csrf_value", type: "hidden", value: "f6b1e5e19fe18ee905ff8bdf0f0e846fb1b6a0ae5a8f8bdb4aab0184b249bed9d0ddb22a0367b42ab8ed3f01572915ecdee0301d4e4c2fdb4820ab310bb33d556"}
         .card-new__single-content
           .card-new__form__group
             -# ★★★ xxxは仮置きでモデルのカラム名を実装時に変更予定（他箇所も同様）★★★
-            = f.label :xxx do
-              カード番号
+            = f.label :カード番号
             %span.card-new__form__require 必須
-            = f.text_field :xxx, id: "card-new__card-no", class: "card-new__input", "data-input-type" => "card", maxlength: "19", placeholder: "半角数字のみ"
+            = f.text_field :card_number, id: "card-new__card-no", class: "card-new__input", maxlength: "19", placeholder: "半角数字のみ"
             %ul#card-new__card-no-error.card-new__error-text
             %ul.card-new__signup__card-list
               %li
@@ -29,48 +28,23 @@
               %li
                 = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2482339763", class: "card-new__img--discover" 
           .card-new__form__group.card-new__form__signup__expire
-            = f.label :xxx do
-              有効期限
+            = f.label :有効期限
             %span.card-new__form__require 必須
             %br
             .card-new__select__wrap
-              %select#card-new__card-expire-mm.card-new__select
-                %option{value: "01"} 01
-                %option{value: "02"} 02
-                %option{value: "03"} 03
-                %option{value: "04"} 04
-                %option{value: "05"} 05
-                %option{value: "06"} 06
-                %option{value: "07"} 07
-                %option{value: "08"} 08
-                %option{value: "09"} 09
-                %option{value: "10"} 10
-                %option{value: "11"} 11
-                %option{value: "12"} 12
+              = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , id: 'card-new__card-expire-mm', class: 'card-new__select'
               = fa_icon 'chevron-down', class:"icon__arrow-bottom"
               %span 月
             .card-new__select__wrap
-              %select#card-new__card-expire-yy.card-new__select
-                %option{value: "19"} 19
-                %option{value: "20"} 20
-                %option{value: "21"} 21
-                %option{value: "22"} 22
-                %option{value: "23"} 23
-                %option{value: "24"} 24
-                %option{value: "25"} 25
-                %option{value: "26"} 26
-                %option{value: "27"} 27
-                %option{value: "28"} 28
-                %option{value: "29"} 29
+              = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , id: 'card-new__card-expire-yy', class: 'card-new__select'
               = fa_icon 'chevron-down', class:"icon__arrow-bottom"
               %span 年
             %ul#card-new__expire-mm-error.card-new__error-text
             %ul#card-new__expire-yy-error.card-new__error-text
           .card-new__form__group
-            = f.label :xxx do
-              セキュリティコード
+            = f.label :セキュリティコード              
             %span.card-new__form__require 必須
-            = f.text_field :xxx, name: "security_code", id: "card-new__card-security-code", class: "card-new__input", placeholder: "カード背面4桁もしくは3桁の番号", value: ""
+            = f.text_field :cvc, name: "security_code", id: "card-new__card-security-code", class: "card-new__input", placeholder: "カード背面4桁もしくは3桁の番号", value: ""
             %ul#card-new__security-code-error.card-new__error-text
             .card-new__signup__seqcode
               .card-new__signup__seqcode-text{"data-js" => "show-tips-toggle"}
@@ -80,10 +54,10 @@
                 カードの裏面をご参照ください。
                 %br
                 = image_tag "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?2482339763", class: "card-new__img--seq-card" 
-          = f.text_field :xxx, name: "user_id", id: "card-new__user_id"
-          = f.text_field :xxx, name: "encrypted_card_data", id: "card-new__encrypted-card-data", type: "hidden"
-          %p#card-new__primary-error.card-new__error-text
-          = f.text_field :xxx, name: "after_save_callback", type: "hidden", value: ""
-          = f.submit :xxx, value: "追加する", id: "card-new__submit-button", class: "card-new__btn card-new__btn--red"
+          -# = f.text_field :xxx, name: "user_id", id: "card-new__user_id"
+          -# = f.text_field :xxx, name: "encrypted_card_data", id: "card-new__encrypted-card-data", type: "hidden"
+          -# %p#card-new__primary-error.card-new__error-text
+          -# = f.text_field :xxx, name: "after_save_callback", type: "hidden", value: ""
+          = f.submit :追加する, id: 'card-new__submit', class: "card-new__btn card-new__btn--red"
   = render partial: 'shared/user_menu'
 = render partial: 'shared/footer'

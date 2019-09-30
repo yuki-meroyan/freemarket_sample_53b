@@ -1,6 +1,6 @@
 class PendingController < ApplicationController
 
-  def index 
+  def index
   end
 
   def itembuy

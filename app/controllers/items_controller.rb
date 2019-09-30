@@ -17,16 +17,14 @@ class ItemsController < ApplicationController
       # ブランドのif文
       if Brand.find_by(name: params[:brand_id]).present?
         xxx =Brand.find_by(name: params[:brand_id])
-        binding.pry
         params[:brand_id] ="#{xxx.id}"
-        binding.pry
             # ここまでは変更できてる
       else
         Brand.create(name: params[:barand_id])
         xxx =Brand.find_by(name: params[:brand_id])
         params[:brand_id] ="#{xxx.id}"
       end
-      @item.update(item_params)
+    @item.update(item_params)
     end
     if @item.update(item_params)
       redirect_to root_path
@@ -47,7 +45,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render myitem
-    end 
+    end
   end
 
   def myitem

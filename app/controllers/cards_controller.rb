@@ -15,26 +15,26 @@ class CardsController < ApplicationController
   def create
 
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
-    # binding.pry
-    # if params['payjp-token'].blank?
-    #   redirect_to action: "new"
-    # else
-    #   customer = Payjp::Customer.create(
-    #   description: '登録test', 
-    #   # email: current_user.email,
-    #   email: '1@1', 
-    #   card: params['payjp-token'],
-    #   # metadata: {user_id: current_user.id}
-    #   metadata: {user_id: 1}
-    #   )
-    #   # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-    #   @card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
-    #   if @card.save
-    #     redirect_to action: "show"
-    #   else
-    #     redirect_to action: "new"
-    #   end
-    # end
+    binding.pry
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(
+      description: '登録test', 
+      # email: current_user.email,
+      email: '1@1', 
+      card: params['payjp-token'],
+      # metadata: {user_id: current_user.id}
+      metadata: {user_id: 1}
+      )
+      # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        redirect_to action: "show"
+      else
+        redirect_to action: "new"
+      end
+    end
 
   end
 

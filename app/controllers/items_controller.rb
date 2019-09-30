@@ -9,10 +9,23 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @brands = Brand.all
   end
 
   def update
     if @item.user_id == current_user.id
+      # ブランドのif文
+      if Brand.find_by(name: params[:brand_id]).present?
+        xxx =Brand.find_by(name: params[:brand_id])
+        binding.pry
+        params[:brand_id] ="#{xxx.id}"
+        binding.pry
+            # ここまでは変更できてる
+      else
+        Brand.create(name: params[:barand_id])
+        xxx =Brand.find_by(name: params[:brand_id])
+        params[:brand_id] ="#{xxx.id}"
+      end
       @item.update(item_params)
     end
     if @item.update(item_params)
@@ -47,8 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    # params.permit(:content).merge(user_id: current_user.id)
-    params.require(:item).permit(:name,:description,:price,:region,:delivery_fee,:delivery_days,:shipping_method ,{brand_ids: [],category_ids:[]},item_images_attributes:[:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:description,:price,:region,:delivery_fee,:delivery_days,:shipping_method ,:brand_id,:category_id,item_images_attributes:[:image]).merge(user_id: current_user.id)
   end
 
 end

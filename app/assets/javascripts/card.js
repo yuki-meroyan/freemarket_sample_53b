@@ -1,9 +1,11 @@
 $(function(){
   
   $('#card-new__form').on("submit", function(e){
+    e.preventDefault(); //ボタンを一旦無効化します
     // disabled属性=HTML要素を無効にする
-    $('#card-new__submit').prop('disabled', true);
+    // $('#card-new__submit').prop('disabled', true);
     var formData = new FormData(this);
+    // TODO: 登録情報は仮固定
     // var number = formData.get('card_number');
     // var cvc = formData.get('security_code');
     // var exp_month = formData.get('exp_month');
@@ -19,10 +21,8 @@ $(function(){
       exp_month: exp_month,
       exp_year: exp_year
     };
-    
-    console.log(card);
     Payjp.setPublicKey('pk_test_2e92f0b22242789bc2f990c0');
-
+    
     // トークン生成
     Payjp.createToken(card, (status, response) => {
       if (status === 200) { //成功した場合
@@ -32,13 +32,14 @@ $(function(){
         $("#card-new__card-expire-yy").removeAttr("name"); //データを自サーバにpostしないように削除
         $("#card-new__token").append(
           $('<input type="hidden" name="payjp-token">').val(response.id)
-        ); //取得したトークンを送信できる状態
-        console.log(response.id);
+        ); 
+        //取得したトークンを送信できる状態
         $('#card-new__form').submit();
-        alert("登録が完了しました"); //確認用
+        alert("登録が完了しました");
         $('#card-new__submit').prop('disabled', false);
       } else {
-        alert("カード情報が正しくありません。"); //確認用
+        alert("トークンの取得に失敗しました" + response.error.message);
+        $('#card-new__submit').prop('disabled', false);
       }
 
     });

@@ -4,10 +4,8 @@
     %section.card-new__chapter__container
       %h2.card-new__chapter__header クレジットカード情報入力
       = form_with(url: cards_path, method: :post, name: "inputForm", id: "card-new__form", class: "card-new__single-inner") do |f|
-        -# %input{name: "__csrf_value", type: "hidden", value: "f6b1e5e19fe18ee905ff8bdf0f0e846fb1b6a0ae5a8f8bdb4aab0184b249bed9d0ddb22a0367b42ab8ed3f01572915ecdee0301d4e4c2fdb4820ab310bb33d556"}
         .card-new__single-content
           .card-new__form__group
-            -# ★★★ xxxは仮置きでモデルのカラム名を実装時に変更予定（他箇所も同様）★★★
             = f.label :カード番号
             %span.card-new__form__require 必須
             = f.text_field :card_number, id: "card-new__number", class: "card-new__input", maxlength: "19", placeholder: "半角数字のみ"
@@ -54,10 +52,6 @@
                 カードの裏面をご参照ください。
                 %br
                 = image_tag "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?2482339763", class: "card-new__img--seq-card" 
-          -# = f.text_field :xxx, name: "user_id", id: "card-new__user_id"
-          -# = f.text_field :xxx, name: "encrypted_card_data", id: "card-new__encrypted-card-data", type: "hidden"
-          -# %p#card-new__primary-error.card-new__error-text
-          -# = f.text_field :xxx, name: "after_save_callback", type: "hidden", value: ""
           #card-new__token
             = f.submit :追加する, name: 'submit-token' , id: 'card-new__submit', class: "card-new__btn card-new__btn--red"
   = render partial: 'shared/user_menu'

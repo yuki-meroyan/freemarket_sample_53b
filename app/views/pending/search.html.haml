@@ -2,18 +2,108 @@
 .search-content
   .search-content__box.clearfix
     .search-content-right
-      %h2.search_word
-        パンツの検索結果
-      .search_number
-        1〜132件表示
-      .search-item-index
-        .search-item-index__content
-          =image_tag "https://static.mercdn.net/thumb/photos/m95577479951_1.jpg?1569509266", class:'search_item_image'
-        .search-item-index__text
+      .search-content-right__header
+        %h2.search_word
           パンツ
-          .item_price
-            ¥2000
-          .item_likes_count
-            1
-    .search-content-left
+          %span.search_word__result
+            の検索結果
+        .search_number
+          1〜132件表示
+      .search-item-index
+        .search-item-index__box
+          .search-item-index__content
+            =image_tag "https://static.mercdn.net/thumb/photos/m95577479951_1.jpg?1569509266", class:'search_item_image'
+          .search-item-index__text
+            パンツ
+            .item-price
+              ¥2000
+            .item-likes
+              .item-likes__count
+              = fa_icon "heart", class:'like-count-icon' 
+              %span 1
 
+        .search-item-index__box
+          .search-item-index__content
+            =image_tag "https://static.mercdn.net/thumb/photos/m95577479951_1.jpg?1569509266", class:'search_item_image'
+          .search-item-index__text
+            パンツ
+            .item-price
+              ¥2000
+            .item-likes
+              .item-likes__count
+              = fa_icon "heart", class:'like-count-icon' 
+              %span 1
+
+        .search-item-index__box
+          .search-item-index__content
+            =image_tag "https://static.mercdn.net/thumb/photos/m95577479951_1.jpg?1569509266", class:'search_item_image'
+          .search-item-index__text
+            パンツ
+            .item-price
+              ¥2000
+            .item-likes
+              .item-likes__count
+              = fa_icon "heart", class:'like-count-icon' 
+              %span 1
+      
+        .search-item-index__box
+          .search-item-index__content
+            =image_tag "https://static.mercdn.net/thumb/photos/m95577479951_1.jpg?1569509266", class:'search_item_image'
+          .search-item-index__text
+            パンツ
+            .item-price
+              ¥2000
+            .item-likes
+              .item-likes__count
+              = fa_icon "heart", class:'like-count-icon' 
+              %span 1
+      
+
+    .search-content-left
+      = form_with( id:"keyword", class: 'item-search-list' ) do |f| 
+      
+        .item-sort
+          = fa_icon "chevron-down", class: 'sort-search-icon'
+          = f.text_field :xxx, value: "並び替え", id: "item", class: 'item-sort-search'
+        
+          
+        .detailed-search
+          .detailed-search__title 検索結果
+          .detailed-search__item
+            = f.label :keyword do
+              = fa_icon "plus", class: 'icon'
+              %span.detailed-search__item--keyword キーワードを追加する
+            .detailed-search__form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+
+          .detailed-search__item
+            = f.label :keyword do
+              = fa_icon "list", class: 'icon'
+              %span.detailed-search__item--keyword カテゴリを選択する
+            .detailed-search__form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+
+          .detailed-search__item
+            = f.label :keyword do
+              = fa_icon "tag", class: 'icon'
+              %span.detailed-search__item--keyword ブランド名から探す
+            .detailed-search__form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+
+          .detailed-search__item
+            = f.label :keyword do
+              = fa_icon "expand", class: 'icon'
+              %span.detailed-search__item--keyword  サイズを指定する
+            .detailed-search__form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+
+
+          .detailed-search__item
+            = f.label :keyword do
+              %span.detailed-search__item--keyword  価格
+            .detailed-search__form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+              .detailed-search__form--price
+                = f.text_field :xxx, id: "keyword", class:'item-price-search', placeholder: "¥ Min" 
+                %span.while ~
+                = f.text_field :xxx, id: "keyword", class:'item-price-search', placeholder: "¥ Max"

@@ -1,25 +1,21 @@
-.single-container {
-  position: relative;
-  min-height: 100%;
-  background: #f5f5f5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  font-size: 14px;
-  color: #333;
-  line-height: 1;
 
-  width: 100%;
-  // height: 1728px;
+// 一番大きなクラス
+
+.registration-container {
+  position: relative;
+  width: 700px;
+  background: #f5f5f5;
   color: #333;
   font-size: 14px;
-  // padding: 0px 0px 220px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  margin: 0 auto;
 }
 
-/* ここからヘッダー部分 */
+// ここからヘッダー部分
 
-.single-header {
-  height: 128px;
+.registration-header {
   display: flex;
-  justify-content: center;
+  height: 128px;
 }
 
 h1 {
@@ -28,21 +24,25 @@ h1 {
   padding-top: 40px;
 }
 
-.signup-bar.progress-bar {
+.progress-bar {
   width: 508px;
   padding: 40px 0px 0px 44px;
 }
 
-.progress-bar li {
+li {
   position: relative;
   z-index: 1;
   display: inline-block;
-  min-width: 40px;
-  margin: 0 5% 0 0;
-  font-size: 12px;
+  min-width: 58px;
+  margin: 0px 5% 0px 0px;
   color: #888;
-
+  font-size: 12px;
   text-align: center;
+}
+
+li.active {
+  font-weight: 600;
+  color: #ea352d;
 }
 
 .progress-status {
@@ -54,14 +54,14 @@ h1 {
 }
 
 .progress-status:before, .progress-status:after {
+  width: 100%;
+  height: 2px;
+  background: #ccc;
+  content: '';
   position: absolute;
   bottom: 5px;
   z-index: -1;
   display: block;
-  content: '';
-  width: 100%;
-  height: 2px;
-  background: #ccc;
 }
 
 .progress-status:before {
@@ -76,12 +76,7 @@ h1 {
   display: none;
 }
 
-.progress-bar li.active {
-  font-weight: 600;
-  color: #ea352d;
-}
-
-.progress-bar li.active .progress-status {
+.progress-status.first-progress-status {
   background: #ea352d;
 }
 
@@ -89,43 +84,15 @@ h1 {
 
 /* ここからメイン部分 */
 
-.single-main {
-  // width: 1440px;
-  // height: 1380px;
-  color: #333;
-  font-size: 14px;
-}
-
-.l-single-head.registration {
-  width:700px;
-  height: 97px;
-  color: #333;
-  font-size: 22px;
-  padding: 32px;
-
-  background-color: #fff;
-  margin: 0 auto;
-  text-align: center;
-  font-weight: bold;
-}
-
-.l-single-inner.registration-form {
-  width: 700px;
-  // height:1283px;
-  color: #333;
-  font-size: 14px;
-  padding: 24px 16px 40px;
-
-  background-color: #fff;
-  margin: 0 auto;
-}
-
-.l-single{
+.main {
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+  }
   &__content {
     width: 343px;
     color: #333;
     font-size: 14px;
-
     margin: 0 auto;
   }
   &__text {
@@ -133,19 +100,42 @@ h1 {
     height: 42px;
     color: #333;
     font-size: 14px;
+    &__left {
+      width: 343px;
+      height: 16px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__gray {
+      color: #888;
+      margin: 8px 0px 0px;
+    }
+    &__right {
+      text-align: right;
+    }
+  }
+}
+
+.registration {
+  background-color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  padding: 32px;
+  margin: 0 auto;
+  &__form {
+    background-color: #fff;
+    padding: 24px 16px 40px;
+    margin: 0 auto;
   }
 }
 
 .form {
   &__group {
     width: 343px;
-    height: 70px;
     color: #333;
     font-size: 14px;
     margin: 24px 0px 0px;
-  }
-  &__group:first-child {
-    margin: 0;
   }
   &__box {
     display: flex;
@@ -153,59 +143,35 @@ h1 {
   &__require {
     width: 32px;
     height: 19px;
+    background-color: #ea352d;
     color: #fff;
     font-size: 12px;
-    background-color: #ea352d;
-    margin: 0 0 0 8px;
-
-    padding: 2px 4px;
     border-radius: 2px;
+    padding: 2px 4px;
+    margin: 0px 0px 0px 8px;
     vertical-align: top;
   }
-}
-
-label {
-  height: 14px;
-  color: #333;
-  font-size: 14px;
-
-  font-weight: 600;
-  display: inline-block;
 }
 
 .input-default {
   width: 100%;
   height: 48px;
   background-color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px 16px 8px;
   margin: 8px 0px 0px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-
-  border: 1px solid #ccc;
-  line-height: 1.5;
-  font-size: 16px;
-}
-
-.text-left.l-chapter-sub-head {
-  width: 343px;
-  height: 16px;
-  color: #333;
-  font-size: 16px;
-
-  font-weight: bold;
-}
-
-.input-default.half {
-  width: calc(50% - 6px);
-  height: 48px;
-  background-color: #fff;
-  margin: 8px 8px 0px 0px;
-  padding: 10px 16px 8px;
-
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  float: left;
+  &__half {
+    width: calc(50% - 6px);
+    height: 48px;
+    background-color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px 16px 8px;
+    margin: 8px 8px 0px 0px;
+  }
 }
 
 .birthday-select-wrap {
@@ -213,7 +179,6 @@ label {
   height: 56px;
   color: #333;
   font-size: 14px;
-
   display: flex;
   span {
     width: 14px;
@@ -228,36 +193,32 @@ label {
 .select-default {
   width: 76px;
   height: 48px;
-  padding: 0px 10px;
-
+  background: 0;
   border-radius: 4px;
   border: 1px solid #ccc;
-  background: 0;
+  padding: 0px 10px;
   margin-top: 8px;
+  position: relative;
 }
 
-.form-info-text {
-  width: 343px;
-  height: 42px;
+.icon-arrow-down {
+  position: absolute;
+  right: 16px;
   color: #888;
-  font-size: 14px;
-  margin: 8px 0px 0px;
+  top: 35%;
 }
 
-.l-single-text.text-center {
-  width: 343px;
-  height: 63px;
-  color: #333;
-  font-size: 14px;
-  margin: 8px 0px 0px;
-  a {
-    height: 18px;
-    color: #0099e8;
-    font-size: 14px;
-  }
+select {
+  -webkit-appearance: none;
 }
 
-.btn-default.btn-red {
+a {
+  height: 18px;
+  color: #0099e8;
+  font-size: 14px;
+}
+
+.btn-red {
   width: 343px;
   height: 50px;
   color: #fff;
@@ -266,13 +227,8 @@ label {
   margin: 24px 0px 0px;
 }
 
-.form__group.text-right {
-  text-align: right;
-  a {
-    height: 18px;
-    color: #0099e8;
-    font-size: 14px;
-  }
+.icon-arrow-right:before {
+  color: #0099e8;
 }
 
 /* ここまでメイン部分 */

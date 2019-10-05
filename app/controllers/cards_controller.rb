@@ -13,12 +13,12 @@ class CardsController < ApplicationController
   end
 
   def create
-
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
-    binding.pry
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to new_card_path
     else
+      # TODO: user_idをparamsから取得するようにする
+      # TODO: noticeの実装
       customer = Payjp::Customer.create(
       description: '登録test', 
       # email: current_user.email,
@@ -26,12 +26,11 @@ class CardsController < ApplicationController
       # metadata: {user_id: current_user.id}
       metadata: {user_id: 1}
       )
-      # @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
       if card.save
-        redirect_to action: "show", user_id: 1, notice: "登録が完了しました"
+        redirect_to card_path(1)
       else
-        redirect_to action: "new", notice: "登録に失敗しました"
+        redirect_to new_card_path
       end
     end
   end
@@ -79,7 +78,7 @@ class CardsController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to action: "index", notice: "削除が完了しました"
+      redirect_to cards_path, notice: "削除が完了しました"
   end
 
   private
@@ -89,7 +88,7 @@ class CardsController < ApplicationController
     # card = Card.where(user_id: current_user.id)
     card = Card.where(user_id: 1)
     # # 存在している場合はshowアクションへ
-    redirect_to action: "show", id: 1 if card.exists?
+    redirect_to card_path(1), id: 1 if card.exists?
   end
 
 end

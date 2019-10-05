@@ -23,11 +23,11 @@
           もっと見る
           =fa_icon"chevron-right",class:'icon'
       .new-arrival-item
-        - @ladys_items.each_with_index do |item, i|
+        - @ladys_items.each do |item|
           .new-arrival-item__box
             = link_to  item_path(item)  do
-              - item.item_images.each_with_index do |item_image, n|
-                - if n == 0
+              - item.item_images.each_with_index do |item_image, i|
+                - if i == 0
                   = image_tag item_image.image, alt: 'item-image', class: 'new-arrival-item__box--image'
                 - else
                   - break
@@ -36,8 +36,6 @@
               .new-arrival-item__box--price
                 ¥
                 = item.price
-          - if i == 9
-            - break
 
     .popular-brands 
       %h2.popular-brands__title

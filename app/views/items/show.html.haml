@@ -4,18 +4,14 @@
     = @item.name
   .item__main__content.clearfix
     .item__photo
-      .owl__carousel.owl__loaded.owl__drag
-        .owl__stage      
-          - @item.item_images.each_with_index do |item, i|
-            - if i == 0
-              .owl__item
-                .owl__item__inner
-                  = image_tag item.image,class: 'owl__lazy__first'
-            - else
-              .owl__dot
-                %span
-                .owl__dot__inner
-                  = image_tag item.image
+      .owl__carousel
+        - @item.item_images.each_with_index do |item, i|
+          - if i == 0
+            .owl__item
+              = image_tag item.image
+          - else
+            .owl__dot
+              = image_tag item.image
       .go__number__likes
         現在、
         %span> 1人
@@ -155,56 +151,47 @@
       = @item.user.nickname
       さんのその他の出品
 .item__buyer-collection 
-  - @user_items.each_with_index do |item, i|
-    - if item.id  == @item.id
-    - else
-      .item-show__item-box
-        = link_to  item_path(item)  do
-          - item.item_images.each_with_index do |item_image, n|
-            - if n == 0
-              = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
-            - else
-              - break
-          .item-show__item-box-text
-            %span.item-show__item-box__title 
-              = item.name
-            .item-box-text__fee-box
-              %span.item-box-text__fee-box__fee
-                ¥
-                = item.price
-              .item-box-text__fee-box__right
-                = fa_icon 'heart-o', class: "icon"
-                %span  1
-      - if i == 6
-        - break
-        
+  - @user_items.each do |item|
+    .item-show__item-box
+      = link_to  item_path(item)  do
+        - item.item_images.each_with_index do |item_image, i|
+          - if i == 0
+            = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
+          - else
+            - break
+        .item-show__item-box-text
+          %span.item-show__item-box__title 
+            = item.name
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee
+              ¥
+              = item.price
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
+      
 .item__buyer-collection-title
   = link_to  "https://www.mercari.com/jp/safe/description/"  do
     %h2
       = @item.brand.name
       その他の商品
 .item__brand-collection
-  - @brand_items.each_with_index do |item, i|
-    - if item.id  == @item.id
-    - else
-      .item-show__item-box
-        = link_to  item_path(item)  do
-          - item.item_images.each_with_index do |item_image, n|
-            - if n == 0
-              = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
-            - else
-              - break
-          .item-show__item-box-text
-            %span.item-show__item-box__title 
-              = item.name
-            .item-box-text__fee-box
-              %span.item-box-text__fee-box__fee
-                ¥
-                = item.price
-              .item-box-text__fee-box__right
-                = fa_icon 'heart-o', class: "icon"
-                %span  1
-      - if i == 6
-        - break
-        
+  - @brand_items.each do |item|
+    .item-show__item-box
+      = link_to  item_path(item)  do
+        - item.item_images.each_with_index do |item_image, i|
+          - if i == 0
+            = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
+          - else
+            - break
+        .item-show__item-box-text
+          %span.item-show__item-box__title 
+            = item.name
+          .item-box-text__fee-box
+            %span.item-box-text__fee-box__fee
+              ¥
+              = item.price
+            .item-box-text__fee-box__right
+              = fa_icon 'heart-o', class: "icon"
+              %span  1
 = render partial: 'shared/footer'

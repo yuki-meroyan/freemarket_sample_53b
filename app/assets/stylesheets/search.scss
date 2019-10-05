@@ -99,15 +99,15 @@
   height: 700px;
 }
 
-// .detailed-search{
-//   width: 100px;
-// }
 .detailed-search__item{
-  height: 90px;
-  margin-top: 20px;
+  height: 65px;
+  margin-top: 30px;
   &--keyword{
     font-size: 15px;
     font-weight: 600;
+  // &--price{
+  //   height: 100px;
+  // }
   }
 }
 .item-keyword-search{
@@ -121,6 +121,19 @@
   display: block;
   margin: 0;
 }
+
+.item-price-search{
+  width: 80px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+
+
 
 .item-sort-search{
   width: 250px;
@@ -149,19 +162,16 @@
   
 // }
 
-.detailed-search__form--price{
-  display: flex;
-  margin-top: 10px;
-  position: relative;
+.detailed-search__price{
+  // display: flex;
+  // margin-top: 1px;
+  // position: relative;
+  justify-content: space-between;
+  margin: 0;
 }
-.while{
-  margin: 0 10px;
-  position: absolute;
-  top: 20px;
-  left: 100px;
-}
-.item-price-search{
-  width: 80px;
+
+.item-status-search{
+  width: 30px;
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -170,3 +180,8 @@
   display: block;
   margin-top: 10px;
 }
+
+.icon-check{
+  font-family: 'Font Awesome 5 Regular';
+}
+

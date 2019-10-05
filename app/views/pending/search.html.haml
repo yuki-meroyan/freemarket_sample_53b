@@ -72,7 +72,7 @@
           
         .detailed-search
           .detailed-search-title 検索結果
-          .detailed-search-item
+          .detailed-search__item
             = f.label :keyword do
               = fa_icon "plus", class: 'icon'
               %span.detailed-search-item__keyword キーワードを追加する
@@ -102,7 +102,6 @@
 
 
 
-
           .detailed-search__price
             = f.label :keyword do
               = fa_icon "coins", class: 'icon'
@@ -123,37 +122,38 @@
               = fa_icon "star", class: 'icon'
               %span.detailed-search__item--keyword  商品の状態
 
-            .detailed-search__form
-              = fa_icon "square", class: 'icon-check'
-              = f.label :keyword do
-                %span.detailed-search__form--status すべて
+            .detailed-search__check
+              .detailed-search__status--list
+                = fa_icon "square", class: 'icon-check'
+                = f.label :keyword do
+                  %span.detailed-search__form--status すべて
 
-            .detailed-search__form 
+            .detailed-search__check 
               = fa_icon "square", class: 'icon-check'   
               = f.label :keyword do
                 %span.detailed-search__item--status 新品、未使用
 
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--status 未使用に近い
 
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--status   目立った傷や汚れなし
 
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--status  やや傷や汚れあり
               
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--status  傷や汚れあり
               
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--status 全体的に状態が悪い
@@ -163,44 +163,44 @@
 
 
 
-          .detailed-search__item
+          .detailed-search__box.clearfix
             = f.label :keyword do
               = fa_icon "truck", class: 'icon'
               %span.detailed-search__item--keyword  配送料の負担
             
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--fee  すべて
             
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--fee  着払い(購入者負担)
               
 
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--fee  送料込み(出品者負担)
 
           
-          .detailed-search__item
+          .detailed-search__box
             = f.label :keyword do
               = fa_icon "shopping-cart", class: 'icon'
               %span.detailed-search__item--keyword  販売状況
             
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--fee  すべて
             
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--fee  販売中
 
-            .detailed-search__form
+            .detailed-search__check
               = fa_icon "square", class: 'icon-check'
               = f.label :keyword do
                 %span.detailed-search__item--fee  売り切れ

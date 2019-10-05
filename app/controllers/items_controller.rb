@@ -25,6 +25,9 @@ class ItemsController < ApplicationController
   def myitem
   end
 
+  def search
+  end
+
   private
 
   def set_item

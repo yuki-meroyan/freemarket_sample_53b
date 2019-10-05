@@ -157,17 +157,10 @@
   font-size: 16px;
 }
 
-// .detailed-search__form{
-//   position: relative;
-  
-// }
 
 .detailed-search__price{
-  // display: flex;
-  // margin-top: 1px;
-  // position: relative;
   justify-content: space-between;
-  margin: 0;
+  margin-top: 40px ;
 }
 
 .item-status-search{
@@ -181,7 +174,21 @@
   margin-top: 10px;
 }
 
-.icon-check{
-  font-family: 'Font Awesome 5 Regular';
+.detailed-search__box{
+  height: 100px;
+  margin-top: 40px;
 }
 
+.detailed-search__status{
+  margin-top: 40px;
+}
+.detailed-search__check{
+  display: inline-block;
+  width: 48%;
+  vertical-align: middle;
+}
+
+.clearfix::after{
+  content : " ";
+  clear : both;
+}

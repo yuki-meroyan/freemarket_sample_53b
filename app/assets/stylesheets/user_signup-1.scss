@@ -18,7 +18,7 @@
   height: 128px;
 }
 
-h1 {
+h1.logo {
   width: 185px;
   height: 49px;
   padding-top: 40px;
@@ -80,9 +80,9 @@ li.active {
   background: #ea352d;
 }
 
-/* ここまでヘッダー部分 */
+// ここまでヘッダー部分
 
-/* ここからメイン部分 */
+// ここからメイン部分
 
 .main {
   &__container {
@@ -231,4 +231,4 @@ a {
   color: #0099e8;
 }
 
-/* ここまでメイン部分 */
+// ここまでメイン部分

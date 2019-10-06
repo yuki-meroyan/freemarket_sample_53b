@@ -7,7 +7,7 @@
           パンツ
           %span.search_word__result
             の検索結果
-        .search_number
+        .search_number 
           1〜132件表示
       .search-item-index
         .search-item-index__box
@@ -45,7 +45,7 @@
               .item-likes__count
               = fa_icon "heart", class:'like-count-icon' 
               %span 1
-      
+
         .search-item-index__box
           .search-item-index__content
             =image_tag "https://static.mercdn.net/thumb/photos/m95577479951_1.jpg?1569509266", class:'search_item_image'
@@ -58,6 +58,7 @@
               = fa_icon "heart", class:'like-count-icon' 
               %span 1
       
+      -# = paginate(@items) 
 
 
 

@@ -16,7 +16,7 @@ class PendingController < ApplicationController
   end
 
   def search
-    @items = Item.where('title LIKE(?)', "%#{params[:keyword]}%")
+    # @items = Item.where('title LIKE(?)', "%#{params[:keyword]}%").count
   end
   
 end

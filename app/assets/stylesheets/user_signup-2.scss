@@ -1,15 +1,14 @@
 // ここからヘッダー部分
 
-.progress-bar li.first-active .progress-status {
-  background: #ea352d;
-}
-
-.progress-status.first-progress-status:after, .progress-status.second-progress-status:before {
-  background: #ea352d;
-}
-
-.progress-status.second-progress-status {
-  background: #ea352d;
+.registration-header {
+  .progress-bar {
+    .first-progress-status:after, .progress-status.second-progress-status:before {
+      background: #ea352d;
+    }
+    .second-progress-status {
+      background: #ea352d;
+    }
+  }
 }
 
 // ここまでヘッダー部分

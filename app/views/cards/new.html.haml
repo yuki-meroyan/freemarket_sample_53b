@@ -8,7 +8,7 @@
           .card-new__form__group
             = f.label :カード番号
             %span.card-new__form__require 必須
-            = f.text_field :card_number, id: "card-new__number", class: "card-new__input", maxlength: "19", placeholder: "半角数字のみ"
+            = f.text_field :card_number, id: "card-new__number", class: "card-new__input", maxlength: "16", placeholder: "半角数字のみ"
             %ul#card-new__card-no-error.card-new__error-text
             %ul.card-new__signup__card-list
               %li

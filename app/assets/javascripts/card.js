@@ -5,7 +5,7 @@ $(function(){
     // 違うビューでid:card-new__formが存在していても反応しないようにしています
     if (url == '/cards/new' ) {
       
-      $('#card-new__form').on("click", function(e){
+      $('#card-new__submit').on("click", function(e){
 
         Payjp.setPublicKey('pk_test_2e92f0b22242789bc2f990c0');
         
@@ -16,15 +16,10 @@ $(function(){
         $('#card-new__submit').prop('disabled', true);
         
         // TODO: 登録情報は仮固定
-        // var number = $('#card-new__number').val();
-        // var cvc = $('#card-new__card-security-code').val();
-        // var exp_month = $('#card-new__card-expire-mm').val();
-        // var exp_year = $('#card-new__card-expire-yy').val();
-
-        var number = '4242424242424242';
-        var cvc = '123';
-        var exp_month = '2';
-        var exp_year = '2020';
+        var number = $('#card-new__number').val();
+        var cvc = $('#card-new__card-security-code').val();
+        var exp_month = $('#card-new__card-expire-mm').val();
+        var exp_year = $('#card-new__card-expire-yy').val();
         
         var card = {
           number: number,
@@ -51,6 +46,7 @@ $(function(){
 
           } else {
             alert("カード情報が正しくありません。"); 
+            $('#card-new__submit').prop('disabled', false);
           }
         });
       });

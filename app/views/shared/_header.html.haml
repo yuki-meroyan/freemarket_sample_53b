@@ -50,7 +50,7 @@
                 %span.nav__user__menu__count
                   1
             %li.nav__user__menu
-              = link_to "/users/show", class: "nav__user__menu-link", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/" do
+              = link_to user_path(current_user.id), class: "nav__user__menu-link", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/" do
                 = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "nav__user__img" , alt: ""
                 マイページ
                 %span 

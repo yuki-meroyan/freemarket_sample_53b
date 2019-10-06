@@ -3,7 +3,6 @@ class CardsController < ApplicationController
 
   require "payjp"
 
-  # TODO: current_user.idは固定
   def index
 
   end
@@ -14,30 +13,27 @@ class CardsController < ApplicationController
 
   def create
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
-    if params['payjp-token'].blank?
-      redirect_to new_card_path
-    else
-      # TODO: user_idをparamsから取得するようにする
+    if params['payjp-token'].present?
       # TODO: noticeの実装
       customer = Payjp::Customer.create(
       description: '登録test', 
-      # email: current_user.email,
+      email: current_user.email,
       card: params['payjp-token'],
-      # metadata: {user_id: current_user.id}
-      metadata: {user_id: 1}
+      metadata: {user_id: current_user.id}
       )
-      card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
+      card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if card.save
-        redirect_to card_path(1)
+        redirect_to card_path(current_user.id)
       else
         redirect_to new_card_path
       end
+    else
+      redirect_to new_card_path
     end
   end
 
   def show
-    # card = Card.where(user_id: current_user.id).first
-    @card = Card.where(user_id: 1).first
+    @card = Card.where(user_id: current_user.id).first
     # カード情報有無で分岐
     if @card.blank?
       redirect_to action: "index" 
@@ -68,8 +64,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    # card = Card.where(user_id: current_user.id).first
-    card = Card.where(user_id: 1).first
+    card = Card.where(user_id: current_user.id).first
     # カード情報有無で分岐
     if card.blank?
     else
@@ -85,8 +80,7 @@ class CardsController < ApplicationController
 
   def check_card
     # データが存在するかどうかでページを遷移するか変わる
-    # card = Card.where(user_id: current_user.id)
-    card = Card.where(user_id: 1)
+    card = Card.where(user_id: current_user.id)
     # # 存在している場合はshowアクションへ
     redirect_to card_path(1), id: 1 if card.exists?
   end

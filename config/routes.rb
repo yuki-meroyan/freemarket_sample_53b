@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
   resources :user_details
-  resources :items, only: [:index, :show, :destroy, :new]
-
+  resources :items, only: [:index, :show, :destroy, :new] do
+    get 'search'
+  end
   resources :users
   resources :cards, only: [:index, :new, :show]
 
@@ -15,5 +16,5 @@ Rails.application.routes.draw do
   get 'pending/index' => 'pending#index',as: 'pending/index'
   get 'pending/member_complate' => 'pending#member_complate',as: 'pending/member_complate'
   get 'items/myitem/:id' => 'items#myitem',as: 'items/myitem'
-  get 'pending/search' => 'pending#search',as: 'pending/search'
+  # get 'pending/search' => 'pending#search',as: 'pending/search'
 end

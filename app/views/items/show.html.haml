@@ -8,10 +8,10 @@
         - @item.item_images.each_with_index do |item, i|
           - if i == 0
             .owl__item
-              = image_tag item.image
+              = image_tag item.image.url
           - else
             .owl__dot
-              = image_tag item.image
+              = image_tag item.image.url
       .go__number__likes
         現在、
         %span> 1人
@@ -156,7 +156,7 @@
       = link_to  item_path(item)  do
         - item.item_images.each_with_index do |item_image, i|
           - if i == 0
-            = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
+            = image_tag item_image.image.url, alt: 'item-image', class: 'recommnd-item__image'
           - else
             - break
         .item-show__item-box-text
@@ -181,7 +181,7 @@
       = link_to  item_path(item)  do
         - item.item_images.each_with_index do |item_image, i|
           - if i == 0
-            = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
+            = image_tag item_image.image.url, alt: 'item-image', class: 'recommnd-item__image'
           - else
             - break
         .item-show__item-box-text

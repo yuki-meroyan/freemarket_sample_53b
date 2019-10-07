@@ -11,8 +11,20 @@ class PendingController < ApplicationController
 
   def edit
   end
+  
+  def user_signup1
+  end
 
-  def member_complate
+  def user_signup2
+  end
+  
+  def user_signup3
+  end
+
+  def user_signup4
+  end
+
+  def user_signup5
   end
 
 end

@@ -133,6 +133,7 @@
 
 .main {
   &__container {
+    box-sizing: border-box;
     width: 700px;
     margin: 0 auto;
     .registration {
@@ -247,6 +248,7 @@
     height: 42px;
     color: #333;
     font-size: 14px;
+    margin: 8px 0 0;
     &__left {
       width: 343px;
       height: 16px;

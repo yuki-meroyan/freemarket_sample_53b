@@ -1,5 +1,4 @@
 $(function () {
-  
 
   var changeSelect = function (id, nextSelect) {
     var item_id = $('.sell__upload__head').data('item-id');

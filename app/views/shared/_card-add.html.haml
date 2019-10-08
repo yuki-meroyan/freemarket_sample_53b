@@ -1,0 +1,54 @@
+.card-new__content
+  %section.card-new__chapter__container
+    %h2.card-new__chapter__header クレジットカード情報入力
+    = form_with(url: cards_path, method: :post, name: "inputForm", id: "card-new__form", class: "card-new__single-inner") do |f|
+      .card-new__single-content
+        .card-new__form__group
+          = f.label :カード番号
+          %span.card-new__form__require 必須
+          = f.text_field :card_number, id: "card-new__number", class: "card-new__input", maxlength: "16", placeholder: "半角数字のみ"
+          %ul#card-new__card-no-error.card-new__error-text
+          %ul.card-new__signup__card-list
+            %li
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2482339763", class: "card-new__img--visa" 
+            %li
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2482339763", class: "card-new__img--master-card"
+            %li
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2482339763", class: "card-new__img--saison-card" 
+            %li
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2482339763", class: "card-new__img--jcb" 
+            %li
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2482339763", class: "card-new__img--american_express" 
+            %li
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2482339763", class: "card-new__img--dinersclub" 
+            %li
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2482339763", class: "card-new__img--discover" 
+        .card-new__form__group.card-new__form__signup__expire
+          = f.label :有効期限
+          %span.card-new__form__require 必須
+          %br
+          .card-new__select__wrap
+            = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , id: 'card-new__card-expire-mm', class: 'card-new__select'
+            = fa_icon 'chevron-down', class:"icon__arrow-bottom"
+            %span 月
+          .card-new__select__wrap
+            = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , id: 'card-new__card-expire-yy', class: 'card-new__select'
+            = fa_icon 'chevron-down', class:"icon__arrow-bottom"
+            %span 年
+          %ul#card-new__expire-mm-error.card-new__error-text
+          %ul#card-new__expire-yy-error.card-new__error-text
+        .card-new__form__group
+          = f.label :セキュリティコード              
+          %span.card-new__form__require 必須
+          = f.text_field :security_code, id: "card-new__card-security-code", class: "card-new__input", placeholder: "カード背面4桁もしくは3桁の番号"
+          %ul#card-new__security-code-error.card-new__error-text
+          .card-new__signup__seqcode
+            .card-new__signup__seqcode-text{"data-js" => "show-tips-toggle"}
+              %span.card-new__form__question> ?
+              カード裏面の番号とは？
+            .card-new__signup__seqcode-info{"data-js" => "show-tips-content"}
+              カードの裏面をご参照ください。
+              %br
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?2482339763", class: "card-new__img--seq-card" 
+        #card-new__token
+          = f.submit :追加する, name: 'submit-token' , id: 'card-new__submit', class: "card-new__btn card-new__btn--red"

@@ -5,6 +5,7 @@ $(function() {
   var input_area = $('.upload__box');
   var images_count = $('.edit-item__images__image').length;
 
+  // プレビューファイルの読み込み等
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -16,7 +17,7 @@ $(function() {
       reader.readAsDataURL(input.files[0]);
     }
   }
-
+// 投稿ボタンのサイズ変更
   function dpboxSize(images_count ) {
     switch( images_count ) {
       case 1:
@@ -62,18 +63,12 @@ $(function() {
     $('#upload__file__previews').removeClass('hidden');
     readURL(this);
     $('#upload__file__previews').addClass('edit-item__images');
-    // if(images_count < 5){
+
       $('.upload__box').before(html);
-    // }else{
-    //   $('.sell__dropbox__box__inner__nonaka2').append(html);
-    // }
-    // $(input_area ).before(html);
     images.push(html);
-    // console.log(images.length,inputs.length)
     var new_input = $(`<input multiple= "multiple" name="item[item_images_attributes][][image]" class="sell__upload__drop-file" data-image= ${images.length} type="file" id="post_img" accept="image/*">`);
     input_area.prepend(new_input);
     images_count = $('.edit-item__images__image').length;
-    // console.log(images_count,"アイテムの数")
     dpboxSize(images_count);
     // 一番上のインプットだけ押せるように表示。
     $(input_area).children(":first").css({'display':'block'});
@@ -82,14 +77,9 @@ $(function() {
   });
 
 
-// 配列の確認用
-  $('.l__single__head').click(function(){
-    console.log(images.length,inputs.length);
-  });
 
 
-
-// 削除ボタン（完成）
+// 新しく投稿した画像の削除ボタン（完成）
   $('body').on('click', ".edit-item__images__btns__delete",  function(e) {
     e.preventDefault();
     var target = $(this).parent().parent();
@@ -113,7 +103,7 @@ $(function() {
     images_count = $('.edit-item__images__image').length;
     dpboxSize(images_count);
   });
-// もともとあるアイテムに対しての削除ボタン（未完成）
+もともとあるアイテムに対しての削除ボタン
   $('.motomoto_btn').click(function(e){
     e.preventDefault();
     var inputId = $(this).data('id');

@@ -19,19 +19,20 @@
                         = image_tag im.image.url ,{class: 'edit-item__images__image'}
                         .edit-item__images__btns
                           =link_to "編集", "#",class: "edit-item__images__btns__edit"
-                          = f.check_box :_destroy,name: "item[item_images_attributes][][destroy]"
+                          = f.hidden_field :id,{value: im.id ,name: "item[item_images_attributes][][id]" }
+                          = f.check_box :_destroy,name: "item[item_images_attributes][][_destroy]"
                           =link_to "削除", "#",class: "motomoto_btn", data: { id: im.id, default: 'default' } 
                     #upload__file__previews.hidden
                       = image_tag '', id: 'avatar_img_prev', class: 'edit-item__images__image',data: {image: 0}
                       .edit-item__images__btns
                         =link_to "編集", "#",class: "edit-item__images__btns__edit"
                         =link_to "削除", "#",class: "edit-item__images__btns__delete"
-                  .sell__dropbox__box__inner__nonaka2
-                  .upload__box
-                    %pre.upload__box__text
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
-                    = f.file_field :image ,name: "item[item_images_attributes][][image]",class: 'sell__upload__drop-file',id: 'post_img',accept: "image/*",multiple: true,data: {image: 0}
+
+                    .upload__box
+                      = f.file_field :image ,name: "item[item_images_attributes][][image]",class: 'sell__upload__drop-file',id: 'post_img_last',accept: "image/*",multiple: true,data: {image: 0}
+                      %pre.upload__box__text
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード
 
 
           .sell__form__content
@@ -66,17 +67,16 @@
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     = f.select :category_id, options_from_collection_for_select(Category.where(id: @item.category_id), :id, :category), {}, {class: 'item__f-select'}
 
-              -# .form__group
-              -#   = f.label :xxx do
-              -#     サイズ
-              -#     %span.form__require 必須
-              -#   %div
-              -#     .select-wrap
-              -#       =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-              -#       = f.select :"select__default" ,:property, {},:class => 'item__f-select' do
-              -#         %option ---
-              -#         %option M
-              -#         %option L
+              .form__group
+                = f.label :xxx do
+                  サイズ
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = select :"select__default" ,:"select__default" ,:property, {},:class => 'item__f-select' do
+                      %option M
+                      %option L
               .form__group.form__suggest__container
                 = f.label :brand_id do
                   ブランド
@@ -88,12 +88,11 @@
                   商品の状態
                   %span.form__require 必須
                 %div
-                  -# .select-wrap
-                  -#   =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                  -#   = f.select :"select__default" ,:property, {},:class => 'item__f-select' do
-                  -#     %option ---
-                  -#     %option 新品/未使用に近い
-                  -#     %option 全体的に状態が悪い
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = select :"select__default",:"select__default"  ,:property, {},:class => 'item__f-select' do
+                      %option 新品/未使用に近い
+                      %option 全体的に状態が悪い
 
 
           .sell__form__content.clearfix

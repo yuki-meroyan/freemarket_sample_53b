@@ -19,7 +19,7 @@
 .sell__dropbox__box__inner{
   width: 620px;
 }
-.sell__dropbox__box__inner,.sell__dropbox__box__inner__nonaka,.sell__dropbox__box__inner__nonaka2{
+.sell__dropbox__box__inner,.sell__dropbox__box__inner__nonaka{
   display: flex;
   flex-wrap: wrap;
 }
@@ -90,4 +90,17 @@
 
 .sell__dropbox__box__inner{
   display: flex;
+}
+
+input#post_img {
+  height: 100%;
+  width: 100%;
+  display:none;
+  opacity: 0;
+}
+input#post_img_last {
+  height: 100%;
+  width: 100%;
+  display:block;
+  opacity: 0;
 }

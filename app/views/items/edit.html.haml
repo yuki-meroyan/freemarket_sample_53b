@@ -21,7 +21,7 @@
                           =link_to "編集", "#",class: "edit-item__images__btns__edit"
                           = f.hidden_field :id,{value: im.id ,name: "item[item_images_attributes][][id]" }
                           = f.check_box :_destroy,name: "item[item_images_attributes][][_destroy]"
-                          =link_to "削除", "#",class: "motomoto_btn", data: { id: im.id, default: 'default' } 
+                          =link_to "削除", "#",class: "motomoto_btn", data: { id: im.id, default: 'default' }
                     #upload__file__previews.hidden
                       = image_tag '', id: 'avatar_img_prev', class: 'edit-item__images__image',data: {image: 0}
                       .edit-item__images__btns
@@ -173,3 +173,4 @@
             = f.submit "出品する",type: "submit", class: "btn__default btn__red"
             = link_to "もどる",root_path, class: "btn__default btn__gray"
   = render partial: 'shared/terms-footer'
+

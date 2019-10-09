@@ -73,7 +73,7 @@ $(function() {
     dpboxSize(images_count);
     // 一番上のインプットだけ押せるように表示。
     $(input_area).children(":first").css({'display':'block'});
-    // 選択したインプットは消す。
+    // 選択したインプットの見た目を消す。
     $(this).css({'display':'none'});
   });
 

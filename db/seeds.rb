@@ -58,22 +58,9 @@ parent_child_array.each do |parent_child|
   end
 end
 
-Category.create{
-  [
-    { cattegory: 'Tシャツ(半袖、袖なし)',
-      ancestry: '14',
-      price: '20',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    { cattegory: 'Tシャツ(長袖、7部丈)',
-      ancestry: '14',
-      price: '20',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-  ]
-}
+grandchildCategory  = Category.create!(category: 'Tシャツ(半袖、袖なし)',ancestry: '14')
+grandchildCategory2  = Category.create!(category: 'Tシャツ(長袖、7部丈)',ancestry: '14')
+
 
 Item.create!(
   [
@@ -309,115 +296,115 @@ Item.create!(
 ItemImage.create!(
   [
     {
-      image: 'https://image.rakuten.co.jp/adidas/cabinet/201932w/c77124-1.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img1.jpg"),
       item_id:'1',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://image.rakuten.co.jp/adidas/cabinet/201932w/c77124-2.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img2.jpg"),
       item_id:'1',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://image.rakuten.co.jp/adidas/cabinet/201932w/c77124-1.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img1.jpg"),
       item_id:'1',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://image.rakuten.co.jp/adidas/cabinet/201932w/c77124-10.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img3.jpg"),
       item_id:'1',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://image.rakuten.co.jp/adidas/cabinet/201932w/c77124-15.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img4.jpg"),
       item_id:'1',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQhc7xxzpbVO1FfUea1Se_7Zx7uAcHghHXarkngCa4A7mX_o5NDONBMxn4PeqUnZ5OKLFhDF4hkUPkFgk3prFjdPuMHhFtyFA&usqp=CAE',
+      image: open("#{Rails.root}/app/assets/images/seed/img5.webp"),
       item_id:'2',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTbMGRs12SseDEgZIOdMkQrRhYgXphXZHrfdsMNhA79LVwzuCOBLLZSqWSlKc8TjN7XoPtEwdYw_MBoX5ulW2dr710I6zhhvma3NZUX0gOaZQ7Fv0h4VoDz&usqp=CAE',
+      image: open("#{Rails.root}/app/assets/images/seed/img6.webp"),
       item_id:'3',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTpQq15g_KTojlQmjcknXzeXNB3ws0lyQuZlBfyDsMVp2WbHhb6CFuUl9cLM-XDGtrZxFQ4J5MxPqj1wV8o8CYQjG71FfyJxRYi6NHFjAn34g0Btvr0mCf-&usqp=CAE',
+      image: open("#{Rails.root}/app/assets/images/seed/img7.webp"),
       item_id:'4',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTi83_JoS16A7tA9ZXOmmSs2A2Da0qBEfeEuCTj2j0Lxl8Ia6zq3WJVu7YlXCGrMFGcsmKW-JKXQtdQ7UWAfEVIK6B2junntMHzBQcYHiG4tdRV8WNJOKO0MA&usqp=CAE',
+      image:open("#{Rails.root}/app/assets/images/seed/img8.webp"),
       item_id:'5',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRu9B0FgHyz62RRfH82pdXHdMF6TqQqT9CQ1HKj5Y6g33KLPJLim0rt2guYt6crCAdrgobJSpOQly7tUovsmsevWACOfaEzyAMNmvXm6qRbA1LPdhKjZEQ1&usqp=CAE',
+      image: open("#{Rails.root}/app/assets/images/seed/img9.webp"),
       item_id:'6',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQhc7xxzpbVO1FfUea1Se_7Zx7uAcHghHXarkngCa4A7mX_o5NDONBMxn4PeqUnZ5OKLFhDF4hkUPkFgk3prFjdPuMHhFtyFA&usqp=CAE',
+      image: open("#{Rails.root}/app/assets/images/seed/img10.webp"),
       item_id:'7',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://image.rakuten.co.jp/adidas/cabinet/201932w/c77124-15.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img11.jpg"),
       item_id:'8',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://images-na.ssl-images-amazon.com/images/I/41PoTbB0VaL._SX333_BO1,204,203,200_.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img12.jpg"),
       item_id:'9',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://images-na.ssl-images-amazon.com/images/I/91+sEwIFegL._UX250_.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img13.jpg"),
       item_id:'10',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'http://nekorisu.info/wp-content/uploads/2018/11/6993ea87.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img14.jpg"),
       item_id:'11',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://i0.wp.com/koimousagi.com/wp-content/uploads/2017/02/udosuzuki-e1487003295442.jpg?w=200&quality=100&ssl=1',
+      image: open("#{Rails.root}/app/assets/images/seed/img15.jpg"),
       item_id:'12',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://grapee.jp/wp-content/uploads/s-10071_main.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img16.jpg"),
       item_id:'13',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://img.jisin.jp/uploads/2018/11/suzuki_sawa_1_line_tw.jpg',
+      image: open("#{Rails.root}/app/assets/images/seed/img17.jpg"),
       item_id:'14',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      image:'https://rr.img.naver.jp/mig?src=http%3A%2F%2Fimgcc.naver.jp%2Fkaze%2Fmission%2FUSER%2F20140719%2F51%2F5551361%2F161%2F2404x1398xd928f6940ff3c1a43162b7.jpg%2F300%2F600&twidth=300&theight=600&qlt=80&res_format=jpg&op=r',
+      image: open("#{Rails.root}/app/assets/images/seed/img18.jpeg"),
       item_id:'15',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',

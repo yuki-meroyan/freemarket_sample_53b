@@ -28,25 +28,25 @@ $(function () {
     <option value="" >---</option>
     `).val("");
 
-    $('#category_1_category_1').change(function(){
-      var id = $(this).val();
-      if (id === "") {
-        $('.category-box__child').css('display', 'none');
-        $('.category-box__grandchild').css('display', 'none');
-        return;
-      }
-      $('.category-box__child').css('display', 'block');
-      changeSelect(id, $('#category_2_category_2'));
-    });
+  $('#category_1_category_1').change(function(){
+    var id = $(this).val();
+    if (id === "") {
+      $('.category__box__child').css('display', 'none');
+      $('.category__box__grandchild').css('display', 'none');
+      return;
+    }
+    $('.category__box__child').css('display', 'block');
+    changeSelect(id, $('#category_2_category_2'));
+  });
 
-    $('#category_2_category_2').change(function(){
-      var id = $(this).val();
-      if (id === "") {
-        $('.category-box__grandchild').css('display', 'none');
-        return;
-      }
-      $('.category-box__grandchild').css('display', 'block');
-      changeSelect(id, $('#item_category_id'));
-    });
+  $('#category_2_category_2').change(function(){
+    var id = $(this).val();
+    if (id === "") {
+      $('.category__box__grandchild').css('display', 'none');
+      return;
+    }
+    $('.category__box__grandchild').css('display', 'block');
+    changeSelect(id, $('#item_category_id'));
+  });
 
 });

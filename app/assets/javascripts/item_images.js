@@ -89,7 +89,7 @@ $(function() {
         images.splice(index, 1);
         inputs.splice(index, 1);
         if(inputs.length == 0) {
-          $('#post__img_last,#post__img').attr({
+          $('#post__img__last,#post__img').attr({
             'data-image': 0
           });
           $('#item__img__prev').attr({

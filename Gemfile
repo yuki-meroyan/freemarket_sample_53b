@@ -83,4 +83,3 @@ gem 'pry-byebug'
 gem 'ancestry'
 gem 'active_hash'
 gem "jquery-rails"
-gem 'jquery-turbolinks'

@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:myitem, :show, :destroy, :edit, :update]
 
   def index
-    @ladys_items = Item.where(category_id: 1).order('id ASC').limit(10)
+    @ladys_items = Item.where(category_id: 159).order('id ASC').limit(10)
   end
 
   def new
@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
         xxx =Brand.find_by(name: params[:brand_id])
       end
     @item.brand_id ="#{xxx.id}"
-    # binding.pry
     end
 
     if @item.update(item_params)

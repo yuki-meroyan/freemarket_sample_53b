@@ -14,19 +14,19 @@ $(function() {
           break;
       case 2:
       case 7:
-          $(input_area).css({'width':'480px','margin-left': '10px'});
+          $(input_area).css({'width':'490px','margin-left': '10px'});
           break;
       case 3:
       case 8:
-          $(input_area).css({'width':'350px','margin-left': '10px'});
+          $(input_area).css({'width':'360px','margin-left': '10px'});
           break;
       case 4:
       case 9:
-          $(input_area).css({'width':'230px','margin-left': '10px'});
+          $(input_area).css({'width':'240px','margin-left': '10px'});
           break;
       case 5:
       case 10:
-          $(input_area).css({'width':'100px','margin-left': '10px'});
+          $(input_area).css({'width':'110px','margin-left': '10px'});
           break;
     };
   }
@@ -64,7 +64,7 @@ $(function() {
     inputs.push($(this));
     $('#upload__file__previews').removeClass('hidden');
     readURL(this);
-    $('#upload__file__previews').addClass('edit__item__images');
+    $('#upload__file__previews').addClass(`edit__item__images`);
     $('.upload__box').before(html);
     images.push(html);
     var new_input = $(`<input multiple= "multiple" name="item[item_images_attributes][][image]" class="sell__upload__drop-file" data-image= ${images.length} type="file" id="post__img" accept="image/*">`);
@@ -107,6 +107,7 @@ $(function() {
     e.preventDefault();
     $(this).prev().prev().prop('value', "1");
     $(this).parent().parent().hide();
+    $(this).parent().parent().appendTo(".delete__image__box");
 
 //dpboxSizeのために消す
     var deleteimg = $(this).parent().parent().find('img');

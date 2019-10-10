@@ -12,6 +12,7 @@
             %p 最大10枚までアップロードできます
             .sell__dropbox-container.clearfix.state-image-number-10
               = f.fields_for :images, html: {id: "item-images__form"} do |i|
+                .hidden.delete__image__box
                 .sell__dropbox__box__inner
                   - @item.item_images.each_with_index do |im,n|
                     .edit__item__images{class: "#{n}",data: {number: n}}

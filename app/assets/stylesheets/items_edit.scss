@@ -15,6 +15,9 @@
   width: 620px;
   display: flex;
   flex-wrap: wrap;
+  &:first-child, :nth-child(6n){
+    margin-left: 0;
+  }
 }
 
 .edit__item__images{
@@ -30,7 +33,7 @@
     justify-content: space-evenly;
     font-size: 14px;
   }
-  &:first-child, :nth-child(6n){
+  &:first-child{
     margin-left: 0;
   }
 }

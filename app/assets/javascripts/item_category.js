@@ -28,6 +28,7 @@ $(function () {
     <option value="" >---</option>
     `).val("");
 
+
   $('#category_1_category_1').change(function(){
     var id = $(this).val();
     if (id === "") {

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:myitem, :show, :destroy, :edit, :update]
+  before_action :move_to_index, except: [:index,:show]
 
   def index
     @ladys_items = Item.where(category_id: 159).order('id ASC').limit(10)
@@ -61,6 +62,11 @@ private
 
   def item_params
     params.require(:item).permit(:name,:description,:price,:region,:delivery_fee,:delivery_days,:shipping_method ,:brand_id,:category_id,item_images_attributes:[:id,:image,:_destroy]).merge(user_id: current_user.id)
+  end
+
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 
 end

@@ -1,7 +1,7 @@
 
 $(function() {
   var images        = [];
-  var inputs        =[];
+  var inputs        = [];
   var input_area    = $('.upload__box');
 
   // 投稿ボタンのサイズ変更

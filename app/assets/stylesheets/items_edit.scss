@@ -87,3 +87,14 @@
 .category__box__grandchild , .category__box__child ,.hidden{
   display:none;
 }
+
+.flash {
+  color: $white;
+  text-align: center;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: $blue;
+  }
+}

@@ -389,6 +389,30 @@ $(function () {
           <option value="54">17cm以上</option>
         `);
       break;
+      //タイヤ
+      case '1210':
+      case '1211':
+      case '1212':
+      case '1213':
+        $('#size__select__box').css('display', 'block');
+        $('#size_select_size_select').empty();
+        $('#size_select_size_select').append(`
+          <option value="">---</option>
+          <option value="158">12インチ</option>
+          <option value="67">13インチ</option>
+          <option value="68">14インチ</option>
+          <option value="69">15インチ</option>
+          <option value="70">16インチ</option>
+          <option value="71">17インチ</option>
+          <option value="72">18インチ</option>
+          <option value="73">19インチ</option>
+          <option value="74">20インチ</option>
+          <option value="75">21インチ</option>
+          <option value="159">22インチ</option>
+          <option value="160">23インチ</option>
+          <option value="161">24インチ</option>
+        `);
+      break;
       // それ以外（サイズがいらない）
       default:
         $('#size_select_size_select').empty();

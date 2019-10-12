@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_075533) do
+ActiveRecord::Schema.define(version: 2019_10_12_062409) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 2019_09_28_075533) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "transaction_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "seller_id", null: false
+    t.integer "buyer_id", null: false
+    t.datetime "purchase_day"
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_transaction_informations_on_item_id"
+  end
+
   create_table "user_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
     t.string "first_name", null: false
@@ -123,5 +133,6 @@ ActiveRecord::Schema.define(version: 2019_09_28_075533) do
   add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
+  add_foreign_key "transaction_informations", "items"
   add_foreign_key "user_details", "users"
 end

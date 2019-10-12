@@ -216,12 +216,13 @@ $(function () {
       case '81':
       case '82':
       case '83':
+      case '84':
       case '85':
       case '86':
       case '87':
       case '88':
       case '89':
-        $('#size_select_size_select').css('display', 'block');
+        $('#size__select__box').css('display', 'block');
         $('#size_select_size_select').empty();
         $('#size_select_size_select').append(`
           <option value="">---</option>
@@ -240,7 +241,7 @@ $(function () {
           <option value="149">26cm</option>
           <option value="150">26.5cm</option>
           <option value="151">27cm</option>
-          <option value="152">27.5cm以上</option></select>
+          <option value="152">27.5cm以上</option>
         `);
       break;
           //メンズ靴

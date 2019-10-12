@@ -104,14 +104,12 @@
 - has_many :items
 - has_ancestry
 
-## paymentsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_namber|string|null: false, unique: true|
-|expiration_day|string|null: false|
-|expiration_month|string|null: false|
-|security_code|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 - belongs_to :user
 

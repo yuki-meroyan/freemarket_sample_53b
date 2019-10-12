@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:myitem, :show, :destroy, :edit, :update]
   before_action :move_to_index, except: [:index,:show]
+  before_action :user_id_check, only: [:myitem, :destroy, :edit, :update]
 
   def index
     @ladys_items = Item.where(category_id: 159).order('id ASC').limit(10)
@@ -68,6 +69,13 @@ private
   def move_to_index
     unless user_signed_in?
       flash[:notice] = "ログインしてください"
+      redirect_to action: :index
+    end
+  end
+
+  def user_id_check
+    unless @item.user_id == current_user.id
+      flash[:notice] = "ユーザーが違います"
       redirect_to action: :index
     end
   end

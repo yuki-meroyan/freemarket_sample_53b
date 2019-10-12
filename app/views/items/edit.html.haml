@@ -61,14 +61,14 @@
                   .select-wrap.category__box__grandchild
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     = f.select :category_id, options_from_collection_for_select(Category.where(id: @item.category_id), :id, :category), {}, {class: 'item__f-select'}
-              .form__group
+              .form__group#size__select__box
                 = f.label :xxx do
                   サイズ
                   %span.form__require 必須
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = select :"select__default" ,:"select__default" ,:property, {},:class => 'item__f-select' do
+                    = select :"size_select" ,:"size_select" ,:property, {},:class => 'item__f-select' do
                       %option S
                       %option M
                       %option L
@@ -86,7 +86,11 @@
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     = select :"select__default",:"select__default",:property, {},:class => 'item__f-select' do
-                      %option 新品/未使用に近い
+                      %option 新品/未使用
+                      %option 未使用に近い
+                      %option 目立った傷や汚れなし
+                      %option やや傷や汚れあり
+                      %option 傷や汚れあり
                       %option 全体的に状態が悪い
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 配送について

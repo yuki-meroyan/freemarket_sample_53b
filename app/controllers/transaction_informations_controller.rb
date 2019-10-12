@@ -5,16 +5,15 @@ class TransactionInformationsController < ApplicationController
   require 'payjp'
 
   def index
-    # binding.pry
     @item_image = @item.item_images[0]
 
     if @card.blank?
-      # redirect_to new_card_path
+      redirect_to new_card_path
     else
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)
-      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
       @card_information = customer.cards.retrieve(@card.card_id)
+      @month_year = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s[1,2]
 
       @card_brand = @card_information.brand
       case @card_brand
@@ -31,16 +30,14 @@ class TransactionInformationsController < ApplicationController
       when "Discover"
         @card_src = "discover.svg"
       end
-
-      @month_year = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s[1,2]
+      
     end
   end
 
   def create
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
     Payjp::Charge.create(
-    # amount: @item.price, 
-    amount: 100, 
+    amount: @item.price, 
     customer: @card.customer_id,
     currency: 'jpy',
     )

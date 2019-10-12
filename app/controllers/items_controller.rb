@@ -22,12 +22,12 @@ class ItemsController < ApplicationController
   def update
     if @item.user_id == current_user.id
       if Brand.find_by(name: params[:brand_id]).present?
-        xxx =Brand.find_by(name: params[:brand_id])
+        brand =Brand.find_by(name: params[:brand_id])
       else
         Brand.create(name: params[:brand_id])
-        xxx =Brand.find_by(name: params[:brand_id])
+        brand =Brand.find_by(name: params[:brand_id])
       end
-    @item.brand_id ="#{xxx.id}"
+    @item.brand_id ="#{brand.id}"
     end
 
     if @item.update(item_params)

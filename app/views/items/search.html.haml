@@ -13,19 +13,14 @@
         - @items.each do |item|
           .search-item-index__box
             .search-item-index__content
-              - @item.item_images.each do |image|
-              
+              -# -@item_images.each.with_index do |image, index|
+              -#   = image_tag @item.image 
             .search-item-index__text
               =item.name
             .item-price
               ¥
               =item.price
-            -# .item-likes
-            -#   .item-likes__count
-            -#     =item.likes
-
-
-
+            
 
       -#   .search-item-index__box
       -#     .search-item-index__content

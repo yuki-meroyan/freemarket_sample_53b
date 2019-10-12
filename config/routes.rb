@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :user_details
   resources :items, only: [:index, :show, :destroy, :new] do
-    get 'search'
+    collection do
+      get 'items/search/' =>'items#search',as: 'items/search'
+    end
   end
   resources :users
   resources :cards, only: [:index, :new, :show]

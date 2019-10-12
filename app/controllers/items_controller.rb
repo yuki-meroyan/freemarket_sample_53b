@@ -25,9 +25,11 @@ class ItemsController < ApplicationController
   def myitem
   end
   
+  
   def search
-    @items = Item.where('title LIKE(?)', "%#{params[:keyword]}%").count
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]) 
   end
+  
 
   private
 

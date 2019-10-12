@@ -9,7 +9,6 @@ $(function() {
     switch( images_count ) {
       case 1:
       case 6:
-      case 11:
           $(input_area).css({'width':'600px','margin-left': '10px'});
           break;
       case 2:
@@ -26,8 +25,10 @@ $(function() {
           break;
       case 5:
       case 10:
-          $(input_area).css({'width':'110px','margin-left': '10px'});
+          $(input_area).css({'width':'110px','margin-left': '10px','display':'block'});
           break;
+      case 11:
+          $(input_area).css({'display':'none',});
     };
   }
 

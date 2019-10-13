@@ -20,3 +20,13 @@ crumb :user_detail do |user_detail|
   link "本人情報の確認",user_details_path(user_details_url)
   parent :users
 end
+
+crumb :logout do |logout|
+  link "ログアウト", pending_logout_path(pending_logout_url)
+  parent :users
+end
+
+crumb :user_profile do |logout|
+  link "プロフィール", edit_user_path(edit_user_url)
+  parent :users
+end

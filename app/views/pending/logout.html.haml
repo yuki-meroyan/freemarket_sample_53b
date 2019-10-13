@@ -1,4 +1,6 @@
 = render partial: 'shared/header'
+- breadcrumb :logout
+= render 'shared/pankuzu_merukari'
 .user-logout
   .user-logout__right
     = link_to destroy_user_session_path, method: :delete do

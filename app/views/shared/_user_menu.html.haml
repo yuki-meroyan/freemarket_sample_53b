@@ -71,23 +71,23 @@
   %h3.mypage-nav-head.boldn 設定
   %ul.mypage-nav-list
     %li
-      = link_to user_path(params[:id]), class: "mypage-nav-list-item" do
+      = link_to edit_user_path(current_user.id), class: "mypage-nav-list-item" do
         プロフィール
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      = link_to user_detail_path(1), class: "mypage-nav-list-item" do
+      = link_to  "#", method: :edit, class: "mypage-nav-list-item" do
         発送元・お届け先住所変更
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      = link_to card_path(params[:id]), class: "mypage-nav-list-item" do
+      = link_to card_path(current_user.id), class: "mypage-nav-list-item" do
         支払い方法
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      = link_to  edit_user_password_path(1), class: "mypage-nav-list-item" do
+      = link_to  edit_user_password_path(current_user.id), class: "mypage-nav-list-item" do
         メール/パスワード
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      = link_to edit_user_detail_path(params[:id]), class: "mypage-nav-list-item" do
+      = link_to edit_user_user_detail_path(current_user.id),method: :get, class: "mypage-nav-list-item" do
         本人情報
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
@@ -95,6 +95,6 @@
         電話番号の確認
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      = link_to  destroy_user_session_path, class: "mypage-nav-list-item" do
+      = link_to  pending_logout_path, class: "mypage-nav-list-item" do
         ログアウト
         =fa_icon 'chevron-right', class: "icon-arrow-right"

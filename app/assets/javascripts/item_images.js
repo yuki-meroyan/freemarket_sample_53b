@@ -46,7 +46,7 @@ $(function() {
   }
 
 // items/editの時だけdpboxSizeをビュー読み込み時行う。
-  $(window).bind("load", function(){
+  $(window).on("load", function(){
     if(document.URL.match(/edit/) && document.URL.match(/items/)) {
       images_count = $('.edit__item__images__image').length;
       dpboxSize(images_count);

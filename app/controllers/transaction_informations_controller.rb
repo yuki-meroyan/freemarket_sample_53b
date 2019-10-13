@@ -1,4 +1,5 @@
 class TransactionInformationsController < ApplicationController
+  before_action :checkUserSignedIn
   before_action :set_item
   before_action :set_card
 
@@ -36,11 +37,19 @@ class TransactionInformationsController < ApplicationController
 
   def create
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
-    Payjp::Charge.create(
-    amount: @item.price, 
-    customer: @card.customer_id,
-    currency: 'jpy',
-    )
+    card_charge = Payjp::Charge.create(
+                  amount: @item.price,
+                  customer: @card.customer_id,
+                  currency: 'jpy',
+                  )
+    # TODO: 処理が正常に行われたか確認できるようにしています。（最終的に表示方法や有無を決めたい）
+    if card_charge.present?
+      if @item.update(status: 1, buyer_id: current_user.id)
+        flash[:notice] = "決済処理が完了しました"
+      else
+        flash[:notice] = "決済処理が正常に完了しませんでした"
+      end
+    end
     redirect_to item_path(@item)
   end
 

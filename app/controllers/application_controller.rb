@@ -21,4 +21,11 @@ class ApplicationController < ActionController::Base
       username == Rails.application.credentials.basic[:auth_user] && password == Rails.application.credentials.basic[:auth_password] 
     end
   end
+
+  def checkUserSignedIn
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
+  end
+
 end

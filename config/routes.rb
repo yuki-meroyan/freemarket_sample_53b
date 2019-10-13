@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
   resources :user_details
-  resources :items, only: [:index, :show, :destroy, :new]
+  resources :items
 
   resources :users 
   resources :cards, only: [:index, :new, :show, :create, :destroy]
@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get 'pending/user_signup4/' => 'pending#user_signup4',as: 'pending/user_signup4'
   get 'pending/user_signup5/' => 'pending#user_signup5',as: 'pending/user_signup5'
   get 'pending/profile/' => 'pending#profile',as: 'pending/profile'
+  get 'pending/item_edit/' => 'pending#item_edit',as: 'pending/item_edit'
 end

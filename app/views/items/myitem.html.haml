@@ -23,10 +23,10 @@
           - @item.item_images.each_with_index do |item, i|
             - if i == 0
               .owl__item
-                = image_tag item.image
+                = image_tag item.image.url
             - else
               .owl__dot
-                = image_tag item.image
+                = image_tag item.image.url
 
                   
       %table.item__detail__table

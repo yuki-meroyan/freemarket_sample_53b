@@ -37,10 +37,10 @@
           %th カテゴリー
           %td
             = link_to  "https://www.mercari.com/jp/category/1/" do
-              = @item.category.category
+              = @item.category.parent.parent.category
             = link_to  "https://www.mercari.com/jp/category/20/" , class:'item__detail__table__sub__category' do
               =fa_icon "chevron-right", class: 'icon'
-              = @item.category.category
+              = @item.category.parent.category
             = link_to  "https://www.mercari.com/jp/category/214/" , class:'item__detail__table__sub__sub__category' do
               =fa_icon "chevron-right", class: 'icon'
               = @item.category.category

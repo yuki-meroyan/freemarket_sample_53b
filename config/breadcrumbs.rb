@@ -27,6 +27,12 @@ crumb :logout do |logout|
 end
 
 crumb :user_profile do |logout|
-  link "プロフィール", edit_user_path(edit_user_url)
+  link "プロフィール", edit_user_path
   parent :users
+end
+
+crumb :item do |item|
+  item = Item.find_by(id: params[:id])
+  link item.name
+  parent :root
 end

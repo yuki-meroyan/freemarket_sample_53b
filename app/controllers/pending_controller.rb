@@ -33,5 +33,7 @@ class PendingController < ApplicationController
   def user_signup2
   end
   
+  def profile
+  end
 
 end

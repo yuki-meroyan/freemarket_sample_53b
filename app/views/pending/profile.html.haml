@@ -1,0 +1,17 @@
+=render partial: 'shared/header'
+.profile-content
+  .profile-box
+    .profile-main
+      %h2.profile-main__title
+        プロフィール
+      .profile-top
+        =image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",class:"profile-icon"
+        = form_with( id:"profile", class:"profile-edit-form") do |f|
+          = f.text_field :xxx, value: "枡田", class: "profile-nickname"
+      .profile-text
+        = form_with( id:"profile", class:"profile-text-form") do |f|
+          = f.text_area :xxx, value:"よろしくお願いします", class:"profile-text-form"
+        
+          = f.submit :xxx, value:"変更する", class: "profile-edit-button"
+    = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   resources :user_details
   resources :items, only: [:index, :show, :destroy, :new]
 
-  resources :users do
-    edit 'users/profile'
-
+  resources :users 
   resources :cards, only: [:index, :new, :show, :create, :destroy]
 
   # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。
@@ -21,5 +19,5 @@ Rails.application.routes.draw do
   get 'pending/user_signup3/' => 'pending#user_signup3',as: 'pending/user_signup3'
   get 'pending/user_signup4/' => 'pending#user_signup4',as: 'pending/user_signup4'
   get 'pending/user_signup5/' => 'pending#user_signup5',as: 'pending/user_signup5'
-
+  get 'pending/profile/' => 'pending#profile',as: 'pending/profile'
 end

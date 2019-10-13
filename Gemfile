@@ -85,3 +85,4 @@ gem 'active_hash'
 gem "jquery-rails"
 gem 'gretel'
 gem 'payjp'
+gem 'rails-i18n'

@@ -7,8 +7,7 @@
     %section.item-buy__detail
       .item-buy__inner
         .item-buy__detail__top
-          -# TODO: プルリクエスト#60 Create item edit server と作業が被らないようにマージ後に調整予定
-          = image_tag @item_image.image, alt: "item-image", class: "item-buy__detail__img"
+          = image_tag @item_image.image.url, alt: "item-image", class: "item-buy__detail__img"
           .item-buy__detail__title
             %p.item-buy__detail__title--text
               = @item.name

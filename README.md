@@ -66,6 +66,8 @@
 |delivery_fee|boolean|null: false|
 |delivery_days|string|null: false|
 |shipping_method|string|null: false|
+|status|integer|default: 0|
+|buyer_id|integer||
 |brand_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
@@ -112,20 +114,6 @@
 |card_id|string|null: false|
 ### Association
 - belongs_to :user
-
-## transaction_informationsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|seller_id|integer|null: false|
-|buyer_id|integer|null: false|
-|purchase_day|integer|null: false|
-|item_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-- belongs_to :user, foreign_key 'user_id'
-- has_many :trnsaction_messages
-- belongs_to :buyer, :class_name => 'User'
-- belongs_to :seller, :class_name => 'User'
 
 ## transaction_messagesテーブル
 |Column|Type|Options|

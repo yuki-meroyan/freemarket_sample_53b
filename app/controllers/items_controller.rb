@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   
   
   def search
-    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]) 
+    @items = Item.includes(:item_images).where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]) 
   end
   
 

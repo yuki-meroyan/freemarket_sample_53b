@@ -118,7 +118,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.collection_select :prefecture, Prefecture.where.not(id: 0), :id, :name, {},:class => 'item__f-select'
+                    = f.collection_select :region, Prefecture.where.not(id: 0), :id, :name, {},:class => 'item__f-select'
               .form__group
                 = f.label :delivery_days do
                   発送までの日数

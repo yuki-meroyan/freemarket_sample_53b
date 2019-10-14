@@ -55,10 +55,6 @@ class TransactionInformationsController < ApplicationController
 
   private
 
-  def set_item
-    @item = Item.find(params[:item_id])
-  end
-
   def set_card
     @card = Card.where(user_id: current_user.id).first
   end

@@ -79,9 +79,10 @@ class CardsController < ApplicationController
 
   def check_card
     # データが存在するかどうかでページを遷移するか変わる
-    if Card.where(user_id: current_user.id).present?
-      # 存在している場合はshowアクションへ
-      redirect_to card_path(1), id: 1
+    card = Card.where(user_id: current_user.id)
+    if card.present?
+      # # 存在している場合はshowアクションへ
+      redirect_to card_path(card)
     end
   end
 

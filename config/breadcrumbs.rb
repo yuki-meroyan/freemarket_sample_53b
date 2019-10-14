@@ -17,7 +17,7 @@ crumb :card do |card|
 end
 
 crumb :user_detail do |user_detail|
-  link "本人情報の確認",user_details_path(user_details_url)
+  link "本人情報の確認",edit_user_user_detail_path( user_user_detail_url)
   parent :users
 end
 

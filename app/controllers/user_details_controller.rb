@@ -1,13 +1,7 @@
 class UserDetailsController < ApplicationController
   
-  def index
-    @user_details = UserDetail.all
-  end
-  
-  def new
-  end
-
-  def create
+  def show
+    @user_detail = UserDetail.find(params[:id])
   end
   
   def edit

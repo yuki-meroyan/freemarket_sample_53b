@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   require "payjp"
 
   def index
-
+    binding.pry
   end
 
   def new

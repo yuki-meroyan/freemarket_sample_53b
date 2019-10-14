@@ -11,28 +11,27 @@
               %span.form__require 必須
             %p 最大10枚までアップロードできます
             .sell__dropbox-container.clearfix.state-image-number-10
-              = f.fields_for :images, html: {id: "item-images__form"} do |i|
-                .hidden.delete__image__box
-                  = f.fields_for :item_images, html: {id: "item-images__form"} do |i|
-                    = i.hidden_field :id
-                    = i.hidden_field :_destroy, data: { id: i.index}
-                .sell__dropbox__box__inner
-                  - @item.item_images.each_with_index do |im,n|
-                    .edit__item__images{class: "#{n}",data: {number: n}}
-                      = image_tag im.image.url ,{class: 'edit__item__images__image'}
-                      .edit__item__images__btns
-                        =link_to "編集", "#",class: "edit__item__images__btns__edit"
-                        =link_to "削除", "#",class: "edit__item__images__btns__delete", data: { id: n, default: 'default' }
-                  #upload__file__previews.hidden
-                    = image_tag '', id: 'item__img__prev', class: 'edit__item__images__image',data: {image: 0}
+              .hidden.delete__image__box
+                = f.fields_for :item_images, html: {id: "item-images__form"} do |i|
+                  = i.hidden_field :id
+                  = i.hidden_field :_destroy, data: { id: i.index}
+              .sell__dropbox__box__inner
+                - @item.item_images.each_with_index do |im,n|
+                  .edit__item__images{class: "#{n}",data: {number: n}}
+                    = image_tag im.image.url ,{class: 'edit__item__images__image'}
                     .edit__item__images__btns
                       =link_to "編集", "#",class: "edit__item__images__btns__edit"
-                      =link_to "削除", "#",class: "upload-item__images__btns__delete"
-                  .upload__box
-                    = f.file_field :image ,name: "item[item_images_attributes][][image]",class: 'sell__upload__drop-file',id: 'post__img__last',accept: "image/*",multiple: true,data: {image: 0}
-                    %pre.upload__box__text
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
+                      =link_to "削除", "#",class: "edit__item__images__btns__delete", data: { id: n, default: 'default' }
+                #upload__file__previews.hidden
+                  = image_tag '', id: 'item__img__prev', class: 'edit__item__images__image',data: {image: 0}
+                  .edit__item__images__btns
+                    =link_to "編集", "#",class: "edit__item__images__btns__edit"
+                    =link_to "削除", "#",class: "upload-item__images__btns__delete"
+                .upload__box
+                  = f.file_field :image ,name: "item[item_images_attributes][][image]",class: 'sell__upload__drop-file',id: 'post__img__last',accept: "image/*",multiple: true,data: {image: 0}
+                  %pre.upload__box__text
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
           .sell__form__content
             .form__group
               = f.label :name do

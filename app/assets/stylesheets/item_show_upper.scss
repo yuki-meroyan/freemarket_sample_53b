@@ -53,13 +53,16 @@ body {
   }
 }
 
+.select__carousel {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .owl__dot {
   margin: 0;
   width: 60px;
   height: 60px;
   overflow: hidden;
-  display: inline-block;
   opacity: .4;
   cursor: pointer;
   img {

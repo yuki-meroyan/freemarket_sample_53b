@@ -68,10 +68,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = select :"size_select" ,:"size_select" ,:property, {},:class => 'item__f-select' do
-                      %option S
-                      %option M
-                      %option L
+                    = f.select :size ,[],{}, :class => 'item__f-select'
               .form__group.form__suggest__container
                 = f.label :brand_id do
                   ブランド
@@ -85,13 +82,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = select :"select__default",:"select__default",:property, {},:class => 'item__f-select' do
-                      %option 新品/未使用
-                      %option 未使用に近い
-                      %option 目立った傷や汚れなし
-                      %option やや傷や汚れあり
-                      %option 傷や汚れあり
-                      %option 全体的に状態が悪い
+                    = f.select :saved_state ,['新品/未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い'],{}, :class => 'item__f-select'
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 配送について
             .sell__form__content__box

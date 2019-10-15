@@ -65,6 +65,8 @@
 |region|string|null: false|
 |delivery_fee|boolean|null: false|
 |delivery_days|string|null: false|
+|size|string||
+|saved_state|string||
 |shipping_method|string|null: false|
 |brand_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|

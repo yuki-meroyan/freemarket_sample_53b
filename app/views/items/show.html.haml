@@ -1,6 +1,6 @@
 = render partial: 'shared/header'
 %section.item__box__container
-  %h1.item__name 
+  %h1.item__name
     = @item.name
   .item__main__content.clearfix
     .item__photo
@@ -44,20 +44,32 @@
             = link_to  "https://www.mercari.com/jp/category/214/" , class:'item__detail__table__sub__sub__category' do
               =fa_icon "chevron-right", class: 'icon'
               = @item.category.category
-        %tr
-          %th ブランド
-          %td
-            = link_to "https://www.mercari.com/jp/brand/539/" do
-              = @item.brand.name
+        - if @item.brand_id.present?
+          %tr
+            %th ブランド
+            %td
+              = link_to "https://www.mercari.com/jp/brand/539/" do
+                = @item.brand.name
+        - if @item.size.present?
+          %tr
+            %th サイズ
+            %td
+              = @item.size
         %tr
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td
+            = @item.saved_state
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          - if @item.delivery_fee == true
+            %td 送料込み(出品者負担)
+          - elsif @item.delivery_fee == false
+            %td 着払い(購入者負担)
+          - else
         %tr
           %th 配送の方法
-          %td ゆうゆうメルカリ便
+          %td
+            = @item.shipping_method
         %tr
           %th 配送元地域
           %td
@@ -66,15 +78,15 @@
 
         %tr
           %th 発送日の目安
-          %td 
+          %td
             = @item.delivery_days
   .item__price__box.text__center
-    %span.item__price__box__price 
+    %span.item__price__box__price
       ¥
       = @item.price
     %span.item__price__box__tax (税込)
     %span.item__price__box__shipping__fee 送料込み
-  = link_to  "購入画面に進む","/pending/itembuy" , class:'item__buy__btn'  
+  = link_to  "購入画面に進む","/pending/itembuy" , class:'item__buy__btn'
   .item__description.f14
     %p.item__description__inner
       = @item.description
@@ -123,7 +135,7 @@
   .comment__notice
     相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
   .comment__write
-    %textarea.textarea-default{name: "comment__write"} 
+    %textarea.textarea-default{name: "comment__write"}
     %button.btn-default{type: "submit",class:  "comment__write__submit btn-gray"} コメントする
 .item__shuffle
   .item__shuffle__before
@@ -147,10 +159,10 @@
         =fa_icon"pinterest",class:'item__sns__pinterest-icon'
 .item__buyer-collection-title
   = link_to  "https://www.mercari.com/jp/safe/description/"  do
-    %h2 
+    %h2
       = @item.user.nickname
       さんのその他の出品
-.item__buyer-collection 
+.item__buyer-collection
   - @user_items.each do |item|
     .item-show__item-box
       = link_to  item_path(item)  do
@@ -160,7 +172,7 @@
           - else
             - break
         .item-show__item-box-text
-          %span.item-show__item-box__title 
+          %span.item-show__item-box__title
             = item.name
           .item-box-text__fee-box
             %span.item-box-text__fee-box__fee
@@ -169,7 +181,7 @@
             .item-box-text__fee-box__right
               = fa_icon 'heart-o', class: "icon"
               %span  1
-      
+
 .item__buyer-collection-title
   = link_to  "https://www.mercari.com/jp/safe/description/"  do
     %h2
@@ -185,7 +197,7 @@
           - else
             - break
         .item-show__item-box-text
-          %span.item-show__item-box__title 
+          %span.item-show__item-box__title
             = item.name
           .item-box-text__fee-box
             %span.item-box-text__fee-box__fee

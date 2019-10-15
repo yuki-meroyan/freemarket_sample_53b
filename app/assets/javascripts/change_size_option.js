@@ -418,6 +418,9 @@ $(function () {
       default:
         $('#item_size').empty();
         $('#size__select__box').css('display', 'none');
+        $('#item_size').append(`
+        <option value="">---</option>
+        `);
       break;
     };
 

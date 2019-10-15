@@ -1,8 +1,34 @@
 = render partial: 'shared/header'
 .top-main
   .special-issue-image
-    =image_tag "https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca886ce42c4c02610cd15421ddcad.png",class:'slider-control__left'
-    =image_tag "https://web-jp-assets.mercdn.net/_next/static/images/carousel-next-bc3a1438a1435e953bc67d720cd05c61.png",class:'slider-control__right'
+    .top__banners
+      =image_tag "top-banner1.jpg"
+      =image_tag "top-banner2.jpg"
+      .top__banners__box
+        =image_tag "top-banner3.jpg",class: "top-banner-image3"
+        .top__banners__box__text
+          .top__banners__box__text__left
+            .top__banners__box__text__left__title
+              %p スマホでかんたん
+              %p フリマアプリ
+            .top__banners__box__text__left__undertext
+              %p メルカリはスマホカメラからすぐに出品できる
+              %p 購入時も安心な独自システムのアプリです
+            .top__banners__box__text__left__icon
+              = link_to "https://apps.apple.com/jp/app/id667861049?l=ja", class: "camera__link", method: :get do
+                = image_tag 'app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg', class: 'footer__up__inner__left__image__appstore__icon'
+              = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", class: "camera__link", method: :get do
+                = image_tag 'google-play-495575abb895b405aa6336b2a4304958.svg', class: 'footer__up__inner__left__image_ggp__icon'
+          .top__banners__box__text__right
+            =image_tag "top-banner-phone.png",class: "top-banner-phone"
+
+    .select__btn__arrow
+      =image_tag "https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca886ce42c4c02610cd15421ddcad.png",class:'slider-control__left'
+      =image_tag "https://web-jp-assets.mercdn.net/_next/static/images/carousel-next-bc3a1438a1435e953bc67d720cd05c61.png",class:'slider-control__right'
+    .top__indicators
+      %span.top-banner__btn
+      %span.top-banner__btn
+      %span.top-banner__btn
   .popular-category
     %h2.popular-category__title
       人気のカテゴリー

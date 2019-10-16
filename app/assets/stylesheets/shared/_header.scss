@@ -91,6 +91,70 @@
   -webkit-box-pack: justify;
 }
 
+.nav{
+  &__category{
+    display: flex;
+    position: absolute;
+    background-color: $white;  
+    z-index: 1;
+
+    &__box{
+      border-color: rgb(204, 204, 204);
+      border-width: 0 0.5px;
+    }
+
+    &__parnet{
+      min-width: 240px;
+
+      &__list{
+
+        li{
+          display: block;
+          margin-left: 20px;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+    }
+
+    &__child{
+      min-width: 240px;
+
+      &__list{
+        
+        li{
+          display: block;
+          margin-left: 20px;
+          font-size: 14px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    &__grandchild{
+      min-width: 300px;
+
+      &__list{
+        
+        li{
+          display: block;
+          margin-left: 20px;
+          font-size: 14px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    ul{
+      margin-block-start: 0px;
+      margin-block-end: 0px;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+    }
+    
+  }
+}
+
 .nav__left{
   display: flex;
   margin-left: -3px;

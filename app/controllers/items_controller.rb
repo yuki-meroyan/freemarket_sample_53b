@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @ladys_items = Item.where(category_id: 1).order('id ASC').limit(10)
+    @item_image = Item.includes(:image)
   end
 
   def new
@@ -27,7 +28,8 @@ class ItemsController < ApplicationController
   
   
   def search
-    @items = Item.includes(:item_images).where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]) 
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]) 
+    @item_images = ItemImage.includes(:item_id)
   end
   
 

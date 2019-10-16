@@ -13,14 +13,17 @@
         - @items.each do |item|
           .search-item-index__box
             .search-item-index__content
-              -# = item.item_images.image
-              -# -@item_images.each.with_index do |image, index|
-              -#   = image_tag @item.image 
-            .search-item-index__text
-              =item.name
-            .item-price
-              ¥
-              =item.price
+              .search_item_image
+                - item.item_images.each.with_index do |item_image,i|
+                  - if i == 1
+                    =image_tag (item_image.image),width:"160",height:"170"
+              .search-item-index__text
+                =item.name
+              .item-price
+                ¥
+                =item.price
+      = paginate(@items)
+
 
       -#   .search-item-index__box
       -#     .search-item-index__content

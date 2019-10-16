@@ -428,7 +428,6 @@ $(function () {
 
   $('#item_category_id').change(function(){
     var id = $(this).val();
-    console.log(id);
     change_size_option(id)
 
   });

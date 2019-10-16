@@ -54,7 +54,6 @@ $(function() {
       dpboxSize(images_count);
       $("#post__img__last").prop('name', `item[item_images_attributes][${images_count + 1}][image]`);
       count = parseInt(images_count + 2);
-      console.log(count)
     }
   });
 
@@ -82,7 +81,6 @@ $(function() {
     // 選択したインプットの見た目を消す。
     $(this).css({'display':'none'});
     count += 1;
-    console.log(count);
     });
 
 // 新しく投稿した画像の削除ボタン（完成）

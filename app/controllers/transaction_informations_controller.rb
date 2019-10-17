@@ -1,6 +1,6 @@
 class TransactionInformationsController < ApplicationController
   before_action :checkUserSignedIn
-  before_action :set_item
+  before_action :set_target_item
   before_action :set_card
 
   require 'payjp'
@@ -58,4 +58,9 @@ class TransactionInformationsController < ApplicationController
   def set_card
     @card = Card.where(user_id: current_user.id).first
   end
+
+  def set_target_item
+    @item = Item.find(params[:item_id])
+  end
+
 end

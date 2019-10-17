@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :users do
-  link "マイページ", users_path
+  link "マイページ", user_path(current_user.id)
 end
 
 crumb :user do |user|
@@ -27,7 +27,7 @@ crumb :logout do |logout|
 end
 
 crumb :user_profile do |logout|
-  link "プロフィール", edit_user_path
+  link "プロフィール", user_path(current_user.id)
   parent :users
 end
 

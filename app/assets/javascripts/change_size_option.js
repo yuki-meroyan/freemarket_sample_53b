@@ -196,19 +196,19 @@ $(function () {
       case '343':
       case '344':
         $('#size__select__box').css('display', 'block');
-        $('#size_select_size_select').empty();
-        $('#size_select_size_select').append(`
+        $('#item_size').empty();
+        $('#item_size').append(`
             <option value="">---</option>
-            <option value="153">XXS以下</option>
-            <option value="154">XS(SS)</option>
-            <option value="2">S</option>
-            <option value="3">M</option>
-            <option value="4">L</option>
-            <option value="5">XL(LL)</option>
-            <option value="155">2XL(3L)</option>
-            <option value="156">3XL(4L)</option>
-            <option value="157">4XL(5L)以上</option>
-            <option value="7">FREE SIZE</option>
+            <option value="XXS以下">XXS以下</option>
+            <option value="XS(SS)">XS(SS)</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL(LL)">XL(LL)</option>
+            <option value="2XL(3L)">2XL(3L)</option>
+            <option value="3XL(4L)">3XL(4L)</option>
+            <option value="4XL(5L)以上">4XL(5L)以上</option>
+            <option value="FREE SIZE">FREE SIZE</option>
         `);
       break;
           // レディース靴
@@ -223,25 +223,25 @@ $(function () {
       case '88':
       case '89':
         $('#size__select__box').css('display', 'block');
-        $('#size_select_size_select').empty();
-        $('#size_select_size_select').append(`
+        $('#item_size').empty();
+        $('#item_size').append(`
           <option value="">---</option>
-          <option value="144">20cm以下</option>
-          <option value="145">20.5cm</option>
-          <option value="146">21cm</option>
-          <option value="147">21.5cm</option>
-          <option value="148">22cm</option>
-          <option value="16">22.5cm</option>
-          <option value="17">23cm</option>
-          <option value="18">23.5cm</option>
-          <option value="19">24cm</option>
-          <option value="20">24.5cm</option>
-          <option value="21">25cm</option>
-          <option value="22">25.5cm</option>
-          <option value="149">26cm</option>
-          <option value="150">26.5cm</option>
-          <option value="151">27cm</option>
-          <option value="152">27.5cm以上</option>
+          <option value="20cm以下">20cm以下</option>
+          <option value="20.5cm<">20.5cm</option>
+          <option value="21cm">21cm</option>
+          <option value="21.5cm">21.5cm</option>
+          <option value="22cm">22cm</option>
+          <option value="22.5cm">22.5cm</option>
+          <option value="23cm">23cm</option>
+          <option value="23.5cm">23.5cm</option>
+          <option value="24cm">24cm</option>
+          <option value="24.5cm">24.5cm</option>
+          <option value="25cm">25cm</option>
+          <option value="25.5cm<">25.5cm</option>
+          <option value="26cm">26cm</option>
+          <option value="26.5cm">26.5cm</option>
+          <option value="27cm">27cm</option>
+          <option value="27.5cm以上">27.5cm以上</option>
         `);
       break;
           //メンズ靴
@@ -254,25 +254,25 @@ $(function () {
       case '267':
       case '268':
         $('#size__select__box').css('display', 'block');
-        $('#size_select_size_select').empty();
-        $('#size_select_size_select').append(`
+        $('#item_size').empty();
+        $('#item_size').append(`
           <option value="">---</option>
-          <option value="133">23.5cm以下</option>
-          <option value="134">24cm</option>
-          <option value="135">24.5cm</option>
-          <option value="136">25cm</option>
-          <option value="137">25.5cm</option>
-          <option value="9">26cm</option>
-          <option value="10">26.5cm</option>
-          <option value="11">27cm</option>
-          <option value="12">27.5cm</option>
-          <option value="13">28cm</option>
-          <option value="138">28.5cm</option>
-          <option value="139">29cm</option>
-          <option value="140">29.5cm</option>
-          <option value="141">30cm</option>
-          <option value="142">30.5cm</option>
-          <option value="143">31cm以上</option>
+          <option value="23.5cm以下">23.5cm以下</option>
+          <option value="24cm">24cm</option>
+          <option value="24.5cm">24.5cm</option>
+          <option value="25cm">25cm</option>
+          <option value="25.5cm">25.5cm</option>
+          <option value="26cm">26cm</option>
+          <option value="26.5cm">26.5cm</option>
+          <option value="27cm">27cm</option>
+          <option value="27.5cm">27.5cm</option>
+          <option value="28cm">28cm</option>
+          <option value="28.5cm">28.5cm</option>
+          <option value="29cm">29cm</option>
+          <option value="29.5cm">29.5cm</option>
+          <option value="30cm">30cm</option>
+          <option value="30.5cm">30.5cm</option>
+          <option value="31cm以上">31cm以上</option>
         `);
       break;
           // べびー95
@@ -306,14 +306,14 @@ $(function () {
               case '386':
               case '387':
           $('#size__select__box').css('display', 'block');
-          $('#size_select_size_select').empty();
-          $('#size_select_size_select').append(`
+          $('#item_size').empty();
+          $('#item_size').append(`
             <option value="">---</option>
-            <option value="56">60cm</option>
-            <option value="57">70cm</option>
-            <option value="58">80cm</option>
-            <option value="59">90cm</option>
-            <option value="60">95cm</option>
+            <option value="60cm">60cm</option>
+            <option value="70cm">70cm</option>
+            <option value="80cm">80cm</option>
+            <option value="90cm">90cm</option>
+            <option value="95cm">95cm</option>
           `);
           break;
           // べびー100
@@ -358,16 +358,16 @@ $(function () {
           case '429':
           case '430':
         $('#size__select__box').css('display', 'block');
-        $('#size_select_size_select').empty();
-        $('#size_select_size_select').append(`
+        $('#item_size').empty();
+        $('#item_size').append(`
         <option value="">---</option>
-        <option value="40">100cm</option>
-        <option value="41">110cm</option>
-        <option value="42">120cm</option>
-        <option value="43">130cm</option>
-        <option value="44">140cm</option>
-        <option value="45">150cm</option>
-        <option value="55">160cm</option>
+        <option value="100cm">100cm</option>
+        <option value="110cm">110cm</option>
+        <option value="120cm">120cm</option>
+        <option value="130cm">130cm</option>
+        <option value="140cm">140cm</option>
+        <option value="150cm">150cm</option>
+        <option value="160cm">160cm</option>
         `);
       break;
           // ベビー靴
@@ -377,17 +377,17 @@ $(function () {
       case '435':
       case '436':
         $('#size__select__box').css('display', 'block');
-        $('#size_select_size_select').empty();
-        $('#size_select_size_select').append(`
+        $('#item_size').empty();
+        $('#item_size').append(`
           <option value="">---</option>
-          <option value="47">10.5cm以下</option>
-          <option value="48">11cm・11.5cm</option>
-          <option value="49">12cm・12.5cm</option>
-          <option value="50">13cm・13.5cm</option>
-          <option value="51">14cm・14.5cm</option>
-          <option value="52">15cm・15.5cm</option>
-          <option value="53">16cm・16.5cm</option>
-          <option value="54">17cm以上</option>
+          <option value="10.5cm以下">10.5cm以下</option>
+          <option value="11cm・11.5cm">11cm・11.5cm</option>
+          <option value="12cm・12.5cm">12cm・12.5cm</option>
+          <option value="13cm・13.5cm">13cm・13.5cm</option>
+          <option value="14cm・14.5cm">14cm・14.5cm</option>
+          <option value="15cm・15.5cm">15cm・15.5cm</option>
+          <option value="16cm・16.5cm">16cm・16.5cm</option>
+          <option value="17cm以上">17cm以上</option>
         `);
       break;
       //タイヤ
@@ -396,28 +396,31 @@ $(function () {
       case '1212':
       case '1213':
         $('#size__select__box').css('display', 'block');
-        $('#size_select_size_select').empty();
-        $('#size_select_size_select').append(`
+        $('#item_size').empty();
+        $('#item_size').append(`
           <option value="">---</option>
-          <option value="158">12インチ</option>
-          <option value="67">13インチ</option>
-          <option value="68">14インチ</option>
-          <option value="69">15インチ</option>
-          <option value="70">16インチ</option>
-          <option value="71">17インチ</option>
-          <option value="72">18インチ</option>
-          <option value="73">19インチ</option>
-          <option value="74">20インチ</option>
-          <option value="75">21インチ</option>
-          <option value="159">22インチ</option>
-          <option value="160">23インチ</option>
-          <option value="161">24インチ</option>
+          <option value="12インチ">12インチ</option>
+          <option value="13インチ">13インチ</option>
+          <option value="14インチ">14インチ</option>
+          <option value="15インチ">15インチ</option>
+          <option value="16インチ">16インチ</option>
+          <option value="17インチ">17インチ</option>
+          <option value="18インチ">18インチ</option>
+          <option value="19インチ">19インチ</option>
+          <option value="20インチ">20インチ</option>
+          <option value="21インチ">21インチ</option>
+          <option value="22インチ">22インチ</option>
+          <option value="23インチ">23インチ</option>
+          <option value="24インチ">24インチ</option>
         `);
       break;
       // それ以外（サイズがいらない）
       default:
-        $('#size_select_size_select').empty();
+        $('#item_size').empty();
         $('#size__select__box').css('display', 'none');
+        $('#item_size').append(`
+        <option value="">---</option>
+        `);
       break;
     };
 
@@ -425,7 +428,6 @@ $(function () {
 
   $('#item_category_id').change(function(){
     var id = $(this).val();
-    console.log(id);
     change_size_option(id)
 
   });

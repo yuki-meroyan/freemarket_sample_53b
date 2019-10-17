@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-
   def production?
     Rails.env.production?
   end
@@ -18,4 +17,23 @@ class ApplicationController < ActionController::Base
       username == Rails.application.credentials.basic[:auth_user] && password == Rails.application.credentials.basic[:auth_password]
     end
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      flash[:notice] = "ログインしてください"
+      redirect_to action: :index
+    end
+  end
+
+  def user_id_check
+    unless @item.user_id == current_user.id
+      flash[:notice] = "ユーザーが違います"
+      redirect_to action: :index
+    end
+  end
+
 end

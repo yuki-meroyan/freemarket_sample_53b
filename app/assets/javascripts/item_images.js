@@ -3,7 +3,9 @@ $(function() {
   var images        = [];
   var inputs        = [];
   var input_area    = $('.upload__box');
-
+  var count;
+  var images_count;
+  
   // 投稿ボタンのサイズ変更
   function dpboxSize(images_count ) {
     switch( images_count ) {
@@ -50,6 +52,8 @@ $(function() {
     if(document.URL.match(/edit/) && document.URL.match(/items/)) {
       images_count = $('.edit__item__images__image').length;
       dpboxSize(images_count);
+      $("#post__img__last").prop('name', `item[item_images_attributes][${images_count + 1}][image]`);
+      count = parseInt(images_count + 2);
     }
   });
 
@@ -68,7 +72,7 @@ $(function() {
     $('#upload__file__previews').addClass(`edit__item__images`);
     $('.upload__box').before(html);
     images.push(html);
-    var new_input = $(`<input multiple= "multiple" name="item[item_images_attributes][][image]" class="sell__upload__drop-file" data-image= ${images.length} type="file" id="post__img" accept="image/*">`);
+    var new_input = $(`<input name="item[item_images_attributes][${count}][image]" class="sell__upload__drop-file" data-image= ${images.length} type="file" id="post__img" accept="image/*">`);
     input_area.prepend(new_input);
     images_count = $('.edit__item__images__image').length;
     dpboxSize(images_count);
@@ -76,7 +80,8 @@ $(function() {
     $(input_area).children(":first").css({'display':'block'});
     // 選択したインプットの見た目を消す。
     $(this).css({'display':'none'});
-  });
+    count += 1;
+    });
 
 // 新しく投稿した画像の削除ボタン（完成）
   $('body').on('click', ".upload-item__images__btns__delete",  function(e) {
@@ -106,7 +111,9 @@ $(function() {
 // もともとあるアイテムに対しての削除ボタン
   $('.edit__item__images__btns__delete').click(function(e){
     e.preventDefault();
-    $(this).prev().prev().prop('value', "1");
+    id = $(this).data("id")
+    var delete_image = $(".hidden.delete__image__box").find(`#item_item_images_attributes_${id}__destroy`)
+    delete_image.prop('value', "1");
     $(this).parent().parent().hide();
     $(this).parent().parent().appendTo(".delete__image__box");
 

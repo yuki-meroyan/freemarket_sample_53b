@@ -19,6 +19,29 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def checkUserSignedIn
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,10 +58,4 @@ class ApplicationController < ActionController::Base
 
 
   
-  def checkUserSignedIn
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
-  end
-
 end

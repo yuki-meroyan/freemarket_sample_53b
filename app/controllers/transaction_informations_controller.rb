@@ -56,7 +56,7 @@ class TransactionInformationsController < ApplicationController
   private
 
   def set_card
-    @card = Card.where(user_id: current_user.id).first
+    @card = current_user.cards.first
   end
 
   def set_target_item

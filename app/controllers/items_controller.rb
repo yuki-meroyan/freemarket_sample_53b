@@ -57,27 +57,8 @@ class ItemsController < ApplicationController
 
 private
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
   def item_params
-    params.require(:item).permit(:name,:description,:price,:region,:delivery_fee,:delivery_days,:shipping_method ,:brand_id,:category_id,item_images_attributes:[:id,:image,:_destroy]).merge(user_id: current_user.id)
-  end
-
-
-  def move_to_index
-    unless user_signed_in?
-      flash[:notice] = "ログインしてください"
-      redirect_to action: :index
-    end
-  end
-
-  def user_id_check
-    unless @item.user_id == current_user.id
-      flash[:notice] = "ユーザーが違います"
-      redirect_to action: :index
-    end
+    params.require(:item).permit(:name,:description,:price,:region,:delivery_fee,:delivery_days,:shipping_method ,:size,:saved_state,:brand_id,:category_id,item_images_attributes:[:id,:image,:_destroy]).merge(user_id: current_user.id)
   end
 
 end

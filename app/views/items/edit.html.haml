@@ -11,27 +11,27 @@
               %span.form__require 必須
             %p 最大10枚までアップロードできます
             .sell__dropbox-container.clearfix.state-image-number-10
-              = f.fields_for :images, html: {id: "item-images__form"} do |i|
-                .hidden.delete__image__box
-                .sell__dropbox__box__inner
-                  - @item.item_images.each_with_index do |im,n|
-                    .edit__item__images{class: "#{n}",data: {number: n}}
-                      = image_tag im.image.url ,{class: 'edit__item__images__image'}
-                      .edit__item__images__btns
-                        =link_to "編集", "#",class: "edit__item__images__btns__edit"
-                        = f.hidden_field :id,{value: im.id ,name: "item[item_images_attributes][][id]" }
-                        = f.check_box :_destroy,name: "item[item_images_attributes][][_destroy]"
-                        =link_to "削除", "#",class: "edit__item__images__btns__delete", data: { id: im.id, default: 'default' }
-                  #upload__file__previews.hidden
-                    = image_tag '', id: 'item__img__prev', class: 'edit__item__images__image',data: {image: 0}
+              .hidden.delete__image__box
+                = f.fields_for :item_images, html: {id: "item-images__form"} do |i|
+                  = i.hidden_field :id
+                  = i.hidden_field :_destroy, data: { id: i.index}
+              .sell__dropbox__box__inner
+                - @item.item_images.each_with_index do |im,n|
+                  .edit__item__images{class: "#{n}",data: {number: n}}
+                    = image_tag im.image.url ,{class: 'edit__item__images__image'}
                     .edit__item__images__btns
                       =link_to "編集", "#",class: "edit__item__images__btns__edit"
-                      =link_to "削除", "#",class: "upload-item__images__btns__delete"
-                  .upload__box
-                    = f.file_field :image ,name: "item[item_images_attributes][][image]",class: 'sell__upload__drop-file',id: 'post__img__last',accept: "image/*",multiple: true,data: {image: 0}
-                    %pre.upload__box__text
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
+                      =link_to "削除", "#",class: "edit__item__images__btns__delete", data: { id: n, default: 'default' }
+                #upload__file__previews.hidden
+                  = image_tag '', id: 'item__img__prev', class: 'edit__item__images__image',data: {image: 0}
+                  .edit__item__images__btns
+                    =link_to "編集", "#",class: "edit__item__images__btns__edit"
+                    =link_to "削除", "#",class: "upload-item__images__btns__delete"
+                .upload__box
+                  = f.file_field :image ,name: "item[item_images_attributes][][image]",class: 'sell__upload__drop-file',id: 'post__img__last',accept: "image/*",multiple: true,data: {image: 0}
+                  %pre.upload__box__text
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
           .sell__form__content
             .form__group
               = f.label :name do
@@ -68,10 +68,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = select :"size_select" ,:"size_select" ,:property, {},:class => 'item__f-select' do
-                      %option S
-                      %option M
-                      %option L
+                    = f.select :size ,[],{}, :class => 'item__f-select'
               .form__group.form__suggest__container
                 = f.label :brand_id do
                   ブランド
@@ -85,13 +82,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = select :"select__default",:"select__default",:property, {},:class => 'item__f-select' do
-                      %option 新品/未使用
-                      %option 未使用に近い
-                      %option 目立った傷や汚れなし
-                      %option やや傷や汚れあり
-                      %option 傷や汚れあり
-                      %option 全体的に状態が悪い
+                    = f.select :saved_state ,['新品/未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い'],{}, :class => 'item__f-select'
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 配送について
             .sell__form__content__box
@@ -118,7 +109,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.collection_select :prefecture, Prefecture.where.not(id: 0), :id, :name, {},:class => 'item__f-select'
+                    = f.collection_select :region, Prefecture.where.not(id: 0), :name, :name, {},:class => 'item__f-select'
               .form__group
                 = f.label :delivery_days do
                   発送までの日数

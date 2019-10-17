@@ -19,7 +19,7 @@ $(function () {
       $('#item_shipping_method').empty();
       $('#item_shipping_method').append(`
       <option value="">---</option>
-      <option value="未定<">未定</option>
+      <option value="未定">未定</option>
       <option value="クロネコヤマト">クロネコヤマト</option>
       <option value="ゆうパック">ゆうパック</option>
       <option value="ゆうメール

@@ -25,18 +25,21 @@ $(function(){
     $(indicators).children(":last").css({'background-color':'#fff'});
     $(indicators).children(":last").siblings().css({'background-color':'hsla(0,0%,100%,.6)'});
     count = 2
+    resetTimer()
     } else if(count==1){
       $(top_slider).animate({left:'0'},
       500,'swing');
       $(indicators).children(":first").css({'background-color':'#fff'});
       $(indicators).children(":first").siblings().css({'background-color':'hsla(0,0%,100%,.6)'});
     count = 0
+    resetTimer()
     } else {
       $(top_slider).animate({left:'-1450px'},
       500,'swing');
       $(indicators).children(":nth-child(2)").css({'background-color':'#fff'});
       $(indicators).children(":nth-child(2)").siblings().css({'background-color':'hsla(0,0%,100%,.6)'});
     count = 1
+    resetTimer()
     };
   });
 // 次へ,タイマー、関数
@@ -47,18 +50,21 @@ $(function(){
     $(indicators).children(":nth-child(2)").css({'background-color':'#fff'});
     $(indicators).children(":nth-child(2)").siblings().css({'background-color':'hsla(0,0%,100%,.6)'});
     count = 1
+    resetTimer()
     }else if(count==1){
     $(top_slider).animate({left:'-2900px'},
     500,'swing');
     $(indicators).children(":last").css({'background-color':'#fff'});
     $(indicators).children(":last").siblings().css({'background-color':'hsla(0,0%,100%,.6)'});
     count = 2
+    resetTimer()
     } else {
     $(top_slider).animate({left:'0'},
     500,'swing');
     $(indicators).children(":first").css({'background-color':'#fff'});
     $(indicators).children(":first").siblings().css({'background-color':'hsla(0,0%,100%,.6)'});
     count = 0
+    resetTimer()
     };
   };
 
@@ -78,6 +84,14 @@ $(function(){
   function stopTimer () {
     clearInterval(timer);
   };
+
+ //タイマーの再起動
+  function resetTimer(){
+    stopTimer ();
+    startTimer ();
+    console.log("dododod")
+  };
+
 //マウスをスライダーの上に置いたらストップ、はずしたら動く
   $(top_slider).on({
     mouseenter: stopTimer,

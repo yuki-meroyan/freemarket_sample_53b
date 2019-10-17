@@ -37,22 +37,37 @@ body {
   background: #fafafa;
 }
 .owl__carousel {
- img {
-  width: 100%;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  &__inner{
+    display: flex;
+    position: absolute;
   }
-
   .owl__item{
     width: 300px;
+    img {
+      width: 300px;
+      }
   }
 }
 
+.select__carousel {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .owl__dot {
+  margin: 0;
   width: 60px;
   height: 60px;
   overflow: hidden;
-  display: inline-block;
   opacity: .4;
   cursor: pointer;
+  img {
+    width: 60px;
+  }
 }
 
 //////////////itemいいね数//////////////////

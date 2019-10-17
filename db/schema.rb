@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2019_10_15_003039) do
     t.boolean "delivery_fee", null: false
     t.string "delivery_days", null: false
     t.string "shipping_method", null: false
+    t.integer "status", default: 0
+    t.integer "buyer_id"
     t.bigint "brand_id", null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false

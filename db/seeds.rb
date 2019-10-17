@@ -376,7 +376,7 @@ end
 Item.create!(
   [
     {
-      name: 'adidasのスーパ-スター',
+      name: 'adidasのスーパースター',
       description: '新品未使用です',
       ancestry:'2',
       price: '100',
@@ -393,7 +393,7 @@ Item.create!(
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      name: 'adidasのスーパ-スターレインボー',
+      name: 'adidasのスーパースターレインボー',
       description: '新品未使用です',
       ancestry:'1',
       price: '100',
@@ -410,7 +410,7 @@ Item.create!(
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      name: 'adidasのスーパ-スター黒',
+      name: 'adidasのスーパースター黒',
       description: '新品未使用です',
       ancestry:'1',
       price: '100',
@@ -427,7 +427,7 @@ Item.create!(
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      name: 'adidasのスーパ-スター黄色',
+      name: 'adidasのスーパースター黄色',
       description: '新品未使用です',
       ancestry:'1',
       price: '100',
@@ -444,7 +444,7 @@ Item.create!(
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      name: 'adidasのスーパ-スター緑',
+      name: 'adidasのスーパースター緑',
       description: '新品未使用です',
       ancestry:'1',
       price: '100',
@@ -461,7 +461,7 @@ Item.create!(
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      name: 'adidasのスーパ-スター赤',
+      name: 'adidasのスーパースター赤',
       description: '新品未使用です',
       ancestry:'1',
       price: '100',
@@ -478,7 +478,7 @@ Item.create!(
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      name: 'adidasのスーパ-スター青',
+      name: 'adidasのスーパースター青',
       description: '新品未使用です',
       ancestry:'1',
       price: '100',
@@ -495,7 +495,7 @@ Item.create!(
       updated_at: '2019-09-20 00:00:00',
     },
     {
-      name: 'adidasのスーパ-スター茶色',
+      name: 'adidasのスーパースター茶色',
       description: '新品未使用です',
       ancestry:'1',
       price: '100',

@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :setItemCategory
+  
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 
   private
-
 
   def production?
     Rails.env.production?
@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
       username == Rails.application.credentials.basic[:auth_user] && password == Rails.application.credentials.basic[:auth_password]
     end
   end
+
+  def setItemCategory
+    @parnetCategories = Category.where('ancestry is null')
+  end
+
 end

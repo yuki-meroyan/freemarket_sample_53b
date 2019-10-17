@@ -28,8 +28,10 @@ class ItemsController < ApplicationController
   
   
   def search
-    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]) 
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").count 
+    @items = Item.page(params[:page]).per(40)
     @item_images = ItemImage.includes(:item_id)
+    (params.fetch(:page, 1).to_i - 1) * params.fetch(:per, 0).to_i 
   end
   
 

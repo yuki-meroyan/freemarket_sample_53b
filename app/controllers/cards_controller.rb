@@ -63,7 +63,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    card = Card.where(user_id: current_user.id).first
+    card = current_user.card.first
     # カード情報有無で分岐
     if card.blank?
     else
@@ -80,10 +80,8 @@ class CardsController < ApplicationController
   def check_card
     # データが存在するかどうかでページを遷移するか変わる
     card = Card.where(user_id: current_user.id)
-    if card.present?
-      # # 存在している場合はshowアクションへ
-      redirect_to card_path(card)
-    end
+    # 存在している場合はshowアクションへ
+    redirect_to card_path(card) if card.present?
   end
 
 end

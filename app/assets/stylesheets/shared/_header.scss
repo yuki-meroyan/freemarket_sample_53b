@@ -93,7 +93,6 @@
 
 .nav{
   &__category{
-    display: flex;
     position: absolute;
     background-color: $white;  
     z-index: 1;
@@ -103,11 +102,11 @@
       border-width: 0 0.5px;
     }
 
-    &__parnet{
-      min-width: 240px;
-
+    &__parent{
+      display: none;
+      width: 240px;
       &__list{
-
+        width: 100%;
         li{
           display: block;
           margin-left: 20px;
@@ -118,6 +117,7 @@
     }
 
     &__child{
+      display: none;
       min-width: 240px;
 
       &__list{
@@ -132,6 +132,7 @@
     }
 
     &__grandchild{
+      display: none;
       min-width: 300px;
 
       &__list{

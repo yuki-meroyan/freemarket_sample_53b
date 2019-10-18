@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def setItemCategory
-    @parnetCategories = Category.where('ancestry is null')
+    @parentCategories = Category.where('ancestry is null')
   end
 
 end

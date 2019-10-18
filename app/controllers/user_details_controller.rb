@@ -1,15 +1,17 @@
 class UserDetailsController < ApplicationController
-  
+  before_action :set_user_detail, only:[:show, :edit]
   def show
-    @user_detail = UserDetail.find(params[:id])
+
   end
   
   def edit
-    @user_detail = UserDetail.find(params[:id])
   end
 
   def update
   end
 
+  def set_user_detail
+    @user_detail = UserDetail.find(current_user.id)
+  end
 
 end

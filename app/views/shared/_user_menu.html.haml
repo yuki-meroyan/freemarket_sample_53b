@@ -75,7 +75,7 @@
         プロフィール
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      = link_to  "#", method: :edit, class: "mypage-nav-list-item" do
+      = link_to  "#", class: "mypage-nav-list-item" do
         発送元・お届け先住所変更
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
@@ -87,8 +87,7 @@
         メール/パスワード
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      -# TODO: deviseコントローラー実装後に対応予定
-      = link_to "/users/#{current_user.id}/user_details/#{current_user.user_detail.id}/edit", class: "mypage-nav-list-item"do
+      = link_to  user_detail_path(current_user.id),class: "mypage-nav-list-item" do
         本人情報
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
@@ -96,6 +95,7 @@
         電話番号の確認
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
+      -# TODO: deviseコントローラー実装後に対応予定
       = link_to  pending_logout_path(current_user), class: "mypage-nav-list-item" do
         ログアウト
         =fa_icon 'chevron-right', class: "icon-arrow-right"

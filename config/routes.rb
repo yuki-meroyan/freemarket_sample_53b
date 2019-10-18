@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   root to: "items#index"
 
   resources :items, only: [:index, :show, :destroy, :new]
-  resources :users do
-    resources :user_details, only:[:show, :edit, :update]
-  end
+  resources :users
+  resources :user_details, only:[:show, :edit, :update]
   resources :cards, only: [:index, :new, :show, :create, :destroy]
   
   # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。

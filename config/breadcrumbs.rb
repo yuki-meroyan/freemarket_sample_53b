@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :users do
-  link "マイページ", user_path(current_user.id)
+  link "マイページ", user_path(users_url)
 end
 
 crumb :user do |user|
@@ -17,7 +17,7 @@ crumb :card do |card|
 end
 
 crumb :user_detail do |user_detail|
-  link "本人情報の確認",edit_user_user_detail_path( user_user_detail_url)
+  link "本人情報の確認",user_detail_path( user_detail_url)
   parent :users
 end
 

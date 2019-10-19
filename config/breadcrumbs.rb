@@ -11,7 +11,7 @@ crumb :user do |user|
   parent :root
 end
 
-crumb :card do |card|
+crumb :card do 
   link "支払い方法",card_path(current_user.id)
   parent :users
 end

@@ -21,12 +21,12 @@ crumb :user_detail do |user_detail|
   parent :users
 end
 
-crumb :logout do |logout|
+crumb :logout do 
   link "ログアウト", pending_logout_path(pending_logout_url)
   parent :users
 end
 
-crumb :user_profile do |logout|
+crumb :user_profile do 
   link "プロフィール", user_path(current_user.id)
   parent :users
 end

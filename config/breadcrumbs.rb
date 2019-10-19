@@ -7,22 +7,22 @@ crumb :users do
 end
 
 crumb :user do |user|
-  link user.nickname, user_path(user)
+  link user.nickname, user_path
   parent :root
 end
 
 crumb :card do |card|
-  link "支払い方法",card_path(cards_url)
+  link "支払い方法",card_path(current_user.id)
   parent :users
 end
 
 crumb :user_detail do |user_detail|
-  link "本人情報の確認",user_detail_path( user_detail_url)
+  link "本人情報の確認",user_detail_path
   parent :users
 end
 
 crumb :logout do 
-  link "ログアウト", pending_logout_path(pending_logout_url)
+  link "ログアウト", pending_logout_path
   parent :users
 end
 

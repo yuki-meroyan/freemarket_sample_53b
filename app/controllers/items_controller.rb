@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   def new
   end
 
-  def show
+  def show    
     @user_items = Item.where(user_id: "#{@item.user.id}").order('id ASC').limit(6).where.not(id: @item.id)
     @brand_items = Item.where(brand_id: "#{@item.brand.id}").order('id ASC').limit(6).where.not(id: @item.id)
   end
@@ -28,10 +28,10 @@ class ItemsController < ApplicationController
   
   
   def search
-    @items = Item.where('name LIKE(?)', "%#{params[:search]}%").page(params[:page]).per(40) 
-    # @items = Item.page(params[:page]).per(40)
-    @item_images = ItemImage.includes(:item_id)
+    @items = Item.where('name LIKE(?)', "%#{params[:search]}%").page(params[:page]).per(40)
+    @items_count =Item.where('name LIKE(?)', "%#{params[:search]}%").count
     (params.fetch(:page, 1).to_i - 1) * params.fetch(:per, 0).to_i 
+    @item_images = ItemImage.includes(:item_id) 
   end
   
 

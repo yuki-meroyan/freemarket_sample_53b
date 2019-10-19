@@ -4,12 +4,12 @@
     .search-content-right
       .search-content-right__header
         %h2.search_word
-          パンツ
+          ="#{params[:search]}"
           %span.search_word__result
             の検索結果
         .search_number 
-          1〜132件表示
-          =#{@items} 件表示
+          =@items_count 
+          件表示
         
 
 

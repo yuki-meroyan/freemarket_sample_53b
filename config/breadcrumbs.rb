@@ -6,7 +6,7 @@ crumb :users do
   link "マイページ", user_path(current_user.id)
 end
 
-crumb :user do |user|
+crumb :user do 
   link user.nickname, user_path
   parent :root
 end

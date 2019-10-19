@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get 'items/myitem/:id' => 'items#myitem',as: 'items/myitem'
   get 'pending/user_signup2/' => 'pending#user_signup2',as: 'pending/user_signup2'
   get 'pending/user_signup1/' => 'pending#user_signup1',as: 'pending/user_signup1'
+  post '/items' => 'items#create'
 end

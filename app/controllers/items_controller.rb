@@ -13,6 +13,11 @@ class ItemsController < ApplicationController
     @brand_items = Item.where(brand_id: "#{@item.brand.id}").order('id ASC').limit(6).where.not(id: @item.id)
   end
 
+  def create
+    Item.create(create_params)
+    redirect_to root_path
+  end
+
   def destroy
     @item.destroy  if @item.user_id == current_user.id
     if @item.destroy
@@ -29,6 +34,11 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def create_params
+    anc = Category.find(params[:category_id])
+    params.permit(:name, :description, :price, :region, :delivery_fee, :delivery_days, :shipping_method, :brand_id, :category_id).merge(user_id: current_user.id, ancestry: anc.ancestry)
   end
 
 end

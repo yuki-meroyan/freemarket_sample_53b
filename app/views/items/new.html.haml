@@ -1,130 +1,177 @@
+-# ここからヘッダー部分
 = render partial: 'shared/mercari-header'
+-# ここまでヘッダー部分
+
+-# ここからメイン部分
 %main.single-header
   %section.l__single__container.buy-item-container
     .sell__container
       .sell__container__inner
         %h2.l__single__head 商品の情報を入力
-        = form_with url: "#", class: "sell__form" do |f|
+        = form_with(url: "/items", class: "sell__form", local: true) do |f|
           .sell__upload__box
             %h3.sell__upload__head
               出品画像
               %span.form__require 必須
             %p 最大10枚までアップロードできます
-            .sell__dropbox-container.clearfix.state-image-number-10
-              .sell__dropbox__box.have__item-0
-                = f.file_field :xxx, url: "#", class: "sell__upload__drop-file"
-                %pre.visible-pc 
-                  ドラッグアンドドロップ
-                  またはクリックしてファイルをアップロード
-
+            -# .sell__dropbox-container.clearfix.state-image-number-10
+            -#   .sell__dropbox__box.have__item-0
+            -#     = file_field :xxx, url: "#", class: "sell__upload__drop-file"
+            -#     %pre.visible-pc 
+            -#       ドラッグアンドドロップ
+            -#       またはクリックしてファイルをアップロード
+            -#       = file_field :image, class: 'hidden'
 
           .sell__form__content
             .form__group
-              = f.label :xxx do 
+              = f.label :name do
                 商品名
                 %span.form__require 必須
               %div
-                = f.text_field :xxx, url: "#", class: "input__default", placeholder: "商品名(必須40文字まで)"
+                = f.text_field :name, class: "input__default", placeholder: "商品名(必須40文字まで)"
             .form__group
-              = f.label :xxx do
+              = f.label :description do
                 商品の説明
                 %span.form__require 必須
-              = f.text_area :xxx, url: "#", class: "textarea-default",placeholder: "商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
-
+              = f.text_area :description, class: "textarea-default", placeholder: "商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
 
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 商品の詳細
             .sell__form__content-box
               .form__group
-                = f.label :xxx do
+                = f.label :category_id do
                   カテゴリー
                   %span.form__require 必須
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :"select__default" do
-                      %option ---
+                    = select :xxx , class: "select__default" do
                       %option レディース
-                      %option メンズ
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :"select__default" do
-                      %option ---
+                    = select :xxx , class: "select__default" do
                       %option トップス
-                      %option ジャケット/アウター
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :"select__default" do
-                      %option ---
-                      %option パーカー
-                      %option ニット/セーター
-              .form__group
-                = f.label :xxx do 
-                  サイズ
-                  %span.form__require 必須
-                %div
-                  .select-wrap
-                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :"select__default" do
-                      %option ---
-                      %option M
-                      %option L
+                    = f.select :category_id, class: "select__default" do
+                      %option 3
+
+              -# .form__group
+              -#   = f.label :size do 
+              -#     サイズ
+              -#     %span.form__require 必須
+              -#   %div
+              -#     .select-wrap
+              -#       =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+              -#       = select :size, class: "select__default" do
+              -#         %option M
+
               .form__group.form__suggest__container
-                = f.label :xxx do 
+                = f.label :brand_id do
                   ブランド
                   %span.form__arbitrary 任意
                 %div
-                  = f.text_field :xxx, url:"#", class: "input__default", placeholder: "例) シャネル"
-              .form__group
-                = f.label :xxx do 
-                  商品の状態
-                  %span.form__require 必須
-                %div
-                  .select-wrap
-                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :"select__default" do
-                      %option ---
-                      %option 新品/未使用に近い
-                      %option 全体的に状態が悪い
+                  = f.text_field :brand_id, class: "input__default", placeholder: "例) シャネル"
 
+              -# .form__group
+              -#   = f.label :condition do
+              -#     商品の状態
+              -#     %span.form__require 必須
+              -#   %div
+              -#     .select-wrap
+              -#       =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+              -#       = select :size, class: "select__default" do
+              -#         %option 新品/未使用
 
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 配送について
             .sell__form__content-box
               .form__group
-                = f.label :xxx do 
+                = f.label :delivery_fee do
                   配送料の負担
                   %span.form__require 必須
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :"select__default" do
-                      %option ---
-                      %option 送料込み(出品者負担)
-                      %option 着払い(購入者負担)
+                    = f.select :delivery_fee, class: "input__default" do
+                      %option 1
+
               .form__group
-                = f.label :xxx do 
+                = f.label :shipping_method do
+                  配送料の負担
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.select :shipping_method, class: "input__default" do
+                      %option らくらくメルカリ便
+
+              .form__group
+                = f.label :region do 
                   発送元の地域
                   %span.form__require 必須
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :"select__default" do
+                    = f.select :region, class: "select__default" do
                       %option ---
-                      %option タイ(バンコク)
-                      %option ダナン
+                      %option 北海道
+                      %option 青森県
+                      %option 岩手県
+                      %option 宮城県
+                      %option 山形県
+                      %option 福島県
+                      %option 栃木県
+                      %option 埼玉県
+                      %option 千葉県
+                      %option 東京都
+                      %option 神奈川県
+                      %option 新潟県
+                      %option 富山県
+                      %option 石川県
+                      %option 福井県
+                      %option 山梨県
+                      %option 長野県
+                      %option 岐阜県
+                      %option 静岡県
+                      %option 愛知県
+                      %option 三重県
+                      %option 滋賀県
+                      %option 京都府
+                      %option 大阪府
+                      %option 兵庫県
+                      %option 奈良県
+                      %option 和歌山県
+                      %option 鳥取県
+                      %option 島根県
+                      %option 岡山県
+                      %option 広島県
+                      %option 山口県
+                      %option 徳島県
+                      %option 香川県
+                      %option 愛媛県
+                      %option 高知県
+                      %option 福岡県
+                      %option 佐賀県
+                      %option 長崎県
+                      %option 熊本県
+                      %option 大分県
+                      %option 宮崎県
+                      %option 鹿児島県
+                      %option 沖縄県
+                      %option 未定
+
               .form__group
-                = f.label :xxx do 
+                = f.label :delivery_days do 
                   発送までの日数
                   %span.form__require 必須
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :"select__default" do
+                    = f.select :delivery_days, class: "select__default" do
                       %option ---
                       %option 1~2日で発送
                       %option 3~4日で発送
-
 
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 販売価格(300~9,999,999)
@@ -132,22 +179,22 @@
               %ul.sell__price
                 %li.form__group
                   .clearfix
-                    = f.label :xxx, class: "l-left" do
+                    = f.label :price, class: "l-left" do
                       価格
                       %span.form__require 必須
                     .l-right.sell__price__input
                       ¥
                       %div
-                        = f.text_field :xxx, url:"#", class: "input__default", placeholder: "例)  500"
+                        = f.text_field :price, class: "input__default", placeholder: "例)  500"
                 %li.clearfix
                   .l-left
                     販売手数料(10%)
                   .l-right
-                    ー
+                    -
                 %li.cleatfix
                   .l-left 販売利益
-                  .l-right ー
-
+                  .l-right
+                    - 
 
           .sell__form__content.sell__btn__box
             %div
@@ -164,6 +211,13 @@
                 また、出品を持ちまして
                 = link_to "加盟店規約", "#"
                 に同意したことになります。
-            %button.btn__default.btn__red{type: "submit"} 出品する
+
+            = f.submit '出品する', class: 'btn__default btn__red'
+
             = link_to "もどる","#", class: "btn__default btn__gray"
-  = render partial: 'shared/terms-footer'
+
+-# ここまでメイン部分
+
+-# ここからフッター部分
+= render partial: 'shared/terms-footer'
+-# ここまでフッター部分

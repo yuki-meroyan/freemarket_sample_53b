@@ -1,8 +1,8 @@
 = render partial: 'shared/header'
 .search-content
   .search-content__box.clearfix
-    .search-content-right
-      .search-content-right__header
+    .search-content__right
+      .search-content__right--header
         %h2.search_word
           ="#{params[:search]}"
           %span.search_word__result の検索結果
@@ -33,7 +33,7 @@
       
         .item-sort
           = fa_icon "chevron-down", class: 'sort-search-icon'
-          = f.text_field :xxx, value: "並び替え", id: "item", class: 'item-sort-search'
+          = f.text_field :xxx, value: "並び替え", id: "item", class: 'item-sort__search'
           
         .detailed-search
           .detailed-search-title 検索結果

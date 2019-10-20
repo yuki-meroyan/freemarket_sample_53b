@@ -5,14 +5,13 @@
     width:  1020px;
     margin: 40px 200px;
   }
-}
-
-.search-content-right{
-  float: right;
-  height: 2000px;
-  width:  700px;
-  &__header{
-    margin: 0 0 8px;
+  &__right{
+    float: right;
+    height: 2000px;
+    width:  700px;
+    &--header{
+      margin: 0 0 8px;
+    }
   }
 }
 
@@ -130,26 +129,20 @@
   margin-top: 10px;
 }
 
-.item-sort-search{
-  width: 250px;
-  height: 48px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 .item-sort{
   position: relative;
+  &__search{
+    width: 250px;
+    height: 48px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 }
 
 .sort-search-icon{
   position: absolute;
   right: 20px;
   top: 20px;
-}
-
-.item-sort-search{
-  padding: 0 15px;
-  font-size: 16px;
 }
 
 .detailed-search__price{

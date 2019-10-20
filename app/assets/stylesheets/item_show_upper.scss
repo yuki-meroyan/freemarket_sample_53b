@@ -44,6 +44,10 @@ body {
   &__inner{
     display: flex;
     position: absolute;
+    img{
+      width:100%;
+      height:100%;
+    }
   }
   .owl__item{
     width: 300px;
@@ -66,7 +70,8 @@ body {
   opacity: .4;
   cursor: pointer;
   img {
-    width: 60px;
+    width: 100%;
+    height: 100%;
   }
 }
 

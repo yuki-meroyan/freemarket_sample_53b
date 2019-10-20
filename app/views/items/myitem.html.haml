@@ -19,14 +19,24 @@
       = @item.name
     .item__main__content.clearfix
       .item__photo
-        .owl__carousel
-          - @item.item_images.each_with_index do |item, i|
-            - if i == 0
-              .owl__item
+        -if @item.item_images.present?
+          .owl__carousel
+            .owl__carousel__inner
+              - @item.item_images.each_with_index do |item, i|
+                .owl__item{class: i}
+                  = image_tag item.image.url
+          .select__carousel
+            - @item.item_images.each_with_index do |item, i|
+              .owl__dot{data: {image: i}}
                 = image_tag item.image.url
-            - else
-              .owl__dot
-                = image_tag item.image.url
+          .go__number__likes
+            現在、
+            %span> 1人
+            がこの商品にいいね!しています
+        -else
+          .owl__carousel
+            .owl__carousel__inner
+              = image_tag 'no-image.png'
       %table.item__detail__table
         %tbody
           %tr

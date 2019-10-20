@@ -52,16 +52,20 @@
         - @ladys_items.each do |item|
           .new-arrival-item__box
             = link_to  item_path(item)  do
-              - item.item_images.each_with_index do |item_image, i|
-                - if i == 0
-                  = image_tag item_image.image.url, alt: 'item-image', class: 'new-arrival-item__box--image'
-                - else
-                  - break
-              .new-arrival-item__box--text
-                = item.name
-              .new-arrival-item__box--price
-                ¥
-                = item.price
+              -if item.item_images.present?
+                - item.item_images.each_with_index do |item_image, i|
+                  - if i == 0
+                    = image_tag item_image.image.url, alt: 'item-image', class: 'new-arrival-item__box--image'
+                  - else
+                    - break
+              - else
+                =image_tag 'no-image.png',class: 'new-arrival-item__box--image'
+            .new-arrival-item__box--text
+              = item.name
+            .new-arrival-item__box--price
+              ¥
+              = item.price
+
 
     .popular-brands 
       %h2.popular-brands__title

@@ -41,53 +41,6 @@
               %h3.main__text__left 本人確認
               %p.main__text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
 
-            -# .form__group
-            -#   = f.label :name_kanji do
-            -#     %div
-            -#       %span お名前(全角)
-            -#       %span.form__require 必須
-            -#   .form__box
-            -#     = f.text_field :xxx, id: "family_name_kanji", class: "input-default__half", placeholder: "例) 山田"
-            -#     = f.text_field :xxx, id: "first_name_kanji", class: "input-default__half", placeholder: "例) 彩"
-
-            -# .form__group
-            -#   = f.label :name_kana do
-            -#     %div
-            -#       %span お名前カナ(全角)
-            -#       %span.form__require 必須
-            -#   .form__box
-            -#     = f.text_field :xxx, id: "family_name_kana", class: "input-default__half", placeholder: "例) ヤマダ"
-            -#     = f.text_field :xxx, id: "first_name__kana", class: "input-default__half", placeholder: "例) アヤ"
-
-            -# .form__group
-            -#   = f.label :birthday do
-            -#     %span 生年月日
-            -#     %span.form__require 必須
-            -#     %br/
-            -#   .birthday-select-wrap
-            -#     .select-default
-            -#       = fa_icon "chevron-down", class: "icon-arrow-down"
-            -#       = f.select :"select__default" do
-            -#         %option 1990
-            -#         %option 2000
-            -#         %option 1980
-            -#     %span 年
-            -#     .select-default
-            -#       = fa_icon "chevron-down", class: "icon-arrow-down"
-            -#       = f.select :"select__default" do
-            -#         %option 10
-            -#         %option 11
-            -#         %option 12
-            -#     %span 月
-            -#     .select-default
-            -#       = fa_icon "chevron-down", class: "icon-arrow-down"
-            -#       = f.select :"select__default" do
-            -#         %option 19
-            -#         %option 20
-            -#         %option 30
-            -#     %span 日
-            -#   = f.text_field :xxx, id: "birthday"
-
             %p.main__text__gray
               ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 

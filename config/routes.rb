@@ -32,10 +32,5 @@ Rails.application.routes.draw do
   get 'pending/logout' => 'pending#logout',as: 'pending/logout'
   get 'pending/index' => 'pending#index',as: 'pending/index'
   get 'items/myitem/:id' => 'items#myitem',as: 'items/myitem'
-  get 'pending/user_signup1/' => 'pending#user_signup1',as: 'pending/user_signup1'
-  get 'pending/user_signup2/' => 'pending#user_signup2',as: 'pending/user_signup2'
-  get 'pending/user_signup3/' => 'pending#user_signup3',as: 'pending/user_signup3'
-  get 'pending/user_signup4/' => 'pending#user_signup4',as: 'pending/user_signup4'
-  get 'pending/user_signup5/' => 'pending#user_signup5',as: 'pending/user_signup5'
 
 end

@@ -13,19 +13,20 @@
         - @items.each do |item|
           .search-item-index__box
             .search-item-index__content
-              .search_item_image
-                - item.item_images.each.with_index do |item_image,i|
-                  - if i == 1
-                    =image_tag (item_image.image),width:"160",height:"170"
-              .search-item-index__text
-                =item.name
-              .item-price
-                ¥
-                =item.price
-              .item-likes
-                .item-likes__count
-                = fa_icon "heart-o", class:'like-count-icon' 
-                %span 1
+              = link_to  item_path(item)  do
+                .search_item_image
+                  - item.item_images.each.with_index do |item_image,i|
+                    - if i == 1
+                      =image_tag (item_image.image),width:"160",height:"170"
+                .search-item-index__text
+                  =item.name
+                .item-price
+                  ¥
+                  =item.price
+                .item-likes
+                  .item-likes__count
+                  = fa_icon "heart-o", class:'like-count-icon' 
+                  %span 1
       = paginate(@items)
 
     .search-content-left

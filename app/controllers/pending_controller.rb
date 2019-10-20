@@ -15,8 +15,4 @@ class PendingController < ApplicationController
   def member_complate
   end
 
-  # def search
-  #   # @items = Item.where('title LIKE(?)', "%#{params[:keyword]}%").count
-  # end
-  
 end

@@ -33,7 +33,6 @@ class ItemsController < ApplicationController
     @start_count = ((params.fetch(:page, 1).to_i - 1) * 40)+1
     @end_count = @start_count + 39 
     @end_count = @items_count if @end_count > @items_count
-
     @item_images = ItemImage.includes(:item_id) 
   end
   

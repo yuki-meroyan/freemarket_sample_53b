@@ -1,0 +1,16 @@
+.registration-container
+  = render partial: 'shared/user-add-header-5'
+  .member-complate-content
+    .complate-box
+      .complate-main
+        %h2.complate-main__title
+          会員登録完了
+        .complate-list
+          .complate-list__notes
+            ありがとうございます。
+            %br/
+            会員登録が完了しました。
+
+          = link_to root_path, class: 'btn--red' do
+            メルカリをはじめる
+    = render partial: 'shared/terms-footer'

@@ -56,15 +56,13 @@ body {
     }
   }
   &__back{
-    background-color: #EA352E;
     position: absolute;
     left: -65px;
     top: -62px;
     z-index: -1;
-    border-top: 0;
-    border-right: 100px solid white;
-    border-bottom: 100px solid transparent;
-    border-left: 100px solid white;
+    border-right: 100px solid;
+    border-bottom: 100px solid #EA352E;;
+    border-left: 100px solid ;
     top: -62px;
   }
 }

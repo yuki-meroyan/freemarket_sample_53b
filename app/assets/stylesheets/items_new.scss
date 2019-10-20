@@ -26,7 +26,7 @@
         font-size: 14px;
         float: left;
       }
-        &-box {
+        &__box {
           float: right;
           width: 400px;
           margin: 0;
@@ -49,7 +49,6 @@
     }
   }
 }
-
 .sell__upload__drop{
   &-file{
     display: none;
@@ -255,3 +254,4 @@
   border: 1px solid #aaa;
   color: #fff;
 }
+

@@ -7,13 +7,14 @@
     %section.item-buy__detail
       .item-buy__inner
         .item-buy__detail__top
-          = image_tag 'https://static.mercdn.net/thumb/photos/m26078890125_1.jpg?1566189026', class: "item-buy__detail__img"
+          = image_tag @item_image.image.url, alt: "item-image", class: "item-buy__detail__img"
           .item-buy__detail__title
             %p.item-buy__detail__title--text
-              パソコンデスク ロータイプ ノートパソコン 机 ノートPCデスク
+              = @item.name
         .item-buy__detail__middle
           %p.item-buy__detail__fee
-            ¥10,000
+            ¥
+            = @item.price
             %span.item-buy__detail__fee--text
               送料込み
           .item-buy__detail__point
@@ -24,15 +25,17 @@
               支払い金額
             %li.item-buy__detail__fee-ttl__box
               %span.item-buy__detail__fee-ttl--text
-                ¥10,000
+                ¥
+                = @item.price
         .item-buy__detail__payment-error
           %span.item-buy__detail__payment-error--text
             配送先と支払い方法の入力を完了してください。
         .item-buy__detail__bottom
           .item-buy__detail__button
-            %span.item-buy__detail__button--text
-              購入する
-
+            =link_to item_transaction_informations_path(@item), method: :post, class: "btn-default btn-red submit_button" do
+              %span.item-buy__detail__button--text
+                購入する
+    -# TODO: ユーザーの住所情報が登録できるようになったら変数に置き換える
     %section.item-buy__shipping
       .item-buy__inner
         %h3.item-buy__shipping__top
@@ -53,7 +56,18 @@
         .item-buy__payment__top
           支払い方法
         .item-buy__payment__card
-          ****************************
+          - if @card_information.blank?
+            ****************************
+          - else
+            %figure.card-info
+              %br
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/' + @card_src+'?2482339763', alt: @card_src
+              %br
+              %br
+              .settings__payment__num
+                = "**** **** **** " + @card_information.last4
+              .settings__payment__num
+                = @month_year
         = link_to root_path, class: "item-buy__change" do
           %span.item-buy__change--text
             変更する

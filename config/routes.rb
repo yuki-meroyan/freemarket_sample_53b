@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
+
+  resources :items, only: [:index, :show, :destroy, :new]
+  resources :users
+  resources :user_details, only:[:show, :edit, :update]
+  resources :cards, only: [:index, :new, :show, :create, :destroy]
   resources :user_details
   resources :items do
     resources :transaction_informations, only: [:index, :create]
@@ -9,10 +14,8 @@ Rails.application.routes.draw do
   
   resources :users
   resources :cards, except: [:edit, :update]
-
   # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。
   get 'pending/itembuy' => 'pending#itembuy',as: 'pending/itembuy'
-  get 'pending/edit' => 'pending#edit',as: 'pending/edit'
   get 'pending/logout' => 'pending#logout',as: 'pending/logout'
   get 'pending/index' => 'pending#index',as: 'pending/index'
   get 'items/myitem/:id' => 'items#myitem',as: 'items/myitem'

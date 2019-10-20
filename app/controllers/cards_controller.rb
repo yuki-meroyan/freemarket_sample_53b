@@ -5,7 +5,6 @@ class CardsController < ApplicationController
   require "payjp"
 
   def index
-
   end
 
   def new

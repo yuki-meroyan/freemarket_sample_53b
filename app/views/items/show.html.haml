@@ -38,10 +38,10 @@
           %th カテゴリー
           %td
             = link_to  "#" do
-              = @item.category.parent.parent.category
+              -# = @item.category.parent.parent.category
             = link_to  "#" , class:'item__detail__table__sub__category' do
               =fa_icon "chevron-right", class: 'icon'
-              = @item.category.parent.category
+              -# = @item.category.parent.category
             = link_to  "#" , class:'item__detail__table__sub__sub__category' do
               =fa_icon "chevron-right", class: 'icon'
               = @item.category.category
@@ -204,4 +204,6 @@
             .item-box-text__fee-box__right
               = fa_icon 'heart-o', class: "icon"
               %span  1
+- breadcrumb :item
+= render 'shared/pankuzu_item'
 = render partial: 'shared/footer'

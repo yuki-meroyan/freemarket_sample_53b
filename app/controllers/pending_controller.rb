@@ -10,6 +10,7 @@ class PendingController < ApplicationController
   end
 
   def edit
+    
   end
   
   def user_signup1

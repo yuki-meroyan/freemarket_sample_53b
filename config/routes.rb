@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     get "sign_in2", to: "users/registrations#new2"
     get "sign_in4", to: "users/registrations#new4"
     get "sign_up5", to: "users/registrations#new5"
-    get "sign_out", to: "users/sessions#destroy" 
+    get "sign_out1", to: "users/sessions#destroy1"
+    get "sign_up6", to: "users/registrations#new6"
   end
 
 

@@ -14,12 +14,12 @@ class UserDetailsController < ApplicationController
   def create
     @user_detail = UserDetail.new(user_detail_params)
     if @user_detail.save
-      alert = "ユーザを登録しました"
+      alert('ユーザー登録しました')
       redirect_to sign_in4_path
 
     # インスタンスの保存に失敗した場合の処理
     else
-      alert = "ユーザの登録に失敗しました"
+      alert('error')
       render :new
     end
   end

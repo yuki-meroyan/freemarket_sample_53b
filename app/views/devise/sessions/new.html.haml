@@ -1,17 +1,31 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.signup__body
+  = render partial: 'shared/mercari-header'
+  .login__form
+    .sns__login
+      .login__form__title
+        %p アカウントをお持ちでない方はこちら
+        .new__acount__choice.btn-default.choice-btn 
+          %p 新規会員登録
+      .login__form__choice
+        .facebook__choice.btn-default.choice-btn
+          .facebook__choice__logo
+            =fa_icon "facebook-square 2x"
+          .facebook__choice__text Facebookで登録する
+        .google__choice.btn-default.choice-btn
+          .google__choice__logo
+            = image_tag 'google.svg', alt: 'google-logo'
+          .google__choice__text Googleで登録する
+    = form_with model: @user, url: user_session_path, id: "new_user", local: true do |f|
+      .wright__login
+        .wright__login__mail__text
+          = f.email_field :email, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"
+        .wright__login__name__text
+          = f.password_field :password, autocomplete: "password", class: "input-default", placeholder: "パスワード"
+        .wright__login__robot__check
+          = image_tag 'recaptcha.gif', alt: 'recaptcha.gif', class: ' recaptcha'
+        .wright__login__btn
+          = f.submit "ログイン", class: "btn-default btn-red"
+        .login-panel
+          = link_to"パスワードをお忘れの方",'#'
+
+  = render partial: 'shared/terms-footer'

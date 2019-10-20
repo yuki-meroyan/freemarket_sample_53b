@@ -22,6 +22,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new4
   end
 
+  def new6
+  end
+
   # GET /resource/edit
   # def edit
   #   super

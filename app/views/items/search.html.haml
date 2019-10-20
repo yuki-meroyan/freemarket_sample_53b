@@ -17,7 +17,7 @@
                 .search-item__image
                   - item.item_images.each.with_index do |item_image,i|
                     - if i == 1
-                      =image_tag (item_image.image),width:"160",height:"170"
+                      =image_tag (item_image.image.url),width:"160",height:"170"
                 .search-item__index__text
                   =item.name
                 .item-price

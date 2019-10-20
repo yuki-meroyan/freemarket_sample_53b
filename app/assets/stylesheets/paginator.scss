@@ -1,50 +1,20 @@
-.page{
+.page-item{
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   border-radius: 4px;
   background: #fff;
   border: 1px solid #ccc;
   font-size: 14px;
   line-height: 42px;
-  .current:active {
-    color: #fff;
-    background: #ea352d;
-  }
-}
-
-.first{
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border-radius: 4px;
-  background: #fff;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  line-height: 42px;
-}
-
-.next {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border-radius: 4px;
-  background: #fff;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  line-height: 42px;
-}
-
-.last{
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border-radius: 4px;
-  background: #fff;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  line-height: 42px;
-}
-.nave.pagination {
   text-align: center;
+}
+
+.page-item.active{
+  background-color: red;
+  color: white;
+}
+
+.page-link{
+  color: black;
 }

@@ -84,3 +84,6 @@ gem 'ancestry'
 gem 'active_hash'
 gem "jquery-rails"
 gem 'kaminari'
+gem 'gretel'
+gem 'payjp'
+gem 'rails-i18n'

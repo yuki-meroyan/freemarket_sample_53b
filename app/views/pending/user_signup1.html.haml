@@ -1,0 +1,97 @@
+%body
+  .registration-container
+    / ここからヘッダー部分
+    = render partial: 'shared/user-add-header-1'
+    / ここまでヘッダー部分
+
+    / ここからメイン部分
+    %main
+      %section.main__container
+        %h2.registration 会員情報入力
+        = form_with(id: "member_information_input", class: "registration__form", action: "https://www.mercari.com/jp/signup/sms_confirmation/", method: "POST", novalidate: "novalidate") do |f|
+          %input{name: "__csrf_value", type: "hidden", value: "2a777587e7a3649890bc2e277bf2ea6cf7d7c4a5837608bed07925cd11efe989429096ecd829e60d3bc96331f70afdfa301b450aa0e9e30d8f57c7f1e1ad2ab01"}/
+          .main__content
+            .form__group
+              = f.label :nickname do
+                %span ニックネーム
+                %span.form__require 必須
+              = f.text_field :xxx, id: "nickname", class: "input-default", placeholder: "例) メルカリ太郎"
+
+            .form__group
+              = f.label :email do
+                %span メールアドレス
+                %span.form__require 必須
+              = f.text_field :xxx, id: "email", class: "input-default", placeholder: "PC・携帯どちらでも可"
+
+            .form__group
+              = f.label :password do
+                %span パスワード
+                %span.form__require 必須
+              = f.text_field :xxx, id: "password", class: "input-default", placeholder: "7文字以上"
+
+            .form__group
+              = f.label :password2 do
+                %span パスワード(確認)
+                %span.form__require 必須
+              = f.text_field :xxx, id: "password2", class: "input-default", placeholder: "7文字以上"
+
+            .form__group
+              %h3.main__text__left 本人確認
+              %p.main__text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+            .form__group
+              = f.label :name_kanji do
+                %div
+                  %span お名前(全角)
+                  %span.form__require 必須
+              .form__box
+                = f.text_field :xxx, id: "family_name_kanji", class: "input-default__half", placeholder: "例) 山田"
+                = f.text_field :xxx, id: "first_name_kanji", class: "input-default__half", placeholder: "例) 彩"
+
+            .form__group
+              = f.label :name_kana do
+                %div
+                  %span お名前カナ(全角)
+                  %span.form__require 必須
+              .form__box
+                = f.text_field :xxx, id: "family_name_kana", class: "input-default__half", placeholder: "例) ヤマダ"
+                = f.text_field :xxx, id: "first_name__kana", class: "input-default__half", placeholder: "例) アヤ"
+
+            .form__group
+              = f.label :birthday do
+                %span 生年月日
+                %span.form__require 必須
+                %br/
+              .birthday-select-wrap
+                .select-default
+                  = fa_icon "chevron-down", class: "icon-arrow-down"
+                %span 年
+                .select-default
+                  = fa_icon "chevron-down", class: "icon-arrow-down"
+                %span 月
+                .select-default
+                  = fa_icon "chevron-down", class: "icon-arrow-down"
+                %span 日
+              = f.text_field :xxx, id: "birthday"
+
+            %p.main__text__gray
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+            .form__group
+              %p.main__text
+                「次へ進む」のボタンを押すことにより、
+                = link_to "/jp/tos_list/", target: "_blank" do
+                  利用規約
+                に同意したものとみなします
+
+            = f.submit :xxx, class: "btn-red", value: "次へ進む"
+
+            .form__group.main__text__right
+              %p
+                = link_to "/jp/help_center/article/423/" do
+                  本人情報の登録について
+                  = fa_icon "chevron-right", class: "icon-arrow-right"
+
+    / ここからフッター部分
+    = render partial: 'shared/terms-footer'
+    / ここまでフッター部分

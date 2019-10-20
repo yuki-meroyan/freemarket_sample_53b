@@ -19,6 +19,11 @@
       = @item.name
     .item__main__content.clearfix
       .item__photo
+        -if @item.status == 1
+          .soldout__tag
+            .soldout__tag__text
+              SOLD
+              .soldout__tag__back
         -if @item.item_images.present?
           .owl__carousel
             .owl__carousel__inner

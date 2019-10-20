@@ -52,6 +52,11 @@
         - @ladys_items.each do |item|
           .new-arrival-item__box
             = link_to  item_path(item)  do
+              -if item.status == 1
+                .soldout__tag
+                  .soldout__tag__text
+                    %p SOLD
+                    .soldout__tag__back
               -if item.item_images.present?
                 - item.item_images.each_with_index do |item_image, i|
                   - if i == 0

@@ -35,6 +35,38 @@ body {
   float: left;
   margin: 0 auto;
   background: #fafafa;
+  position: relative;
+}
+.soldout__tag{
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 2;
+  width: 120px;
+  height:120px;
+  overflow: hidden;
+
+  &__text{
+    margin-top: 13px;
+    font-size: 28px;
+    color: #fff;
+    transform: rotate(-45deg);
+    p{
+      margin-left: -40px;
+    }
+  }
+  &__back{
+    background-color: #EA352E;
+    position: absolute;
+    left: -65px;
+    top: -62px;
+    z-index: -1;
+    border-top: 0;
+    border-right: 100px solid white;
+    border-bottom: 100px solid transparent;
+    border-left: 100px solid white;
+    top: -62px;
+  }
 }
 .owl__carousel {
   width: 300px;
@@ -311,4 +343,37 @@ line-height: 1;
 .mypage-container{
   float: right;
   margin-right:100px; 
+}
+
+
+
+
+
+
+
+.search{
+  &__content{
+  background-color: rgb(245, 245, 245);
+  height: 1500px;
+    &__box{
+      width:  1020px;
+      margin: 40px 200px;
+    }
+    &__right{
+      float: right;
+      height: 2000px;
+      width:  700px;
+      &--header{
+        margin: 0 0 8px;
+      }
+    }
+  }
+  &__word{
+    font-size: 22px;
+    margin: 0 0 8px;
+    &__result{
+    font-size: 18px;
+    font-weight: 400;
+    }
+  }
 }

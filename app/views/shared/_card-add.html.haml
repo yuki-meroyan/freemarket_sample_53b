@@ -1,7 +1,7 @@
 .card-new__content
   %section.card-new__chapter__container
     %h2.card-new__chapter__header クレジットカード情報入力
-    = form_with(url: cards_path, method: :post, name: "inputForm", id: "card-new__form", class: "card-new__single-inner") do |f|
+    = form_with(url: cards_path, method: :post, name: "inputForm", id: "card-new__form", class: "card-new__single-inner", local: true) do |f|
       .card-new__single-content
         .card-new__form__group
           = f.label :カード番号

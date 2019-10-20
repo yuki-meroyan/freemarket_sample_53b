@@ -22,11 +22,11 @@
           .nav__category
             .nav__category__box.nav__category__parent
               %ul.nav__category__parent__list
-                - @parentCategories.each do |parent|
-                  .parent-list{ "data-category-id": parent.id}
-                    %li
-                      = parent.category
-                %li カテゴリー一覧
+                -# - @parentCategories.each do |parent|
+                -#   .parent-list{ "data-category-id": parent.id}
+                -#     %li
+                -#       = parent.category
+                -# %li カテゴリー一覧
             .nav__category__box.nav__category__child
               %ul.nav__category__child__list
             .nav__category__box.nav__category__grandchild

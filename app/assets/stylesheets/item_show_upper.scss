@@ -344,36 +344,3 @@ line-height: 1;
   float: right;
   margin-right:100px; 
 }
-
-
-
-
-
-
-
-.search{
-  &__content{
-  background-color: rgb(245, 245, 245);
-  height: 1500px;
-    &__box{
-      width:  1020px;
-      margin: 40px 200px;
-    }
-    &__right{
-      float: right;
-      height: 2000px;
-      width:  700px;
-      &--header{
-        margin: 0 0 8px;
-      }
-    }
-  }
-  &__word{
-    font-size: 22px;
-    margin: 0 0 8px;
-    &__result{
-    font-size: 18px;
-    font-weight: 400;
-    }
-  }
-}

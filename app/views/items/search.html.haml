@@ -5,13 +5,9 @@
       .search-content-right__header
         %h2.search_word
           ="#{params[:search]}"
-          %span.search_word__result
-            の検索結果
+          %span.search_word__result の検索結果
         .search_number 
           = "#{@start_count} ~ #{@end_count} 件表示"
-        
-
-
 
       .search-item-index
         - @items.each do |item|
@@ -26,25 +22,11 @@
               .item-price
                 ¥
                 =item.price
+              .item-likes
+                .item-likes__count
+                = fa_icon "heart-o", class:'like-count-icon' 
+                %span 1
       = paginate(@items)
-
-
-      -#   .search-item-index__box
-      -#     .search-item-index__content
-      -#       =image_tag "https://static.mercdn.net/thumb/photos/m95577479951_1.jpg?1569509266", class:'search_item_image'
-      -#     .search-item-index__text
-      -#       パンツ
-      -#       .item-price
-      -#         ¥2000
-      -#       .item-likes
-      -#         .item-likes__count
-      -#         = fa_icon "heart", class:'like-count-icon' 
-      -#         %span 1
-      
-      -# -# = paginate(@items) 
-
-
-
 
     .search-content-left
       = form_with( id:"keyword", class: 'item-search-list' ) do |f| 
@@ -52,7 +34,6 @@
         .item-sort
           = fa_icon "chevron-down", class: 'sort-search-icon'
           = f.text_field :xxx, value: "並び替え", id: "item", class: 'item-sort-search'
-        
           
         .detailed-search
           .detailed-search-title 検索結果
@@ -83,9 +64,6 @@
             .detailed-search__form
               = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
 
-
-
-
           .detailed-search__price
             = f.label :keyword do
               = fa_icon "coins", class: 'icon'
@@ -96,10 +74,6 @@
               = f.text_field :xxx, id: "keyword", class:'item-price-search', placeholder: "¥ Min" 
               %span ~
               = f.text_field :xxx, id: "keyword", class:'item-price-search', placeholder: "¥ Max"
-
-
-
-
 
           .detailed-search__status
             .detailed-search__status--top
@@ -143,11 +117,6 @@
               = f.label :keyword do
                 %span.detailed-search__item--status 全体的に状態が悪い
 
-
-
-
-
-
           .detailed-search__box
             .detailed-search__box--top
               = f.label :keyword do
@@ -170,7 +139,6 @@
               = f.label :keyword do
                 %span.detailed-search__item--fee  送料込み(出品者負担)
 
-          
           .detailed-search__box
             .detailed-search__box--top
               = f.label :keyword do

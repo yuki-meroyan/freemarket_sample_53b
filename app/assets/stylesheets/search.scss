@@ -66,12 +66,12 @@
   padding-top: 5px;
   box-sizing: border-box;
   text-align: center;
-
 }
 
 .item-likes{
   position: absolute;
   right: 10px;
+  bottom: 10px;
 }
 
 .like-count-icon{
@@ -106,9 +106,6 @@
   &--keyword{
     font-size: 15px;
     font-weight: 600;
-  // &--price{
-  //   height: 100px;
-  // }
   }
 }
 .item-keyword-search{
@@ -133,9 +130,6 @@
   margin-top: 10px;
 }
 
-
-
-
 .item-sort-search{
   width: 250px;
   height: 48px;
@@ -157,7 +151,6 @@
   padding: 0 15px;
   font-size: 16px;
 }
-
 
 .detailed-search__price{
   justify-content: space-between;

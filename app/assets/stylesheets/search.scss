@@ -1,26 +1,31 @@
-.search-content{
+.search__content{
   background-color: rgb(245, 245, 245);
   height: 1500px;
-  &__box{
-    width:  1020px;
-    margin: 40px 200px;
-  }
-  &__right{
-    float: right;
-    height: 2000px;
-    width:  700px;
-    &--header{
-      margin: 0 0 8px;
+    &__box{
+      width:  1020px;
+      margin: 40px 200px;
+    }
+    &__right{
+      float: right;
+      height: 2000px;
+      width:  700px;
+      &--header{
+        margin: 0 0 8px;
+      }
+    }
+  &__word{
+    font-size: 22px;
+    margin: 0 0 8px;
+    &__result{
+    font-size: 18px;
+    font-weight: 400;
     }
   }
-}
-
-.search_word{
-  font-size: 22px;
-  margin: 0 0 8px;
-  &__result{
-  font-size: 18px;
-  font-weight: 400;
+  &__left{
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+    height: 700px;
   }
 }
 
@@ -30,28 +35,28 @@
   margin: 16px 0;
 }
 
-.search-item-index{
+.search-item__index{
   display: flex;
   flex-wrap: wrap;
-  &__box{
+    &__box{
+      width: 160px;
+      height: 230px;
+      position: relative;
+      margin: 0 15px 20px 0;
+    }
+    &__text{
+      width: 140px;
+      height: 40px;
+      padding: 10px;
+      background-color: white;
+      color: black;
+    }
+  &__image{
     width: 160px;
-    height: 230px;
-    position: relative;
-    margin: 0 15px 20px 0;
-  }
-  &__text{
-    width: 140px;
-    height: 40px;
-    padding: 10px;
-    background-color: white;
-    color: black;
+    height: 170px;
   }
 }
 
-.search_item_image{
-  width: 160px;
-  height: 170px;
-}
 
 .item-price{
   border-top-right-radius: 20px;
@@ -79,36 +84,10 @@
   color: #888;
 }
 
-.search-content-left{
-  float: left;
-  width: 280px;
-  margin: 0 40px 0 0;
-  height: 700px;
-  
-}
-.detailed-search{
-  background-color: white;
-  padding: 16px;
-  margin-top: 40px;
-  &__title{
-    font-size:16px;
-    font-weight: 600;
-  }
-  
-}
-
 .item-search-list{
   height: 700px;
 }
 
-.detailed-search__item{
-  height: 65px;
-  margin-top: 30px;
-  &--keyword{
-    font-size: 15px;
-    font-weight: 600;
-  }
-}
 .item-keyword-search{
   width: 215px;
   margin: 10px 10px;
@@ -147,7 +126,22 @@
   top: 20px;
 }
 
-.detailed-search{
+.detailed__search{
+  background-color: white;
+  padding: 16px;
+  margin-top: 40px;
+  &__title{
+    font-size:16px;
+    font-weight: 600;
+  }
+  &__item{
+    height: 65px;
+    margin-top: 30px;
+    &--keyword{
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
   &__price{
     justify-content: space-between;
     margin-top: 40px ;

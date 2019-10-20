@@ -2,6 +2,8 @@ class TransactionInformationsController < ApplicationController
   before_action :checkUserSignedIn
   before_action :set_target_item
   before_action :set_card
+  before_action :check_buy_user
+  before_action :check_buy_item
 
   require 'payjp'
 
@@ -61,6 +63,19 @@ class TransactionInformationsController < ApplicationController
 
   def set_target_item
     @item = Item.find(params[:item_id])
+  end
+
+  def check_buy_user
+    if @item.user_id == current_user.id
+      flash[:notice] = "自分の商品は購入できません"
+      redirect_to item_path(@item)
+    end
+  end
+
+  def check_buy_item
+    if @item.status == 1
+      redirect_to item_path(@item)
+    end
   end
 
 end

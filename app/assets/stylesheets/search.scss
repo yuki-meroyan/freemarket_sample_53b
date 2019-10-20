@@ -44,6 +44,7 @@
     height: 40px;
     padding: 10px;
     background-color: white;
+    color: black;
   }
 }
 
@@ -71,6 +72,7 @@
   position: absolute;
   right: 10px;
   bottom: 10px;
+  color: black;
 }
 
 .like-count-icon{
@@ -145,9 +147,23 @@
   top: 20px;
 }
 
-.detailed-search__price{
-  justify-content: space-between;
-  margin-top: 40px ;
+.detailed-search{
+  &__price{
+    justify-content: space-between;
+    margin-top: 40px ;
+  }
+  &__box{
+    height: 100px;
+    margin-top: 40px;
+  }
+  &__status{
+    margin-top: 40px;
+  }
+  &__check{
+    display: inline-block;
+    width: 48%;
+    vertical-align: middle;
+  }
 }
 
 .item-status-search{
@@ -159,20 +175,6 @@
   font-size: 16px;
   display: block;
   margin-top: 10px;
-}
-
-.detailed-search__box{
-  height: 100px;
-  margin-top: 40px;
-}
-
-.detailed-search__status{
-  margin-top: 40px;
-}
-.detailed-search__check{
-  display: inline-block;
-  width: 48%;
-  vertical-align: middle;
 }
 
 .clearfix::after{

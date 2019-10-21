@@ -44,9 +44,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    # Item.create(create_params)
-    # redirect_to root_path
     item = Item.new(create_params)
     if item.save
       redirect_to root_path
@@ -75,7 +72,7 @@ private
 
   def create_params
     anc = Category.find(params[:category_id])
-    params.permit(:name, :description, :price, :region, :delivery_fee, :delivery_days, :shipping_method, :category_id).merge(user_id: current_user.id, ancestry: anc.ancestry)
+    params.permit(:name, :description, :price, :region, :delivery_fee, :delivery_days, :shipping_method, :brand_id, :category_id, :size, :saved_state).merge(user_id: current_user.id, ancestry: anc.ancestry, buyer_id: 1)
   end
 
 end

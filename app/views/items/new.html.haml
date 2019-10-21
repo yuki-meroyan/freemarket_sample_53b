@@ -74,18 +74,18 @@
                   = f.text_field :brand_id, class: "input__default", placeholder: "例) シャネル"
 
               .form__group
-                = f.label :condition do
+                = f.label :saved_state do
                   商品の状態
                   %span.form__require 必須
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :condition, class: "select__default" do
+                    = f.select :saved_state, class: "select__default" do
                       %option 新品/未使用
 
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 配送について
-            .sell__form__content-box
+            .sell__form__content__box
               .form__group
                 = f.label :delivery_fee do
                   配送料の負担
@@ -96,10 +96,6 @@
                     = f.select :delivery_fee, class: "input__default" do
                       %option 1
 
-
-          .sell__form__content.clearfix
-            %h3.sell__form__content__sub-head 配送について
-            .sell__form__content__box
               .form__group
                 = f.label :shipping_method do
                   配送料の負担

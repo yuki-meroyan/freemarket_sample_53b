@@ -6,9 +6,6 @@ class PendingController < ApplicationController
   def itembuy
   end
 
-  def logout
-  end
-
   def edit
     
   end

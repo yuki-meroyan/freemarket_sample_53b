@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
   resources :user_details
-  resources :items, only: [:index, :show, :destroy, :new]
+  resources :items, only: [:index, :show, :destroy, :new, :create]
 
   resources :users
   resources :cards, only: [:index, :new, :show, :create, :destroy]
@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   get 'items/myitem/:id' => 'items#myitem',as: 'items/myitem'
   get 'pending/user_signup2/' => 'pending#user_signup2',as: 'pending/user_signup2'
   get 'pending/user_signup1/' => 'pending#user_signup1',as: 'pending/user_signup1'
-  post '/items' => 'items#create'
 end

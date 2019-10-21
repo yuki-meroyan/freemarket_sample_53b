@@ -53,18 +53,18 @@
                       %option トップス
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :category_id, class: "select__default" do
+                    = f.select :category_id, class: "input__default" do
                       %option 3
 
-              -# .form__group
-              -#   = f.label :size do 
-              -#     サイズ
-              -#     %span.form__require 必須
-              -#   %div
-              -#     .select-wrap
-              -#       =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-              -#       = select :size, class: "select__default" do
-              -#         %option M
+              .form__group
+                = f.label :size do
+                  サイズ
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.select :size, class: "select__default" do
+                      %option M
 
               .form__group.form__suggest__container
                 = f.label :brand_id do
@@ -73,15 +73,15 @@
                 %div
                   = f.text_field :brand_id, class: "input__default", placeholder: "例) シャネル"
 
-              -# .form__group
-              -#   = f.label :condition do
-              -#     商品の状態
-              -#     %span.form__require 必須
-              -#   %div
-              -#     .select-wrap
-              -#       =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-              -#       = select :size, class: "select__default" do
-              -#         %option 新品/未使用
+              .form__group
+                = f.label :condition do
+                  商品の状態
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.select :condition, class: "select__default" do
+                      %option 新品/未使用
 
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 配送について
@@ -107,62 +107,17 @@
                       %option らくらくメルカリ便
 
               .form__group
-                = f.label :region do 
+                = f.label :region do
                   発送元の地域
                   %span.form__require 必須
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :region, class: "select__default" do
-                      %option ---
-                      %option 北海道
-                      %option 青森県
-                      %option 岩手県
-                      %option 宮城県
-                      %option 山形県
-                      %option 福島県
-                      %option 栃木県
-                      %option 埼玉県
-                      %option 千葉県
-                      %option 東京都
-                      %option 神奈川県
-                      %option 新潟県
-                      %option 富山県
-                      %option 石川県
-                      %option 福井県
-                      %option 山梨県
-                      %option 長野県
-                      %option 岐阜県
-                      %option 静岡県
-                      %option 愛知県
-                      %option 三重県
-                      %option 滋賀県
-                      %option 京都府
-                      %option 大阪府
-                      %option 兵庫県
-                      %option 奈良県
-                      %option 和歌山県
-                      %option 鳥取県
-                      %option 島根県
-                      %option 岡山県
-                      %option 広島県
-                      %option 山口県
-                      %option 徳島県
-                      %option 香川県
-                      %option 愛媛県
-                      %option 高知県
-                      %option 福岡県
-                      %option 佐賀県
-                      %option 長崎県
-                      %option 熊本県
-                      %option 大分県
-                      %option 宮崎県
-                      %option 鹿児島県
-                      %option 沖縄県
-                      %option 未定
+                    = f.collection_select :region, Prefecture.all, :id, :name, class: "select__default" do
+                      -# %option ---
 
               .form__group
-                = f.label :delivery_days do 
+                = f.label :delivery_days do
                   発送までの日数
                   %span.form__require 必須
                 %div

@@ -11,15 +11,14 @@
 
       .search-item__index
         - @items.each do |item|
-<<<<<<< HEAD
-          .search-item-index__box
-            .search-item-index__content
-              .search_item_image
+          .search-item__index__box
+            .search-item__index__content
+              .search_item__image
                 = link_to  item_path(item)  do
                   - item.item_images.each_with_index do |item_image,i|
                     - if i == 0
-                      =image_tag (item_image.image),width:"160",height:"170"
-              .search-item-index__text
+                      =image_tag item_image.image.url,width:"160",height:"170"
+              .search-item__index__text
                 =item.name
               .item-price
                 ¥
@@ -30,7 +29,7 @@
                 %span 1
       = paginate(@items)
 
-    .search-content-left
+    .search__content__left
       = form_with( id:"keyword", class: 'item-search-list' ) do |f| 
       
         .item-sort

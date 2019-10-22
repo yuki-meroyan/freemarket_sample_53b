@@ -1,20 +1,17 @@
 = render partial: 'shared/header'
-.search-content
-  .search-content__box.clearfix
-    .search-content-right
-      .search-content-right__header
-        %h2.search_word
+.search__content
+  .search__content__box.clearfix
+    .search__content__right
+      .search__content__right--header
+        %h2.search__word
           ="#{params[:search]}"
-          %span.search_word__result
-            の検索結果
+          %span.search_word__result の検索結果
         .search_number 
           = "#{@start_count} ~ #{@end_count} 件表示"
-        
 
-
-
-      .search-item-index
+      .search-item__index
         - @items.each do |item|
+<<<<<<< HEAD
           .search-item-index__box
             .search-item-index__content
               .search_item_image
@@ -38,143 +35,129 @@
       
         .item-sort
           = fa_icon "chevron-down", class: 'sort-search-icon'
-          = f.text_field :xxx, value: "並び替え", id: "item", class: 'item-sort-search'
-        
+          = f.text_field :xxx, value: "並び替え", id: "item", class: 'item-sort__search'
           
-        .detailed-search
-          .detailed-search-title 検索結果
-          .detailed-search__item
+        .detailed__search
+          .detailed__search__title 検索結果
+          .detailed__search__item
             = f.label :keyword do
               = fa_icon "plus", class: 'icon'
-              %span.detailed-search-item__keyword キーワードを追加する
-            .detailed-search-item__form
+              %span.detailed__search__item--keyword キーワードを追加する
+            .detailed__search__item--form
               = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
 
-          .detailed-search__item
+          .detailed__search__item
             = f.label :keyword do
               = fa_icon "list", class: 'icon'
-              %span.detailed-search__item--keyword カテゴリを選択する
-            .detailed-search-item__form
+              %span.detailed__search__item--keyword カテゴリを選択する
+            .detailed__search__item--form
               = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
 
-          .detailed-search__item
+          .detailed__search__item
             = f.label :keyword do
-              %span.detailed-search__item--keyword ブランド名から探す
-            .detailed-search__form
+              %span.detailed__search__item--keyword ブランド名から探す
+            .detailed__search__form
               = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
 
           .detailed-search__item
             = f.label :keyword do
               = fa_icon "expand", class: 'icon'
-              %span.detailed-search__item--keyword  サイズを指定する
-            .detailed-search__form
+              %span.detailed__search__item--keyword  サイズを指定する
+            .detailed__search__form
               = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
 
-
-
-
-          .detailed-search__price
+          .detailed__search__price
             = f.label :keyword do
               = fa_icon "coins", class: 'icon'
-              %span.detailed-search__item--keyword  価格
-            .detailed-search__form
+              %span.detailed__search__item--keyword  価格
+            .detailed__search__form
               = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
-            .detailed-search__form--price
+            .detailed__search__form--price
               = f.text_field :xxx, id: "keyword", class:'item-price-search', placeholder: "¥ Min" 
               %span ~
               = f.text_field :xxx, id: "keyword", class:'item-price-search', placeholder: "¥ Max"
 
-
-
-
-
-          .detailed-search__status
-            .detailed-search__status--top
+          .detailed__search__status
+            .detailed__search__status--top
               = f.label :keyword do
                 = fa_icon "star", class: 'icon'
-                %span.detailed-search__item--keyword  商品の状態
+                %span.detailed__search__item--keyword  商品の状態
 
-            .detailed-search__check
-              .detailed-search__status--list
+            .detailed__search__check
+              .detailed__search__status--list
                 = fa_icon "square-o", class: 'icon-check'
                 = f.label :keyword do
-                  %span.detailed-search__form--status すべて
+                  %span.detailed__search__form--status すべて
 
-            .detailed-search__check 
+            .detailed__search__check 
               = fa_icon "square-o", class: 'icon-check'   
               = f.label :keyword do
-                %span.detailed-search__item--status 新品、未使用
+                %span.detailed__search__item--status 新品、未使用
 
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--status 未使用に近い
+                %span.detailed__search__item--status 未使用に近い
 
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--status   目立った傷や汚れなし
+                %span.detailed__search__item--status   目立った傷や汚れなし
 
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--status  やや傷や汚れあり
+                %span.detailed__search__item--status  やや傷や汚れあり
             
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--status  傷や汚れあり
+                %span.detailed__search__item--status  傷や汚れあり
               
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--status 全体的に状態が悪い
+                %span.detailed__search__item--status 全体的に状態が悪い
 
-
-
-
-
-
-          .detailed-search__box
-            .detailed-search__box--top
+          .detailed__search__box
+            .detailed__search__box--top
               = f.label :keyword do
                 = fa_icon "truck", class: 'icon'
-                %span.detailed-search__item--keyword  配送料の負担
+                %span.detailed__search__item--keyword  配送料の負担
           
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--fee  すべて
+                %span.detailed__search__item--fee  すべて
             
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--fee  着払い(購入者負担)
+                %span.detailed__search__item--fee  着払い(購入者負担)
               
 
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--fee  送料込み(出品者負担)
+                %span.detailed__search__item--fee  送料込み(出品者負担)
 
-          
-          .detailed-search__box
-            .detailed-search__box--top
+          .detailed__search__box
+            .detailed__search__box--top
               = f.label :keyword do
                 = fa_icon "shopping-cart", class: 'icon'
-                %span.detailed-search__item--keyword  販売状況
+                %span.detailed__search__item--keyword  販売状況
             
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--fee  すべて
+                %span.detailed__search__item--fee  すべて
             
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--fee  販売中
+                %span.detailed__search__item--fee  販売中
 
-            .detailed-search__check
+            .detailed__search__check
               = fa_icon "square-o", class: 'icon-check'
               = f.label :keyword do
-                %span.detailed-search__item--fee  売り切れ
+                %span.detailed__search__item--fee  売り切れ

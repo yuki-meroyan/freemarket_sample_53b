@@ -1,27 +1,31 @@
-.search-content{
+.search__content{
   background-color: rgb(245, 245, 245);
   height: 1500px;
-  &__box{
-    width:  1020px;
-    margin: 40px 200px;
-  }
-}
-
-.search-content-right{
-  float: right;
-  height: 2000px;
-  width:  700px;
-  &__header{
+    &__box{
+      width:  1020px;
+      margin: 40px 200px;
+    }
+    &__right{
+      float: right;
+      height: 2000px;
+      width:  700px;
+      &--header{
+        margin: 0 0 8px;
+      }
+    }
+  &__word{
+    font-size: 22px;
     margin: 0 0 8px;
+    &__result{
+    font-size: 18px;
+    font-weight: 400;
+    }
   }
-}
-
-.search_word{
-  font-size: 22px;
-  margin: 0 0 8px;
-  &__result{
-  font-size: 18px;
-  font-weight: 400;
+  &__left{
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+    height: 700px;
   }
 }
 
@@ -31,27 +35,28 @@
   margin: 16px 0;
 }
 
-.search-item-index{
+.search-item__index{
   display: flex;
   flex-wrap: wrap;
-  &__box{
+    &__box{
+      width: 160px;
+      height: 230px;
+      position: relative;
+      margin: 0 15px 20px 0;
+    }
+    &__text{
+      width: 140px;
+      height: 40px;
+      padding: 10px;
+      background-color: white;
+      color: black;
+    }
+  &__image{
     width: 160px;
-    height: 230px;
-    position: relative;
-    margin: 0 15px 20px 0;
-  }
-  &__text{
-    width: 140px;
-    height: 40px;
-    padding: 10px;
-    background-color: white;
+    height: 170px;
   }
 }
 
-.search_item_image{
-  width: 160px;
-  height: 170px;
-}
 
 .item-price{
   border-top-right-radius: 20px;
@@ -66,52 +71,23 @@
   padding-top: 5px;
   box-sizing: border-box;
   text-align: center;
-
 }
 
 .item-likes{
   position: absolute;
   right: 10px;
   bottom: 10px;
-}
+  color: black;
+
 
 .like-count-icon{
   color: #888;
-}
-
-.search-content-left{
-  float: left;
-  width: 280px;
-  margin: 0 40px 0 0;
-  height: 700px;
-  
-}
-.detailed-search{
-  background-color: white;
-  padding: 16px;
-  margin-top: 40px;
-  &__title{
-    font-size:16px;
-    font-weight: 600;
-  }
-  
 }
 
 .item-search-list{
   height: 700px;
 }
 
-.detailed-search__item{
-  height: 65px;
-  margin-top: 30px;
-  &--keyword{
-    font-size: 15px;
-    font-weight: 600;
-  // &--price{
-  //   height: 100px;
-  // }
-  }
-}
 .item-keyword-search{
   width: 215px;
   margin: 10px 10px;
@@ -134,18 +110,14 @@
   margin-top: 10px;
 }
 
-
-
-
-.item-sort-search{
-  width: 250px;
-  height: 48px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 .item-sort{
   position: relative;
+  &__search{
+    width: 270px;
+    height: 48px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 }
 
 .sort-search-icon{
@@ -154,15 +126,38 @@
   top: 20px;
 }
 
-.item-sort-search{
-  padding: 0 15px;
-  font-size: 16px;
-}
-
-
-.detailed-search__price{
-  justify-content: space-between;
-  margin-top: 40px ;
+.detailed__search{
+  background-color: white;
+  padding: 16px;
+  margin-top: 40px;
+  &__title{
+    font-size:16px;
+    font-weight: 600;
+  }
+  &__item{
+    height: 65px;
+    margin-top: 30px;
+    &--keyword{
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+  &__price{
+    justify-content: space-between;
+    margin-top: 40px ;
+  }
+  &__box{
+    height: 100px;
+    margin-top: 40px;
+  }
+  &__status{
+    margin-top: 40px;
+  }
+  &__check{
+    display: inline-block;
+    width: 48%;
+    vertical-align: middle;
+  }
 }
 
 .item-status-search{
@@ -174,20 +169,6 @@
   font-size: 16px;
   display: block;
   margin-top: 10px;
-}
-
-.detailed-search__box{
-  height: 100px;
-  margin-top: 40px;
-}
-
-.detailed-search__status{
-  margin-top: 40px;
-}
-.detailed-search__check{
-  display: inline-block;
-  width: 48%;
-  vertical-align: middle;
 }
 
 .clearfix::after{

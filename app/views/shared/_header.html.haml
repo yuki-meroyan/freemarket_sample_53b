@@ -9,7 +9,7 @@
       = form_with(url:  items_search_items_path, method: :get, local: true)  do |f|
         = f.text_field :search ,placeholder: "何かお探しですか？" ,class: "search__form__text-field"
         = button_tag type: 'submit', class: 'search__form__button' do
-          %i.fa.fa-search
+          =fa_icon "search"
 
 
 
@@ -53,7 +53,7 @@
                 %span.nav__user__menu__count
                   1
             %li.nav__user__menu
-              %a.nav__user__menu-link{href: root_path}
+              = link_to user_path(current_user.id), class: "nav__user__menu-link", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/" do
                 = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "nav__user__img" , alt: ""
                 マイページ
                 %span 

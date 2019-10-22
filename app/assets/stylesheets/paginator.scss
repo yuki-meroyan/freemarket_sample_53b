@@ -8,11 +8,10 @@
   font-size: 14px;
   line-height: 42px;
   text-align: center;
-}
-
-.page-item.active{
+  &.active{
   background-color: red;
   color: white;
+}
 }
 
 .page-link{

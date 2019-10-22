@@ -18,33 +18,20 @@
           .search-item-index__box
             .search-item-index__content
               .search_item_image
-                - item.item_images.each.with_index do |item_image,i|
-                  - if i == 1
-                    =image_tag (item_image.image),width:"160",height:"170"
+                = link_to  item_path(item)  do
+                  - item.item_images.each_with_index do |item_image,i|
+                    - if i == 0
+                      =image_tag (item_image.image),width:"160",height:"170"
               .search-item-index__text
                 =item.name
               .item-price
                 ¥
                 =item.price
+              .item-likes
+                .item-likes__count
+                = fa_icon "heart-o", class:'like-count-icon' 
+                %span 1
       = paginate(@items)
-
-
-      -#   .search-item-index__box
-      -#     .search-item-index__content
-      -#       =image_tag "https://static.mercdn.net/thumb/photos/m95577479951_1.jpg?1569509266", class:'search_item_image'
-      -#     .search-item-index__text
-      -#       パンツ
-      -#       .item-price
-      -#         ¥2000
-      -#       .item-likes
-      -#         .item-likes__count
-      -#         = fa_icon "heart", class:'like-count-icon' 
-      -#         %span 1
-      
-      -# -# = paginate(@items) 
-
-
-
 
     .search-content-left
       = form_with( id:"keyword", class: 'item-search-list' ) do |f| 

@@ -5,8 +5,8 @@
       .search__content__right--header
         %h2.search__word
           ="#{params[:search]}"
-          %span.search_word__result の検索結果
-        .search_number 
+          %span.search__word__result の検索結果
+        .search__number 
           = "#{@start_count} ~ #{@end_count} 件表示"
 
       .search-item__index

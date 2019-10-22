@@ -29,7 +29,7 @@
   }
 }
 
-.search_number{
+.search__number{
   font-size: 12px;
   color: #888;
   margin: 16px 0;
@@ -38,23 +38,23 @@
 .search-item__index{
   display: flex;
   flex-wrap: wrap;
-    &__box{
+  &__image{
+    width: 160px;
+    height: 170px;
+  }
+  &__box{
       width: 160px;
       height: 230px;
       position: relative;
       margin: 0 15px 20px 0;
     }
-    &__text{
-      width: 140px;
-      height: 40px;
-      padding: 10px;
-      background-color: white;
-      color: black;
-    }
-  &__image{
-    width: 160px;
-    height: 170px;
-  }
+      &__text{
+        width: 140px;
+        height: 40px;
+        padding: 10px;
+        background-color: white;
+        color: black;
+      }
 }
 
 
@@ -74,40 +74,13 @@
 }
 
 .item-likes{
+  .like-count-icon{
+    color: #888;
+  }
   position: absolute;
   right: 10px;
   bottom: 10px;
   color: black;
-}
-
-.like-count-icon{
-  color: #888;
-}
-
-.item-search-list{
-  height: 700px;
-}
-
-.item-keyword-search{
-  width: 215px;
-  margin: 10px 10px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  line-height: 1.5;
-  font-size: 16px;
-  display: block;
-  margin: 0;
-}
-
-.item-price-search{
-  width: 80px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  line-height: 1.5;
-  font-size: 16px;
-  margin-top: 10px;
 }
 
 .item-sort{
@@ -120,10 +93,8 @@
   }
 }
 
-.sort-search-icon{
-  position: absolute;
-  right: 20px;
-  top: 20px;
+.item-search-list{
+  height: 700px;
 }
 
 .detailed__search{
@@ -160,16 +131,37 @@
   }
 }
 
-.item-status-search{
-  width: 30px;
+
+.item-keyword-search{
+  width: 215px;
+  margin: 10px 10px;
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
   line-height: 1.5;
   font-size: 16px;
   display: block;
+  margin: 0;
+}
+
+.item-price-search{
+  width: 80px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+  font-size: 16px;
   margin-top: 10px;
 }
+
+
+
+.sort-search-icon{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
 
 .clearfix::after{
   content : " ";
@@ -180,9 +172,4 @@
   font-size: 30px;
   -webkit-text-stroke: 0.005px;
   color: #ccc;
-}
-
-.check{
-  width:10px;
-  border:#888;
 }

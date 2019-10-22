@@ -4,9 +4,8 @@ class ItemsController < ApplicationController
   before_action :user_id_check, only: [:myitem, :destroy, :edit, :update]
 
   def index
-    @ladys_items = Item.where(category_id: 1).order('id ASC').limit(10)
+    @ladys_items = Item.where(category_id: 2).order('id ASC').limit(10)
     @item_image = Item.includes(:image)
-    @ladys_items = Item.where(category_id: 159).order('id ASC').limit(10)
   end
 
   def new

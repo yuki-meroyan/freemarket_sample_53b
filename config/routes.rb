@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :items do
     resources :transaction_informations, only: [:index, :create]
   end
-  
+  resources :users_items, only: [:index, :show]
+
   resources :users
   resources :cards, except: [:edit, :update]
   # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。

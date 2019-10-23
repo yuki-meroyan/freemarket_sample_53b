@@ -36,3 +36,14 @@ crumb :item do
   link item.name
   parent :root
 end
+
+
+crumb :users_items do 
+  link "出品した商品 - 出品中",users_items_path
+  parent :users
+end
+
+crumb :users_item do 
+  link " 出品商品画面"
+  parent :users_items
+end

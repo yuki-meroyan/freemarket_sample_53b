@@ -16,7 +16,7 @@ class UserDetailsController < ApplicationController
   def create
     @user_detail = UserDetail.new(user_detail_params)
     if @user_detail.save
-      redirect_to sign_in4_path
+      redirect_to sign_up4_path
 
     # インスタンスの保存に失敗した場合の処理
     else

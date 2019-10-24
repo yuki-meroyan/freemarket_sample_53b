@@ -401,6 +401,7 @@ Item.create!(
       delivery_fee: '2',
       delivery_days:'2~3日で発送',
       shipping_method:'らくらくメルカリ便',
+      status:'1',
       size:'26cm',
       saved_state:'新品/未使用',
       brand_id:'1',
@@ -663,12 +664,6 @@ ItemImage.create!(
     {
       image: open("#{Rails.root}/app/assets/images/seed/img5.jpg"),
       item_id:'2',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      image: open("#{Rails.root}/app/assets/images/seed/img6.jpg"),
-      item_id:'3',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },

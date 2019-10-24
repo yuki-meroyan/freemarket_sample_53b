@@ -86,3 +86,5 @@ gem "jquery-rails"
 gem 'gretel'
 gem 'payjp'
 gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-facebook'

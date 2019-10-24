@@ -14,6 +14,9 @@ $(function () {
     })
     .done(function (categories) {
       nextSelect.empty();
+      nextSelect.append(`
+      <option value="">---</option>
+      `);
       $(categories).each(function (i,category) {
         nextSelect.append(`
         <option value="${category.id}">${category.name}</option>
@@ -37,6 +40,9 @@ $(function () {
     })
     .done(function (categories) {
       $("#item_category_id").empty();
+      $("#item_category_id").append(`
+      <option value="">---</option>
+      `);
       $(categories).each(function (i,category) {
         $("#item_category_id").append(`
         <option value="${category.id}">${category.name}</option>
@@ -82,6 +88,9 @@ $(function () {
 
   $(window).on("load", function(){
     if(document.URL.match(/edit/) && document.URL.match(/items/)) {
+      $('#category_1_category_1').prepend(`
+      <option value="">---</option>
+        `);
       $('.category__boxes').css({'display':'block'});
       $('#category_1_category_1').val(`${grandparent}`);
       setTimeout(function(){

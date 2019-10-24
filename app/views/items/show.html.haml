@@ -34,18 +34,17 @@
               .item__user__ratings
                 = image_tag"frown-solid.svg",class: "icon__bad face"
                 %span 0
-        - if @item.category.parent.present?
-          %tr
-            %th カテゴリー
-            %td
-              = link_to  "#" do
-                = @item.category.category
-              = link_to  "#" , class:'item__detail__table__sub__category' do
-                =fa_icon "chevron-right", class: 'icon'
-                = @item.category.parent.category
-              = link_to  "#" , class:'item__detail__table__sub__sub__category' do
-                =fa_icon "chevron-right", class: 'icon'
-                = @item.category.category
+        %tr
+          %th カテゴリー
+          %td
+            = link_to  "#" do
+              = @item.category.category
+            = link_to  "#" , class:'item__detail__table__sub__category' do
+              =fa_icon "chevron-right", class: 'icon'
+              = @item.category.parent.category
+            = link_to  "#" , class:'item__detail__table__sub__sub__category' do
+              =fa_icon "chevron-right", class: 'icon'
+              = @item.category.category
         - if @item.brand_id.present?
           %tr
             %th ブランド

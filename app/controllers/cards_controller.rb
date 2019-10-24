@@ -62,7 +62,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    card = current_user.card.first
+    card = current_user.cards.first
     # カード情報有無で分岐
     if card.blank?
     else

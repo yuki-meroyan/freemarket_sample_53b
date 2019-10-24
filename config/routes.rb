@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :users
   resources :cards, except: [:edit, :update]
   # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。
-  get 'pending/itembuy' => 'pending#itembuy',as: 'pending/itembuy'
+  
   get 'pending/logout' => 'pending#logout',as: 'pending/logout'
   get 'pending/index' => 'pending#index',as: 'pending/index'
   get 'items/myitem/:id' => 'items#myitem',as: 'items/myitem'

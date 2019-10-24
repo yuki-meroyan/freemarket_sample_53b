@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
-  resources :user_details
+  resources :user_details, only:[:show, :edit, :update]
   resources :items, only: [:index, :show, :destroy, :new] do
     collection do
       get 'items/search/' =>'items#search',as: 'items/search'
     end
   end
 
-  resources :items, only: [:index, :show, :destroy, :new]
+  
   resources :users
   resources :user_details, only:[:show, :edit, :update]
   resources :cards, only: [:index, :new, :show, :create, :destroy]

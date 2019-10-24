@@ -430,6 +430,7 @@ $(function () {
     var id = $(this).val();
     change_size_option(id)
   });
+
   $(window).on("load", function(){
     if(document.URL.match(/edit/) && document.URL.match(/items/)) {
       var id = $("#item_category_id").val();

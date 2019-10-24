@@ -19,6 +19,8 @@ $(function () {
         <option value="${category.id}">${category.name}</option>
         `);
       });
+      // ここに書く事で孫要素と祖父要素のカテゴリーを一致させる
+      grandchild_display("#category_2_category_2");
     })
     .fail(function () {
       alert('カテゴリの取得に失敗しました');
@@ -69,23 +71,7 @@ $(function () {
     grandchildChangeSelect (id, '#item_category_id');
   }
 
-
-  $(window).on("load", function(){
-    if(document.URL.match(/edit/) && document.URL.match(/items/)) {
-      $('.category__boxes').css({'display':'block'});
-// 親の親の値をgrandparentで送られて来た値に
-      $('#category_1_category_1').val(`${grandparent}`);
-// 親の親の値が変わったらchild_displayを呼んで親のoptionを決める。
-        child_display('#category_1_category_1');
-// 上で決めた中からdataで送られてきた値と一致するものを選択する。(valは入っているがビューは入らない。)
-      $('#category_2_category_2').val(`${parent}`);
-// 上と同じ流れ
-        grandchild_display("#category_2_category_2");
-      $('#item_category_id').val(`${main}`);
-    }
-    $('#category_2_category_2').val(`${parent}`);
-  });
-// 親の親カエゴリーが変更した時の処理
+  // 親の親カエゴリーが変更した時の処理
   $('#category_1_category_1').change(function(){
     child_display(this);
   });
@@ -94,10 +80,21 @@ $(function () {
     grandchild_display(this);
   });
 
+  $(window).on("load", function(){
+    if(document.URL.match(/edit/) && document.URL.match(/items/)) {
+      $('.category__boxes').css({'display':'block'});
+      $('#category_1_category_1').val(`${grandparent}`);
+      setTimeout(function(){
+      child_display('#category_1_category_1');
+      },1);
+      setTimeout(function(){
+      $('#category_2_category_2').val(`${parent}`);
+      grandchild_display("#category_2_category_2");
+      },100);
+      setTimeout(function(){
+      $('#item_category_id').val(`${main}`);
+      },200);
+  }
+  });
 
-  // 実験用これなら動く
-  // $(window).on("click", function(){
-  //   $('#category_2_category_2').val(`${parent}`);
-  //   $('#item_category_id').val(`${main}`);
-  // });
 });

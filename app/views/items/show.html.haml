@@ -48,7 +48,7 @@
           %th カテゴリー
           %td
             = link_to  "#" do
-              = @item.category.category
+              = @item.category.parent.parent.category
             = link_to  "#" , class:'item__detail__table__sub__category' do
               =fa_icon "chevron-right", class: 'icon'
               = @item.category.parent.category

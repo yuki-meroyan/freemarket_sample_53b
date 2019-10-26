@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
     ajax_category_action unless params[:keyword].blank?
     respond_to do |format|
       format.json
+      format.html
     end
   end
 

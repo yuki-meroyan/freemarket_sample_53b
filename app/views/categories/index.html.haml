@@ -1,0 +1,25 @@
+= render partial: 'shared/header'
+.category__content
+  .category__main
+    .category__main__title
+      %h2.category__main__title--text
+        カテゴリー一覧
+    .category__main__top.clearfix
+      = link_to "レディース", root_path, class: "category__main__top__link-name"
+      = link_to "メンズ", root_path, class: "category__main__top__link-name"
+      = link_to "ベビー・キッズ", root_path, class: "category__main__top__link-name"
+      = link_to "インテリア・住まい・小物", root_path, class: "category__main__top__link-name"
+      = link_to "本・音楽・ゲーム", root_path, class: "category__main__top__link-name"
+      = link_to "おもちゃ・ホビー・グッズ", root_path, class: "category__main__top__link-name"
+
+    -# .category__main__list-box
+    -#   .category__main__content.clearfix
+    -#     .category__main__parent
+    -#       %h3.category__main__parent-name レディース
+    -#     .category__sub__content.clearfix
+    -#       %p.category__main__child
+    -#       .category__main__child-name
+    -#         %h4.category__main__child-name--text
+    -#       .category__main__grandchild-name
+
+    -#   .category__main__content.clearfix

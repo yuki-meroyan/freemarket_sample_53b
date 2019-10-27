@@ -1,0 +1,166 @@
+= render partial: 'shared/header'
+.search__content
+  .search__content__box.clearfix
+    .search__content__right
+      .search__content__right--header
+        %h2.search__word
+          ="#{params[:search]}"
+          %span.search__word__result の検索結果
+        .search__number 
+          = "#{@start_count} ~ #{@end_count} 件表示"
+
+      .search-item__index
+        - @items.each do |item|
+          .search-item__index__box
+            .search-item__index__content
+              .search_item__image
+                = link_to  item_path(item)  do
+                  -if item.item_images.present?
+                    - item.item_images.each_with_index do |item_image,i|
+                      - if i == 0
+                        =image_tag item_image.image.url, width:"160",height:"170"
+                      - else
+                        - break
+                  - else
+                    =image_tag 'no-image.png',class: 'search-items__image', width:"160",height:"170"
+              .search-item__index__text
+                =item.name
+              .item-price
+                ¥
+                =item.price
+              .item-likes
+                .item-likes__count
+                = fa_icon "heart-o", class:'like-count-icon' 
+                %span 1
+      = paginate(@items)
+
+    .search__content__left
+      = form_with( id:"keyword", class: 'item-search-list' ) do |f| 
+      
+        .item-sort
+          = fa_icon "chevron-down", class: 'sort-search-icon'
+          = f.text_field :xxx, value: "並び替え", id: "item", class: 'item-sort__search'
+
+        .detailed__search
+          .detailed__search__title 検索結果
+          .detailed__search__item
+            = f.label :keyword do
+              = fa_icon "plus", class: 'icon'
+              %span.detailed__search__item--keyword キーワードを追加する
+            .detailed__search__item--form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+
+          .detailed__search__item
+            = f.label :keyword do
+              = fa_icon "list", class: 'icon'
+              %span.detailed__search__item--keyword カテゴリを選択する
+            .detailed__search__item--form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+
+          .detailed__search__item
+            = f.label :keyword do
+              %span.detailed__search__item--keyword ブランド名から探す
+            .detailed__search__form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+
+          .detailed-search__item
+            = f.label :keyword do
+              = fa_icon "expand", class: 'icon'
+              %span.detailed__search__item--keyword  サイズを指定する
+            .detailed__search__form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+
+          .detailed__search__price
+            = f.label :keyword do
+              = fa_icon "coins", class: 'icon'
+              %span.detailed__search__item--keyword  価格
+            .detailed__search__form
+              = f.text_field :xxx, id: "keyword", class:'item-keyword-search'
+            .detailed__search__form--price
+              = f.text_field :xxx, id: "keyword", class:'item-price-search', placeholder: "¥ Min" 
+              %span ~
+              = f.text_field :xxx, id: "keyword", class:'item-price-search', placeholder: "¥ Max"
+
+          .detailed__search__status
+            .detailed__search__status--top
+              = f.label :keyword do
+                = fa_icon "star", class: 'icon'
+                %span.detailed__search__item--keyword  商品の状態
+
+            .detailed__search__check
+              .detailed__search__status--list
+                = fa_icon "square-o", class: 'icon-check'
+                = f.label :keyword do
+                  %span.detailed__search__form--status すべて
+
+            .detailed__search__check 
+              = fa_icon "square-o", class: 'icon-check'   
+              = f.label :keyword do
+                %span.detailed__search__item--status 新品、未使用
+
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--status 未使用に近い
+
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--status   目立った傷や汚れなし
+
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--status  やや傷や汚れあり
+            
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--status  傷や汚れあり
+              
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--status 全体的に状態が悪い
+
+          .detailed__search__box
+            .detailed__search__box--top
+              = f.label :keyword do
+                = fa_icon "truck", class: 'icon'
+                %span.detailed__search__item--keyword  配送料の負担
+          
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--fee  すべて
+            
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--fee  着払い(購入者負担)
+
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--fee  送料込み(出品者負担)
+
+          .detailed__search__box
+            .detailed__search__box--top
+              = f.label :keyword do
+                = fa_icon "shopping-cart", class: 'icon'
+                %span.detailed__search__item--keyword  販売状況
+            
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--fee  すべて
+            
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--fee  販売中
+
+            .detailed__search__check
+              = fa_icon "square-o", class: 'icon-check'
+              = f.label :keyword do
+                %span.detailed__search__item--fee  売り切れ

@@ -429,7 +429,15 @@ $(function () {
   $('#item_category_id').change(function(){
     var id = $(this).val();
     change_size_option(id)
+  });
 
+  $(window).on("load", function(){
+    if(document.URL.match(/edit/) && document.URL.match(/items/)) {
+      var id = $("#item_category_id").val();
+      change_size_option(id)
+      size=$("#size__select__box").data('size')
+      $("#item_size").val(`${size}`);
+    }
   });
 });
 

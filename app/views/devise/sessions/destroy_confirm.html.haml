@@ -1,0 +1,7 @@
+= render partial: 'shared/header'
+.user-logout
+  .user-logout__right
+    = link_to destroy_user_session_path, method: :delete do
+      %button.btn-default.btn-red.user-logout__btn{type:"submit"}  ログアウト
+  = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

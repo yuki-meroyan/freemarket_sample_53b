@@ -1,20 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
-    :sessions => 'users/sessions',
     :passwords => 'users/passwords'
   }
 
   devise_scope :user do
-    post "users/sign_up", to: "users/registrations#create"
     get "sign_up", to: "users/registrations#new"
-    get "sign_up2", to: "users/registrations#new2"
-    get "sign_up4", to: "users/registrations#new4"
-    get "sign_up5", to: "users/registrations#new5"
-    get "sign_out1", to: "users/sessions#destroy1"
-    get "sign_up6", to: "users/registrations#new6"
+    get "sign_up_phone_number", to: "users/registrations#new_phone_number"
+    get "sign_up_card_add", to: "users/registrations#new_card_add"
+    get "sign_up_complet", to: "users/registrations#new_complet"
+    get "sign_out_confirm", to: "users/sessions#destroy_confirm"
+    get "sign_up-select", to: "users/registrations#new-select"
   end
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"

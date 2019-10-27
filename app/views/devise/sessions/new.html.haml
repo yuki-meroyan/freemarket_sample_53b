@@ -15,14 +15,17 @@
           .google__choice__logo
             = image_tag 'google.svg', alt: 'google-logo'
           .google__choice__text Googleで登録する
-    = form_with model: @user, url: user_session_path, id: "new_user", local: true do |f|
+    = form_with model: resource, as: resource_name, url: session_path(resource_name), id: "new_user", class: "test", local: true do |f|
       .wright__login
         .wright__login__mail__text
-          = f.email_field :email, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"
+          = f.email_field :email, autocomplete: "email", class: "input-default", placeholder: "メールアドレス", name: 'user[email]'
         .wright__login__name__text
-          = f.password_field :password, autocomplete: "password", class: "input-default", placeholder: "パスワード"
+          = f.password_field :password, autocomplete: "password", class: "input-default", placeholder: "パスワード",name: 'user[password]'
         .wright__login__robot__check
-          = image_tag 'recaptcha.gif', alt: 'recaptcha.gif', class: ' recaptcha'
+          = image_tag 'recaptcha.gif', alt: 'recaptcha.gif', class: 'recaptcha'
+        - if devise_mapping.rememberable?
+          .field
+            = f.check_box :remember_me
         .wright__login__btn
           = f.submit "ログイン", class: "btn-default btn-red"
         .login-panel

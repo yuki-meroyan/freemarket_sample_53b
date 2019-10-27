@@ -6,22 +6,7 @@ class UserDetailsController < ApplicationController
     @user_detail = UserDetail.new
   end
 
-  # [TODO]クレカのview未実装、向井さん担当予定
-  # def new4
-  # end
-
-  def new5
-  end
-
   def create
-    @user_detail = UserDetail.new(user_detail_params)
-    if @user_detail.save
-      redirect_to sign_up4_path
-
-    # インスタンスの保存に失敗した場合の処理
-    else
-      render :new
-    end
   end
 
 

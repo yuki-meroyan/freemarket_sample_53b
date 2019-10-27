@@ -24,7 +24,7 @@
               %span.form__require 必須
               %br/
             .birthday-select-wrap
-              = f.label :birthday do
+              = f.label :birthday, {class: "birthday-select"} do
                 = raw sprintf(                      |
                   f.date_select(                    |
                     :birthday,                    |

@@ -13,16 +13,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  def new2
+  def new_phone_number
   end
 
-  def new5
+  def new_complet
   end
 
-  def new4
+  def new_card_add
   end
 
-  def new6
+  def new_select
   end
 
   # GET /resource/edit
@@ -67,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    sign_up2_path
+    sign_up_phone_number_path
   end
 
 

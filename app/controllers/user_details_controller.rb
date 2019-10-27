@@ -7,6 +7,17 @@ class UserDetailsController < ApplicationController
   end
 
   def create
+    @user_detail = UserDetail.new(user_detail_params)
+    if @user_detail.save
+      alert = "ユーザを登録しました"
+      redirect_to sign_up_card_add_path
+
+    # インスタンスの保存に失敗した場合の処理
+    else
+      alert = "ユーザの登録に失敗しました"
+      render :new
+    end
+
   end
 
 

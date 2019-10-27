@@ -10,3 +10,5 @@ class Item < ApplicationRecord
   has_one :transaction_informations 
   has_ancestry
 end
+
+

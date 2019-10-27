@@ -17,7 +17,6 @@ class UserDetailsController < ApplicationController
       alert = "ユーザの登録に失敗しました"
       render :new
     end
-
   end
 
 

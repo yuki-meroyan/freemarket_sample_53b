@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
 
-  resources :user_details, only:[:show, :edit, :update]
+  resources :user_details, only:[:show, :edit, :update,:new,:create]
   resources :items, only: [:index, :show, :destroy, :new] do
     collection do
       get 'items/search/' =>'items#search',as: 'items/search'

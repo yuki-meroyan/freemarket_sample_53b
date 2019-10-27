@@ -34,9 +34,6 @@
       width: 134px;
     }
   }
-  &__link{
-
-  }
   
   a{
     color: inherit;
@@ -66,7 +63,6 @@
     position: relative;
     transition: all 0.3s ease-out 0s;
     width:  780px;
-    // width: calc(100% - 60px);
     -webkit-appearance: none;
   }
 
@@ -169,12 +165,6 @@
   float: right;
   text-align: center;
 
-  &__box{
-
-  }
-  &__new-member{
-  
-  }
   &__sign-in{  
     height: 44px;
     line-height: 14px;

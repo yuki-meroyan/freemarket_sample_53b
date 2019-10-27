@@ -87,5 +87,6 @@ gem 'gretel'
 gem 'payjp'
 gem 'rails-i18n'
 gem 'omniauth'
+
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'

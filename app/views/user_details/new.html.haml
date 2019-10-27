@@ -1,0 +1,78 @@
+.registration-container
+  = render partial: 'shared/user-add-header-3'
+  .user-address
+    .user-address__header
+      %p.user-address__header__text 住所入力
+    = form_with model: @user_detail, url: user_details_path, id: "new_user", class: "user-address__main", local: true do |f|
+      .user-address__form
+        .user-address__form__content
+          .user-address__form__box
+            = f.label :xxx do
+              %span.user-address__form__text お名前
+              %span.user-address__form__require 必須
+            = f.text_field :family_name, class: "user-address__form__text-field", placeholder: "例）枡田"
+            = f.text_field :first_name, class: "user-address__form__text-field", placeholder: "例）美衣"
+          .user-address__form__box
+            = f.label :xxx do
+              %span.user-address__form__text お名前カナ
+              %span.user-address__form__require 必須
+            = f.text_field :family_name_kana, class: "user-address__form__text-field", placeholder: "例）マスタ"
+            = f.text_field :first_name_kana, class: "user-address__form__text-field", placeholder: "例）ビイ"
+          .form__group
+            = f.label :birthday do
+              %span 生年月日
+              %span.form__require 必須
+              %br/
+            .birthday-select-wrap
+              = f.label :birthday, {class: "birthday-select"} do
+                = raw sprintf(                      |
+                  f.date_select(                    |
+                    :birthday,                    |
+                    use_month_numbers: true,        |
+                    start_year: 1930,               |
+                    end_year: (Time.now.year ), |
+                    default: Date.new(1989, 1, 1),  |
+                    date_separator: '%s'),          |
+                  '年 ', '月 ') + '日'                 |
+          .user-address__form__box
+            = f.label :postal_code do
+              %span.user-address__form__text 郵便番号
+              %span.user-address__form__require 必須
+            = f.text_field :postal_code, class: "user-address__form__text-field", placeholder: "例）123-4567"
+
+          .user-address__form__box
+            = f.label :prefectures do
+              %span.user-address__form__text 都道府県
+              %span.user-address__form__require 必須
+            .user-address__form__select-wrap
+              = fa_icon 'chevron-down', class:"user-address__form__icon__arrow-bottom"
+              = f.collection_select :prefectures, Prefecture.all, :id, :name, {}, class: 'user-address__form__select'
+              -console
+
+          .user-address__form__box
+            = f.label :cities do
+              %span.user-address__form__text 市区町村
+              %span.user-address__form__require 必須
+            = f.text_field :cities, class: "user-address__form__text-field", placeholder: "例）大阪市中央区"
+
+          .user-address__form__box
+            = f.label :address do
+              %span.user-address__form__text 番地
+              %span.user-address__form__require 必須
+            = f.text_field :address, class: "user-address__form__text-field", placeholder: "例）難波５丁目１−１番６０号"
+
+          .user-address__form__box
+            = f.label :building_name do
+              %span.user-address__form__text 建物名
+              %span.user-address__form__any 任意
+            = f.text_field :building_name, class: "user-address__form__text-field", placeholder: "例）大阪なんばスカイオビル15F"
+
+          .user-address__form__box
+            = f.label :phone_number do
+              %span.user-address__form__text 電話
+              %span.user-address__form__any 任意
+            = f.text_field :phone_number, class: "user-address__form__text-field", placeholder: "例）09012345678"
+
+          = f.submit "次へ進む", class: "user-address__form__button"
+
+= render partial: 'shared/terms-footer'

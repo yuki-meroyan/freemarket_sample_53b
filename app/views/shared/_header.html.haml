@@ -21,20 +21,10 @@
           .nav__category
             .nav__category__box.nav__category__parent
               %ul.nav__category__parent__list
-                -# - @parentCategories.each do |parent|
-                -#   .parent-list{ "data-category-id": parent.id}
-                -#     %li
-                -#       = parent.category
-                -# %li カテゴリー一覧
             .nav__category__box.nav__category__child
               %ul.nav__category__child__list
             .nav__category__box.nav__category__grandchild
               %ul.nav__category__grandchild__list
-                %li A
-                %li I
-                %li U
-                %li E
-                %li O
         %li.nav__left__box
           = link_to root_path, class: "nav__left__link" do
             %svg.header__svg.header__svg__brand{ "aria-hidden" => "true", viewBox: "0 0 23 16" }

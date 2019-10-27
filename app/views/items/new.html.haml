@@ -45,15 +45,17 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = select :xxx , class: "select__default" do
+                    = select :xxx, class: "select__default" do
                       %option レディース
+                      %option メンズ
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = select :xxx , class: "select__default" do
+                    = select :xxx, class: "select__default" do
                       %option トップス
+                      %option パンツ
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :category_id, class: "input__default" do
+                    = f.select :category_id, class: "select__default" do
                       %option 3
 
               .form__group
@@ -65,6 +67,7 @@
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
                     = f.select :size, class: "select__default" do
                       %option M
+                      %option L
 
               .form__group.form__suggest__container
                 = f.label :brand_id do
@@ -113,8 +116,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.collection_select :region, Prefecture.all, :id, :name, class: "select__default" do
-                      -# %option ---
+                    = f.collection_select :region, Prefecture.all, :id, :name, class: "select__default"
 
               .form__group
                 = f.label :delivery_days do

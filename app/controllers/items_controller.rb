@@ -72,7 +72,7 @@ private
 
   def create_params
     anc = Category.find(params[:category_id])
-    params.permit(:name, :description, :price, :region, :delivery_fee, :delivery_days, :shipping_method, :brand_id, :category_id, :size, :saved_state).merge(user_id: current_user.id, ancestry: anc.ancestry, buyer_id: 1)
+    params.permit(:name, :description, :price, :region, :delivery_fee, :delivery_days, :shipping_method, :brand_id, :category_id, :size, :saved_state).merge(user_id: current_user.id, ancestry: anc.ancestry)
   end
 
 end

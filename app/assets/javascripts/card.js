@@ -2,7 +2,7 @@ $(function(){
     
     var url = location.pathname;;
     // 違うビューでid:card-new__formが存在していても反応しないようにしています
-    if (url == '/cards/new' ) {
+    if (url == '/cards/new' || url == '/sign_up_card_add') {
       
       $('#card-new__submit').on("click", function(e){
 

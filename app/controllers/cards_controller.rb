@@ -11,6 +11,16 @@ class CardsController < ApplicationController
   end
 
   def create
+    # どこから遷移してきたかを取得
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "cards" && path[:action] == "new"
+      redirectSuccessUrl = card_path(current_user.id)
+      redirectFailureUrl = new_card_path
+    else
+      redirectSuccessUrl = sign_up_complet_path
+      redirectFailureUrl = sign_up_card_add_path(current_user.id)
+    end
+
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
     if params['payjp-token'].present?
       # TODO: noticeの実装
@@ -20,12 +30,12 @@ class CardsController < ApplicationController
       )
       card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if card.save
-        redirect_to card_path(current_user.id)
+        redirect_to redirectSuccessUrl
       else
-        redirect_to new_card_path
+        redirect_to redirectFailureUrl
       end
     else
-      redirect_to new_card_path
+      redirect_to redirectFailureUrl
     end
   end
 
@@ -61,7 +71,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    card = current_user.card.first
+    card = current_user.cards.first
     # カード情報有無で分岐
     if card.blank?
     else

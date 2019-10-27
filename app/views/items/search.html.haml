@@ -15,9 +15,14 @@
             .search-item__index__content
               .search_item__image
                 = link_to  item_path(item)  do
-                  - item.item_images.each_with_index do |item_image,i|
-                    - if i == 0
-                      =image_tag item_image.image.url, width:"160",height:"170"
+                  -if item.item_images.present?
+                    - item.item_images.each_with_index do |item_image,i|
+                      - if i == 0
+                        =image_tag item_image.image.url, width:"160",height:"170"
+                      - else
+                        - break
+                  - else
+                    =image_tag 'no-image.png',class: 'search-items__image', width:"160",height:"170"
               .search-item__index__text
                 =item.name
               .item-price

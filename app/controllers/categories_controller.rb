@@ -11,6 +11,8 @@ class CategoriesController < ApplicationController
 
   def show
     @items = Category.where()
+    # TODO: showのビューが完成するまで飛ばないようにしています
+    redirect_to categories_path
   end
 
   def ajax_category_action

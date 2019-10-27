@@ -90,8 +90,6 @@ ActiveRecord::Schema.define(version: 2019_10_21_102513) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "birthday", null: false
-    t.integer "phone_number", null: false
     t.integer "postal_code", null: false
     t.string "prefectures", null: false
     t.string "cities", null: false
@@ -100,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_102513) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "birthday", null: false
     t.index ["user_id"], name: "index_user_details_on_user_id"
   end
 

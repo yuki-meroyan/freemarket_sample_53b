@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :set_all_items, only: [:index]
 
   def index
     ajax_category_action unless params[:keyword].blank?
@@ -6,6 +7,10 @@ class CategoriesController < ApplicationController
       format.json
       format.html
     end
+  end
+
+  def show
+    @items = Category.where()
   end
 
   def ajax_category_action
@@ -19,6 +24,11 @@ class CategoriesController < ApplicationController
       @grandchilds = Category.where(ancestry: params[:target_id])
     end
     # binding.pry
+  end
+
+  def set_all_items
+    @items = Category.all
+    @item_parent = Category.where('ancestry is null')
   end
 
 end

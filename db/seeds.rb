@@ -628,8 +628,8 @@ Item.create!(
       brand_id:'2',
       user_id:'2',
       category_id:'159',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
+      created_at: '2019-09-20 01:00:00',
+      updated_at: '2019-09-20 01:00:00',
     },
   ]
 )

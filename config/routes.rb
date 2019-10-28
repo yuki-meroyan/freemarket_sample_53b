@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :users
   resources :users_items, only: [:index, :show]
   resources :cards, except: [:edit, :update]
+  resources :categories, only: [:index, :show]
   # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。
 
   get 'pending/itembuy' => 'pending#itembuy',as: 'pending/itembuy'

@@ -10,9 +10,13 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @items = Category.where()
+    category = Category.find(params[:id])
+    # @items = Item.where(category_id: category.id).page(params[:page]).per(40)
+    @items = Item.where(category_id: 159).page(params[:page]).per(40)
+    @item_images = ItemImage.includes(:item_id)
+    # binding.pry
     # TODO: showのビューが完成するまで飛ばないようにしています
-    redirect_to categories_path
+    # redirect_to categories_path
   end
 
   def ajax_category_action

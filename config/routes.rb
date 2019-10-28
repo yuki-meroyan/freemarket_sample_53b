@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   resources :cards, except: [:edit, :update]
 
   get 'pending/index' => 'pending#index',as: 'pending/index'
+  get 'pending/item_edit/' => 'pending#item_edit',as: 'pending/item_edit'
 end

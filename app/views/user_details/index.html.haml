@@ -10,7 +10,7 @@
           %br/
           登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
         .identification-main__about-uplord
-          =link_to "https://www.mercari.com/jp/help_center/article/495/", class: 'identification-main__about-uplord-text' do
+          =link_to "#", class: 'identification-main__about-uplord-text' do
             本人確認書類のアップロードについて
             =fa_icon "chevron-right", class: 'icon'
 
@@ -66,7 +66,7 @@
           = f.submit :xxx, value: "登録する", class: 'register-button'
 
         .about-registration
-          =link_to "https://www.mercari.com/jp/help_center/article/423/", class: 'about-registration__text' do
+          =link_to "#", class: 'about-registration__text' do
             本人情報の登録について
             =fa_icon "chevron-right", class: 'icon'
     = render partial: 'shared/user_menu'

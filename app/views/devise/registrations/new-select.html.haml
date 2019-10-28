@@ -7,7 +7,8 @@
       .mail__choice.btn-default.choice-btn
         .mail__choice__logo
           =fa_icon "envelope-o lg"
-        .mail__choice__text メールアドレスで登録する
+        = link_to new_user_registration_path, class: "mail__choice__text" do
+          メールアドレスで登録する
       .facebook__choice.btn-default.choice-btn
         .facebook__choice__logo
           =fa_icon "facebook-square 2x"

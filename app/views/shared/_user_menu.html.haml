@@ -12,7 +12,6 @@
       = link_to "#", class: "mypage-nav-list-item" do
         やることリスト
         %span.mypage-nav-number
-          
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
       = link_to "#", class: "mypage-nav-list-item" do
@@ -23,7 +22,7 @@
         出品する
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      = link_to "#", class: "mypage-nav-list-item" do
+      = link_to users_items_path(user_id: current_user.id), class: "mypage-nav-list-item" do
         出品した商品 - 出品中
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
@@ -95,7 +94,6 @@
         電話番号の確認
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      -# TODO: deviseコントローラー実装後に対応予定
-      = link_to  pending_logout_path(current_user), class: "mypage-nav-list-item" do
+      = link_to sign_out_confirm_path, class: "mypage-nav-list-item" do
         ログアウト
         =fa_icon 'chevron-right', class: "icon-arrow-right"

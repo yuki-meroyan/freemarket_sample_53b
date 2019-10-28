@@ -1,17 +1,26 @@
 class CardsController < ApplicationController
-  before_action :check_card, only: [:index, :new]
+  before_action :checkUserSignedIn
+  before_action :check_card   , only: [:index, :new]
 
   require "payjp"
 
   def index
-
   end
 
   def new
-    
   end
 
   def create
+    # どこから遷移してきたかを取得
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == "cards" && path[:action] == "new"
+      redirectSuccessUrl = card_path(current_user.id)
+      redirectFailureUrl = new_card_path
+    else
+      redirectSuccessUrl = sign_up_complet_path
+      redirectFailureUrl = sign_up_card_add_path(current_user.id)
+    end
+
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
     if params['payjp-token'].present?
       # TODO: noticeの実装
@@ -21,12 +30,12 @@ class CardsController < ApplicationController
       )
       card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if card.save
-        redirect_to card_path(current_user.id)
+        redirect_to redirectSuccessUrl
       else
-        redirect_to new_card_path
+        redirect_to redirectFailureUrl
       end
     else
-      redirect_to new_card_path
+      redirect_to redirectFailureUrl
     end
   end
 
@@ -38,10 +47,10 @@ class CardsController < ApplicationController
     else
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
 
       # カード会社のアイコンを表示するための分岐。---------
-      @card_brand = @default_card_information.brand
+      @card_brand = @card_information.brand
       case @card_brand
       when "Visa"
         @card_src = "visa.svg"
@@ -57,12 +66,12 @@ class CardsController < ApplicationController
         @card_src = "discover.svg"
       end
       # ---------------------------------------------------------------
-      @month_year = @default_card_information.exp_month.to_s + " / " + @default_card_information.exp_year.to_s[1,2]
+      @month_year = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s[1,2]
     end
   end
 
   def destroy
-    card = Card.where(user_id: current_user.id).first
+    card = current_user.cards.first
     # カード情報有無で分岐
     if card.blank?
     else
@@ -79,8 +88,8 @@ class CardsController < ApplicationController
   def check_card
     # データが存在するかどうかでページを遷移するか変わる
     card = Card.where(user_id: current_user.id)
-    # # 存在している場合はshowアクションへ
-    redirect_to card_path(1), id: 1 if card.exists?
+    # 存在している場合はshowアクションへ
+    redirect_to card_path(card) if card.present?
   end
 
 end

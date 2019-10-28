@@ -1,0 +1,172 @@
+= render partial: 'shared/mercari-header'
+%main.single-header
+  %section.l__single__container.buy-item-container
+    .sell__container
+      .sell__container__inner
+        %h2.l__single__head 商品の情報を入力
+        = form_with model: @item, class: "sell__form" , local: true do |f|
+          .sell__upload__box
+            %h3.sell__upload__head{data: {item_id: @item.id}}
+              出品画像
+              %span.form__require 必須
+            %p 最大10枚までアップロードできます
+            .sell__dropbox-container.clearfix.state-image-number-10
+              .hidden.delete__image__box
+                = f.fields_for :item_images, html: {id: "item-images__form"} do |i|
+                  = i.hidden_field :id
+                  = i.hidden_field :_destroy, data: { id: i.index}
+              .sell__dropbox__box__inner
+                - @item.item_images.each_with_index do |im,n|
+                  .edit__item__images{class: "#{n}",data: {number: n}}
+                    = image_tag im.image.url ,{class: 'edit__item__images__image'}
+                    .edit__item__images__btns
+                      =link_to "編集", "#",class: "edit__item__images__btns__edit"
+                      =link_to "削除", "#",class: "edit__item__images__btns__delete", data: { id: n, default: 'default' }
+                #upload__file__previews.hidden
+                  = image_tag '', id: 'item__img__prev', class: 'edit__item__images__image',data: {image: 0}
+                  .edit__item__images__btns
+                    =link_to "編集", "#",class: "edit__item__images__btns__edit"
+                    =link_to "削除", "#",class: "upload-item__images__btns__delete"
+                .upload__box
+                  = f.file_field :image ,name: "item[item_images_attributes][][image]",class: 'sell__upload__drop-file',id: 'post__img__last',accept: "image/*",multiple: true,data: {image: 0}
+                  %pre.upload__box__text
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+          .sell__form__content
+            .form__group
+              = f.label :name do
+                商品名
+                %span.form__require 必須
+              %div
+                = f.text_field :name, class: "input__default", placeholder: "商品名(必須40文字まで)"
+            .form__group
+              = f.label :description do
+                商品の説明
+                %span.form__require 必須
+              = f.text_area :description, class: "textarea-default",placeholder: "商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
+          .sell__form__content.clearfix
+            %h3.sell__form__content__sub-head 商品の詳細
+            .sell__form__content__box
+              .form__group
+                = f.label :category_id do
+                  カテゴリー
+                  %span.form__require 必須
+                %div
+                  .select-wrap.category__boxes
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = select :category_1,:category_1, options_from_collection_for_select(Category.all.order("id ASC").limit(13), :id, :category),{}, {class: 'item__f-select category__select'}
+                  .select-wrap#category__box__child.category__boxes
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = select :category_2,:category_2, options_from_collection_for_select(Category.where(id: @item.category.parent.id), :id, :category), {}, {class: 'item__f-select category__select'}
+                  .select-wrap#category__box__grandchild.category__boxes{data: {main: @item.category_id,parent: @item.category.parent.id,grandparent: @item.category.parent.parent.id}}
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.select :category_id, options_from_collection_for_select(Category.where(id: @item.category_id), :id, :category), {}, {class: 'item__f-select category__select'}
+              - if @item.size .blank?
+                .form__group#size__select__box
+                  = f.label :xxx do
+                    サイズ
+                    %span.form__require 必須
+                  %div
+                    .select-wrap
+                      =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                      = f.select :size ,[],{}, :class => 'item__f-select'
+              - else
+                .form__group#size__select__box{style: "display:block" ,data: {size: @item.size}}
+                  = f.label :xxx do
+                    サイズ
+                    %span.form__require 必須
+                  %div
+                    .select-wrap
+                      =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                      = f.select :size ,[],{}, :class => 'item__f-select'
+              .form__group.form__suggest__container
+                = f.label :brand_id do
+                  ブランド
+                  %span.form__arbitrary 任意
+                %div
+                  = f.text_field :brand_id, name: "brand_id", url:"#", class: "input__default", placeholder: "例) シャネル",value: "#{@item.brand.name}"
+              .form__group
+                = f.label :status do
+                  商品の状態
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.select :saved_state ,['---','新品/未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い'],{}, :class => 'item__f-select'
+          .sell__form__content.clearfix
+            %h3.sell__form__content__sub-head 配送について
+            .sell__form__content__box
+              .form__group
+                = f.label :delivery_fee do
+                  配送料の負担
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.select :delivery_fee ,[['---'],['送料込み(出品者負担)', true], ['着払い(購入者負担)',false]],{}, :class => 'item__f-select'
+              .form__group
+                = f.label :delivery_fee do
+                  配送の方法
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.select :shipping_method ,["#{@item.shipping_method}"],{}, :class => 'item__f-select'
+              .form__group
+                = f.label :region do
+                  発送元の地域
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.collection_select :region, Prefecture.all, :name, :name, {},:class => 'item__f-select'
+              .form__group
+                = f.label :delivery_days do
+                  発送までの日数
+                  %span.form__require 必須
+                %div
+                  .select-wrap
+                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
+                    = f.select :delivery_days ,['---','1~2日で発送',' 3~4日で発送',' 4~7日で発送'],{}, :class => 'item__f-select'
+
+          .sell__form__content.clearfix
+            %h3.sell__form__content__sub-head 販売価格(300~9,999,999)
+            .sell__form__content__box
+              %ul.sell__price
+                %li.form__group
+                  .clearfix
+                    = f.label :price, class: "l-left" do
+                      価格
+                      %span.form__require 必須
+                    .l-right.sell__price__input
+                      ¥
+                      %div
+                        = f.text_field :price, class: "input__default", placeholder: "例)  500"
+                %li.clearfix
+                  .l-left
+                    販売手数料(10%)
+                  .l-right.sales-commission
+                    -
+                %li.cleatfix
+                  .l-left 販売利益
+                  .l-right.sales-profit
+                    -
+          .sell__form__content.sell__btn__box
+            %div
+              %p
+                = link_to "禁止されている商品", "#"
+                、
+                = link_to "行為", "#"
+                を必ずご確認ください。
+              %p
+                またブランドでシリアルナンバー等がある場合はご記載ください。
+                = link_to "偽ブランドの販売"
+                は犯罪であり処罰される可能性があります。
+              %p
+                また、出品を持ちまして
+                = link_to "加盟店規約", "#"
+                に同意したことになります。
+            = f.submit "出品する",type: "submit", class: "btn__default btn__red"
+            = link_to "もどる",root_path, class: "btn__default btn__gray"
+  = render partial: 'shared/terms-footer'
+

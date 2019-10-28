@@ -1,0 +1,23 @@
+.page-item{
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 42px;
+  text-align: center;
+  &.active{
+  background-color: red;
+  color: white;
+  }
+}
+
+.page-link{
+  color: black;
+}
+
+.pagination-sm {
+  margin: 40px 120px;
+}

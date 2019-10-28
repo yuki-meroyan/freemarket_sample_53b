@@ -39,7 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capistrano'
+  gem 'capistrano','= 3.11.0'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
@@ -82,6 +82,10 @@ gem 'font-awesome-rails'
 gem 'pry-byebug'
 gem 'ancestry'
 gem 'active_hash'
-gem "jquery-rails" 
+gem "jquery-rails"
+gem 'kaminari'
 gem 'gretel'
 gem 'payjp'
+gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-facebook'

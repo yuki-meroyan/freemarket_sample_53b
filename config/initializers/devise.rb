@@ -11,7 +11,7 @@ Devise.setup do |config|
   # config.secret_key = '19912cf2f7ef80a9c08f65cf3890a77a9cf15ecb994b20092084afda65b38350eb152b4d38f18739e12c15f52c7bca78b9e68de46dd771c44573c12dae64e04c'
 
   # ==> Controller configuration
-  # Configure the parent class to the devise controllers.
+  # Configure the t class to the devise controllers.
   # config.parent_controller = 'DeviseController'
 
   # ==> Mailer Configuration
@@ -296,4 +296,7 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  config.omniauth :facebook, Rails.application.credentials.facebook[:app_id], Rails.application.credentials.facebook[:secret_id]
+
 end

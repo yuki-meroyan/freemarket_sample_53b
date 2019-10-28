@@ -1,21 +1,32 @@
 = render partial: 'shared/header'
 %section.item__box__container
-  %h1.item__name 
+  %h1.item__name
     = @item.name
   .item__main__content.clearfix
     .item__photo
-      .owl__carousel
-        - @item.item_images.each_with_index do |item, i|
-          - if i == 0
-            .owl__item
-              = image_tag item.image
-          - else
-            .owl__dot
-              = image_tag item.image
-      .go__number__likes
-        現在、
-        %span> 1人
-        がこの商品にいいね!しています
+      -if @item.status == 1
+        .soldout__tag
+          .soldout__tag__text
+            SOLD
+            .soldout__tag__back
+      -if @item.item_images.present?
+        .owl__carousel
+          .owl__carousel__inner
+            - @item.item_images.each_with_index do |item, i|
+              .owl__item{class: i}
+                = image_tag item.image.url
+        .select__carousel
+          - @item.item_images.each_with_index do |item, i|
+            .owl__dot{data: {image: i}}
+              = image_tag item.image.url
+        .go__number__likes
+          現在、
+          %span> 1人
+          がこの商品にいいね!しています
+      -else
+        .owl__carousel
+          .owl__carousel__inner
+            = image_tag 'no-image.png'
     %table.item__detail__table
       %tbody
         %tr
@@ -36,45 +47,54 @@
         %tr
           %th カテゴリー
           %td
-            = link_to  "https://www.mercari.com/jp/category/1/" do
-              = @item.category.category
-            = link_to  "https://www.mercari.com/jp/category/20/" , class:'item__detail__table__sub__category' do
+            = link_to  "#" do
+              = @item.category.parent.parent.category
+            = link_to  "#" , class:'item__detail__table__sub__category' do
+              =fa_icon "chevron-right", class: 'icon'
+              = @item.category.parent.category
+            = link_to  "#" , class:'item__detail__table__sub__sub__category' do
               =fa_icon "chevron-right", class: 'icon'
               = @item.category.category
-            = link_to  "https://www.mercari.com/jp/category/214/" , class:'item__detail__table__sub__sub__category' do
-              =fa_icon "chevron-right", class: 'icon'
-              = @item.category.category
-        %tr
-          %th ブランド
-          %td
-            = link_to "https://www.mercari.com/jp/brand/539/" do
-              = @item.brand.name
+        - if @item.brand_id.present?
+          %tr
+            %th ブランド
+            %td
+              = link_to "#" do
+                = @item.brand.name
+        - if @item.size.present?
+          %tr
+            %th サイズ
+            %td
+              = @item.size
         %tr
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td
+            = @item.saved_state
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td
+            = @item.delivery_fee == true ? "送料込み(出品者負担)" : "着払い(購入者負担)"
         %tr
           %th 配送の方法
-          %td ゆうゆうメルカリ便
+          %td
+            = @item.shipping_method
         %tr
           %th 配送元地域
           %td
-            = link_to "https://www.mercari.com/jp/area/27/" do
+            = link_to "#" do
               = @item.region
 
         %tr
           %th 発送日の目安
-          %td 
+          %td
             = @item.delivery_days
   .item__price__box.text__center
-    %span.item__price__box__price 
+    %span.item__price__box__price
       ¥
       = @item.price
     %span.item__price__box__tax (税込)
     %span.item__price__box__shipping__fee 送料込み
-  = link_to  "購入画面に進む","/pending/itembuy" , class:'item__buy__btn'  
+  = link_to  "購入画面に進む",item_transaction_informations_path(@item) , class:'item__buy__btn'  
   .item__description.f14
     %p.item__description__inner
       = @item.description
@@ -84,11 +104,11 @@
         = fa_icon 'heart-o', class: "icon"
         %span いいね!
         %span.fade__in__down 1
-      = link_to  "https://www.mercari.com/jp/safe/description/",class: "item__button item__button__report clearfix"  do
+      = link_to  "#",class: "item__button item__button__report clearfix"  do
         =fa_icon "flag-o", class: 'icon'
         %span 不適切な商品の報告
     .item__button__container__right
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
+      = link_to  "#"  do
         =fa_icon "lock", class: 'icon'
         %span あんしん・あんぜんへの取り組み
 .item__comments.item__box__container
@@ -104,7 +124,7 @@
           =fa_icon 'clock', class: 'icon-time'
           %span 2時間前
         .comment__box__icons__flags
-          = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+          = link_to  "#",class: ".comment__box__icons__flag"  do
             =fa_icon "flag-o", class: 'icon'
   .comment
     .comment__user
@@ -118,49 +138,49 @@
           =fa_icon 'clock', class: 'icon-time'
           %span 2時間前
         .comment__box__icons__flags
-          = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+          = link_to  "#",class: ".comment__box__icons__flag"  do
             =fa_icon "flag-o", class: 'icon'
   .comment__notice
     相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
   .comment__write
-    %textarea.textarea-default{name: "comment__write"} 
+    %textarea.textarea-default{name: "comment__write"}
     %button.btn-default{type: "submit",class:  "comment__write__submit btn-gray"} コメントする
 .item__shuffle
   .item__shuffle__before
-    = link_to  "https://www.mercari.com/jp/safe/description/"  do
+    = link_to  "#"  do
       =fa_icon"chevron-left",class:'icon'
       %span adidasのかばん
   .item__shuffle__after
-    = link_to  "https://www.mercari.com/jp/safe/description/"  do
+    = link_to  "#"  do
       %span nikeのかばん
       =fa_icon"chevron-right",class:'icon'
 .item__sns
   %ul
     %li
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
+      = link_to  "#"  do
         =fa_icon"facebook-square",class:'item__sns__facebook-icon'
     %li
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
+      = link_to  "#"  do
         =fa_icon"twitter",class:'item__sns__twitter-icon'
     %li
-      = link_to  "https://www.mercari.com/jp/safe/description/"  do
+      = link_to  "#"  do
         =fa_icon"pinterest",class:'item__sns__pinterest-icon'
 .item__buyer-collection-title
-  = link_to  "https://www.mercari.com/jp/safe/description/"  do
-    %h2 
+  = link_to  "#"  do
+    %h2
       = @item.user.nickname
       さんのその他の出品
-.item__buyer-collection 
+.item__buyer-collection
   - @user_items.each do |item|
     .item-show__item-box
       = link_to  item_path(item)  do
         - item.item_images.each_with_index do |item_image, i|
           - if i == 0
-            = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
+            = image_tag item_image.image.url, alt: 'item-image', class: 'recommnd-item__image'
           - else
             - break
         .item-show__item-box-text
-          %span.item-show__item-box__title 
+          %span.item-show__item-box__title
             = item.name
           .item-box-text__fee-box
             %span.item-box-text__fee-box__fee
@@ -169,9 +189,9 @@
             .item-box-text__fee-box__right
               = fa_icon 'heart-o', class: "icon"
               %span  1
-      
+
 .item__buyer-collection-title
-  = link_to  "https://www.mercari.com/jp/safe/description/"  do
+  = link_to  "#"  do
     %h2
       = @item.brand.name
       その他の商品
@@ -181,11 +201,11 @@
       = link_to  item_path(item)  do
         - item.item_images.each_with_index do |item_image, i|
           - if i == 0
-            = image_tag item_image.image, alt: 'item-image', class: 'recommnd-item__image'
+            = image_tag item_image.image.url, alt: 'item-image', class: 'recommnd-item__image'
           - else
             - break
         .item-show__item-box-text
-          %span.item-show__item-box__title 
+          %span.item-show__item-box__title
             = item.name
           .item-box-text__fee-box
             %span.item-box-text__fee-box__fee
@@ -194,4 +214,6 @@
             .item-box-text__fee-box__right
               = fa_icon 'heart-o', class: "icon"
               %span  1
+- breadcrumb :item
+= render 'shared/pankuzu_item'
 = render partial: 'shared/footer'

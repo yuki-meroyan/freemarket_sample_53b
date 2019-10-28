@@ -89,7 +89,6 @@ $(function(){
   function resetTimer(){
     stopTimer ();
     startTimer ();
-    console.log("dododod")
   };
 
 //マウスをスライダーの上に置いたらストップ、はずしたら動く

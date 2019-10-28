@@ -229,7 +229,7 @@
       width: 343px;
       height: 50px;
       color: #fff;
-      font-size: 14px;
+      font-size: 24px;
       background-color: #ea352d;
       margin: 24px 0px 0px;
     }
@@ -266,3 +266,20 @@
 }
 
 // ここまでメイン部分
+
+.birthday-select-wrap {
+  color: #333;
+  font-size: 14px;
+  >label{
+    display: flex;
+  }
+}
+.btn--red {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  background-color: #ea352d;
+  margin: 24px 0px 0px;
+}

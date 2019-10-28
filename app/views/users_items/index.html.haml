@@ -1,0 +1,41 @@
+= render partial: 'shared/header'
+- breadcrumb :users_items
+= render 'shared/pankuzu_merukari'
+%main.l-container.clearfix
+  .users-items.l-content
+    .users-items__title
+      %h2 出品した商品
+    %ul.status-tabs
+      %li 出品中
+      %li 取引中
+      %li 売却済
+    .users-items__box
+      .users-items__box__exhibiting
+        %ul.users-items__box__lists
+          - @user.items.each do |item|
+            -if item.status == 0
+              %li
+                = link_to  users_item_path(item)  do
+                  -if item.item_images.present?
+                    - item.item_images.each_with_index do |item_image, i|
+                      - if i == 0
+                        = image_tag item_image.image.url, alt: 'item-image', class: 'users-items__box__lists__image'
+                      - else
+                        - break
+                  - else
+                    =image_tag 'no-image.png',class: 'users-items__box__lists__image'
+                  .users-items__detail
+                    %p.users-items__detail__title
+                      = item.name
+                    .users-items__detail__icons
+                      .users-items__detail__icons__icon
+                        = fa_icon 'heart-o'
+                        %span 0
+                      .users-items__detail__icons__icon
+                        = fa_icon 'comment-o'
+                        %span 0
+                      .users-items__detail__icons__last
+                        出品中
+                  = fa_icon 'chevron-right', class: "users-items__detail__icons__arrow-right"
+  = render partial: 'shared/user_menu'
+= render partial: 'shared/footer'

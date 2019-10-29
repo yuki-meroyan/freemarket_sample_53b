@@ -11,19 +11,14 @@ RSpec.describe ItemsController, type: :controller do
       get :show, params: {  id: @item }
     end
   end
-# items /index
+# items/index  describe 'GET #index' do
   describe 'GET #index' do
-    it "populates an array of items ordered by created_at DESC" do
-      items = create_list(:item, 3)
-      expect(assigns(:ladys_items)).to match(items.sort{ |a, b| b.created_at <=> a.created_at } )
-    end
-
     it "renders the :index template" do
       get :index
       expect(response).to render_template :index
     end
   end
-
+# items/edit
   describe 'GET #edit' do
     it "assigns the requested item to @item" do
       item = create(:item)

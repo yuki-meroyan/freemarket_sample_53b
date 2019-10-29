@@ -88,10 +88,7 @@ RSpec.describe Item, type: :model do
   end
 # カラム形の制限
   it "is invalid without a price int" do
-    item = build(
-      :item,
-      price: "ああああ"
-    )
+    item = build(:item,price: "ああああ")
     item.valid?
     expect(item.errors[:price]).to include("は数値で入力してください")
   end

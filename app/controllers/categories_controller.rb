@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :set_all_items, only: [:index]
 
+  require 'ancestry'
+
   def index
     ajax_category_action unless params[:keyword].blank?
     respond_to do |format|
@@ -10,11 +12,21 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    binding.pry
+    Item.joins(:categories).where(categories: { id: 1 })
+    items = Category.joins(:items).where(categories: { id: 159} )
+    items = Category.joins(:items).where(categories: { ancestry: "1/144" } )
+    r = Item.includes(:categories).where(id: params[:id])         
+    Item.joins(:categories).select("Item.*").where('Category.id: params[id]')
+    Category.find(params[:id]).joins(:items).preload(:items)
     category = Category.find(params[:id])
+    category = Category.where(ancestry: "1/14")
+    category = Category.where(ancestry: "1/14")
+    # IN (`取得したtaggingのid`) Item.where("id IN (?)", category)
     # @items = Item.where(category_id: category.id).page(params[:page]).per(40)
     @items = Item.where(category_id: 159).page(params[:page]).per(40)
     @item_images = ItemImage.includes(:item_id)
-    # binding.pry
+    
     # TODO: showのビューが完成するまで飛ばないようにしています
     # redirect_to categories_path
   end

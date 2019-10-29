@@ -15,6 +15,7 @@
           .google__choice__logo
             = image_tag 'google.svg', alt: 'google-logo'
           .google__choice__text Googleで登録する
+          = link_to 'Googleログイン', user_google_omniauth_authorize_path
     .wright__login
       .wright__login__mail__text
         %input.input-default{type: "text",placeholder: "メールアドレス"}

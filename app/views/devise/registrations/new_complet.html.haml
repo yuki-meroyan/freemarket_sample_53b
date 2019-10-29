@@ -11,6 +11,6 @@
             %br/
             会員登録が完了しました。
 
-          = form_with( id:"start", class:"start-form" ) do |f| 
-            = f.submit :xxx, value: "メルカリをはじめる", class: 'start-button'
+          = link_to root_path, class: 'btn--red' do
+            メルカリをはじめる
     = render partial: 'shared/terms-footer'

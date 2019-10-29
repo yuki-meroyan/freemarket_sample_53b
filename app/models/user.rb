@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
+    # 登録されていなかった時の処理
     unless user
       user = User.create(
         nickname: auth.extra.raw_info.name,
@@ -25,6 +26,7 @@ class User < ApplicationRecord
         password: Devise.friendly_token[0, 20]
       )
     end
+    # 登録されていた時の処理。
     user
   end
 end

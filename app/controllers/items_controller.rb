@@ -5,10 +5,13 @@ class ItemsController < ApplicationController
 
   def index
     @ladys_items = Item.where(category_id: 159).order('created_at DESC').limit(10)
+    @item_image = Item.includes(:image)
   end
 
   def new
   end
+
+  
 
   def edit
     @child_categories = Category.where(ancestry: params[:keyword])
@@ -54,6 +57,17 @@ class ItemsController < ApplicationController
 
   def myitem
   end
+  
+  
+  def search
+    @items = Item.where('name LIKE(?)', "%#{params[:search]}%").page(params[:page]).per(40)
+    @items_count =Item.where('name LIKE(?)', "%#{params[:search]}%").count
+    @start_count = ((params.fetch(:page, 1).to_i - 1) * 40)+1
+    @end_count = @start_count + 39 
+    @end_count = @items_count if @end_count > @items_count
+    @item_images = ItemImage.includes(:item_id) 
+  end
+  
 
 private
 

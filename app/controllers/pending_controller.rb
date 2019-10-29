@@ -5,33 +5,10 @@ class PendingController < ApplicationController
 
   
 
-  def logout
-  end
-
   def edit
     
   end
-  
-  def user_signup1
-  end
 
-  def user_signup2
-  end
-  
-  def user_signup3
-  end
-
-  def user_signup4
-  end
-
-  def user_signup5
-  end
-  
-  def user_signup1
-  end
-
-  def user_signup2
-  end
   
   def item_edit
     @child_category   = Category.find(params[:keyword])

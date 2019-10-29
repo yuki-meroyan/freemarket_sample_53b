@@ -14,16 +14,12 @@
     = link_to "ログイン",user_session_path,{class: "tekitou"}
     = link_to "ユーザープロフィール編集ページ","/pending/edit",{class: "tekitou"}
     = link_to "ユーザーマイページ",user_path(1),{class: "tekitou"}
-    = link_to "ユーザーログアウト","/pending/logout",{class: "tekitou"}
+    = link_to "ユーザーログアウト","destroy_user_session_path",{class: "tekitou"}
     = link_to "ユーザー本人確認",user_details_path,{class: "tekitou"}
-    = link_to "ユーザーサインアップ1",pending_user_signup1_path, class: "tekitou"
-    = link_to "ユーザーサインアップ2",pending_user_signup2_path, class: "tekitou"
-    = link_to "ユーザーサインアップ3",pending_user_signup3_path, class: "tekitou"
-    = link_to "ユーザーサインアップ4",pending_user_signup4_path, class: "tekitou"
-    = link_to "ユーザーサインアップ5",pending_user_signup5_path, class: "tekitou"
   .view-index__card
     %h1.view-index__title カード
     = link_to "カード追加", cards_path, class: "tekitou"
     = link_to "支払情報登録", new_card_path, class: "tekitou"
+
 
 

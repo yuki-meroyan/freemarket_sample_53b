@@ -22,3 +22,5 @@ class Item < ApplicationRecord
   validates :user                                 , presence: true
   validates :category                             , presence: true
 end
+
+

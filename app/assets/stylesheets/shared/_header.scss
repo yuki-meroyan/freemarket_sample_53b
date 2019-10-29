@@ -34,9 +34,6 @@
       width: 134px;
     }
   }
-  &__link{
-
-  }
   
   a{
     color: inherit;
@@ -65,7 +62,7 @@
     padding: 0px 50px 0px 10px;
     position: relative;
     transition: all 0.3s ease-out 0s;
-    width: calc(100% - 60px);
+    width:  780px;
     -webkit-appearance: none;
   }
 
@@ -77,10 +74,11 @@
     cursor: pointer;
     height: 40px;
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 210px;
+    top: 10px;
     width: 40px;
     -webkit-appearance: none;
+    font-size: inherit;
   }
 }
 
@@ -167,12 +165,6 @@
   float: right;
   text-align: center;
 
-  &__box{
-
-  }
-  &__new-member{
-  
-  }
   &__sign-in{  
     height: 44px;
     line-height: 14px;

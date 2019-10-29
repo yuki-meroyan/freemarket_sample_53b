@@ -8,8 +8,7 @@
     %main
       %section.main__container
         %h2.registration 電話番号の確認
-        = form_with(id: "phone_number", class: "registration__form", action: "https://www.mercari.com/jp/signup/sms_confirmation/sms/", method: "POST", novalidate: "novalidate") do |f|
-          %input{name: "after_save_callback", type: "hidden", value: ""}/
+        = form_with(id: "phone_number", class: "registration__form", action: "#", method: "POST", novalidate: "novalidate") do |f|
           .main__content
             .form__group
             = f.label :phone_number do
@@ -17,12 +16,13 @@
             = f.text_field :xxx, id: "phone_number", class: "input-default", placeholder: "携帯電話の番号を入力"
 
             %p.main__text 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-            = f.submit :xxx, class: "btn-red", value: "SMSを送信する"
+            = link_to new_user_detail_path, class: 'btn--red' do
+              SMSを送信する
             %p.main__text ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに後悔されることはありません。
 
             .form__group.main__text__right
               %p
-                = link_to "/jp/help_center/article/244/" do
+                = link_to "#" do
                   電話番号の認証が必要な理由
                   = fa_icon "chevron-right", class: "icon-arrow-right"
 

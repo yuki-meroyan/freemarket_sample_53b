@@ -94,7 +94,6 @@
         電話番号の確認
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      -# TODO: deviseコントローラー実装後に対応予定
-      = link_to  pending_logout_path(current_user), class: "mypage-nav-list-item" do
+      = link_to sign_out_confirm_path, class: "mypage-nav-list-item" do
         ログアウト
         =fa_icon 'chevron-right', class: "icon-arrow-right"

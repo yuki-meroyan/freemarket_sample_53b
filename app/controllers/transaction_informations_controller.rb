@@ -62,20 +62,20 @@ class TransactionInformationsController < ApplicationController
     @item = Item.find(params[:item_id])
     unless @item.price >= 300 && @item.user_id != nil
       flash[:notice] = "商品情報に不備がありました。出品者へ問合せください。"
-      redirect_to item_path(@item)
+      redirect_to item_path(@item) and return
     end
   end
 
   def check_buy_user
     if @item.user_id == current_user.id
       flash[:notice] = "自分の商品は購入できません"
-      redirect_to item_path(@item)
+      redirect_to item_path(@item) and return
     end
   end
 
   def check_buy_item
     if @item.status == 1
-      redirect_to item_path(@item)
+      redirect_to item_path(@item) and return
     end
   end
 

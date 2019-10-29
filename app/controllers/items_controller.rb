@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item.price.to_i
     if @item.user_id == current_user.id
       if Brand.find_by(name: params[:brand_id]).present?
         brand =Brand.find_by(name: params[:brand_id])
@@ -36,7 +37,6 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-
 
   def show
     @user_items = Item.where(user_id: "#{@item.user.id}").order('id ASC').limit(6).where.not(id: @item.id)

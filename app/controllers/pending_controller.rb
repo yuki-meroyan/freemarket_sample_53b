@@ -3,8 +3,7 @@ class PendingController < ApplicationController
   def index
   end
 
-  def itembuy
-  end
+  
 
   def edit
     

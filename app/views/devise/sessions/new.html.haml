@@ -7,10 +7,11 @@
         .new__acount__choice.btn-default.choice-btn 
           %p 新規会員登録
       .login__form__choice
-        .facebook__choice.btn-default.choice-btn
-          .facebook__choice__logo
-            =fa_icon "facebook-square 2x"
-          .facebook__choice__text Facebookで登録する
+        = link_to user_facebook_omniauth_authorize_path do
+          .facebook__choice.btn-default.choice-btn
+            .facebook__choice__logo
+              =fa_icon "facebook-square 2x"
+            .facebook__choice__text Facebookで登録する
         .google__choice.btn-default.choice-btn
           .google__choice__logo
             = image_tag 'google.svg', alt: 'google-logo'

@@ -17,9 +17,8 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
-
   resources :user_details, only:[:show, :edit, :update,:new,:create]
-  resources :items, only: [:index, :show, :destroy, :new, :create] do
+  resources :items  do
     collection do
       get 'items/search/' =>'items#search',as: 'items/search'
     end
@@ -29,9 +28,7 @@ Rails.application.routes.draw do
   resources :users
   resources :users_items, only: [:index, :show]
   resources :cards, except: [:edit, :update]
-  # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。
 
-  get 'pending/itembuy' => 'pending#itembuy',as: 'pending/itembuy'
   get 'pending/index' => 'pending#index',as: 'pending/index'
   get 'pending/item_edit/' => 'pending#item_edit',as: 'pending/item_edit'
 end

@@ -12,8 +12,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    category = Category.find(params[:id])
-    @items = Item.where(category_id: category.subtree).page(params[:page]).per(12)
+    @category = Category.find(params[:id])
+    @items = Item.where(category_id: @category.subtree).page(params[:page]).per(12)
   end
 
   def ajax_category_action

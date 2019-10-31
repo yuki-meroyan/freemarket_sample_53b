@@ -101,10 +101,31 @@
   &__category{
     &__box{
       width: 1050px;
-      margin: 40px 150px;
+      margin: 0 auto;
+    }
+
+    &__nav{
+      &__lists{
+        width: 1050px;
+        margin: 20px auto;
+
+        .category__sub__content__link-name{
+          display: inline-block;
+          width: 240px;
+          margin: 10px 10px;
+        }
+      }
     }
     .text-xs-center{
       text-align: center;
+    }
+
+    &__no-item{
+      text-align: center;
+      width: 1050px;
+      &--text{
+        color: gray;
+      }
     }
   }
 }

@@ -5,12 +5,10 @@
         = link_to root_path, class: "shared-header__link" do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2394192159", class: "shared-header__title__img" , alt: "mercari"
       -# 検索フォーム
-
       = form_with(url:  items_search_items_path, method: :get, local: true)  do |f|
         = f.text_field :search ,placeholder: "何かお探しですか？" ,class: "search__form__text-field"
         = button_tag type: 'submit', class: 'search__form__button' do
           =fa_icon "search"
-
     .shared-header__nav
       %ul.nav__left
         %li#nav-category.nav__left__box

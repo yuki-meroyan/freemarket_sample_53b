@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   root to: "items#index"
 
   resources :user_details, only:[:show, :edit, :update,:new,:create]
-  resources :items, only: [:index, :show, :destroy, :new] do
+  resources :items, only: [:index, :show, :destroy, :new, :create] do
     collection do
       get 'items/search/' =>'items#search',as: 'items/search'
     end

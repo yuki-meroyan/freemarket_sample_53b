@@ -25,7 +25,7 @@ class CardsController < ApplicationController
     if params['payjp-token'].present?
       # TODO: noticeの実装
       customer = Payjp::Customer.create(
-      description: '登録test', 
+      description: current_user.nickname, 
       card: params['payjp-token'],
       )
       card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)

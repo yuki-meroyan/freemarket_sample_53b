@@ -109,6 +109,12 @@
       width: 240px;
       &__list{
         width: 100%;
+        
+        .parent-list:hover{
+          background-color: red;
+          color: white;
+        }
+
         li{
           display: block;
           margin-left: 20px;
@@ -124,6 +130,12 @@
 
       &__list{
         width: 100%;
+
+        .child-list:hover{
+          background-color: gray;
+          color: black;
+        }
+
         li{
           display: block;
           margin-left: 20px;

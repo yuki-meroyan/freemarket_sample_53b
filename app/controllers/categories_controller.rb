@@ -26,6 +26,7 @@ class CategoriesController < ApplicationController
     elsif params[:keyword] == "grandchild"
       @grandchilds = Category.where(ancestry: params[:target_id])
     end
+    # @categories = Category.all
     # binding.pry
   end
 

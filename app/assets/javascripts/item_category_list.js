@@ -1,4 +1,19 @@
-
+$(function(){
+  $('#nav-category').hover(function() {
+    $('.nav__category__parent').css('display', 'flex'); 
+    
+    $.ajax({
+      type: 'GET',
+      url: `/categories`,
+      data: {keyword: "parent"},
+      dataType: 'json'
+    })
+    // .done(function(categories) {
+    .done(function(parents) {
+      console.log(parents)  
+    })
+  });
+});
 
 
 

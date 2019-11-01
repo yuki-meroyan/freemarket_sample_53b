@@ -15,3 +15,9 @@ json.array! @grandchilds do |grandchild|
   json.category grandchild.category
   json.ancestry grandchild.ancestry
 end
+
+json.array! @categories do |category|
+  json.id category.id
+  json.category category.category
+  json.ancestry category.ancestry
+end

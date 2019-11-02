@@ -64,11 +64,10 @@
                   ブランド
                   %span.form__arbitrary 任意
                 %div
-                  .select-wrap
-                    =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :brand_id, class: "input__default", placeholder: "例) シャネル" do
-                      %option{value: "1"} ナイキ
-                      %option{value: "2"} アディダス
+                  = f.hidden_field :brand_id
+                  %input{id:"item-brand_id__input",disbled: "disabled", name: "name", type: "text", class: "input__default", placeholder: "例) シャネル"}
+                  .brand__candidate__box
+                    %ul.brand__candidate__box__inner
               .form__group
                 = f.label :status do
                   商品の状態

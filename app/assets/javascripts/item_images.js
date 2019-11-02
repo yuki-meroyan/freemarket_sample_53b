@@ -33,7 +33,7 @@ $(function() {
           $(input_area).css({'display':'none',});
     };
   }
-  // items/editの時だけdpboxSizeをビュー読み込み時行う。
+
   $(window).on("load", function(){
       images_count = $('.edit__item__images__image').length;
       dpboxSize(images_count);

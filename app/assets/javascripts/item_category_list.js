@@ -1,5 +1,6 @@
 
 $(function(){
+  var parent_id;
   // $(document).on('mouseenter', '#nav-category', function(){
   $('#nav-category').hover(function() {
     $.ajax({
@@ -35,6 +36,13 @@ $(function(){
         });   //--- parentLists.forEach の終わり
       }       //--- if parentLists.length !== 0 の終わり
       $(document).on('mouseenter', '.parent-list', function(){
+        $(this).css('background-color', 'red');
+        $(this).css('color', 'white');
+        console.log(parent_id + '/' + $(this).data('category-id'))
+        // if (parent_id != $(this).data('category-id') ) {
+        //   $(this).css('background-color', 'white');
+        //   $(this).css('color', 'black');
+        // }
         var parent_id = $(this).data('category-id');
         var childLists = $.grep(categories,
           function(category, index) {
@@ -59,6 +67,12 @@ $(function(){
           });   //--- childs.forEachの終わり
         }       //--- if childs.length !== 0 の終わり
         $(document).on('mouseenter', '.child-list', function(){
+          $(this).css('background-color', 'gray');
+          $(this).css('color', 'black');
+          // if (child_id != $(this).data('category-id') ) {
+          //   $(this).css('background-color', 'white');
+          //   $(this).css('color', 'black');
+          // }
           var child_id = $(this).data('category-id');
           var grandchildLists = $.grep(categories,
             function(category, index) {
@@ -80,8 +94,16 @@ $(function(){
               $('.nav__category__grandchild__list').append(insertHTML);
             });     //--- grandchilds.forEachの終わり
           }         //--- if grandchilds.length !== 0 の終わり
+          $(document).on('mouseenter', '.grandchild-list', function(){
+            $(this).css('background-color', 'gray');
+            $(this).css('color', 'black');
+          })
         })          //--- mouseenter/child-list の終わり
       });           //--- mouseenter/parent-list の終わり
+      // $('.nav__category__parent__list').on('mouseover', function(){
+      //   $('.nav__category__child__list').empty();
+      //   $('.nav__category__child').css('display', 'none'); 
+      // })
     });               //--- 
   }), function() {
     $('.nav__category__parent__list').empty();

@@ -17,16 +17,16 @@ class CategoriesController < ApplicationController
   end
 
   def ajax_category_action
-    if params[:keyword] == "parent"
-      @parents = Category.where('ancestry is null')
-      # binding.pry
-    elsif params[:keyword] == "child"
-      @childs = Category.where(ancestry: params[:target_id])
-      # binding.pry
-    elsif params[:keyword] == "grandchild"
-      @grandchilds = Category.where(ancestry: params[:target_id])
-    end
-    # @categories = Category.all
+    # if params[:keyword] == "parent"
+    #   @parents = Category.where('ancestry is null')
+    #   # binding.pry
+    # elsif params[:keyword] == "child"
+    #   @childs = Category.where(ancestry: params[:target_id])
+    #   # binding.pry
+    # elsif params[:keyword] == "grandchild"
+    #   @grandchilds = Category.where(ancestry: params[:target_id])
+    # end
+    @categories = Category.all
     # binding.pry
   end
 

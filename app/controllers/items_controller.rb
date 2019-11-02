@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index,:show]
   before_action :user_id_check, only: [:myitem, :destroy, :edit, :update]
 
+
   def index
     @ladys_items = Item.where(category_id: 159).order('id ASC').limit(10)
     @item_image = Item.includes(:image)
@@ -11,6 +12,24 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.build
+    # @child_categories = Category.where(ancestry: params[:id])
+    category_saerch unless params[:keyword].blank?
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def category_saerch
+    if params[:keyword] == "parent"
+      @child_categories = Category.where(ancestry: params[:target_id])
+      @grandchild_categories =[]
+    else params[:keyword] == "child"
+      @child_categories=[]
+      @child_category   = Category.find(params[:target_id])
+      @parent_category  = Category.find(@child_category.ancestry)
+      @grandchild_categories =Category.where(ancestry: "#{@parent_category.id}/#{@child_category.id}")
+    end
   end
 
   def create

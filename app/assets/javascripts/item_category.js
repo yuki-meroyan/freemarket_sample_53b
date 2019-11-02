@@ -67,7 +67,6 @@ $(function () {
 // 隠されているカテゴリーIDセレクトを表示。そのまま孫のoptionを持ってくるajaxにつながる。
   var grandchild_display =function (i) {
     var id = $(i).val();
-    console.log(id)
     if (id === "") {
       $('#category__box__grandchild').css('display', 'none');
       return;

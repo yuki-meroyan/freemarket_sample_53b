@@ -1,8 +1,6 @@
 
 $(function(){
-  var parent_id;
-  // $(document).on('mouseenter', '#nav-category', function(){
-  $('#nav-category').hover(function() {
+  $(document).ready(function(){
     $.ajax({
       type: 'GET',
       url: `/categories`,
@@ -15,34 +13,36 @@ $(function(){
           return (category.ancestry == null );
         }
       );  //--- grepの終わり
-      $('.nav__category__parent').css('display', 'flex'); 
-      if (parentLists.length !== 0) {
-        var insertHTML = "";
-        $('.nav__category__parent__list').empty();
-        $('.nav__category__child__list').empty();
-        $('.nav__category__child').css('display', 'none'); 
-        $('.nav__category__grandchild__list').empty();
-        $('.nav__category__grandchild').css('display', 'none'); 
-        parentLists.forEach(function(parent){
-          var insertHTML = `<div class="parent-list" data-category-id=${parent.id}>
-                              <li>
-                                <a class="category__main__grandchild__link-name" href="/categories/${parent.id}">
-                                  <p>${parent.category}</p>
-                                </a>
-                              </li>
-                              </div>`
-          $('.nav__category__parent__list').append(insertHTML);
+      $(document).on('mouseenter', '#nav-category', function(){
+        $('.nav__category__parent').css('display', 'flex'); 
+        if (parentLists.length !== 0) {
+          var insertHTML = "";
+          $('.nav__category__parent__list').empty();
+          $('.nav__category__child__list').empty();
+          $('.nav__category__child').css('display', 'none'); 
+          $('.nav__category__grandchild__list').empty();
+          $('.nav__category__grandchild').css('display', 'none'); 
+          parentLists.forEach(function(parent){
+            var insertHTML = `<div class="parent-list" data-category-id=${parent.id} data-position="parent">
+                                <li>
+                                  <a class="category__main__grandchild__link-name" href="/categories/${parent.id}">
+                                    <p>${parent.category}</p>
+                                  </a>
+                                </li>
+                                </div>`
+            $('.nav__category__parent__list').append(insertHTML);
 
-        });   //--- parentLists.forEach の終わり
-      }       //--- if parentLists.length !== 0 の終わり
+          });   //--- parentLists.forEach の終わり
+        }       //--- if parentLists.length !== 0 の終わり
+      });       //--- mouseenter/nav-category の終わり
+
       $(document).on('mouseenter', '.parent-list', function(){
         $(this).css('background-color', 'red');
         $(this).css('color', 'white');
         console.log(parent_id + '/' + $(this).data('category-id'))
-        // if (parent_id != $(this).data('category-id') ) {
-        //   $(this).css('background-color', 'white');
-        //   $(this).css('color', 'black');
-        // }
+        if (parent_id != $(this).data('category-id') ) {
+          
+        }
         var parent_id = $(this).data('category-id');
         var childLists = $.grep(categories,
           function(category, index) {
@@ -56,7 +56,7 @@ $(function(){
           $('.nav__category__grandchild__list').empty();
           $('.nav__category__grandchild').css('display', 'none');
           childLists.forEach(function(child){
-            var insertHTML = `<div class="child-list" data-category-id=${parent_id}/${child.id}>
+            var insertHTML = `<div class="child-list" data-category-id=${parent_id}/${child.id} data-position="child">
                                 <li>
                                   <a class="category__main__grandchild__link-name" href="/categories/${child.id}">
                                     <p>${child.category}</p>
@@ -66,54 +66,61 @@ $(function(){
             $('.nav__category__child__list').append(insertHTML);
           });   //--- childs.forEachの終わり
         }       //--- if childs.length !== 0 の終わり
-        $(document).on('mouseenter', '.child-list', function(){
-          $(this).css('background-color', 'gray');
-          $(this).css('color', 'black');
-          // if (child_id != $(this).data('category-id') ) {
-          //   $(this).css('background-color', 'white');
-          //   $(this).css('color', 'black');
-          // }
-          var child_id = $(this).data('category-id');
-          var grandchildLists = $.grep(categories,
-            function(category, index) {
-              return (category.ancestry == child_id);
-            }
-          );
-          if (grandchildLists.length !== 0) {
-            var insertHTML = "";
-            $('.nav__category__grandchild').css('display', 'flex'); 
-            $('.nav__category__grandchild__list').empty();
-            grandchildLists.forEach(function(grandchild){
-              var insertHTML = `<div class="grandchild-list" data-category-id=${grandchild.id}>
-                                  <li>
-                                    <a class="category__main__grandchild__link-name" href="/categories/${grandchild.id}">
-                                      <p>${grandchild.category}</p>
-                                    </a>
-                                  </li>
-                                </div>`
-              $('.nav__category__grandchild__list').append(insertHTML);
-            });     //--- grandchilds.forEachの終わり
-          }         //--- if grandchilds.length !== 0 の終わり
-          $(document).on('mouseenter', '.grandchild-list', function(){
-            $(this).css('background-color', 'gray');
-            $(this).css('color', 'black');
-          })
-        })          //--- mouseenter/child-list の終わり
-      });           //--- mouseenter/parent-list の終わり
-      // $('.nav__category__parent__list').on('mouseover', function(){
-      //   $('.nav__category__child__list').empty();
-      //   $('.nav__category__child').css('display', 'none'); 
-      // })
-    });               //--- 
-  }), function() {
-    $('.nav__category__parent__list').empty();
-    $('.nav__category__parent').css('display', 'none'); 
-    $('.nav__category__child__list').empty();
-    $('.nav__category__child').css('display', 'none'); 
-    $('.nav__category__grandchild__list').empty();
-    $('.nav__category__grandchild').css('display', 'none');
-  }                 //--- hoverの終わり
-});                 //--- readyの終わり
+
+        $('#nav-category').on('mouseleave', function(){
+          $('.nav__category__parent__list').empty();
+          $('.nav__category__parent').css('display', 'none'); 
+          $('.nav__category__child__list').empty();
+          $('.nav__category__grandchild__list').empty();
+        })      //--- hoverの終わり
+
+      });       //--- mouseenter/parent-list の終わり
+
+      $(document).on('mouseenter', '.child-list', function(){
+        $(this).css('background-color', 'gray');
+        $(this).css('color', 'black');
+        // if (child_id != $(this).data('category-id') ) {
+        //   $(this).css('background-color', 'white');
+        //   $(this).css('color', 'black');
+        // }
+        var child_id = $(this).data('category-id');
+        var grandchildLists = $.grep(categories,
+          function(category, index) {
+            return (category.ancestry == child_id);
+          }
+        );
+        if (grandchildLists.length !== 0) {
+          var insertHTML = "";
+          $('.nav__category__grandchild').css('display', 'flex'); 
+          $('.nav__category__grandchild__list').empty();
+          grandchildLists.forEach(function(grandchild){
+            var insertHTML = `<div class="grandchild-list" data-category-id=${grandchild.id} data-position="grandchild">
+                                <li>
+                                  <a class="category__main__grandchild__link-name" href="/categories/${grandchild.id}">
+                                    <p>${grandchild.category}</p>
+                                  </a>
+                                </li>
+                              </div>`
+            $('.nav__category__grandchild__list').append(insertHTML);
+          });     //--- grandchilds.forEachの終わり
+        }         //--- if grandchilds.length !== 0 の終わり
+      })          //--- mouseenter/child-list の終わり
+
+      $(document).on('mouseenter', '.grandchild-list', function(){
+        $(this).css('background-color', 'gray');
+        $(this).css('color', 'black');
+      })          //--- mouseenter/grandchild-list の終わり
+      
+      $(document).on('mouseleave', '.parent-list', function(){
+        $(this).css('background-color', 'white');
+        $(this).css('color', 'black');
+        // $('.nav__category__child__list').empty();
+        // $('.nav__category__child').css('display', 'none'); 
+      })
+
+    });
+  });               //--- readyの終わり
+});                 //--- functionの終わり
 
 
 

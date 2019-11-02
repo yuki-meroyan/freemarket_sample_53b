@@ -9,9 +9,18 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @item.item_images.build
   end
 
-  
+  def create
+    @item = Item.create(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
 
   def edit
     @child_categories = Category.where(ancestry: params[:keyword])
@@ -46,14 +55,6 @@ class ItemsController < ApplicationController
     @brand_items = Item.where(brand_id: "#{@item.brand.id}").order('id ASC').limit(6).where.not(id: @item.id)
   end
 
-  def create
-    item = Item.new(create_params)
-    if item.save
-      redirect_to root_path
-    else
-      redirect_to new_item_path
-    end
-  end
 
   def destroy
     @item.destroy  if @item.user_id == current_user.id
@@ -82,11 +83,6 @@ private
 
   def item_params
     params.require(:item).permit(:name,:description,:price,:region,:delivery_fee,:delivery_days,:shipping_method ,:size,:saved_state,:brand_id,:category_id,item_images_attributes:[:id,:image,:_destroy]).merge(user_id: current_user.id)
-  end
-
-  def create_params
-    anc = Category.find(params[:category_id])
-    params.permit(:name, :description, :price, :region, :delivery_fee, :delivery_days, :shipping_method, :brand_id, :category_id, :size, :saved_state).merge(user_id: current_user.id, ancestry: anc.ancestry)
   end
 
 end

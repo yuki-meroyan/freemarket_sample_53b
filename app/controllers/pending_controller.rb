@@ -9,7 +9,14 @@ class PendingController < ApplicationController
     
   end
 
-  
+  def item_new
+    @child_categories = Category.where(ancestry: params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def item_edit
     @child_category   = Category.find(params[:keyword])
     @parent_category  = Category.find(@child_category.ancestry)

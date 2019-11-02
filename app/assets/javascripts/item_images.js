@@ -33,6 +33,13 @@ $(function() {
           $(input_area).css({'display':'none',});
     };
   }
+  // items/editの時だけdpboxSizeをビュー読み込み時行う。
+  $(window).on("load", function(){
+      images_count = $('.edit__item__images__image').length;
+      dpboxSize(images_count);
+      $("#post__img__last").prop('name', `item[item_images_attributes][${images_count + 1}][image]`);
+      count = parseInt(images_count + 2);
+  });
 
   // プレビューファイルの読み込み等
   function readURL(input) {
@@ -47,15 +54,6 @@ $(function() {
     }
   }
 
-// items/editの時だけdpboxSizeをビュー読み込み時行う。
-  $(window).on("load", function(){
-    if(document.URL.match(/edit/) && document.URL.match(/items/)) {
-      images_count = $('.edit__item__images__image').length;
-      dpboxSize(images_count);
-      $("#post__img__last").prop('name', `item[item_images_attributes][${images_count + 1}][image]`);
-      count = parseInt(images_count + 2);
-    }
-  });
 
 //ファイルが決まった後
   $(document).on('change', '#post__img,#post__img__last',function(event) {

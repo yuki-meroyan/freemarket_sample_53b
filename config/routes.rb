@@ -33,4 +33,5 @@ Rails.application.routes.draw do
 
   get 'pending/index' => 'pending#index',as: 'pending/index'
   get 'pending/item_edit/' => 'pending#item_edit',as: 'pending/item_edit'
+  get 'pending/item_new/' => 'pending#item_new',as: 'pending/item_new'
 end

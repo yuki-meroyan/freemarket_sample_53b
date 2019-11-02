@@ -1,4 +1,6 @@
 $(function () {
+  $(window).on("load", function(){
+    if(document.URL.match(/edit/) && document.URL.match(/items/)) {
   // dataでカテゴリーの自身、親、親の親のidを送っているので変数に入れる
   grandparent = $("#category__box__grandchild").data('grandparent')
   parent      = $("#category__box__grandchild").data('parent')
@@ -86,8 +88,7 @@ $(function () {
     grandchild_display(this);
   });
 
-  $(window).on("load", function(){
-    if(document.URL.match(/edit/) && document.URL.match(/items/)) {
+
       $('#category_1_category_1').prepend(`
       <option value="">---</option>
         `);

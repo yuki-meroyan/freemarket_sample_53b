@@ -47,7 +47,6 @@
             .user-address__form__select-wrap
               = fa_icon 'chevron-down', class:"user-address__form__icon__arrow-bottom"
               = f.collection_select :prefectures, Prefecture.all, :id, :name, {}, class: 'user-address__form__select'
-              -console
 
           .user-address__form__box
             = f.label :cities do

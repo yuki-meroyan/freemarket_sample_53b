@@ -94,10 +94,14 @@
       = @item.price
     %span.item__price__box__tax (税込)
     %span.item__price__box__shipping__fee 送料込み
-  - if @item.user_id == current_user.id
-  - elsif @item.status == 1
+  -# - if @item.user_id == current_user.id
+  - if @item.status == 1
     .item__buy__btn
-      購入済み 
+      - if user_signed_in?
+        - if @item.user_id == current_user.id
+          出品した商品
+      - else 
+        購入済み 
   - else
     = link_to  "購入画面に進む",item_transaction_informations_path(@item) , class:'item__buy__btn'  
   .item__description.f14

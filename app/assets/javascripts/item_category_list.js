@@ -1,6 +1,3 @@
-
-// console.log()
-
 $(function(){
   // *** カテゴリーの変数を定義 ***
   var categoryList;

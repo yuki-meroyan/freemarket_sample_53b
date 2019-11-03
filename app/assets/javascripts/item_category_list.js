@@ -25,9 +25,8 @@ $(function(){
       }
     );
     $('.nav__category__parent').css('display', 'flex'); 
-    if (parentLists.length !== 0) {
+    if (parentLists.length !== 0 && $('.parent-list:last-child').data("category-id") != 13) {
       var insertHTML = "";
-      $('.nav__category__parent__list').empty();
       $('.nav__category__grandchild__list').empty();
       $('.nav__category__grandchild').css('display', 'none');
       parentLists.forEach(function(parent){

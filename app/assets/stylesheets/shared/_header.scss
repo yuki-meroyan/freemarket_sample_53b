@@ -34,9 +34,6 @@
       width: 134px;
     }
   }
-  &__link{
-
-  }
   
   a{
     color: inherit;
@@ -107,13 +104,14 @@
     &__parent{
       display: none;
       width: 240px;
+
+      &__active{
+        background-color: red;
+        color: white;
+      }
+
       &__list{
         width: 100%;
-        
-        .parent-list:hover{
-          // background-color: red;
-          // color: white;
-        }
 
         li{
           display: block;
@@ -128,13 +126,13 @@
       display: none;
       min-width: 240px;
 
+      &__active{
+        background-color: gray;
+        color: black;
+      }
+
       &__list{
         width: 100%;
-
-        .child-list:hover{
-          // background-color: gray;
-          // color: black;
-        }
 
         li{
           display: block;
@@ -149,6 +147,11 @@
       display: none;
       min-width: 300px;
 
+      &__active{
+        background-color: rgb(214, 212, 212);
+        color: black;
+      }
+      
       &__list{
         width: 100%;
         li{

@@ -18,7 +18,7 @@
         いいね！一覧
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li
-      = link_to "#", class: "mypage-nav-list-item" do
+      = link_to new_item_path, class: "mypage-nav-list-item", method: :get do
         出品する
         =fa_icon 'chevron-right', class: "icon-arrow-right"
     %li

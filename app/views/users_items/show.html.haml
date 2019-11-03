@@ -5,7 +5,7 @@
       .modal__text--head 確認
       %br 削除すると二度と復活できません。
       %br 削除する代わりに停止することもできます。
-      %br 
+      %br
       %br 本当に削除しますか？
     .modal__btn-box
       .js-modal-close.modal__btn-box__cancel
@@ -17,7 +17,7 @@
 = render 'shared/pankuzu_merukari'
 .mypage-container
   %section.item__box__container
-    %h1.item__name 
+    %h1.item__name
       = @item.name
     .item__main__content.clearfix
       .item__photo
@@ -54,18 +54,18 @@
           %tr
             %th カテゴリー
             %td
-              = link_to  "https://www.mercari.com/jp/category/1/" do
-                = @item.category.category
-              = link_to  "https://www.mercari.com/jp/category/20/" , class:'item__detail__table__sub__category' do
+              = link_to  "#" do
+                = @item.category.parent.parent.category
+              = link_to  "#" , class:'item__detail__table__sub__category' do
                 =fa_icon "chevron-right", class: 'icon'
-                = @item.category.category
-              = link_to  "https://www.mercari.com/jp/category/214/" , class:'item__detail__table__sub__sub__category' do
+                = @item.category.parent.category
+              = link_to  "#" , class:'item__detail__table__sub__sub__category' do
                 =fa_icon "chevron-right", class: 'icon'
                 = @item.category.category
           %tr
             %th ブランド
             %td
-              = link_to "https://www.mercari.com/jp/brand/539/" do
+              = link_to "#" do
                 = @item.brand.name
           %tr
             %th 商品の状態
@@ -79,15 +79,15 @@
           %tr
             %th 配送元地域
             %td
-              = link_to "https://www.mercari.com/jp/area/27/" do
+              = link_to "#" do
                 = @item.region
 
           %tr
             %th 発送日の目安
-            %td 
+            %td
               = @item.delivery_days
     .item__price__box.text__center
-      %span.item__price__box__price 
+      %span.item__price__box__price
         ¥
         = @item.price
       %span.item__price__box__tax (税込)
@@ -103,8 +103,6 @@
       %br/
       %br/
       %button.btn-default.btn-gray.item-delete{type:"submit"}  この商品を削除する
- 
-
   .item__comments.item__box__container
     .comment
       .comment__user
@@ -118,7 +116,7 @@
             =fa_icon 'clock', class: 'icon-time'
             %span 2時間前
           .comment__box__icons__flags
-            = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+            = link_to  "#",class: ".comment__box__icons__flag"  do
               =fa_icon "flag-o", class: 'icon'
     .comment
       .comment__user
@@ -132,12 +130,12 @@
             =fa_icon 'clock', class: 'icon-time'
             %span 2時間前
           .comment__box__icons__flags
-            = link_to  "https://www.mercari.com/jp/safe/description/",class: ".comment__box__icons__flag"  do
+            = link_to  "#",class: ".comment__box__icons__flag"  do
               =fa_icon "flag-o", class: 'icon'
     .comment__notice
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     .comment__write
-      %textarea.textarea-default{name: "comment__write"} 
+      %textarea.textarea-default{name: "comment__write"}
       %button.btn-default{type: "submit",class:  "comment__write__submit btn-gray"} コメントする
 
 

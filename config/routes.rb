@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
  
-  devise_for :users, :controllers => {
+  devise_for :users, controllers:{
     registrations: 'users/registrations',
     passwords: 'users/passwords',
-    omniauth_callbacks: 'users/omniauth_callbacks' 
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions'
   }
 
   devise_scope :user do
@@ -17,9 +18,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
-
   resources :user_details, only:[:show, :edit, :update,:new,:create]
-  resources :items  do
+
+  resources :items do
     collection do
       get 'items/search/' =>'items#search',as: 'items/search'
     end
@@ -30,9 +31,5 @@ Rails.application.routes.draw do
   resources :users_items, only: [:index, :show]
   resources :cards, except: [:edit, :update]
   resources :categories, only: [:index, :show]
-  # TODO: ビューの確認用。ルーテイング。配置場所が決まり次第変更予定。
-
-  get 'pending/itembuy' => 'pending#itembuy',as: 'pending/itembuy'
-  get 'pending/index' => 'pending#index',as: 'pending/index'
-  get 'pending/item_edit/' => 'pending#item_edit',as: 'pending/item_edit'
+  
 end

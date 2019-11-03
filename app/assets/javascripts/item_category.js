@@ -1,15 +1,15 @@
 $(function () {
+
   // dataでカテゴリーの自身、親、親の親のidを送っているので変数に入れる
   grandparent = $("#category__box__grandchild").data('grandparent')
   parent      = $("#category__box__grandchild").data('parent')
   main        = $("#category__box__grandchild").data('main')
 
   var childChangeSelect = function (id, nextSelect) {
-    var item_id = $('.sell__upload__head').data('item-id');
     $.ajax({
       type: 'GET',
-      url: `/items/${item_id}/edit`,
-      data: {keyword: id},
+      url: `/items/new`,
+      data: {target_id: id,keyword: "parent"},
       dataType: 'json'
     })
     .done(function (categories) {
@@ -31,11 +31,10 @@ $(function () {
   }
 
   var grandchildChangeSelect = function (id, nextSelect) {
-    var item_id = $('.sell__upload__head').data('item-id');
     $.ajax({
       type: 'GET',
-      url: `/pending/item_edit`,
-      data: {keyword: id},
+      url:  `/items/new`,
+      data: {target_id: id,keyword: "child"},
       dataType: 'json'
     })
     .done(function (categories) {
@@ -68,7 +67,6 @@ $(function () {
 // 隠されているカテゴリーIDセレクトを表示。そのまま孫のoptionを持ってくるajaxにつながる。
   var grandchild_display =function (i) {
     var id = $(i).val();
-    console.log(id)
     if (id === "") {
       $('#category__box__grandchild').css('display', 'none');
       return;
@@ -85,7 +83,6 @@ $(function () {
   $('#category_2_category_2').change(function(){
     grandchild_display(this);
   });
-
   $(window).on("load", function(){
     if(document.URL.match(/edit/) && document.URL.match(/items/)) {
       $('#category_1_category_1').prepend(`

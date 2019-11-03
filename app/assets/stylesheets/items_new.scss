@@ -126,6 +126,7 @@
   vertical-align: top;
 }
 
+
 .input__default {
   margin: 8px 0 0;
   width: 100%;
@@ -160,7 +161,7 @@
     position: absolute;
     right: 16px;
     top: 50%;
-    z-index: 2;
+    z-index: 5;
     color: #888;
     font-size: 8px;
     transform: translate(0, -50%);
@@ -253,5 +254,21 @@
   background: #aaa;
   border: 1px solid #aaa;
   color: #fff;
+}
+
+
+.brand__candidate__box__inner{
+  overflow: auto;
+  z-index: 10;
+  max-height: 280px;
+  background: #fff;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+  margin: 0;
+  li{
+    cursor: pointer;
+    padding: 16px 8px;
+    font-size: 14px;
+  }
+
 }
 

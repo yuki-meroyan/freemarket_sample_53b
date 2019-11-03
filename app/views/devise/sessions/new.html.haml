@@ -7,14 +7,16 @@
         .new__acount__choice.btn-default.choice-btn 
           %p 新規会員登録
       .login__form__choice
-        .facebook__choice.btn-default.choice-btn
-          .facebook__choice__logo
-            =fa_icon "facebook-square 2x"
-          .facebook__choice__text Facebookで登録する
-        .google__choice.btn-default.choice-btn
-          .google__choice__logo
-            = image_tag 'google.svg', alt: 'google-logo'
-          .google__choice__text Googleで登録する
+        = link_to user_facebook_omniauth_authorize_path do
+          .facebook__choice.btn-default.choice-btn
+            .facebook__choice__logo
+              =fa_icon "facebook-square 2x"
+            .facebook__choice__text Facebookで登録する
+        = link_to user_google_oauth2_omniauth_authorize_path do
+          .google__choice.btn-default.choice-btn
+            .google__choice__logo
+              = image_tag 'google.svg', alt: 'google-logo'
+            .google__choice__text Googleで登録する
     = form_with model: resource, as: resource_name, url: session_path(resource_name), id: "new_user", class: "test", local: true do |f|
       .wright__login
         .wright__login__mail__text
@@ -22,7 +24,8 @@
         .wright__login__name__text
           = f.password_field :password, autocomplete: "password", class: "input-default", placeholder: "パスワード",name: 'user[password]'
         .wright__login__robot__check
-          = image_tag 'recaptcha.gif', alt: 'recaptcha.gif', class: 'recaptcha'
+          = flash[:recaptcha_error]
+          = recaptcha_tags
         - if devise_mapping.rememberable?
           .field
             = f.check_box :remember_me

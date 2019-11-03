@@ -9,12 +9,14 @@
           =fa_icon "envelope-o lg"
         = link_to new_user_registration_path, class: "mail__choice__text" do
           メールアドレスで登録する
-      .facebook__choice.btn-default.choice-btn
-        .facebook__choice__logo
-          =fa_icon "facebook-square 2x"
-        .facebook__choice__text Facebookで登録する
-      .google__choice.btn-default.choice-btn
-        .google__choice__logo
-          = image_tag 'google.svg', alt: 'google-logo'
-        .google__choice__text Googleで登録する
+      = link_to user_facebook_omniauth_authorize_path do
+        .facebook__choice.btn-default.choice-btn
+          .facebook__choice__logo
+            =fa_icon "facebook-square 2x"
+          .facebook__choice__text Facebookで登録する
+      = link_to user_google_oauth2_omniauth_authorize_path do
+        .google__choice.btn-default.choice-btn
+          .google__choice__logo
+            = image_tag 'google.svg', alt: 'google-logo'
+          .google__choice__text Googleで登録する
   = render partial: 'shared/terms-footer'

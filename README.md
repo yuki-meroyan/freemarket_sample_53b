@@ -60,7 +60,6 @@
 |------|----|-------|
 |name|string|null: false|
 |description|text||
-|details|ancestry|null: false|
 |price|integer|null: false|
 |region|string|null: false|
 |delivery_fee|boolean|null: false|

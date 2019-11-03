@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @ladys_items = Item.where(category_id: 159).order('id ASC').limit(10)
+    @ladys_items = Item.where(category_id: 159).order('created_at DESC').limit(10)
     @item_image = Item.includes(:image)
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format|
@@ -49,7 +49,6 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-
 
   def show
     @user_items = Item.where(user_id: "#{@item.user.id}").order('id ASC').limit(6).where.not(id: @item.id)

@@ -12,7 +12,7 @@ RSpec.describe Item, type: :model do
     expect(user).to be_valid
   end
 # バリデーション
-  it "is valid with a :name,:ancestry,:price,:region,:delivery_fee,:shipping_method,:delivery_days,:brand,:category,:user" do
+  it "is valid with a :name,:price,:region,:delivery_fee,:shipping_method,:delivery_days,:brand,:category,:user" do
     item = @item
     expect(item).to be_valid
   end
@@ -28,11 +28,6 @@ RSpec.describe Item, type: :model do
     expect(item.errors[:name]).to include("を入力してください")
   end
 
-  it "is invalid without a ancestry" do
-    item = build(:item, ancestry: nil)
-    item.valid?
-    expect(item.errors[:ancestry]).to include("を入力してください")
-  end
   it "is invalid without a price" do
     item = build(:item, price: nil)
     item.valid?

@@ -35,7 +35,6 @@ class ItemsController < ApplicationController
 
   def edit
     @child_categories = Category.where(ancestry: params[:keyword])
-    @brands = Brand.all
     respond_to do |format|
       format.html
       format.json

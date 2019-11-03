@@ -11,7 +11,6 @@ class Item < ApplicationRecord
 
   validates :name                                 , presence: true, length: { in: 1..40 }
   validates :description                          , length: { maximum: 1000 }
-  validates :ancestry                             , presence: true
   validates :price                                , presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :region                               , presence: true
   validates :delivery_fee                         , inclusion: {in: [true, false]}

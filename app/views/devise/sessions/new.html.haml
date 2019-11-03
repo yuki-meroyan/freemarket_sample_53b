@@ -24,7 +24,8 @@
         .wright__login__name__text
           = f.password_field :password, autocomplete: "password", class: "input-default", placeholder: "パスワード",name: 'user[password]'
         .wright__login__robot__check
-          = image_tag 'recaptcha.gif', alt: 'recaptcha.gif', class: 'recaptcha'
+          = flash[:recaptcha_error]
+          = recaptcha_tags
         - if devise_mapping.rememberable?
           .field
             = f.check_box :remember_me

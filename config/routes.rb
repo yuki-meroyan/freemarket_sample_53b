@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{
     registrations: 'users/registrations',
     passwords: 'users/passwords',
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions'
   }
 
   devise_scope :user do
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
   resources :user_details, only:[:show, :edit, :update,:new,:create]
 
   resources :items do
-
     collection do
       get 'items/search/' =>'items#search',as: 'items/search'
     end
@@ -32,5 +32,4 @@ Rails.application.routes.draw do
   resources :cards, except: [:edit, :update]
 
   get 'pending/index' => 'pending#index',as: 'pending/index'
-  get 'pending/item_edit/' => 'pending#item_edit',as: 'pending/item_edit'
 end

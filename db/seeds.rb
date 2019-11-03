@@ -428,7 +428,7 @@ Item.create!(
     {
       name: 'adidasのスーパースター',
       description: '新品未使用です',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -444,7 +444,7 @@ Item.create!(
     {
       name: 'adidasのスーパースターレインボー',
       description: '新品未使用です',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -461,7 +461,7 @@ Item.create!(
     {
       name: 'adidasのスーパースター黒',
       description: '新品未使用です',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -477,7 +477,7 @@ Item.create!(
     {
       name: 'adidasのスーパースター黄色',
       description: '新品未使用です',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -493,7 +493,7 @@ Item.create!(
     {
       name: 'adidasのスーパースター緑',
       description: '新品未使用です',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -509,7 +509,8 @@ Item.create!(
     {
       name: 'adidasのスーパースター赤',
       description: '新品未使用です',
-      price: '100',
+      ancestry:'1',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -525,7 +526,8 @@ Item.create!(
     {
       name: 'adidasのスーパースター青',
       description: '新品未使用です',
-      price: '100',
+      ancestry:'1',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -541,7 +543,7 @@ Item.create!(
     {
       name: 'adidasのスーパースター茶色',
       description: '新品未使用です',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -557,7 +559,7 @@ Item.create!(
     {
       name: 'muneo',
       description: 'a',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -573,7 +575,8 @@ Item.create!(
     {
       name: 'sonoko',
       description: 'a',
-      price: '100',
+      ancestry:'1',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -589,7 +592,7 @@ Item.create!(
     {
       name: 'papaiya',
       description: 'a',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -605,7 +608,7 @@ Item.create!(
     {
       name: 'udo',
       description: 'a',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -621,7 +624,7 @@ Item.create!(
     {
       name: 'sarina',
       description: 'a',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -637,7 +640,7 @@ Item.create!(
     {
       name: 'sawa',
       description: 'a',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -653,7 +656,7 @@ Item.create!(
     {
       name: 'nana',
       description: 'a',
-      price: '100',
+      price: '300',
       region:'沖縄県',
       delivery_fee: '2',
       delivery_days:'1~2日で発送',
@@ -663,8 +666,8 @@ Item.create!(
       brand_id:'2',
       user_id:'2',
       category_id:'159',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
+      created_at: '2019-09-20 01:00:00',
+      updated_at: '2019-09-20 01:00:00',
     },
   ]
 )

@@ -509,7 +509,6 @@ Item.create!(
     {
       name: 'adidasのスーパースター赤',
       description: '新品未使用です',
-      ancestry:'1',
       price: '300',
       region:'沖縄県',
       delivery_fee: '2',
@@ -526,7 +525,6 @@ Item.create!(
     {
       name: 'adidasのスーパースター青',
       description: '新品未使用です',
-      ancestry:'1',
       price: '300',
       region:'沖縄県',
       delivery_fee: '2',
@@ -575,7 +573,6 @@ Item.create!(
     {
       name: 'sonoko',
       description: 'a',
-      ancestry:'1',
       price: '300',
       region:'沖縄県',
       delivery_fee: '2',

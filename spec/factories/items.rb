@@ -13,10 +13,12 @@ FactoryBot.define do
     size            { "" }
     saved_state     { "" }
     buyer_id        { 1 }
+    created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
     association :user, factory: :user
     association :brand, factory: :brand
     association :category, factory: :category
   end
+
 
   factory :item_buyed, class: Item do
     name            { "テストアイテム" }

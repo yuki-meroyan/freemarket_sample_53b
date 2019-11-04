@@ -2,9 +2,14 @@
 .search__category
   .search__category__nav
     .search__category__nav__lists
-      - @category.siblings.each do |category|
-        = link_to category_path(category), class: "category__sub__content__link-name" do
-          = category.category
+      - if @category.children.present?
+        - @category.children.each do |category|
+          = link_to category_path(category), class: "category__sub__content__link-name" do
+            = category.category
+      - else
+        - @category.path.each do |category|
+          = link_to category_path(category), class: "category__sub__content__link-name" do
+            = category.category
   .search__category__box.clearfix
     .search-item__index
       - if @items.present?

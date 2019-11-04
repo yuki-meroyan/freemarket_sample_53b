@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params , only: [:create]
+  before_action :check_card               , only: [:new_card_add]
   # before_action :configure_account_update_params, only: [:update]
   # GET /resource/sign_up
   def new
@@ -70,6 +71,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_up_phone_number_path
   end
 
+  def check_card
+    # データが存在するかどうかでページを遷移するか変わる
+    card = Card.where(user_id: current_user.id)
+    # 存在している場合はshowアクションへ
+    redirect_to sign_up_complet_path if card.present?
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

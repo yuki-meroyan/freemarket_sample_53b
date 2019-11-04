@@ -4,6 +4,7 @@ class TransactionInformationsController < ApplicationController
   before_action :check_buy_user
   before_action :check_buy_item
   before_action :set_card
+  before_action :set_user_detail
 
   require 'payjp'
 
@@ -56,6 +57,14 @@ class TransactionInformationsController < ApplicationController
 
   def set_card
     @card = current_user.cards.first
+  end
+
+  def set_user_detail
+    @user_detail = UserDetail.find(current_user.id)
+    @prefecture = Prefecture.find(@user_detail.prefectures)
+    unless @user_detail.present?
+      redirect_to new_user_detail_path(current_user) and return
+    end
   end
 
   def set_target_item

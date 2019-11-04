@@ -66,7 +66,7 @@ class CardsController < ApplicationController
         @card_src = "discover.svg"
       end
       # ---------------------------------------------------------------
-      @month_year = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s[1,2]
+      @month_year = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s[2,3]
     end
   end
 

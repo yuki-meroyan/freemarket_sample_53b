@@ -16,7 +16,7 @@ class TransactionInformationsController < ApplicationController
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
-      @month_year = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s[1,2]
+      @month_year = @card_information.exp_month.to_s + " / " + @card_information.exp_year.to_s[2,3]
       @card_brand = @card_information.brand
       case @card_brand
       when "Visa"

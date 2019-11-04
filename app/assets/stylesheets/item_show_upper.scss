@@ -54,6 +54,9 @@ body {
     p{
       margin-left: -40px;
     }
+    &__show {
+      margin-left: 0 !important;
+    }
   }
   &__back{
     position: absolute;

@@ -4,10 +4,11 @@
 %main.l-container.clearfix
   .l-content
     %section.mypage-user-icon
-      = link_to "https://www.mercari.com/jp/u/574995619/" do
+      = link_to "#" do
         %figure
           = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "", height: "60",  width: "60"
-        %h2.bold 直哉
+        %h2.bold 
+          = current_user.nickname
         .mypage-number
           %div
             評価
@@ -29,7 +30,7 @@
       .tab-content
         %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
           %li
-            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
+            = link_to "#", class: "mypage__item__link" do
               %figure
                 = image_tag "https://static.mercdn.net/images/mercari_profile.png", class:"lazyload"
               .mypage__item__link__body
@@ -49,7 +50,7 @@
                   %span 1 日前
               =fa_icon 'chevron-right', class: "icon-arrow-right"
           %li
-            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
+            = link_to "#", class: "mypage__item__link" do
               %figure
                 = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
               .mypage__item__link__body
@@ -69,7 +70,7 @@
                   %span 5 日前
               =fa_icon 'chevron-right', class: "icon-arrow-right"
           %li
-            = link_to "https://www.mercari.com/jp/mypage/news/", class: "mypage__item__link" do
+            = link_to "#", class: "mypage__item__link" do
               %figure
                 = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
               .mypage__item__link__body

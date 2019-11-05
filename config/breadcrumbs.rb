@@ -22,7 +22,7 @@ crumb :user_detail do
 end
 
 crumb :logout do 
-  link "ログアウト", pending_logout_path
+  link "ログアウト", sign_out_confirm_path
   parent :users
 end
 

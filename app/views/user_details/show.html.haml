@@ -21,17 +21,22 @@
           .identification-index
             = f.label :name do
               .identification-index__content お名前
-              %p.identification-index__content--name__text 枡田美衣
+              %p.identification-index__content--name__text 
+                = current_user.user_detail.family_name
+                = current_user.user_detail.first_name
 
           .identification-index
             = f.label :kana do
               .identification-index__content お名前カナ
-              %p.identification-index__content--kana__text マスタビイ
+              %p.identification-index__content--kana__text 
+              = current_user.user_detail.family_name_kana
+              = current_user.user_detail.first_name_kana
 
           .identification-index
             = f.label :birthday do
               .identification-index__content 生年月日
-              %p.identification-index__content--birthday__text 2019/00/00
+              %p.identification-index__content--birthday__text 
+              = current_user.user_detail.birthday
           
           .identification-index
             = f.label :postal_code do

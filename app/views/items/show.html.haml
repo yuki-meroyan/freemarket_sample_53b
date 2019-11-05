@@ -32,7 +32,7 @@
         %tr
           %th 出品者
           %td
-            = link_to  user_path do
+            = link_to  user_path(@item.id) do
               = @item.user.nickname
             %div.ratingbox
               .item__user__ratings
@@ -183,11 +183,19 @@
   - @user_items.each do |item|
     .item-show__item-box
       = link_to  item_path(item)  do
-        - item.item_images.each_with_index do |item_image, i|
-          - if i == 0
-            = image_tag item_image.image.url, alt: 'item-image', class: 'recommnd-item__image'
-          - else
-            - break
+        -if item.status == 1
+          .soldout__tag
+            .soldout__tag__text
+              %p.soldout__tag__text__show SOLD
+              .soldout__tag__back
+        - if item.item_images.present?
+          - item.item_images.each_with_index do |item_image, i|
+            - if i == 0
+              = image_tag item_image.image.url, alt: 'item-image', class: 'recommnd-item__image'
+            - else
+              - break
+        - else
+          = image_tag 'no-image.png', alt: 'item-image', class: 'recommnd-item__image'
         .item-show__item-box-text
           %span.item-show__item-box__title
             = item.name
@@ -198,7 +206,6 @@
             .item-box-text__fee-box__right
               = fa_icon 'heart-o', class: "icon"
               %span  1
-
 .item__buyer-collection-title
   = link_to  "#"  do
     %h2
@@ -208,11 +215,19 @@
   - @brand_items.each do |item|
     .item-show__item-box
       = link_to  item_path(item)  do
-        - item.item_images.each_with_index do |item_image, i|
-          - if i == 0
-            = image_tag item_image.image.url, alt: 'item-image', class: 'recommnd-item__image'
-          - else
-            - break
+        -if item.status == 1
+          .soldout__tag
+            .soldout__tag__text
+              %p.soldout__tag__text__show SOLD
+              .soldout__tag__back
+        - if item.item_images.present?
+          - item.item_images.each_with_index do |item_image, i|
+            - if i == 0
+              = image_tag item_image.image.url, alt: 'item-image', class: 'recommnd-item__image'
+            - else
+              - break
+        - else
+          = image_tag 'no-image.png', alt: 'item-image', class: 'recommnd-item__image'
         .item-show__item-box-text
           %span.item-show__item-box__title
             = item.name

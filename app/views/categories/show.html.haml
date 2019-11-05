@@ -1,0 +1,42 @@
+= render partial: 'shared/header'
+.search__category
+  .search__category__nav
+    .search__category__nav__lists
+      - if @category.children.present?
+        - @category.children.each do |category|
+          = link_to category_path(category), class: "category__sub__content__link-name" do
+            = category.category
+      - else
+        - @category.path.each do |category|
+          = link_to category_path(category), class: "category__sub__content__link-name" do
+            = category.category
+  .search__category__box.clearfix
+    .search-item__index
+      - if @items.present?
+        - @items.each do |item|
+          .search-item__index__box
+            .search-item__index__content
+              .search_item__image
+                = link_to  item_path(item)  do
+                  -if item.item_images.present?
+                    - item.item_images.each_with_index do |item_image,i|
+                      - if i == 0
+                        =image_tag item_image.image.url, width:"160",height:"170"
+                      - else
+                        - break
+                  - else
+                    =image_tag 'no-image.png',class: 'search-items__image', width:"160",height:"170"
+              .search-item__index__text
+                = item.name
+              .item-price
+                ¥
+                = item.price
+              .item-likes
+                .item-likes__count
+                = fa_icon "heart-o", class:'like-count-icon' 
+                %span 1
+      - else
+        .search-item__index__box
+          .search__category__no-item
+            %span.search__category__no-item--text 該当商品なし
+    = paginate(@items)

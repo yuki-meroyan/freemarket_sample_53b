@@ -89,6 +89,90 @@
   -webkit-box-pack: justify;
 }
 
+.nav{
+  &__category{
+    position: absolute;
+    display: flex;
+    background-color: $white;  
+    z-index: 1;
+
+    &__box{
+      border-color: rgb(204, 204, 204);
+      border-width: 0 0.5px;
+    }
+
+    &__parent{
+      display: none;
+      width: 240px;
+
+      &__active{
+        background-color: red;
+        color: white;
+      }
+
+      &__list{
+        width: 100%;
+
+        li{
+          display: block;
+          margin-left: 20px;
+          font-size: 14px;
+          line-height: 44px;
+        }
+      }
+    }
+
+    &__child{
+      display: none;
+      min-width: 240px;
+
+      &__active{
+        background-color: gray;
+        color: black;
+      }
+
+      &__list{
+        width: 100%;
+
+        li{
+          display: block;
+          margin-left: 20px;
+          font-size: 14px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    &__grandchild{
+      display: none;
+      min-width: 300px;
+
+      &__active{
+        background-color: rgb(214, 212, 212);
+        color: black;
+      }
+      
+      &__list{
+        width: 100%;
+        li{
+          display: block;
+          margin-left: 20px;
+          font-size: 14px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    ul{
+      margin-block-start: 0px;
+      margin-block-end: 0px;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+    }
+    
+  }
+}
+
 .nav__left{
   display: flex;
   margin-left: -3px;
@@ -165,7 +249,7 @@
   float: right;
   text-align: center;
 
-  &__sign-in{  
+  &__sign-in{
     height: 44px;
     line-height: 14px;
     margin-left: 11px;

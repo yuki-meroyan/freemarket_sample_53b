@@ -30,6 +30,6 @@ Rails.application.routes.draw do
   resources :users
   resources :users_items, only: [:index, :show]
   resources :cards, except: [:edit, :update]
-
-  get 'pending/index' => 'pending#index',as: 'pending/index'
+  resources :categories, only: [:index, :show]
+  
 end

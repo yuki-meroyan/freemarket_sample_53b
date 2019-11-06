@@ -19,7 +19,7 @@
             %h3{class: "category__main__parent--name category-#{item_parent.id}" }
               = item_parent.category
           .category__sub.clearfix
-            = link_to category_path(item_parent), class: "category__sub__content__link-name" do
+            = link_to category_path(item_parent, position: "parent"), class: "category__sub__content__link-name" do
               %p.category__sub__title
                 すべて
             - item_parent.children.each do |item_child|
@@ -28,10 +28,10 @@
                   = item_child.category
               .category__main__grandchild.clearfix
                 .category__main__grandchild__box
-                  = link_to category_path(item_child), class: "category__main__grandchild__link-name" do
+                  = link_to category_path(item_child, position: "child"), class: "category__main__grandchild__link-name" do
                     %p すべて
                 - item_child.children.each do |item_grandchild|
                   .category__main__grandchild__box
-                    = link_to category_path(item_grandchild), class: "category__main__grandchild__link-name" do
+                    = link_to category_path(item_grandchild, position: "grandchild"), class: "category__main__grandchild__link-name" do
                       %p 
                         = item_grandchild.category

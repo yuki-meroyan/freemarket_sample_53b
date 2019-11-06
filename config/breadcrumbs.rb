@@ -52,3 +52,18 @@ crumb :category_lists do
   link "カテゴリー一覧", categories_path
   parent :root
 end
+
+crumb :category_parent do |category_parent|
+  link category_parent.category, category_path(category_parent)
+  parent :category_lists
+end
+
+crumb :category_child do |category_child|
+  link category_child.category, category_path(category_child, position: "parent")
+  parent :category_parent, category_child.parent
+end
+
+crumb :category_grandchild do |category_grandchild|
+  link category_grandchild.category, category_path(category_grandchild, position: "parent")
+  parent :category_child, category_grandchild.parent
+end

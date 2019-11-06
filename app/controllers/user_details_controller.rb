@@ -30,7 +30,11 @@ class UserDetailsController < ApplicationController
   end
 
   def set_user_detail
-    @user_detail = UserDetail.find(current_user.id)
+    if @user_detail.present?
+      @user_detail = UserDetail.find(current_user.id)
+    else
+      render :show
+    end
   end
 
   private

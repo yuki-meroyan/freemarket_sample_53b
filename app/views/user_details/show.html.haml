@@ -29,15 +29,21 @@
             = f.label :kana do
               .identification-index__content お名前カナ
               %p.identification-index__content--kana__text 
-              = current_user.user_detail.family_name_kana
-              = current_user.user_detail.first_name_kana
+              - if @user_detail.present? 
+                = @user_detail.family_name_kana
+                = @user_detail.first_name_kana
+              - else
+                未入力です
 
           .identification-index
             = f.label :birthday do
               .identification-index__content 生年月日
               %p.identification-index__content--birthday__text 
-              = current_user.user_detail.birthday
-          
+              - if @user_detail.present?
+                = @user_detail.birthday
+              - else
+                未入力です
+
           .identification-index
             = f.label :postal_code do
               %span.identification-index__content 郵便番号

@@ -47,3 +47,8 @@ crumb :users_item do
   link " 出品商品画面"
   parent :users_items
 end
+
+crumb :category_lists do
+  link "カテゴリー一覧", categories_path
+  parent :root
+end

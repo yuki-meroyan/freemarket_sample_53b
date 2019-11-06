@@ -1,4 +1,6 @@
 = render partial: 'shared/header'
+- breadcrumb :category_lists
+= render 'shared/pankuzu_merukari'
 .category__content
   .category__main
     .category__main__title
@@ -6,14 +8,15 @@
         カテゴリー一覧
     .category__main__top.clearfix
       - @items.where('ancestry is null').each do |item|
-        .category__main__top__link-name
-          = item.category
+        = link_to '#' do
+          .category__main__top__link-name{id: "category-#{item.id}"}
+            = item.category
 
     .category__main__list-box
       - @items.where('ancestry is null').each do |item_parent|
         .category__main__content.clearfix
           .category__main__parent
-            %h3.category__main__parent--name
+            %h3{class: "category__main__parent--name category-#{item_parent.id}" }
               = item_parent.category
           .category__sub.clearfix
             = link_to category_path(item_parent), class: "category__sub__content__link-name" do

@@ -1,5 +1,5 @@
 class UserDetailsController < ApplicationController
-  before_action :check_user_detail  , only: [:new, :create]
+  before_action :check_user_detail
   before_action :set_user_detail    , only: [:show, :edit]
 
   def new
@@ -22,7 +22,7 @@ class UserDetailsController < ApplicationController
 
   def show
   end
-  
+
   def edit
   end
 
@@ -40,8 +40,7 @@ class UserDetailsController < ApplicationController
   end
 
   def check_user_detail
-    user_detail = UserDetail.find(current_user.id)
-    redirect_to sign_up_card_add_path(current_user) if user_detail.present?
+    redirect_to sign_up_card_add_path(current_user) if current_user.user_detail.present?
   end
 
 end

@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :comments
   has_many :cards
-  has_one :user_detail  , dependent: :destroy
+  has_one :user_detail  , dependent: :destroy                   , foreign_key: 'user_id'
   has_many :buyer       , class_name: 'TransactionInformations' , foreign_key: 'buyer_id'
   has_many :seller      , class_name: 'TransactionInformations' , foreign_key: 'seller_id'
   has_many :from_user   , class_name: 'TransactionMessages'     , foreign_key: 'from_user_id'

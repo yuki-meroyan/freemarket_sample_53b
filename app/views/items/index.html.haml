@@ -38,7 +38,7 @@
         %li.popular-category__name
           メンズ
         %li.popular-category__name
-          家電・スマホ・カメラ 
+          家電・スマホ・カメラ
         %li.popular-category__name
           おもちゃ・ホビー・グッズ
     .new-arrival-list
@@ -70,8 +70,94 @@
             .new-arrival-item__box--price
               ¥
               = item.price
-
-
+              @mens_items
+    .new-arrival-list
+      .new-arrival-list__block
+        %h3.new-arrival-item__title
+          メンズ新着アイテム
+        %p.new-arrival-item__more
+          もっと見る
+          =fa_icon"chevron-right",class:'icon'
+      .new-arrival-item
+        - @mens_items.each do |item|
+          .new-arrival-item__box
+            = link_to  item_path(item)  do
+              -if item.status == 1
+                .soldout__tag
+                  .soldout__tag__text
+                    %p SOLD
+                    .soldout__tag__back
+              -if item.item_images.present?
+                - item.item_images.each_with_index do |item_image, i|
+                  - if i == 0
+                    = image_tag item_image.image.url, alt: 'item-image', class: 'new-arrival-item__box--image'
+                  - else
+                    - break
+              - else
+                =image_tag 'no-image.png',class: 'new-arrival-item__box--image'
+            .new-arrival-item__box--text
+              = item.name
+            .new-arrival-item__box--price
+              ¥
+              = item.price
+    .new-arrival-list
+      .new-arrival-list__block
+        %h3.new-arrival-item__title
+          家電・スマホ・カメラ 新着アイテム
+        %p.new-arrival-item__more
+          もっと見る
+          =fa_icon"chevron-right",class:'icon'
+      .new-arrival-item
+        - @electronics_items.each do |item|
+          .new-arrival-item__box
+            = link_to  item_path(item)  do
+              -if item.status == 1
+                .soldout__tag
+                  .soldout__tag__text
+                    %p SOLD
+                    .soldout__tag__back
+              -if item.item_images.present?
+                - item.item_images.each_with_index do |item_image, i|
+                  - if i == 0
+                    = image_tag item_image.image.url, alt: 'item-image', class: 'new-arrival-item__box--image'
+                  - else
+                    - break
+              - else
+                =image_tag 'no-image.png',class: 'new-arrival-item__box--image'
+            .new-arrival-item__box--text
+              = item.name
+            .new-arrival-item__box--price
+              ¥
+              = item.price
+    .new-arrival-list
+      .new-arrival-list__block
+        %h3.new-arrival-item__title
+          おもちゃ・ホビー・グッズ 新着アイテム
+        %p.new-arrival-item__more
+          もっと見る
+          =fa_icon"chevron-right",class:'icon'
+      .new-arrival-item
+        - @toys_items.each do |item|
+          .new-arrival-item__box
+            = link_to  item_path(item)  do
+              -if item.status == 1
+                .soldout__tag
+                  .soldout__tag__text
+                    %p SOLD
+                    .soldout__tag__back
+              -if item.item_images.present?
+                - item.item_images.each_with_index do |item_image, i|
+                  - if i == 0
+                    = image_tag item_image.image.url, alt: 'item-image', class: 'new-arrival-item__box--image'
+                  - else
+                    - break
+              - else
+                =image_tag 'no-image.png',class: 'new-arrival-item__box--image'
+            .new-arrival-item__box--text
+              = item.name
+            .new-arrival-item__box--price
+              ¥
+              = item.price
     .popular-brands
       %h2.popular-brands__title
         人気のブランド

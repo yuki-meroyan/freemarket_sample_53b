@@ -6,60 +6,32 @@ class ItemsController < ApplicationController
   require 'ancestry'
 
   def index
-    # 配列の用意
-    @all_ladys_items = []
-    #レディースカテゴリーの指定
-    @ladys=Category.find(1)
-    # レディースカテゴリーの子孫のカテゴリーを全て取得
-    @ladys_grandchiildren = @ladys.subtree
-    #子孫カテゴリーに該当するアイテムを全て変数に入れる
-    @ladys_grandchiildren.each do |lady|
-      @one_ladys_categoy_items = Item.where(category_id: lady.id)
-      @all_ladys_items << @one_ladys_categoy_items
+    # トップページに表示する商品を入れるための配列
+    @all_category_items=[]
+    # トップページのカテゴリー
+    @top_catgories = Category.where(id: [1,2,6,8])
+    @top_catgories.each do |category|
+      # 各カテゴリーの賞品を入れる配列の用意
+      @all_items = []
+      # カテゴリーの子孫のカテゴリーを全て取得
+      @grandchiildren = category.subtree
+      #子孫カテゴリーに該当するアイテムを全て変数に入れる
+      @grandchiildren.each do |lady|
+        @one_categoy_items = Item.where(category_id: lady.id)
+        @all_items << @one_categoy_items
+      end
+      #[孫][孫]の様な多次元配列を一次元にする
+      @all_items.flatten!
+      # 取り出した商品を更新日が新しい順に
+      @all_items.sort_by!{|item|item.updated_at}.reverse!
+      # 配列の最初から10個のみ表示
+      @items= @all_items.first(10)
+      @all_category_items << @items
     end
-    #多次元配列を一次元にする
-    @all_ladys_items.flatten!
-    # 取り出した商品を更新日が新しい順に
-    @all_ladys_items.sort_by!{|item|item.updated_at}.reverse!
-    # 配列の最初から10個のみ表示
-    @ladys_items= @all_ladys_items.first(10)
-
-    # メンズ
-    @all_mens_items = []
-    @mens=Category.find(2)
-    @mens_grandchiildren = @mens.subtree
-    @mens_grandchiildren.each do |men|
-      @one_mens_categoy_items = Item.where(category_id: men.id)
-      @all_mens_items << @one_mens_categoy_items
-    end
-    @all_mens_items.flatten!
-    @all_mens_items.sort_by!{|item|item.updated_at}.reverse!
-    @mens_items= @all_mens_items.first(10)
-
-
-    # 家電
-    @all_electronics_items = []
-    @electronics=Category.find(8)
-    @electronics_grandchiildren = @electronics.subtree
-    @electronics_grandchiildren.each do |lady|
-      @one_electronics_categoy_items = Item.where(category_id: lady.id)
-      @all_electronics_items << @one_electronics_categoy_items
-    end
-    @all_electronics_items.flatten!
-    @all_electronics_items.sort_by!{|item|item.updated_at}.reverse!
-    @electronics_items= @all_electronics_items.first(10)
-
-    # おもちゃ
-    @all_toys_items = []
-    @toys=Category.find(6)
-    @toys_grandchiildren = @toys.subtree
-    @toys_grandchiildren.each do |lady|
-      @one_toys_categoy_items = Item.where(category_id: lady.id)
-      @all_toys_items << @one_toys_categoy_items
-    end
-    @all_toys_items.flatten!
-    @all_toys_items.sort_by!{|item|item.updated_at}.reverse!
-    @toys_items= @all_toys_items.first(10)
+    @ladys_items           = @all_category_items[0]
+    @mens_items            = @all_category_items[1]
+    @toys_items            = @all_category_items[2]
+    @electronics_items     = @all_category_items[3]
 
     @item_image = Item.includes(:image)
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")

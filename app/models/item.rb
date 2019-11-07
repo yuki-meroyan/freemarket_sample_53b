@@ -16,7 +16,6 @@ class Item < ApplicationRecord
   validates :delivery_fee                         , inclusion: {in: [true, false]}
   validates :delivery_days                        , presence: true
   validates :shipping_method                      , presence: true
-  validates :brand                                , presence: true
   validates :user                                 , presence: true
   validates :category                             , presence: true
 end

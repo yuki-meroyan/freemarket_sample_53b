@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     # トップページのカテゴリー
     @top_catgories = Category.where(id: [1,2,6,8])
     @top_catgories.each do |category|
-      # 各カテゴリーの賞品を入れる配列の用意
+      # 各カテゴリーの商品を入れる配列の用意
       @all_items = []
       # カテゴリーの子孫のカテゴリーを全て取得
       @grandchiildren = category.subtree

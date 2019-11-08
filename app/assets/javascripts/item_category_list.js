@@ -95,7 +95,7 @@ $(function(){
       grandchildLists.forEach(function(grandchild){
         var insertHTML = `<div class="grandchild-list" data-category-id=${grandchild.id} data-position="grandchild">
                             <li>
-                              <a class="category__main__grandchild__link-name" href="/categories/${grandchild.id}?position=glandchild">
+                              <a class="category__main__grandchild__link-name" href="/categories/${grandchild.id}?position=grandchild">
                                 <p>${grandchild.category}</p>
                               </a>
                             </li>

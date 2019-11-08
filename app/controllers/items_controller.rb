@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
       @grandchiildren = category.subtree
       #子孫カテゴリーに該当するアイテムを全て変数に入れる
       @grandchiildren.each do |lady|
-        @one_categoy_items = Item.where(category_id: lady.id)
+        @one_categoy_items = Item.where(category_id: lady.id).where(status: 0)
         @all_items << @one_categoy_items
       end
       #[孫][孫]の様な多次元配列を一次元にする

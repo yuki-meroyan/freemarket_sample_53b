@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @position = params[:position]
     @items = Item.where(category_id: @category.subtree).page(params[:page]).per(12)
   end
 

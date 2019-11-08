@@ -4,17 +4,17 @@ $(function(){
 
   // *** ready 着火 セット ***
   $(document).ready(function(){
-  //--- 読み込まれたタイミングでカテゴリー情報を取得    
+  //--- 読み込まれたタイミングでカテゴリー情報を取得
     $.ajax({
       type: 'GET',
       url: `/categories`,
       data: {keyword: "all"},
       dataType: 'json'
     })
-    .done(function(categories) {  
+    .done(function(categories) {
       categoryLists = categories
     })
-  });         
+  });
   // *** ready 着火 セット の終わり ***
 
   $('.shared-header__nav').on('mouseenter', '#nav-category', function(){ 
@@ -53,7 +53,7 @@ $(function(){
     );
     if (childLists.length !== 0) {
       var insertHTML = "";
-      $('.nav__category__child').css('display', 'flex'); 
+      $('.nav__category__child').css('display', 'flex');
       $('.nav__category__child__list').empty();
       $('.nav__category__grandchild__list').empty();
       $('.nav__category__grandchild').css('display', 'none');
@@ -90,7 +90,7 @@ $(function(){
     );
     if (grandchildLists.length !== 0) {
       var insertHTML = "";
-      $('.nav__category__grandchild').css('display', 'flex'); 
+      $('.nav__category__grandchild').css('display', 'flex');
       $('.nav__category__grandchild__list').empty();
       grandchildLists.forEach(function(grandchild){
         var insertHTML = `<div class="grandchild-list" data-category-id=${grandchild.id} data-position="grandchild">
@@ -123,22 +123,29 @@ $(function(){
       })
     },
   );
-  // *** 孫 セット の終わり *** 
+  // *** 孫 セット の終わり ***
 
-  // *** リセット セット *** 
+  // *** リセット セット ***
   $('#nav-category').on('mouseleave', function(){
     $('.nav__category__parent__list').empty();
-    $('.nav__category__parent').css('display', 'none'); 
+    $('.nav__category__parent').css('display', 'none');
     $('.nav__category__child__list').empty();
-    $('.nav__category__child').css('display', 'none'); 
+    $('.nav__category__child').css('display', 'none');
     $('.nav__category__grandchild__list').empty();
-    $('.nav__category__grandchild').css('display', 'none'); 
+    $('.nav__category__grandchild').css('display', 'none');
   })
-  // *** リセット セット の終わり *** 
+  // *** リセット セット の終わり ***
 
   // *** 再びカテゴリーを探すを選択された場合のみ子リストをリセット ***
   $('.nav__left__link').on('mouseover', function(){
     $('.nav__category__child__list').empty();
-    $('.nav__category__child').css('display', 'none'); 
+    $('.nav__category__child').css('display', 'none');
+  })
+
+  // *** スクロール設定 ***
+  $('.category__main__top__link-name').on('click', function(e){
+    e.preventDefault();
+    var id = $(this).attr('id');
+    $("html,body").animate({scrollTop:$('.' + id).offset().top - 20});
   })
 });  //--- functionの終わり

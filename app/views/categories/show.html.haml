@@ -1,14 +1,27 @@
 = render partial: 'shared/header'
+- if @position == "parent"
+  - breadcrumb :category_parent, @category
+  = render 'shared/pankuzu_merukari'
+- elsif @position == "child"
+  - breadcrumb :category_child, @category
+  = render 'shared/pankuzu_merukari'
+- elsif @position == "grandchild"
+  - breadcrumb :category_grandchild, @category
+  = render 'shared/pankuzu_merukari'
 .search__category
   .search__category__nav
     .search__category__nav__lists
-      - if @category.children.present?
+      - if @position == "parent"
         - @category.children.each do |category|
-          = link_to category_path(category), class: "category__sub__content__link-name" do
+          = link_to category_path(category, position: "child"), class: "category__sub__content__link-name" do
             = category.category
-      - else
-        - @category.path.each do |category|
-          = link_to category_path(category), class: "category__sub__content__link-name" do
+      - elsif @position == "child"
+        - @category.children.each do |category|
+          = link_to category_path(category, position: "grandchild"), class: "category__sub__content__link-name" do
+            = category.category
+      - elsif @position == "grandchild"
+        - @category.siblings.each do |category|
+          = link_to category_path(category, position: "grandchild"), class: "category__sub__content__link-name" do
             = category.category
   .search__category__box.clearfix
     .search-item__index
@@ -40,3 +53,4 @@
           .search__category__no-item
             %span.search__category__no-item--text 該当商品なし
     = paginate(@items)
+= render partial: 'shared/footer'

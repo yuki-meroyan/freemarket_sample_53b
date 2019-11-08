@@ -205,12 +205,12 @@
             .item-box-text__fee-box__right
               = fa_icon 'heart-o', class: "icon"
               %span  1
-.item__buyer-collection-title
-  = link_to  "#"  do
-    %h2
-      = @item.brand.name
-      その他の商品
 - if @brand_items.present?
+  .item__buyer-collection-title
+    = link_to  "#"  do
+      %h2
+        = @item.brand.name
+        その他の商品
   .item__brand-collection
     - @brand_items.each do |item|
       .item-show__item-box

@@ -60,7 +60,7 @@ class TransactionInformationsController < ApplicationController
   end
 
   def set_user_detail
-    @user_detail = UserDetail.find(current_user.id)
+    @user_detail = UserDetail.find(current_user.user_detail.id)
     @prefecture = Prefecture.find(@user_detail.prefectures)
     unless @user_detail.present?
       redirect_to new_user_detail_path(current_user) and return

@@ -28,10 +28,6 @@ class ItemsController < ApplicationController
       @items= @all_items.first(10)
       @all_category_items << @items
     end
-    @ladys_items           = @all_category_items[0]
-    @mens_items            = @all_category_items[1]
-    @toys_items            = @all_category_items[2]
-    @electronics_items     = @all_category_items[3]
 
     @item_image = Item.includes(:image)
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")

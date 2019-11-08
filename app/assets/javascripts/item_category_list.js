@@ -32,7 +32,7 @@ $(function(){
       parentLists.forEach(function(parent){
         var insertHTML = `<div class="parent-list" data-category-id=${parent.id} data-position="parent">
                             <li>
-                              <a class="category__main__grandchild__link-name" href="/categories/${parent.id}">
+                              <a class="category__main__grandchild__link-name" href="/categories/${parent.id}?position=parent">
                                 <p>${parent.category}</p>
                               </a>
                             </li>
@@ -60,7 +60,7 @@ $(function(){
       childLists.forEach(function(child){
         var insertHTML = `<div class="child-list" data-category-id=${parent_id}/${child.id} data-position="child">
                             <li>
-                              <a class="category__main__grandchild__link-name" href="/categories/${child.id}">
+                              <a class="category__main__grandchild__link-name" href="/categories/${child.id}?position=child">
                                 <p>${child.category}</p>
                               </a>
                             </li>
@@ -95,7 +95,7 @@ $(function(){
       grandchildLists.forEach(function(grandchild){
         var insertHTML = `<div class="grandchild-list" data-category-id=${grandchild.id} data-position="grandchild">
                             <li>
-                              <a class="category__main__grandchild__link-name" href="/categories/${grandchild.id}">
+                              <a class="category__main__grandchild__link-name" href="/categories/${grandchild.id}?position=glandchild">
                                 <p>${grandchild.category}</p>
                               </a>
                             </li>

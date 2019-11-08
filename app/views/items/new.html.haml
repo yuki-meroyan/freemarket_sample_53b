@@ -1,10 +1,16 @@
 = render partial: 'shared/mercari-header'
-%main.single-header
-  %section.l__single__container.buy-item-container
-    .sell__container
-      .sell__container__inner
-        %h2.l__single__head 商品の情報を入力
-        = form_with model: @item, class: "sell__form" , local: true do |f|
+= form_with model: @item, class: "sell__form" , local: true do |f|
+  %main.single-header
+    %section.l__single__container.buy-item-container
+      - if @item.errors.full_messages.any?
+        .item-form__errors
+          %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+          %ul
+            - @item.errors.full_messages.each do |message|
+              %li= message
+      .sell__container
+        .sell__container__inner
+          %h2.l__single__head 商品の情報を入力
           .sell__upload__box
             %h3.sell__upload__head
               出品画像

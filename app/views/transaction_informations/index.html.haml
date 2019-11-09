@@ -41,12 +41,15 @@
         %h3.item-buy__shipping__top
           配送先
         %address.item-buy__shipping__address
-          〒000-0000
+        - if @user_detail.postal_code.to_s[6]
+          = @user_detail.postal_code
+          -# = "〒" + @user_detail.postal_code.to_s[0,1,2] + "-" + @user_detail.postal_code.to_s[3,4,5,6]
           %br/
-          ★★★県●●●市✖︎✖︎✖︎
           %br/
-          マスターB
-          
+          = @prefecture.name + " " + @user_detail.cities
+          %br/
+          %br/
+          = @user_detail.family_name + @user_detail.first_name
         = link_to root_path, class: "item-buy__change" do
           %span.item-buy__change--text
             変更する

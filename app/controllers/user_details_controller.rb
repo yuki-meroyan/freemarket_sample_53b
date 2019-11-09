@@ -1,6 +1,7 @@
 class UserDetailsController < ApplicationController
 
-  before_action :set_user_detail, only:[:edit, :show]
+  before_action :check_user_detail
+  before_action :set_user_detail    , only: [:show, :edit]
 
   def new
     @user_detail = UserDetail.new
@@ -49,6 +50,10 @@ class UserDetailsController < ApplicationController
 
   def user_detail_params
     params.require(:user_detail).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :birthday, :postal_code, :prefectures, :cities, :address, :building_name).merge(user_id: current_user.id)
+  end
+
+  def check_user_detail
+    redirect_to sign_up_card_add_path(current_user) if current_user.user_detail.present?
   end
 
 end

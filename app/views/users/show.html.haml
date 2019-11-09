@@ -6,9 +6,10 @@
     %section.mypage-user-icon
       = link_to "#" do
         %figure
-          = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "", height: "60",  width: "60"
+          = image_tag "member_photo_noimage_thumb.png",alt: "", height: "60",  width: "60"
         %h2.bold 
           = current_user.nickname
+
         .mypage-number
           %div
             評価
@@ -32,7 +33,7 @@
           %li
             = link_to "#", class: "mypage__item__link" do
               %figure
-                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class:"lazyload"
+                = image_tag "mercari_profile.png", class:"lazyload"
               .mypage__item__link__body
                 .mypage-item-text 事務局から個別メッセージ「《明日まで》メルペイ電子マネー(iD)を設定するだけでP500プレゼント！」
                 %time
@@ -42,7 +43,7 @@
           %li
             = link_to "#", class: "mypage__item__link" do
               %figure
-                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
+                = image_tag "mercari_profile.png", class: "lazyload"
               .mypage__item__link__body
                 .mypage-item-text 《友達を招待すると必ずP1,000プレゼント》友達誘ってメルペイしようぜ！
                 %time
@@ -52,7 +53,7 @@
           %li
             = link_to "#", class: "mypage__item__link" do
               %figure
-                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
+                = image_tag "mercari_profile.png", class: "lazyload"
               .mypage__item__link__body
                 .mypage-item-text 事務局から個別メッセージ「《このメッセージを受け取られた方限定》9/1まで！メルペイ電子マネー(iD)を設定するだけでP500プレゼント！」
                 %time
@@ -62,7 +63,7 @@
           %li
             = link_to "#", class: "mypage__item__link" do
               %figure
-                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
+                = image_tag "mercari_profile.png", class: "lazyload"
               .mypage__item__link__body
                 .mypage-item-text 明日、20%割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
                 %time
@@ -72,7 +73,7 @@
           %li
             = link_to "#", class: "mypage__item__link" do
               %figure
-                = image_tag "https://static.mercdn.net/images/mercari_profile.png", class: "lazyload"
+                = image_tag "mercari_profile.png", class: "lazyload"
               .mypage__item__link__body
                 .mypage-item-text 事務局から個別メッセージ「20%OFFのお得チケットが届きました！※最大割引額￥1,000」
                 %time
@@ -80,17 +81,17 @@
                   %span 6 日前
               =fa_icon 'chevron-right', class: "icon-arrow-right"
           %li.mypage-go-list
-            = link_to  "一覧を見る", "/jp/mypage/notification/"
+            = link_to  "一覧を見る", "#"
     %section.mypage-tab-container
       %h2.mypage-tab-head.boldn 購入した商品
       %ul.mypage-tabs
         %li.active
           %h3.boldn
-            = link_to "#mypage-tab-transaction-now" do
+            = link_to  "#",id:"mypage-tab-transaction-now" do
               取引中
         %li
           %h3.boldn
-            = link_to "#mypage-tab-transaction-old" do
+            = link_to "#", id:"mypage-tab-transaction-old" do
               過去の取引
       .tab-content
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active

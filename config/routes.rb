@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
  
-  devise_for :users, :controllers => {
+  devise_for :users, controllers:{
     registrations: 'users/registrations',
     passwords: 'users/passwords',
-    omniauth_callbacks: 'users/omniauth_callbacks' 
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions'
   }
 
   devise_scope :user do
@@ -18,7 +19,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "items#index"
   resources :user_details, only:[:show, :edit, :update,:new,:create]
-  resources :items  do
+
+  resources :items do
     collection do
       get 'items/search/' =>'items#search',as: 'items/search'
     end
@@ -28,7 +30,6 @@ Rails.application.routes.draw do
   resources :users
   resources :users_items, only: [:index, :show]
   resources :cards, except: [:edit, :update]
-
-  get 'pending/index' => 'pending#index',as: 'pending/index'
-  get 'pending/item_edit/' => 'pending#item_edit',as: 'pending/item_edit'
+  resources :categories, only: [:index, :show]
+  
 end

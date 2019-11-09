@@ -1,4 +1,6 @@
 = render partial: 'shared/header'
+- breadcrumb :card
+= render 'shared/pankuzu_merukari'
 .card__show
   .l__container
     .l__content 
@@ -18,10 +20,9 @@
                     .settings__payment__num
                       = @month_year
                   = f.submit "削除する", {class: "settings__payment__remove"}
-                  
           .settings__not__regist
-            = link_to "https://www.mercari.com/jp/",{terget: "_blank"} , method: :get do
-              %span 支払い方法について 
+            = link_to "#",{terget: "_blank"} , method: :get do
+              %span 支払い方法について
               = fa_icon 'chevron-right', class: "card-show__arrow"
   = render partial: 'shared/user_menu'
 = render partial: 'shared/footer'

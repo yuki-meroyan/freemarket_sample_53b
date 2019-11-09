@@ -1,12 +1,18 @@
 = render partial: 'shared/mercari-header'
-%main.single-header
-  %section.l__single__container.buy-item-container
-    .sell__container
-      .sell__container__inner
-        %h2.l__single__head 商品の情報を入力
-        = form_with model: @item, class: "sell__form" , local: true do |f|
+= form_with model: @item, class: "sell__form" , local: true do |f|
+  %main.single-header
+    %section.l__single__container.buy-item-container
+      - if @item.errors.full_messages.any?
+        .item-form__errors
+          %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+          %ul
+            - @item.errors.full_messages.each do |message|
+              %li= message
+      .sell__container
+        .sell__container__inner
+          %h2.l__single__head 商品の情報を入力
           .sell__upload__box
-            %h3.sell__upload__head{data: {item_id: @item.id}}
+            %h3.sell__upload__head
               出品画像
               %span.form__require 必須
             %p 最大10枚までアップロードできます
@@ -69,7 +75,7 @@
                   %div
                     .select-wrap
                       =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                      = f.select :size ,[],{}, :class => 'item__f-select'
+                      = f.select :size ,[],{}, class: 'item__f-select'
               - else
                 .form__group#size__select__box{style: "display:block" ,data: {size: @item.size}}
                   = f.label :xxx do
@@ -78,13 +84,16 @@
                   %div
                     .select-wrap
                       =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                      = f.select :size ,[],{}, :class => 'item__f-select'
+                      = f.select :size ,[],{}, class: 'item__f-select'
               .form__group.form__suggest__container
                 = f.label :brand_id do
                   ブランド
                   %span.form__arbitrary 任意
                 %div
-                  = f.text_field :brand_id, name: "brand_id", url:"#", class: "input__default", placeholder: "例) シャネル",value: "#{@item.brand.name}"
+                  = f.hidden_field :brand_id
+                  %input{id:"item-brand_id__input", name: "name", type: "text", class: "input__default", placeholder: "例) シャネル"}
+                  .brand__candidate__box
+                    %ul.brand__candidate__box__inner
               .form__group
                 = f.label :status do
                   商品の状態
@@ -92,7 +101,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :saved_state ,['---','新品/未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い'],{}, :class => 'item__f-select'
+                    = f.select :saved_state ,['---','新品/未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い'],{}, class: 'item__f-select'
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 配送について
             .sell__form__content__box
@@ -103,7 +112,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :delivery_fee ,[['---'],['送料込み(出品者負担)', true], ['着払い(購入者負担)',false]],{}, :class => 'item__f-select'
+                    = f.select :delivery_fee ,[['---'],['送料込み(出品者負担)', true], ['着払い(購入者負担)',false]],{}, class: 'item__f-select'
               .form__group
                 = f.label :delivery_fee do
                   配送の方法
@@ -111,7 +120,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :shipping_method ,["#{@item.shipping_method}"],{}, :class => 'item__f-select'
+                    = f.select :shipping_method ,["#{@item.shipping_method}"],{}, class: 'item__f-select'
               .form__group
                 = f.label :region do
                   発送元の地域
@@ -119,7 +128,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.collection_select :region, Prefecture.all, :name, :name, {},:class => 'item__f-select'
+                    = f.collection_select :region, Prefecture.all, :name, :name, {},class: 'item__f-select'
               .form__group
                 = f.label :delivery_days do
                   発送までの日数
@@ -127,7 +136,7 @@
                 %div
                   .select-wrap
                     =fa_icon 'chevron-down', class: "icon-arrow-bottom"
-                    = f.select :delivery_days ,['---','1~2日で発送',' 3~4日で発送',' 4~7日で発送'],{}, :class => 'item__f-select'
+                    = f.select :delivery_days ,['---','1~2日で発送',' 3~4日で発送',' 4~7日で発送'],{}, class: 'item__f-select'
 
           .sell__form__content.clearfix
             %h3.sell__form__content__sub-head 販売価格(300~9,999,999)

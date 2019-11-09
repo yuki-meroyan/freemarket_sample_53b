@@ -1,13 +1,18 @@
 $(function(){
   // 商品詳細用スライダー
-  var slider =$('.owl__carousel__inner');
-  var button =$('.owl__dot');
+  if($('.item__show__page').length) {
+    //classが存在したら実行する
+      setTimeout(function(){
+      var slider =$('.owl__carousel__inner');
+      var button =$('.owl__dot');
+      $(button).on('click',function(){
+        var i = $(this).data('image') ;
+        $(slider).animate({left:-300 * i + 'px'},
+        500,'swing');
+        });
+      },20);
+    }
 
-  $(button).on('click',function(){
-  var i = $(this).data('image') ;
-  $(slider).animate({left:-300 * i + 'px'},
-  500,'swing');
-    });
 
   //トップ画面用スライダー
   var top_slider = $(".top__banners");

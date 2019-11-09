@@ -7,7 +7,10 @@
     %section.item-buy__detail
       .item-buy__inner
         .item-buy__detail__top
-          = image_tag @item_image.image.url, alt: "item-image", class: "item-buy__detail__img"
+          -if @item_image.present?
+            = image_tag @item_image.image.url, alt: "item-image", class: "item-buy__detail__img"
+          -else
+            = image_tag 'no-image.png', alt: "item-image", class: "item-buy__detail__img"
           .item-buy__detail__title
             %p.item-buy__detail__title--text
               = @item.name

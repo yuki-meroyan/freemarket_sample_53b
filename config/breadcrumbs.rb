@@ -17,12 +17,12 @@ crumb :card do
 end
 
 crumb :user_detail do 
-  link "本人情報の確認",user_detail_path
+  link "本人情報の確認",user_detail_path(current_user.id)
   parent :users
 end
 
 crumb :logout do 
-  link "ログアウト", pending_logout_path
+  link "ログアウト", sign_out_confirm_path
   parent :users
 end
 

@@ -349,3 +349,29 @@ li:last-child {
     border-top: 1px solid #eee;
   }
 }
+
+
+.user-prefectures{
+  margin: 0 auto;
+  width: 700px;
+  background-color: white;
+  padding: 0 40px 64px 40px;
+&__icon-arrow-bottom{ 
+      position: absolute;
+      right: 16px;
+      top: 35%;
+      z-index: 2;
+      color: #888;
+      font-size: 16px;
+  }
+&__form-select{  
+      color: #888;
+      height: 48px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      padding: 0 16px;
+      width: 540px;
+      -webkit-appearance: none;
+    }
+}

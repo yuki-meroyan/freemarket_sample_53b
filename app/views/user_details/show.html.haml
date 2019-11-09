@@ -16,56 +16,70 @@
             本人確認書類のアップロードについて
             =fa_icon "chevron-right", class: 'icon'
 
-        = form_with( id:"identification", class:"identification-form" ) do |f| 
+        -# = form_with( id:"identification", class:"identification-form" ) do |f| 
+        = form_with model: @user_detail, class:"identification-form", local: true do |f| 
 
           .identification-index
             = f.label :name do
               .identification-index__content お名前
-              %p.identification-index__content--name__text 枡田美衣
+              %p.identification-index__content--name__text 
+                = current_user.user_detail.family_name
+                = current_user.user_detail.first_name
 
           .identification-index
             = f.label :kana do
               .identification-index__content お名前カナ
-              %p.identification-index__content--kana__text マスタビイ
+              %p.identification-index__content--kana__text 
+                = current_user.user_detail.family_name_kana
+                = current_user.user_detail.first_name_kana
+
 
           .identification-index
             = f.label :birthday do
               .identification-index__content 生年月日
-              %p.identification-index__content--birthday__text 2019/00/00
-          
+              %p.identification-index__content--birthday__text 
+                = current_user.user_detail.birthday
+
+
           .identification-index
             = f.label :postal_code do
               %span.identification-index__content 郵便番号
               %span.any 任意
-            = f.text_field :xxx, id: "postal_code", class: "identification-index__content--text", placeholder: "例）1234567"
+            = f.text_field :postal_code, id: "postal_code", class: "identification-index__content--text", placeholder: "例）123-4567"
 
           .identification-index
             = f.label :prefectures do
               %span.identification-index__content 都道府県
               %span.any 任意
               .select-prefectures
-                = f.text_field :xxx, id: "prefectures", class: "identification-index__content--text", placeholder: "例）大阪府"
-                = fa_icon "chevron-down", class: 'select-icon'
+                = fa_icon 'chevron-down', class:"user-prefectures__icon-arrow-bottom"
+                = f.collection_select :prefectures, Prefecture.all, :id, :name, {}, class: 'user-prefectures__form-select'
                 
           .identification-index
             = f.label :cities do
               %span.identification-index__content 市区町村
               %span.any 任意
-            = f.text_field :xxx, id: "cities", class: "identification-index__content--text", placeholder: "例）大阪市"
+            = f.text_field :cities, id: "cities", class: "identification-index__content--text", placeholder: "例）大阪市"
 
           .identification-index
             = f.label :address do
               %span.identification-index__content 番地
               %span.any 任意
-            = f.text_field :xxx, id: "address", class: "identification-index__content--text", placeholder: "例）123"
+            = f.text_field :address, id: "address", class: "identification-index__content--text", placeholder: "例）123"
 
           .identification-index
             = f.label :building  do
               %span.identification-index__content 建物名
               %span.any 任意
-            = f.text_field :xxx, id: "building", class: "identification-index__content--text", placeholder: "例）aaaa"
+            = f.text_field :building_name, id: "building", class: "identification-index__content--text", placeholder: "例）aaaa"
+          = f.hidden_field :family_name, value: current_user.user_detail.family_name
+          = f.hidden_field :first_name, value: current_user.user_detail.first_name
+          = f.hidden_field :family_name_kana, value: current_user.user_detail.family_name_kana
+          = f.hidden_field :first_name_kana, value: current_user.user_detail.first_name_kana
+          = f.hidden_field :birthday, value: current_user.user_detail.birthday
+          = f.hidden_field :user_id, value: current_user.id
 
-          = f.submit :xxx, value: "登録する", class: 'register-button'
+          = f.submit "登録する", class: 'register-button'
 
         .about-registration
           =link_to "#", class: 'about-registration__text' do

@@ -7,7 +7,9 @@
       = link_to "#" do
         %figure
           = image_tag "member_photo_noimage_thumb.png",alt: "", height: "60",  width: "60"
-        %h2.bold 直哉
+        %h2.bold 
+          = current_user.nickname
+
         .mypage-number
           %div
             評価

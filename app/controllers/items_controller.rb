@@ -6,25 +6,17 @@ class ItemsController < ApplicationController
   require 'ancestry'
 
   def index
-    # トップページに表示する商品を入れるための配列
     @all_category_items=[]
-    # トップページのカテゴリー
     @top_catgories = Category.where(id: [1,2,6,8])
     @top_catgories.each do |category|
-      # 各カテゴリーの商品を入れる配列の用意
       @all_items = []
-      # カテゴリーの子孫のカテゴリーを全て取得
       @grandchiildren = category.subtree
-      #子孫カテゴリーに該当するアイテムを全て変数に入れる
       @grandchiildren.each do |lady|
         @one_categoy_items = Item.where(category_id: lady.id).where(status: 0)
         @all_items << @one_categoy_items
       end
-      #[孫][孫]の様な多次元配列を一次元にする
       @all_items.flatten!
-      # 取り出した商品を更新日が新しい順に
       @all_items.sort_by!{|item|item.updated_at}.reverse!
-      # 配列の最初から10個のみ表示
       @items= @all_items.first(10)
       @all_category_items << @items
     end

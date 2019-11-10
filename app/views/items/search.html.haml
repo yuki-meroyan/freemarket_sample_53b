@@ -7,8 +7,10 @@
           ="#{params[:search]}"
           %span.search__word__result の検索結果
         .search__number 
-          = "#{@start_count} ~ #{@end_count} 件表示"
-
+          - if @items.present?
+            = "#{@start_count} ~ #{@end_count} 件表示"
+          - else
+            %p 0件
       .search-item__index
         - @items.each do |item|
           .search-item__index__box

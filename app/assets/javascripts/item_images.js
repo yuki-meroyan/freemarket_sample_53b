@@ -71,11 +71,11 @@ $(function() {
     $('.upload__box').before(html);
     images.push(html);
     var new_input = $(`<input name="item[item_images_attributes][${count}][image]" class="sell__upload__drop-file" data-image= ${images.length} type="file" id="post__img" accept="image/*">`);
-    input_area.prepend(new_input);
+    input_area.append(new_input);
     images_count = $('.edit__item__images__image').length;
     dpboxSize(images_count);
     // 一番上のインプットだけ押せるように表示。
-    $(input_area).children(":first").css({'display':'block'});
+    $(input_area).children(":last").css({'display':'block'});
     // 選択したインプットの見た目を消す。
     $(this).css({'display':'none'});
     count += 1;
